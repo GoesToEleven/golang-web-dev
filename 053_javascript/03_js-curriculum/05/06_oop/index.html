@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    variables
+    var person = {
+        name: 'Todd',
+        rollover: function () {
+            console.log('roll over');
+        },
+        sayName: function() {
+            console.log(this.name);
+        }
+    };
+
+    //    functions
+    function speaky() {
+        console.log('speak');
+    }
+    function sitty() {
+        console.log('sit');
+    }
+    function jumpy() {
+        console.log('jump');
+    }
+
+    //    attach functions
+    person.speak = speaky;
+    person.sit = sitty;
+    person.jump = jumpy;
+
+    //    run
+    person.rollover();
+    person.sayName();
+    person.speak();
+    person.sit();
+    person.jump();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1134 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "qjr3-bm53",
+      "name" : "Public Health Statistics- Life Expectancy By Community Area",
+      "attribution" : "Vital statistics files produced by the Illinois Department of Public Health (IDPH)",
+      "averageRating" : 0,
+      "category" : "Health & Human Services",
+      "createdAt" : 1402938147,
+      "description" : "This dataset gives the average life expectancy and corresponding confidence intervals for each Chicago community area for the years 1990, 2000 and 2010.  See the full description at: https://data.cityofchicago.org/api/views/qjr3-bm53/files/AAu4x8SCRz_bnQb8SVUyAXdd913TMObSYj6V40cR6p8?download=true&filename=P:\\EPI\\OEPHI\\MATERIALS\\REFERENCES\\Life Expectancy\\Dataset description - LE by community area.pdf",
+      "displayType" : "table",
+      "downloadCount" : 983,
+      "indexUpdatedAt" : 1412605739,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 8225934,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1409154214,
+      "publicationGroup" : 1618229,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1402938157,
+      "rowsUpdatedBy" : "is6y-5c5n",
+      "tableId" : 1618229,
+      "totalTimesRated" : 0,
+      "viewCount" : 1070,
+      "viewLastModified" : 1409154214,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 153084392,
+        "name" : "Community Area Number",
+        "dataTypeName" : "number",
+        "fieldName" : "ca",
+        "position" : 1,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290134,
+        "width" : 147,
+        "cachedContents" : {
+          "non_null" : 77,
+          "smallest" : "1",
+          "sum" : "3003",
+          "null" : 1,
+          "average" : "39",
+          "largest" : "77",
+          "top" : [ {
+            "count" : 20,
+            "item" : "42"
+          }, {
+            "count" : 19,
+            "item" : "43"
+          }, {
+            "count" : 18,
+            "item" : "44"
+          }, {
+            "count" : 17,
+            "item" : "45"
+          }, {
+            "count" : 16,
+            "item" : "46"
+          }, {
+            "count" : 15,
+            "item" : "47"
+          }, {
+            "count" : 14,
+            "item" : "48"
+          }, {
+            "count" : 13,
+            "item" : "49"
+          }, {
+            "count" : 12,
+            "item" : "50"
+          }, {
+            "count" : 11,
+            "item" : "51"
+          }, {
+            "count" : 10,
+            "item" : "52"
+          }, {
+            "count" : 9,
+            "item" : "53"
+          }, {
+            "count" : 8,
+            "item" : "54"
+          }, {
+            "count" : 7,
+            "item" : "55"
+          }, {
+            "count" : 6,
+            "item" : "56"
+          }, {
+            "count" : 5,
+            "item" : "57"
+          }, {
+            "count" : 4,
+            "item" : "58"
+          }, {
+            "count" : 3,
+            "item" : "59"
+          }, {
+            "count" : 2,
+            "item" : "60"
+          }, {
+            "count" : 1,
+            "item" : "61"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "noCommas" : "false",
+          "align" : "right"
+        }
+      }, {
+        "id" : 153084393,
+        "name" : "Community Area",
+        "dataTypeName" : "text",
+        "fieldName" : "community_area",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 20290135,
+        "width" : 268,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "Albany Park",
+          "null" : 0,
+          "largest" : "Woodlawn",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Woodlawn"
+          }, {
+            "count" : 19,
+            "item" : "South Shore"
+          }, {
+            "count" : 18,
+            "item" : "Chatham"
+          }, {
+            "count" : 17,
+            "item" : "Avalon Park"
+          }, {
+            "count" : 16,
+            "item" : "South Chicago"
+          }, {
+            "count" : 15,
+            "item" : "Burnside"
+          }, {
+            "count" : 14,
+            "item" : "Calumet Heights"
+          }, {
+            "count" : 13,
+            "item" : "Roseland"
+          }, {
+            "count" : 12,
+            "item" : "Pullman"
+          }, {
+            "count" : 11,
+            "item" : "South Deering"
+          }, {
+            "count" : 10,
+            "item" : "East Side"
+          }, {
+            "count" : 9,
+            "item" : "West Pullman"
+          }, {
+            "count" : 8,
+            "item" : "Riverdale"
+          }, {
+            "count" : 7,
+            "item" : "Hegewisch"
+          }, {
+            "count" : 6,
+            "item" : "Garfield Ridge"
+          }, {
+            "count" : 5,
+            "item" : "Archer Heights"
+          }, {
+            "count" : 4,
+            "item" : "Brighton Park"
+          }, {
+            "count" : 3,
+            "item" : "McKinley Park"
+          }, {
+            "count" : 2,
+            "item" : "Bridgeport"
+          }, {
+            "count" : 1,
+            "item" : "New City"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 153084394,
+        "name" : "1990 Life Expectancy",
+        "dataTypeName" : "number",
+        "description" : "Life expectancy for the year of 1990",
+        "fieldName" : "_1990_life_expectancy",
+        "position" : 3,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290136,
+        "width" : 340,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "57.1",
+          "sum" : "5517.3",
+          "null" : 0,
+          "average" : "70.73461538461538",
+          "largest" : "78.8",
+          "top" : [ {
+            "count" : 20,
+            "item" : "70.9"
+          }, {
+            "count" : 19,
+            "item" : "76.9"
+          }, {
+            "count" : 18,
+            "item" : "73.9"
+          }, {
+            "count" : 17,
+            "item" : "76.8"
+          }, {
+            "count" : 16,
+            "item" : "74.0"
+          }, {
+            "count" : 15,
+            "item" : "73.7"
+          }, {
+            "count" : 14,
+            "item" : "68.0"
+          }, {
+            "count" : 13,
+            "item" : "70.5"
+          }, {
+            "count" : 12,
+            "item" : "73.2"
+          }, {
+            "count" : 11,
+            "item" : "67.8"
+          }, {
+            "count" : 10,
+            "item" : "72.6"
+          }, {
+            "count" : 9,
+            "item" : "74.5"
+          }, {
+            "count" : 8,
+            "item" : "73.0"
+          }, {
+            "count" : 7,
+            "item" : "71.2"
+          }, {
+            "count" : 6,
+            "item" : "72.4"
+          }, {
+            "count" : 5,
+            "item" : "65.5"
+          }, {
+            "count" : 4,
+            "item" : "76.2"
+          }, {
+            "count" : 3,
+            "item" : "73.3"
+          }, {
+            "count" : 2,
+            "item" : "74.2"
+          }, {
+            "count" : 1,
+            "item" : "74.9"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084395,
+        "name" : "1990 Lower 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Lower 95% confidence interval for the year of 1990",
+        "fieldName" : "_1990_lower_95_ci",
+        "position" : 4,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290137,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "55.7",
+          "sum" : "5398.1",
+          "null" : 0,
+          "average" : "69.20641025641026",
+          "largest" : "77.5",
+          "top" : [ {
+            "count" : 20,
+            "item" : "72.9"
+          }, {
+            "count" : 19,
+            "item" : "75.6"
+          }, {
+            "count" : 18,
+            "item" : "57.1"
+          }, {
+            "count" : 17,
+            "item" : "68.7"
+          }, {
+            "count" : 16,
+            "item" : "66.6"
+          }, {
+            "count" : 15,
+            "item" : "70.5"
+          }, {
+            "count" : 14,
+            "item" : "65.7"
+          }, {
+            "count" : 13,
+            "item" : "64.9"
+          }, {
+            "count" : 12,
+            "item" : "68.6"
+          }, {
+            "count" : 11,
+            "item" : "71.6"
+          }, {
+            "count" : 10,
+            "item" : "66.5"
+          }, {
+            "count" : 9,
+            "item" : "70.3"
+          }, {
+            "count" : 8,
+            "item" : "73.4"
+          }, {
+            "count" : 7,
+            "item" : "70.6"
+          }, {
+            "count" : 6,
+            "item" : "69.8"
+          }, {
+            "count" : 5,
+            "item" : "71.7"
+          }, {
+            "count" : 4,
+            "item" : "64.4"
+          }, {
+            "count" : 3,
+            "item" : "74.2"
+          }, {
+            "count" : 2,
+            "item" : "71.9"
+          }, {
+            "count" : 1,
+            "item" : "73.6"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084396,
+        "name" : "1990 Upper 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Upper 95% confidence interval for the year of 1990",
+        "fieldName" : "_1990_upper_95_ci",
+        "position" : 5,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290138,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "58.4",
+          "sum" : "5637.4",
+          "null" : 0,
+          "average" : "72.27435897435897",
+          "largest" : "80.9",
+          "top" : [ {
+            "count" : 20,
+            "item" : "77.8"
+          }, {
+            "count" : 19,
+            "item" : "74.7"
+          }, {
+            "count" : 18,
+            "item" : "75.6"
+          }, {
+            "count" : 17,
+            "item" : "65.0"
+          }, {
+            "count" : 16,
+            "item" : "63.3"
+          }, {
+            "count" : 15,
+            "item" : "75.3"
+          }, {
+            "count" : 14,
+            "item" : "74.2"
+          }, {
+            "count" : 13,
+            "item" : "67.8"
+          }, {
+            "count" : 12,
+            "item" : "70.7"
+          }, {
+            "count" : 11,
+            "item" : "72.3"
+          }, {
+            "count" : 10,
+            "item" : "74.8"
+          }, {
+            "count" : 9,
+            "item" : "69.2"
+          }, {
+            "count" : 8,
+            "item" : "75.5"
+          }, {
+            "count" : 7,
+            "item" : "72.6"
+          }, {
+            "count" : 6,
+            "item" : "74.4"
+          }, {
+            "count" : 5,
+            "item" : "74.3"
+          }, {
+            "count" : 4,
+            "item" : "66.6"
+          }, {
+            "count" : 3,
+            "item" : "78.2"
+          }, {
+            "count" : 2,
+            "item" : "76.2"
+          }, {
+            "count" : 1,
+            "item" : "73.9"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084397,
+        "name" : "2000 Life Expectancy",
+        "dataTypeName" : "number",
+        "description" : "Life expectancy for the year of 2000",
+        "fieldName" : "_2000_life_expectancy",
+        "position" : 6,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290139,
+        "width" : 340,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "63.8",
+          "sum" : "5764.7",
+          "null" : 0,
+          "average" : "73.90641025641026",
+          "largest" : "82.3",
+          "top" : [ {
+            "count" : 20,
+            "item" : "76.8"
+          }, {
+            "count" : 19,
+            "item" : "79.2"
+          }, {
+            "count" : 18,
+            "item" : "79.3"
+          }, {
+            "count" : 17,
+            "item" : "76.4"
+          }, {
+            "count" : 16,
+            "item" : "77.0"
+          }, {
+            "count" : 15,
+            "item" : "77.8"
+          }, {
+            "count" : 14,
+            "item" : "71.1"
+          }, {
+            "count" : 13,
+            "item" : "69.8"
+          }, {
+            "count" : 12,
+            "item" : "71.2"
+          }, {
+            "count" : 11,
+            "item" : "73.0"
+          }, {
+            "count" : 10,
+            "item" : "75.6"
+          }, {
+            "count" : 9,
+            "item" : "69.9"
+          }, {
+            "count" : 8,
+            "item" : "70.3"
+          }, {
+            "count" : 7,
+            "item" : "73.3"
+          }, {
+            "count" : 6,
+            "item" : "76.9"
+          }, {
+            "count" : 5,
+            "item" : "74.8"
+          }, {
+            "count" : 4,
+            "item" : "72.4"
+          }, {
+            "count" : 3,
+            "item" : "75.1"
+          }, {
+            "count" : 2,
+            "item" : "76.5"
+          }, {
+            "count" : 1,
+            "item" : "74.9"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084398,
+        "name" : "2000 Lower 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Lower 95% confidence interval for the year of 2000",
+        "fieldName" : "_2000_lower_95_ci",
+        "position" : 7,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290140,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "61.8",
+          "sum" : "5651.3",
+          "null" : 0,
+          "average" : "72.45256410256410",
+          "largest" : "80.8",
+          "top" : [ {
+            "count" : 20,
+            "item" : "78.3"
+          }, {
+            "count" : 19,
+            "item" : "75.6"
+          }, {
+            "count" : 18,
+            "item" : "77.4"
+          }, {
+            "count" : 17,
+            "item" : "76.1"
+          }, {
+            "count" : 16,
+            "item" : "66.7"
+          }, {
+            "count" : 15,
+            "item" : "71.6"
+          }, {
+            "count" : 14,
+            "item" : "68.8"
+          }, {
+            "count" : 13,
+            "item" : "68.7"
+          }, {
+            "count" : 12,
+            "item" : "71.2"
+          }, {
+            "count" : 11,
+            "item" : "74.3"
+          }, {
+            "count" : 10,
+            "item" : "67.2"
+          }, {
+            "count" : 9,
+            "item" : "71.0"
+          }, {
+            "count" : 8,
+            "item" : "75.7"
+          }, {
+            "count" : 7,
+            "item" : "75.0"
+          }, {
+            "count" : 6,
+            "item" : "73.0"
+          }, {
+            "count" : 5,
+            "item" : "74.4"
+          }, {
+            "count" : 4,
+            "item" : "73.3"
+          }, {
+            "count" : 3,
+            "item" : "75.1"
+          }, {
+            "count" : 2,
+            "item" : "73.6"
+          }, {
+            "count" : 1,
+            "item" : "72.7"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084399,
+        "name" : "2000 Upper 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Upper 95% confidence interval for the year of 2000",
+        "fieldName" : "_2000_upper_95_ci",
+        "position" : 8,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290141,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "65.8",
+          "sum" : "5879.1",
+          "null" : 0,
+          "average" : "75.37307692307692",
+          "largest" : "83.8",
+          "top" : [ {
+            "count" : 20,
+            "item" : "72.7"
+          }, {
+            "count" : 19,
+            "item" : "77.8"
+          }, {
+            "count" : 18,
+            "item" : "80.2"
+          }, {
+            "count" : 17,
+            "item" : "80.5"
+          }, {
+            "count" : 16,
+            "item" : "79.3"
+          }, {
+            "count" : 15,
+            "item" : "70.3"
+          }, {
+            "count" : 14,
+            "item" : "75.0"
+          }, {
+            "count" : 13,
+            "item" : "70.9"
+          }, {
+            "count" : 12,
+            "item" : "73.8"
+          }, {
+            "count" : 11,
+            "item" : "74.7"
+          }, {
+            "count" : 10,
+            "item" : "77.0"
+          }, {
+            "count" : 9,
+            "item" : "71.2"
+          }, {
+            "count" : 8,
+            "item" : "73.4"
+          }, {
+            "count" : 7,
+            "item" : "75.7"
+          }, {
+            "count" : 6,
+            "item" : "78.0"
+          }, {
+            "count" : 5,
+            "item" : "79.0"
+          }, {
+            "count" : 4,
+            "item" : "78.2"
+          }, {
+            "count" : 3,
+            "item" : "76.6"
+          }, {
+            "count" : 2,
+            "item" : "76.8"
+          }, {
+            "count" : 1,
+            "item" : "73.6"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084400,
+        "name" : "2010 Life Expectancy",
+        "dataTypeName" : "number",
+        "description" : "Life expectancy for the year of 2010",
+        "fieldName" : "_2010_life_expectancy",
+        "position" : 9,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290142,
+        "width" : 340,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "68.8",
+          "sum" : "6052.9",
+          "null" : 0,
+          "average" : "77.60128205128205",
+          "largest" : "85.2",
+          "top" : [ {
+            "count" : 20,
+            "item" : "80.3"
+          }, {
+            "count" : 19,
+            "item" : "80.5"
+          }, {
+            "count" : 18,
+            "item" : "81.9"
+          }, {
+            "count" : 17,
+            "item" : "80.6"
+          }, {
+            "count" : 16,
+            "item" : "79.6"
+          }, {
+            "count" : 15,
+            "item" : "79.8"
+          }, {
+            "count" : 14,
+            "item" : "79.5"
+          }, {
+            "count" : 13,
+            "item" : "74.5"
+          }, {
+            "count" : 12,
+            "item" : "71.9"
+          }, {
+            "count" : 11,
+            "item" : "74.1"
+          }, {
+            "count" : 10,
+            "item" : "76.4"
+          }, {
+            "count" : 9,
+            "item" : "77.1"
+          }, {
+            "count" : 8,
+            "item" : "80.8"
+          }, {
+            "count" : 7,
+            "item" : "80.4"
+          }, {
+            "count" : 6,
+            "item" : "80.2"
+          }, {
+            "count" : 5,
+            "item" : "74.4"
+          }, {
+            "count" : 4,
+            "item" : "81.0"
+          }, {
+            "count" : 3,
+            "item" : "79.2"
+          }, {
+            "count" : 2,
+            "item" : "77.5"
+          }, {
+            "count" : 1,
+            "item" : "75.2"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084401,
+        "name" : "2010 Lower 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Lower 95% confidence interval for the year of 2010",
+        "fieldName" : "_2010_lower_95_ci",
+        "position" : 10,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290143,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "64.4",
+          "sum" : "5925.0",
+          "null" : 0,
+          "average" : "75.96153846153846",
+          "largest" : "84.5",
+          "top" : [ {
+            "count" : 20,
+            "item" : "79.5"
+          }, {
+            "count" : 19,
+            "item" : "80.1"
+          }, {
+            "count" : 18,
+            "item" : "78.9"
+          }, {
+            "count" : 17,
+            "item" : "78.6"
+          }, {
+            "count" : 16,
+            "item" : "70.0"
+          }, {
+            "count" : 15,
+            "item" : "78.7"
+          }, {
+            "count" : 14,
+            "item" : "74.3"
+          }, {
+            "count" : 13,
+            "item" : "76.9"
+          }, {
+            "count" : 12,
+            "item" : "70.2"
+          }, {
+            "count" : 11,
+            "item" : "72.3"
+          }, {
+            "count" : 10,
+            "item" : "75.0"
+          }, {
+            "count" : 9,
+            "item" : "77.6"
+          }, {
+            "count" : 8,
+            "item" : "79.6"
+          }, {
+            "count" : 7,
+            "item" : "73.2"
+          }, {
+            "count" : 6,
+            "item" : "79.4"
+          }, {
+            "count" : 5,
+            "item" : "77.9"
+          }, {
+            "count" : 4,
+            "item" : "76.1"
+          }, {
+            "count" : 3,
+            "item" : "79.2"
+          }, {
+            "count" : 2,
+            "item" : "74.1"
+          }, {
+            "count" : 1,
+            "item" : "68.7"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 153084402,
+        "name" : "2010 Upper 95% CI",
+        "dataTypeName" : "number",
+        "description" : "Upper 95% confidence interval for the year of 2010",
+        "fieldName" : "_2010_upper_95_ci",
+        "position" : 11,
+        "renderTypeName" : "number",
+        "tableColumnId" : 20290144,
+        "width" : 304,
+        "cachedContents" : {
+          "non_null" : 78,
+          "smallest" : "70.6",
+          "sum" : "6164.2",
+          "null" : 0,
+          "average" : "79.02820512820513",
+          "largest" : "86.4",
+          "top" : [ {
+            "count" : 20,
+            "item" : "81.1"
+          }, {
+            "count" : 19,
+            "item" : "82.3"
+          }, {
+            "count" : 18,
+            "item" : "86.0"
+          }, {
+            "count" : 17,
+            "item" : "82.0"
+          }, {
+            "count" : 16,
+            "item" : "80.9"
+          }, {
+            "count" : 15,
+            "item" : "73.5"
+          }, {
+            "count" : 14,
+            "item" : "75.7"
+          }, {
+            "count" : 13,
+            "item" : "78.6"
+          }, {
+            "count" : 12,
+            "item" : "78.2"
+          }, {
+            "count" : 11,
+            "item" : "79.9"
+          }, {
+            "count" : 10,
+            "item" : "73.0"
+          }, {
+            "count" : 9,
+            "item" : "80.5"
+          }, {
+            "count" : 8,
+            "item" : "79.2"
+          }, {
+            "count" : 7,
+            "item" : "81.0"
+          }, {
+            "count" : 6,
+            "item" : "81.3"
+          }, {
+            "count" : 5,
+            "item" : "81.5"
+          }, {
+            "count" : 4,
+            "item" : "75.5"
+          }, {
+            "count" : 3,
+            "item" : "82.6"
+          }, {
+            "count" : 2,
+            "item" : "78.8"
+          }, {
+            "count" : 1,
+            "item" : "81.9"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Metadata" : {
+            "Data Owner" : "Epidemiology & Public Health Informatics, Chicago Department of Public Health",
+            "Time Period" : "1990, 2000, 2010",
+            "Frequency" : "Data will be updated after next census year (2020)"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0",
+        "attachments" : [ {
+          "assetId" : "AAu4x8SCRz_bnQb8SVUyAXdd913TMObSYj6V40cR6p8",
+          "blobId" : "",
+          "name" : "P:\\EPI\\OEPHI\\MATERIALS\\REFERENCES\\Life Expectancy\\Dataset description - LE by community area.pdf",
+          "filename" : "P:\\EPI\\OEPHI\\MATERIALS\\REFERENCES\\Life Expectancy\\Dataset description - LE by community area.pdf"
+        } ],
+        "rowIdentifier" : "0",
+        "rdfClass" : ""
+      },
+      "owner" : {
+        "id" : "is6y-5c5n",
+        "displayName" : "Jamyia",
+        "screenName" : "Jamyia"
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "is6y-5c5n",
+        "displayName" : "Jamyia",
+        "screenName" : "Jamyia"
+      },
+      "tags" : [ "health", "life", "death" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "8DAC620B-A490-423B-A791-D2E4BDAA0EBB", 1, 1402938150, "400368", 1402938150, "400368", "{\n}", "1", "Rogers Park", "70.9", "69.9", "71.9", "73.1", "72.2", "74.1", "77.3", "76.3", "78.2" ]
+, [ 2, "1103BD53-D959-40C0-A005-4A9CA78384CF", 2, 1402938150, "400368", 1402938150, "400368", "{\n}", "2", "West Ridge", "76.9", "76.1", "77.8", "78.1", "77.3", "78.8", "80.3", "79.5", "81.1" ]
+, [ 3, "35E3D38A-EF2D-461C-B9C1-C962DDF37F96", 3, 1402938150, "400368", 1402938150, "400368", "{\n}", "3", "Uptown", "64.0", "63.1", "64.9", "71.7", "70.8", "72.7", "76.0", "75.1", "76.9" ]
+, [ 4, "AF6B790F-CC03-4B08-AB36-D0312231FCAA", 4, 1402938150, "400368", 1402938150, "400368", "{\n}", "4", "Lincoln Square", "74.2", "73.1", "75.4", "76.8", "75.8", "77.8", "80.5", "79.3", "81.6" ]
+, [ 5, "BB126AFA-C120-4F77-9F21-4331E338B52F", 5, 1402938150, "400368", 1402938150, "400368", "{\n}", "5", "North Center", "73.4", "72.1", "74.7", "77.9", "76.6", "79.1", "81.5", "80.1", "82.8" ]
+, [ 6, "44683409-0D0C-4713-9907-D71EE92490BC", 6, 1402938150, "400368", 1402938150, "400368", "{\n}", "6", "Lakeview", "73.9", "73.0", "74.8", "79.2", "78.3", "80.2", "81.9", "81.1", "82.7" ]
+, [ 7, "B961B3FB-0836-4A63-9B34-B53BE7BC1B65", 7, 1402938150, "400368", 1402938150, "400368", "{\n}", "7", "Lincoln Park", "73.9", "72.9", "74.9", "76.5", "75.6", "77.4", "81.3", "80.4", "82.3" ]
+, [ 8, "EC13241F-3351-4B65-9E94-42942AE402D9", 8, 1402938150, "400368", 1402938150, "400368", "{\n}", "8", "Near North Side", "74.9", "73.7", "76.0", "79.6", "78.7", "80.5", "85.2", "84.5", "86.0" ]
+, [ 9, "60CB0D5C-B35E-4E2B-9BAE-D3B9729E6CC4", 9, 1402938150, "400368", 1402938150, "400368", "{\n}", "9", "Edison Park", "77.6", "75.9", "79.4", "79.4", "77.6", "81.2", "81.0", "78.9", "83.0" ]
+, [ 10, "DC459A6F-C526-4A69-987E-240DC7F1B3D5", 10, 1402938150, "400368", 1402938150, "400368", "{\n}", "10", "Norwood Park", "76.7", "75.6", "77.8", "78.4", "77.4", "79.3", "80.9", "79.8", "82.0" ]
+, [ 11, "46247AFE-AB81-4912-A4EC-15EA21CC7B82", 11, 1402938150, "400368", 1402938150, "400368", "{\n}", "11", "Jefferson Park", "76.8", "75.4", "78.2", "79.3", "78.1", "80.5", "79.7", "78.6", "80.9" ]
+, [ 12, "5DB08474-654E-4BB3-BE02-8E229F79712F", 12, 1402938150, "400368", 1402938150, "400368", "{\n}", "12", "Forest Glen", "78.8", "77.5", "80.1", "80.6", "79.3", "81.9", "83.4", "82.1", "84.8" ]
+, [ 13, "040DC41E-F9F4-4CDA-B600-C306632090C3", 13, 1402938150, "400368", 1402938150, "400368", "{\n}", "13", "North Park", "76.9", "75.3", "78.4", "78.8", "77.4", "80.3", "84.4", "82.8", "86.0" ]
+, [ 14, "4B457640-FBDD-4799-B230-2F728F70F9DE", 14, 1402938150, "400368", 1402938150, "400368", "{\n}", "14", "Albany Park", "74.0", "72.9", "75.0", "77.7", "76.8", "78.7", "80.6", "79.6", "81.7" ]
+, [ 15, "AF01E86F-B3D6-4346-94BC-247C1DDF757F", 15, 1402938150, "400368", 1402938150, "400368", "{\n}", "15", "Portage Park", "75.1", "74.2", "75.9", "76.4", "75.6", "77.2", "80.3", "79.5", "81.1" ]
+, [ 16, "51EDB803-EC6E-4699-95D9-52D00C140589", 16, 1402938150, "400368", 1402938150, "400368", "{\n}", "16", "Irving Park", "74.6", "73.6", "75.6", "77.0", "76.1", "77.9", "79.6", "78.6", "80.6" ]
+, [ 17, "86EE3C46-EBD5-4042-8D5F-86426F4814E4", 17, 1402938150, "400368", 1402938150, "400368", "{\n}", "17", "Dunning", "76.8", "75.6", "77.9", "79.2", "78.3", "80.2", "79.8", "70.0", "72.7" ]
+, [ 18, "D2CE0BEE-DC2A-4950-88C2-BB4C2A855815", 18, 1402938150, "400368", 1402938150, "400368", "{\n}", "18", "Montclare ", "77.1", "75.1", "79.1", "79.3", "77.5", "81.1", "79.6", "77.9", "81.4" ]
+, [ 19, "8CFA440C-CD8B-4C38-BC1F-036E1F0A9351", 19, 1402938150, "400368", 1402938150, "400368", "{\n}", "19", "Belmont Cragin", "73.7", "72.8", "74.7", "76.4", "75.6", "77.3", "79.5", "78.7", "80.4" ]
+, [ 20, "69D1898D-8B26-4784-9D84-17EA259F832E", 20, 1402938150, "400368", 1402938150, "400368", "{\n}", "20", "Hermosa", "74.0", "72.4", "75.6", "77.8", "76.1", "79.4", "80.5", "78.9", "82.0" ]
+, [ 21, "F01A7F00-7A47-4947-BA36-AE8541BDCB21", 21, 1402938150, "400368", 1402938150, "400368", "{\n}", "21", "Avondale", "74.0", "72.9", "75.2", "77.8", "76.7", "79.0", "79.8", "78.7", "80.9" ]
+, [ 22, "A4DB4557-B6BC-4BF2-A14B-1BAC4B471A0A", 22, 1402938150, "400368", 1402938150, "400368", "{\n}", "22", "Logan Square", "71.6", "70.8", "72.4", "75.1", "74.2", "75.9", "80.3", "79.4", "81.3" ]
+, [ 23, "26D41DC7-6EE3-4529-B545-65F2F6A576CA", 23, 1402938150, "400368", 1402938150, "400368", "{\n}", "23", "Humboldt Park", "68.4", "67.3", "69.5", "71.2", "70.2", "72.3", "74.5", "73.5", "75.6" ]
+, [ 24, "9CA06186-C9E8-40E5-AE45-EA6497FC5352", 24, 1402938150, "400368", 1402938150, "400368", "{\n}", "24", "West Town", "70.5", "69.7", "71.4", "75.8", "74.9", "76.7", "79.5", "78.6", "80.5" ]
+, [ 25, "FF52B2D9-C160-4E3F-BD12-9A6982403D7C", 25, 1402938150, "400368", 1402938150, "400368", "{\n}", "25", "Austin", "66.0", "65.2", "66.8", "69.6", "68.8", "70.3", "71.9", "71.1", "72.6" ]
+, [ 26, "DABE3CAA-6437-495D-A875-45AB9DFAA13F", 26, 1402938150, "400368", 1402938150, "400368", "{\n}", "26", "West Garfield Park", "63.2", "61.3", "65.0", "66.8", "65.0", "68.5", "68.8", "66.9", "70.6" ]
+, [ 27, "0D6F3AC6-167C-4756-8EDA-C75C912839F7", 27, 1402938150, "400368", 1402938150, "400368", "{\n}", "27", "East Garfield Park", "61.5", "59.8", "63.3", "65.7", "63.9", "67.6", "71.7", "70.0", "73.5" ]
+, [ 28, "2008674A-DA21-40BC-B444-AD7532369F67", 28, 1402938150, "400368", 1402938150, "400368", "{\n}", "28", "Near West Side", "63.7", "62.4", "65.0", "72.8", "71.5", "74.0", "78.9", "77.8", "80.0" ]
+, [ 29, "005AC54A-A41E-4891-9D32-57594D8D58D3", 29, 1402938150, "400368", 1402938150, "400368", "{\n}", "29", "North Lawndale", "62.0", "60.8", "63.3", "67.3", "66.1", "68.6", "72.1", "70.7", "73.5" ]
+, [ 30, "FC3F5835-5458-4B11-9DDE-A1175EEEBD85", 30, 1402938150, "400368", 1402938150, "400368", "{\n}", "30", "South Lawndale", "72.7", "71.7", "73.6", "76.8", "75.9", "77.8", "82.2", "81.2", "83.2" ]
+, [ 31, "F3C1E63F-E411-4E61-B157-76A0E6803374", 31, 1402938150, "400368", 1402938150, "400368", "{\n}", "31", "Lower West Side", "74.0", "72.7", "75.3", "77.0", "75.7", "78.4", "81.4", "79.9", "82.9" ]
+, [ 32, "20EE5FBC-A045-4388-8C5F-6E1F1D84C3CC", 32, 1402938150, "400368", 1402938150, "400368", "{\n}", "32", "Loop", "73.7", "71.5", "75.8", "81.2", "79.7", "82.7", "85.0", "83.6", "86.4" ]
+, [ 33, "21E6858D-E6E5-47B7-9314-470283FC373E", 33, 1402938150, "400368", 1402938150, "400368", "{\n}", "33", "Near South Side", "60.1", "57.1", "63.0", "68.0", "65.6", "70.3", "80.6", "78.9", "82.3" ]
+, [ 34, "33D8EE3B-51FF-4EB6-B99B-9799A6A77E52", 34, 1402938150, "400368", 1402938150, "400368", "{\n}", "34", "Armour Square", "74.8", "72.5", "77.2", "77.1", "75.0", "79.3", "81.9", "80.1", "83.7" ]
+, [ 35, "AFCA643F-A529-437B-B2BB-575B28EB5FAF", 35, 1402938150, "400368", 1402938150, "400368", "{\n}", "35", "Douglas ", "64.8", "63.4", "66.2", "65.6", "64.2", "67.1", "74.1", "72.6", "75.7" ]
+, [ 36, "A116A8E7-42BE-4D92-9DAF-D28BE0FD17D0", 36, 1402938150, "400368", 1402938150, "400368", "{\n}", "36", "Oakland", "60.2", "57.1", "63.4", "68.3", "64.9", "71.6", "73.6", "70.2", "77.0" ]
+, [ 37, "D486E188-4C9D-489C-8BB2-CD286AFAD2D5", 37, 1402938150, "400368", 1402938150, "400368", "{\n}", "37", "Fuller Park", "59.8", "55.7", "63.9", "66.2", "62.2", "70.2", "69.8", "66.3", "73.3" ]
+, [ 38, "C1A4C18D-4AD5-4EC4-916B-F956E9B404B3", 38, 1402938150, "400368", 1402938150, "400368", "{\n}", "38", "Grand Boulevard", "57.1", "55.8", "58.4", "64.4", "62.8", "65.9", "74.1", "72.4", "75.7" ]
+, [ 39, "3F728585-C6A0-44AD-AD30-03DE8032DCA5", 39, 1402938150, "400368", 1402938150, "400368", "{\n}", "39", "Kenwood", "67.6", "65.7", "69.6", "74.2", "72.4", "76.0", "80.5", "78.9", "82.1" ]
+, [ 40, "67B62EE7-CCC7-488E-95CA-650D5E878ED3", 40, 1402938150, "400368", 1402938150, "400368", "{\n}", "40", "Washington Park", "58.0", "56.2", "59.9", "63.8", "61.8", "65.8", "68.9", "66.6", "71.3" ]
+, [ 41, "83286B16-D589-4911-83D9-762D109F08E1", 41, 1402938150, "400368", 1402938150, "400368", "{\n}", "41", "Hyde Park", "75.0", "73.5", "76.5", "82.3", "80.8", "83.8", "82.3", "80.9", "83.8" ]
+, [ 42, "2708BC05-110E-4B34-9145-2DD0B31C0B43", 42, 1402938150, "400368", 1402938150, "400368", "{\n}", "42", "Woodlawn", "63.1", "61.6", "64.7", "68.5", "67.0", "70.0", "74.5", "73.0", "76.0" ]
+, [ 43, "814DBC08-4A89-4C40-8E9E-3C8D86EBC240", 43, 1402938150, "400368", 1402938150, "400368", "{\n}", "43", "South Shore", "68.0", "67.0", "69.1", "69.7", "68.7", "70.6", "72.5", "71.4", "73.5" ]
+, [ 44, "2378F9A4-0F44-47E8-B272-F18114932CC4", 44, 1402938150, "400368", 1402938150, "400368", "{\n}", "44", "Chatham", "71.0", "69.5", "72.5", "71.4", "70.1", "72.7", "74.0", "72.5", "75.4" ]
+, [ 45, "672DCD95-0A20-493E-B0C6-624F6E7F3C8F", 45, 1402938150, "400368", 1402938150, "400368", "{\n}", "45", "Avalon Park", "68.0", "65.1", "70.9", "72.7", "70.5", "74.9", "74.7", "72.1", "77.4" ]
+, [ 46, "4EF0B826-B552-4316-BF17-8499FDCE2E27", 46, 1402938150, "400368", 1402938150, "400368", "{\n}", "46", "South Chicago", "69.9", "68.7", "71.2", "71.1", "69.8", "72.4", "72.7", "71.2", "74.2" ]
+, [ 47, "174E6352-F718-45D8-80DC-D197B562407C", 47, 1402938150, "400368", 1402938150, "400368", "{\n}", "47", "Burnside", "70.9", "66.6", "75.3", "71.1", "66.7", "75.5", "71.9", "64.4", "79.3" ]
+, [ 48, "0151456B-74DE-415B-9A3C-2C811FBA4944", 48, 1402938150, "400368", 1402938150, "400368", "{\n}", "48", "Calumet Heights", "72.3", "70.5", "74.2", "73.3", "71.6", "75.0", "77.1", "75.2", "79.0" ]
+, [ 49, "6A9DE1B6-3485-4A4C-B7CB-7F526E6C8818", 49, 1402938150, "400368", 1402938150, "400368", "{\n}", "49", "Roseland", "66.8", "65.7", "67.8", "69.8", "68.8", "70.9", "72.9", "71.7", "74.1" ]
+, [ 50, "245F95F3-9E05-4C5C-8D9F-635C2B5BE804", 50, 1402938150, "400368", 1402938150, "400368", "{\n}", "50", "Pullman", "67.8", "64.9", "70.7", "71.2", "68.7", "73.8", "76.4", "74.2", "78.6" ]
+, [ 51, "BB4AB381-7865-4C25-B176-5BBA969634D3", 51, 1402938150, "400368", 1402938150, "400368", "{\n}", "51", "South Deering", "70.5", "68.6", "72.3", "73.0", "71.2", "74.7", "76.2", "74.3", "78.2" ]
+, [ 52, "770871CE-8ADE-4B75-986F-DDA5EC9EA1FB", 52, 1402938150, "400368", 1402938150, "400368", "{\n}", "52", "East Side", "73.2", "71.6", "74.8", "75.6", "74.3", "77.0", "78.4", "76.9", "79.9" ]
+, [ 53, "052E10B8-EF22-41C3-BDAE-D6597E314730", 53, 1402938150, "400368", 1402938150, "400368", "{\n}", "53", "West Pullman", "67.8", "66.5", "69.2", "69.9", "68.7", "71.2", "71.6", "70.2", "73.0" ]
+, [ 54, "199CA400-F9A4-4A44-84A4-795513E2B55D", 54, 1402938150, "400368", 1402938150, "400368", "{\n}", "54", "Riverdale", "67.8", "64.9", "70.7", "70.3", "67.2", "73.4", "76.4", "72.3", "80.5" ]
+, [ 55, "C53B0EE0-63FB-4A24-A0A9-2C7ECFBAC004", 55, 1402938150, "400368", 1402938150, "400368", "{\n}", "55", "Hegewisch", "72.6", "70.3", "74.8", "73.3", "71.0", "75.7", "77.1", "75.0", "79.2" ]
+, [ 56, "881767D8-1070-4B2C-9B02-09877147297A", 56, 1402938150, "400368", 1402938150, "400368", "{\n}", "56", "Garfield Ridge", "74.5", "73.4", "75.6", "76.8", "75.7", "78.0", "79.8", "78.7", "81.0" ]
+, [ 57, "92EE2693-6834-4330-AEF2-6D4E514ED5DE", 57, 1402938150, "400368", 1402938150, "400368", "{\n}", "57", "Archer Heights", "73.0", "70.6", "75.5", "77.0", "75.0", "79.0", "79.5", "77.6", "81.3" ]
+, [ 58, "5BED46D0-BAB0-4D8D-A538-71A990C08C15", 58, 1402938150, "400368", 1402938150, "400368", "{\n}", "58", "Brighton Park", "71.2", "69.8", "72.6", "76.9", "75.7", "78.2", "80.8", "79.6", "82.0" ]
+, [ 59, "CFCA9C58-CC98-417F-88EA-CBC0232A14DA", 59, 1402938150, "400368", 1402938150, "400368", "{\n}", "59", "McKinley Park", "72.4", "70.6", "74.4", "74.8", "73.0", "76.6", "80.4", "78.6", "82.3" ]
+, [ 60, "238EE179-46C8-4B07-9840-7F18F8548FAF", 60, 1402938150, "400368", 1402938150, "400368", "{\n}", "60", "Bridgeport", "73.0", "71.7", "74.3", "75.6", "74.4", "76.8", "80.2", "78.9", "81.5" ]
+, [ 61, "7295B634-B86A-4191-AA96-81ED5A6DB817", 61, 1402938150, "400368", 1402938150, "400368", "{\n}", "61", "New City", "65.5", "64.4", "66.6", "72.4", "71.2", "73.6", "74.4", "73.2", "75.5" ]
+, [ 62, "610B089D-8172-4830-856F-D8A6C72D9FF9", 62, 1402938150, "400368", 1402938150, "400368", "{\n}", "62", "West Elsdon", "76.2", "74.2", "78.2", "75.1", "73.3", "76.9", "81.0", "79.4", "82.6" ]
+, [ 63, "EC3FE2A9-5540-4204-AAED-7256E8233B75", 63, 1402938150, "400368", 1402938150, "400368", "{\n}", "63", "Gage Park", "73.3", "71.9", "74.7", "76.5", "75.1", "77.9", "79.2", "77.9", "80.5" ]
+, [ 64, "307D8076-1347-44BE-9477-58315E1C874D", 64, 1402938150, "400368", 1402938150, "400368", "{\n}", "64", "Clearing", "74.2", "72.9", "75.6", "75.6", "74.3", "76.9", "77.5", "76.1", "78.8" ]
+, [ 65, "36B91425-C3E2-457E-8418-65857EB1391F", 65, 1402938150, "400368", 1402938150, "400368", "{\n}", "65", "West Lawn", "74.9", "73.6", "76.2", "74.9", "73.6", "76.1", "80.5", "79.2", "81.9" ]
+, [ 66, "DE3C58F4-1758-4585-A5A7-CF74958881D5", 66, 1402938150, "400368", 1402938150, "400368", "{\n}", "66", "Chicago Lawn", "72.8", "71.7", "73.9", "73.7", "72.7", "74.8", "75.2", "74.1", "76.3" ]
+, [ 67, "05B931B2-EBC3-413E-8396-FBBCBCA856E6", 67, 1402938150, "400368", 1402938150, "400368", "{\n}", "67", "West Englewood", "64.6", "63.4", "65.8", "67.1", "65.9", "68.3", "70.1", "68.7", "71.5" ]
+, [ 68, "128939B7-A896-45A2-952F-22DFE50AD3DD", 68, 1402938150, "400368", 1402938150, "400368", "{\n}", "68", "Englewood", "62.4", "61.1", "63.7", "66.7", "65.4", "68.0", "70.7", "69.3", "72.0" ]
+, [ 69, "18B6107C-BE88-44AF-BA15-C91BDCB2E9B4", 69, 1402938150, "400368", 1402938150, "400368", "{\n}", "69", "Greater Grand Crossing", "65.6", "64.3", "67.0", "69.0", "67.8", "70.3", "71.1", "69.8", "72.5" ]
+, [ 70, "D1816C88-78A9-426D-B673-24C1D716AF4F", 70, 1402938150, "400368", 1402938150, "400368", "{\n}", "70", "Ashburn", "73.5", "72.4", "74.5", "73.8", "72.7", "74.9", "78.2", "77.1", "79.3" ]
+, [ 71, "ED99E589-A714-4A05-B99E-11417B94A6A8", 71, 1402938150, "400368", 1402938150, "400368", "{\n}", "71", "Auburn Gresham", "68.0", "66.9", "69.1", "68.9", "67.8", "70.0", "72.6", "71.5", "73.8" ]
+, [ 72, "7F89A950-85DC-44E2-87B8-BF86C054C415", 72, 1402938150, "400368", 1402938150, "400368", "{\n}", "72", "Beverly", "75.9", "74.4", "77.3", "78.5", "77.1", "79.9", "80.5", "79.1", "82.0" ]
+, [ 73, "C46F8C60-3809-47E8-8F07-73DC3B2BEA2F", 73, 1402938150, "400368", 1402938150, "400368", "{\n}", "73", "Washington Heights", "68.7", "67.1", "70.2", "70.8", "69.4", "72.2", "74.9", "73.3", "76.4" ]
+, [ 74, "CE3D93F8-C816-42F4-951C-D35F8D291712", 74, 1402938150, "400368", 1402938150, "400368", "{\n}", "74", "Mount Greenwood", "75.7", "74.4", "77.1", "76.0", "74.4", "77.5", "79.6", "78.1", "81.0" ]
+, [ 75, "ED6DB3D8-5CCF-4AF4-8F51-D2E7D0175CEC", 75, 1402938150, "400368", 1402938150, "400368", "{\n}", "75", "Morgan Park", "72.0", "70.5", "73.4", "72.7", "71.3", "74.2", "75.3", "73.7", "76.9" ]
+, [ 76, "DDA19796-F54C-4A5D-B400-98E3982FB450", 76, 1402938150, "400368", 1402938150, "400368", "{\n}", "76", "O'Hare", "78.8", "76.8", "80.9", "80.4", "78.4", "82.4", "82.2", "80.3", "84.0" ]
+, [ 77, "D6F34F35-DC96-424B-ABB3-E233FB5D26E5", 77, 1402938150, "400368", 1402938150, "400368", "{\n}", "77", "Edgewater", "78.0", "76.9", "79.1", "76.5", "75.6", "77.3", "79.8", "78.8", "80.7" ]
+, [ 78, "0830B30F-76F6-45E9-BE20-1940B6754B86", 78, 1402938150, "400368", 1402938150, "400368", "{\n}", null, "CHICAGO ", "70.5", "70.3", "70.7", "73.9", "73.8", "74.1", "77.8", "77.6", "78.0" ]
+ ]
+}

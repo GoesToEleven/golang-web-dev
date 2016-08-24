@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>ADD PHOTO</h1>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="data">
+    <input type="submit">
+</form>
+<p>
+    {{.State}}
+    {{range .Pictures}}
+        {{.}}<br>
+    {{end}}
+</p>
+</body>
+</html>

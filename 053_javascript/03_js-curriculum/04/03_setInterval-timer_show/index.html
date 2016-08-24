@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul></ul>
+<script>
+
+    var myList = document.querySelector('ul');
+    var counter = 1;
+    function addElements() {
+        counter++;
+        var myNewElement = document.createElement('li');
+        var myText = document.createTextNode(counter);
+        myNewElement.appendChild(myText);
+        myList.appendChild(myNewElement);
+    }
+    // runs repeatedly
+    setInterval(addElements, 100);
+
+
+</script>
+</body>
+</html>

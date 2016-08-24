@@ -1,0 +1,20 @@
+SECURE COOKIES & SESSIONS
+
+http://security.stackexchange.com/questions/30707/demystifying-web-authentication-stateless-session-cookies
+
+http://security.stackexchange.com/questions/7398/secure-session-cookies
+
+http://stackoverflow.com/questions/3240246/signed-session-cookies-a-good-idea
+
+http://stackoverflow.com/questions/5459682/how-to-protect-session-id-and-cookies-without-using-ssl-https
+
+HMAC
+
+// https://en.wikipedia.org/wiki/Hash-based_message_authentication_code
+// https://en.wikipedia.org/wiki/Message_authentication_code
+// https://en.wikipedia.org/wiki/Replay_attack
+
+http://security.stackexchange.com/questions/20129/how-and-when-do-i-use-hmac/20301
+
+
+

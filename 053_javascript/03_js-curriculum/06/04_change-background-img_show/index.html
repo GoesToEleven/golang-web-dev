@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        html, body, div, img {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        html {
+            background-image: url('img/6.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: background-image 1s ease;
+        }
+
+        #images {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        div {
+            background-color: rgba(0,0,0,.3);
+        }
+
+        img {
+            width: 75px;
+            margin: 5px;
+            border: 2px solid black;
+        }
+
+        img:hover {
+            opacity: .5;
+        }
+
+    </style>
+</head>
+<body>
+<div id="images">
+    <img src="img/0.jpeg" alt="0"/>
+    <img src="img/1.jpeg" alt="1"/>
+    <img src="img/2.jpeg" alt="2"/>
+    <img src="img/3.jpeg" alt="3"/>
+    <img src="img/4.jpeg" alt="4"/>
+    <img src="img/5.jpeg" alt="5"/>
+    <img src="img/6.jpeg" alt="6"/>
+    <img src="img/7.jpeg" alt="7"/>
+    <img src="img/8.jpeg" alt="8"/>
+    <img src="img/9.jpeg" alt="9"/>
+    <img src="img/10.jpeg" alt="10"/>
+    <img src="img/11.jpeg" alt="11"/>
+    <img src="img/12.jpeg" alt="12"/>
+    <img src="img/13.jpeg" alt="13"/>
+    <img src="img/14.jpeg" alt="14"/>
+</div>
+<script>
+
+    function setBackground(e) {
+        var myHTML = document.querySelector('html');
+        myHTML.style.backgroundImage = "url('" + e.target.src + "')";
+    }
+
+    var myImgContainer = document.querySelector('#images');
+    console.log(myImgContainer);
+    myImgContainer.addEventListener('click', setBackground, false);
+
+</script>
+</body>
+</html>

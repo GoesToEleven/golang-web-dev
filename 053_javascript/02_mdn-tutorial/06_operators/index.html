@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 700px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        h3 {
+            width: 800px;
+            border: 10px solid hotpink;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<table class="standard-table">
+    <thead>
+    <tr>
+        <th scope="row">Operator</th>
+        <th scope="col">Explanation</th>
+        <th scope="col">Symbol(s)</th>
+        <th scope="col">Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">add/concatenation</th>
+        <td>Used to add two numbers together, or glue two strings together.</td>
+        <td><code>+</code></td>
+        <td><code>6 + 9;<br>
+            "Hello " + "world!";</code></td>
+    </tr>
+    <tr>
+        <th scope="row">subtract, multiply, divide</th>
+        <td>These do what you'd expect them to do in basic math.</td>
+        <td><code>-</code>, <code>*</code>, <code>/</code></td>
+        <td><code>9 - 3;<br>
+            8 * 2; // multiply in JS is an asterisk<br>
+            9 / 3;</code></td>
+    </tr>
+    <tr>
+        <th scope="row">assignment operator</th>
+        <td>You've seen this already: it assigns a value to a variable.</td>
+        <td><code>=</code></td>
+        <td><code>var myVariable = 'Bob';</code></td>
+    </tr>
+    <tr>
+        <th scope="row">Identity operator</th>
+        <td>Does a test to see if two values are equal to one another, and returns a <code>true</code>/<code>false</code> (Boolean) result.</td>
+        <td><code>===</code></td>
+        <td><code>var myVariable = 3;<br>
+            myVariable === 4;</code></td>
+    </tr>
+    <tr>
+        <th scope="row">Negation, not equal</th>
+        <td>Returns the logically opposite value of what it preceeds; it turns  a <code>true</code> into a <code>false</code>, etc. When it is used alongside the Equality operator, the negation operator tests whether two values are <em>not</em> equal.</td>
+        <td><code>!</code>, <code>!==</code></td>
+        <td>
+            <p>The basic expression is <code>true</code>, but the comparison returns <code>false</code> because we've negated it:</p>
+
+            <p><code>var myVariable = 3;<br>
+                !(myVariable === 3);</code></p>
+
+            <p>Here we are testing "is <code>myVariable</code> NOT equal to 3". This returns<code> false</code> because <code>myVariable</code> IS equal to 3.</p>
+
+            <p><code><code>var myVariable = 3;</code><br>
+                myVariable !== 3;</code></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Note: Mixing data types can lead to some strange results when performing calculations, so be careful that you are referring to your variables correctly, and getting the results you expect. For example, enter "35" + "25" into your console. Why don't you get the result you expected? Because the quote marks turn the numbers into strings, so you've ended up concatenating strings rather than adding numbers. If you enter, 35 + 25 you'll get the correct result.</h3>
+
+</body>
+</html>

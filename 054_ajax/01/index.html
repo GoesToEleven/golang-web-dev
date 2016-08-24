@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        span {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<span>Make a request</span>
+
+<script>
+    document.querySelector('span').onclick = function () {
+        makeRequest('test.html');
+    };
+
+    // STEP ONE - create a new XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    function makeRequest(url) {
+        // make the request
+        xhr.open('GET', url);
+        xhr.send();
+        // listen for the response
+        // call receiveResponse function after we receive server response
+        xhr.onreadystatechange = receiveResponse;
+    }
+
+    function receiveResponse() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                alert(xhr.responseText);
+            } else {
+                alert('There was a problem with the request.');
+            }
+        }
+    }
+
+
+
+    // or this way:
+    //    function receiveResponse() {
+    //        if (xhr.readyState === 4 && xhr.status === 200) {
+    //            alert(xhr.responseText);
+    //        }
+    //    }
+
+
+
+    // or this way:
+    //    function receiveResponse() {
+    //        if (xhr.readyState === 4) {
+    //            alert(xhr.responseText);
+    //        }
+    //    }
+
+</script>
+</body>
+</html>

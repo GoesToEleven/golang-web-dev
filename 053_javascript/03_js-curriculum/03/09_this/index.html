@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="firstList"></div>
+
+<script>
+    var myObj = {
+        name: 'Todd',
+        URLs: ['a','b','c','d'],
+        descrips: ['1','2','3','4'],
+        drawNav: function() {
+            var myElement = document.querySelector('#firstList');
+            var myListElements = document.createElement('ul');
+            myElement.appendChild(myListElements);
+
+            for(var i = 0; i < this.URLs.length; i++){
+                var myListElement = document.createElement('li');
+                myListElements.appendChild(myListElement);
+                var myAnchor = document.createElement('a');
+                myAnchor.href = this.URLs[i];
+                myAnchor.innerHTML = this.descrips[i];
+                myListElement.appendChild(myAnchor);
+            }
+        },
+    }
+    myObj.drawNav();
+
+</script>
+</body>
+</html>

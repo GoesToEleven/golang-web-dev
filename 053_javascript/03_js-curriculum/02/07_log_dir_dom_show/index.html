@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="item"></div>
+
+<script>
+    var myNode = document.querySelector(".item");
+    myNode.innerHTML = '<p>The quick brown fox jumps</p>';
+    myNode.className = 'myclass';
+    myNode.id = 'myID';
+    myNode.style.color = '#FCC';
+    myNode.style["font-family"] = "Helvetica";
+    myNode.style.fontSize = '3em';
+
+    console.log(myNode);
+    console.dir(myNode);
+</script>
+
+</body>
+</html>

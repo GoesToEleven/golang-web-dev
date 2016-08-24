@@ -1,0 +1,134 @@
+/* disable menu in footer */
+/* on large devices, menu is displayed in header */
+/* nm = nav mobile */
+.nm {
+    display: none;
+}
+
+/* ABOVE THE FOLD */
+/* rulesets to show certain content above the fold */
+
+#hero-img {
+    background-image: url("https://storage.googleapis.com/learning-1130.appspot.com/img/adventure-lg.jpg");
+}
+
+/* HEADER */
+
+header {
+
+    /*
+    increase the height of the header area
+    this is necessary to contain both the logo and nav
+                            THE ENDLESS JOURNEY
+                SPONSORS   MUSIC   PICTURES   MAP   BLOG
+    */
+    height: 8.5rem;
+
+    /*
+    header is already set to "display: flex" in main.css
+    setting it here again just for clarity
+    */
+    /* make child elements of header arrange in a column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* logo: THE ENDLESS JOURNEY */
+#logo {
+    width: 100%;
+
+    /*
+    this grows the element to fill in vertical space
+    #logo will grow 4x as much as .nd
+    */
+    flex-grow: 4;
+
+    /*
+    "height: 100%" was set on #logo in main.css
+    we need to set "flex-basis: 0" to override this
+    */
+    flex-basis: 0;
+}
+
+/* nd = nav desktop */
+.nd {
+    width: 100%;
+
+    /*
+    with #logo and .nd both set to "flex-grow"
+    they will both grow along the flex container's primary axis
+    in this case, the vertical axis
+    they will fill in the space in the header along vertical axis
+    #logo will grow 4x as much as .nd
+    */
+    flex-grow: 1;
+
+    /* container of some dimension */
+    /* this is important for contained elements */
+    height: 30px;
+
+    /* arrange li elements horizontally */
+    display: flex;
+    /* horizontally distribute "space around" li elements */
+    justify-content: space-around;
+    /* vertically center li elements */
+    align-items: center;
+
+    /* font format */
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nd li {
+
+    /* grow vertically */
+    /* must be in container of some dimension */
+    height: 100%;
+
+    /* have each li element grow horizontally */
+    flex-grow: 1;
+
+    /* center the anchor elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nd li a {
+
+    /* grow vertically */
+    /* must be in container of some dimension */
+    height: 100%;
+
+    /* grow horizontally */
+    flex-grow: 1;
+
+    /* center the text wrapped by the anchor elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nd li a:hover {
+    color: #0266C8;
+    background-color: #ffffe0;
+}
+
+/* ------------------------------------------- */
+/* BELOW THE FOLD (btf) */
+/* ------------------------------------------- */
+
+.btf-articles article {
+    width: 50%;
+}
+
+footer {
+    height: 140px;
+}
+

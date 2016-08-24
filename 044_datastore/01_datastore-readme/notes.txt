@@ -1,0 +1,23 @@
+Generally speaking:
+
+SQL DATABASES
+-does not scale well
+-strongly consistent
+-durable
+
+NOSQL DATABASES
+-scales well
+-eventually consistent
+-durable
+
+MEMCACHE
+-scales well
+-strongly consistent
+-volatile
+
+*********
+NICE ARTICLES:
+--- this link ---
+https://goo.gl/TFvor7
+--- or this link ---
+https://goo.gl/DA9NVq

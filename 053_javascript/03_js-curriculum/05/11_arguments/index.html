@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //    create object
+    var myObj = {
+        name: 'John Doe',
+        age: 32,
+        numbers: [3, 5, 7, 9],
+        relatives: {
+            mom: 'Jan',
+            dad: 'John Sr.'
+        }
+    };
+
+    // we will pass an object to this function
+    // even though parameters aren't specified
+    // we can access any arguments passed in with ARGUMENTS array
+    var acceptsObj = (function () {
+        return {
+
+            speak: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || '';
+                console.log(statement);
+            },
+
+            name: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.name || '';
+                console.log(statement);
+            },
+
+            age: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.age || '';
+                console.log(statement);
+            },
+
+            numbers: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.numbers || '';
+                console.log(statement);
+            },
+
+            relatives: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.relatives || '';
+                console.log(statement);
+            }
+
+        };
+    })();
+
+    acceptsObj.speak();
+    acceptsObj.speak({say: 'howdy'});
+    acceptsObj.name(myObj);
+    acceptsObj.age(myObj);
+    acceptsObj.numbers(myObj);
+    acceptsObj.relatives(myObj);
+
+</script>
+</body>
+</html>

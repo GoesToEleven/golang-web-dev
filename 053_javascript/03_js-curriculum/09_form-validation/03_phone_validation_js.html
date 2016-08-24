@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form name="myForm">
+    <input name="myInput">
+    <input name="myButton" type="submit" value="submit">
+</form>
+
+<script>
+    var exampleNode = document.forms.myForm;
+    exampleNode.myButton.addEventListener('click', function (e) {
+        var re5digit = /^[0-9]{3}\-[0-9]{3}\-[0-9]{4}$/;
+        e.preventDefault();
+        if (exampleNode.myInput.value.search(re5digit) === -1) {
+            alert("Enter a phone number 555-555-5555");
+        } else {
+            exampleNode.submit();
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    var today = new Date();
+    var weekdays = [
+        'Sunday',
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday'
+    ];
+    console.log('TODAY GETDAY ' + today.getDay());
+    console.log(weekdays[today.getDay()]);
+
+    function printDay() {
+        var myBody = document.querySelector('body');
+        var myHeading = document.createElement('h1');
+        myHeading.innerHTML = `Today is ` + weekdays[today.getDay()];
+        myBody.appendChild(myHeading);
+    }
+
+    for(var i = 0; i < 5; i++ ) {
+        printDay();
+    }
+
+</script>
+</body>
+</html>

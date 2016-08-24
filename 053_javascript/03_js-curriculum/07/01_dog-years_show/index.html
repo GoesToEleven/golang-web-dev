@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    html {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: url("../../images/02.jpeg");
+        background-size: cover;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    div {
+        font-size: 12em;
+        color: #d5d5d5;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    input {
+        width: 700px;
+        height: 50px;
+        margin: 20px;
+        padding: 15px;
+        font-size: 2em;
+        color: #2ecc71;
+    }
+
+    button {
+        width: 350px;
+        height: 40px;
+        border-radius: 5%;
+        font-size: 20px;
+        border: 2px solid #2ecc71;
+    }
+
+    footer {
+        margin: 18px;
+        font-size: 12em;
+        color: #d5d5d5;
+    }
+
+</style>
+<body>
+<div id='result'>enter age</div>
+<input type='text' name='number' autofocus>
+<button>convert</button>
+
+<script>
+
+    function runCalculation() {
+        if (document.querySelector('footer')) {
+            var footerToRemove = document.querySelector('footer');
+            footerToRemove.parentNode.removeChild(footerToRemove);
+        }
+        var myInput = document.querySelector('input');
+        var dogYears = myInput.value * 7;
+        var myFooter = document.createElement('footer');
+        var myText = document.createTextNode(dogYears + ' dog years');
+        var myBody = document.querySelector('body');
+        myBody.appendChild(myFooter);
+        myFooter.appendChild(myText);
+    }
+
+    var myButton = document.querySelector('button');
+    myButton.addEventListener('click', runCalculation, false);
+
+</script>
+</body>
+</html>

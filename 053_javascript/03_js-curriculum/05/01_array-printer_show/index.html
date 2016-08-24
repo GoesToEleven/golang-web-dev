@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //    variables
+    var myNumbers = ['6', '8', '9', '12', '423', '5667', '54', '2', '23', '1234', '1', '17'];
+    var myFruit = ['Banana','Orange','Cherries','Mango'];
+
+    //    functions
+    function arrayPrinter(myArray) {
+        for (var i = 0; i < myArray.length; i++) {
+            console.log(myArray[i]);
+        }
+    }
+
+    //    logic
+    arrayPrinter(myNumbers);
+    console.log('--------------------------');
+    arrayPrinter(myFruit);
+    console.log('--------------------------');
+    console.log('CONCAT:');
+    console.log(myNumbers.concat(myFruit));
+    console.log('--------------------------');
+    console.log('PLUS:');
+    console.log(myNumbers + myFruit);
+</script>
+</body>
+</html>

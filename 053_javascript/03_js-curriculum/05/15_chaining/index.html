@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var cowboy = (function () {
+        var DEFAULTS = {
+            say: 'hello',
+            action: 'jump'
+        }, counter = 0;
+
+        return {
+            speak: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || DEFAULTS.say;
+                counter++;
+                console.log(statement + '-' + counter);
+                return this;
+            },
+            action: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || DEFAULTS.action;
+                counter++;
+                console.log(statement + '-' + counter);
+                return this;
+            }
+        };
+    })();
+
+    cowboy.speak().action();
+
+</script>
+</body>
+</html>

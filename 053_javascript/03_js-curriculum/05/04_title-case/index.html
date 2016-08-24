@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    variables
+    var noCap = [
+        'a', 'an', 'the', 'at',
+        'by', 'for', 'in', 'of',
+        'on', 'to', 'up', 'and',
+        'as', 'but', 'it', 'or', 'nor'
+    ];
+
+    var numSpell = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+        10: 'ten'
+    }
+
+    //    functions
+    function titleCase(myString) {
+        console.log(myString);
+        myString = myString.toLowerCase();
+        var wordArray = myString.split(' ');
+        for (var i = 0; i < wordArray.length; i++) {
+            // don't capitalize words from the noCap array
+            if (noCap.indexOf(wordArray[i]) !== -1 && i !== 0) {
+//                console.log('---continue: ', noCap.indexOf(wordArray[i]), ' ', wordArray[i]);
+                continue;
+            }
+            // if numeric less than ten, spell out
+            if (numSpell[wordArray[i]]) {
+//                console.log('---spell number: ', numSpell[wordArray[i]], ' ', wordArray[i]);
+                wordArray[i] = numSpell[wordArray[i]];
+            }
+            // title case the word
+//            console.log('wordArray[i][0] ', wordArray[i][0].toUpperCase())
+            var letterArray = wordArray[i].split('');
+            letterArray[0] = letterArray[0].toUpperCase();
+            wordArray[i] = letterArray.join('');
+        }
+        wordArray = wordArray.join(' ');
+        return wordArray;
+    }
+
+    //    errata
+    console.log(titleCase('aLL that is UNSPOkeN'));
+    console.log(titleCase('vIsionS of jOhana'));
+    console.log(titleCase('NATION OF 1'));
+    console.log(titleCase("thE breWster AVENue DeaD man's CluB"));
+    console.log(titleCase('darkNESS aT thE EDge of TOwn'));
+
+
+    //    test code
+    //    console.log('hello'[1]);
+    //    console.log('hello'.slice(1, 'hello'.length));
+    //    if (numSpell[2]) {
+    //        console.log('true');
+    //    } else {
+    //        console.log('false');
+    //    }
+    //    ;
+
+</script>
+</body>
+</html>

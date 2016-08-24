@@ -1,0 +1,7 @@
+To get this to run on your own machine ...
+
+Update the constant 'bucket' in main.go with your bucket name.
+
+Update the CSS files in the appropriate places with your bucket name.
+
+Update app.yaml with your project name.

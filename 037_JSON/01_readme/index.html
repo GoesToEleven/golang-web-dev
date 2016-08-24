@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<p>JavaScript Object Notation (JSON) is a text format for the serialization of structured data.</p>
+
+<p>It is derived from the object literals of JavaScript.</p>
+
+<p>JSON can represent four <strong>primitive types</strong> (strings, numbers, booleans, and null) and two <strong>structured types</strong> (objects and arrays)</p>
+
+<h1>Primitive JSON</h1>
+<p>Here are four small JSON texts containing only values:<br>
+    "Hello world!"<br>
+    42<br>
+    true<br>
+    null
+</p>
+
+<h1>Object JSON</h1>
+
+<p>An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members).</p>
+
+<p>An object is an unordered collection of zero or more name/value pairs</p>
+
+<p>A <strong>name</strong> is a string</p>
+
+<p>A <strong>value</strong> is a string, number, boolean, null, object, or array.</p>
+
+<p>Declare properties using <strong>name:value</strong> pairings separated by commas</p>
+
+<p>Enclose names in curly braces</p>
+
+<p>There is no trailing comma</p>
+
+<p>This is a JSON object:</p>
+
+<pre>
+{
+    "Image": {
+        "Width":  800,
+        "Height": 600,
+        "Title":  "View from 15th Floor",
+        "Thumbnail": {
+            "Url":    "http://www.example.com/image/481989943",
+            "Height": 125,
+            "Width":  100
+        },
+        "Animated" : false,
+        "IDs": [116, 943, 234, 38793]
+    }
+}
+</pre>
+
+<h1>Array JSON</h1>
+
+<p>An array structure is represented as square brackets surrounding zero or more values (or elements).</p>
+
+<p>Elements are separated by commas.</p>
+
+<p>A <strong>value</strong> must be an
+<ul>
+    <li>object</li>
+    <li>array</li>
+    <li>number</li>
+    <li>string</li>
+    <li>three literal names
+        <ol>
+            <li>true</li>
+            <li>false</li>
+            <li>null</li>
+        </ol>
+    </li>
+</ul>
+
+<p>This is a JSON array containing two objects:</p>
+
+<pre>
+    [
+        {
+           "precision": "zip",
+           "Latitude":  37.7668,
+           "Longitude": -122.3959,
+           "Address":   "",
+           "City":      "SAN FRANCISCO",
+           "State":     "CA",
+           "Zip":       "94107",
+           "Country":   "US"
+        },
+        {
+           "precision": "zip",
+           "Latitude":  37.371991,
+           "Longitude": -122.026020,
+           "Address":   "",
+           "City":      "SUNNYVALE",
+           "State":     "CA",
+           "Zip":       "94085",
+           "Country":   "US"
+        }
+    ]
+</pre>
+
+<h1>Number</h1>
+
+<p>The representation of numbers is similar to that used in most programming languages.  A number is represented in base 10 using decimal digits.  It contains an integer component that may be prefixed with an optional minus sign, which may be followed by a fraction part and/or an exponent part.  Leading zeros are not allowed. A fraction part is a decimal point followed by one or more digits.</p>
+
+<h1>String</h1>
+
+<p>The representation of strings is similar to conventions used in the C family of programming languages.  A string begins and ends with quotation marks.</p>
+
+<p><a href="https://tools.ietf.org/html/rfc7159">source: The Internet Engineering Task Force (IETF)</a></p>
+
+
+</body>
+</html>

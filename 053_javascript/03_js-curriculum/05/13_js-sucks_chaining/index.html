@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var myObj = (function () {
+        return {
+            first: function () {
+                this.myDog = 'fido';
+                console.log(this.myDog);
+                return this;
+            },
+            second: function () {
+                if (this.myDog !== undefined) {
+                    console.log(this.myDog);
+                } else {
+                    console.log('no dog defined')
+                }
+                return this;
+            }
+        };
+    })();
+
+//    myObj.second();
+//    myObj.first();
+//    myObj.second();
+//    console.log(this.myDog);
+
+        myObj.first().second();
+
+    //    myObj.second().first();
+
+</script>
+</body>
+</html>

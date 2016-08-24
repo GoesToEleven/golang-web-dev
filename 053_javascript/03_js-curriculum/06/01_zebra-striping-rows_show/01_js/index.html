@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<style>
+    .bgcolor {
+        background-color: deeppink;
+    }
+
+    li:nth-child(even) {
+        background-color: #2ec371;
+    }
+
+</style>
+
+<body>
+
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+    <li>06</li>
+    <li>07</li>
+    <li>08</li>
+</ul>
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+    <li>06</li>
+    <li>07</li>
+    <li>08</li>
+</ul>
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li>03</li>
+    <li>04</li>
+    <li>05</li>
+    <li>06</li>
+    <li>07</li>
+    <li>08</li>
+</ul>
+<script>
+    //    change every other UL
+    function changeOddList() {
+        var allLists = document.querySelectorAll('ul');
+        for (var i = 0; i < allLists.length; i++) {
+            if (i % 2 == 0) {
+                allLists[i].style.backgroundColor = '#ff0000';
+            }
+        }
+    }
+    changeOddList();
+
+    //    change every other LI
+    function changeOddListItem() {
+        var allListItems = document.querySelectorAll('li');
+        for (var i = 0; i < allListItems.length; i += 2) {
+            allListItems[i].className = 'bgcolor';
+        }
+    }
+    changeOddListItem();
+</script>
+</body>
+</html>

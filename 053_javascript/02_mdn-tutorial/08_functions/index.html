@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        p {
+            width: 800px;
+            border: 4px solid hotpink;
+            padding: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<h1>Open Your Console</h1>
+
+<ol>
+    <li>Make sure you're using google chrome</li>
+    <li>Right click your webpage</li>
+    <li>Select "inspect"</li>
+    <li>Click the "console" tab</li>
+    <li>Refresh your webpage</li>
+</ol>
+
+<p>
+    Note: The return statement tells the browser to return the result variable out of the function so it is available to use. This is necessary because variables defined inside functions are only available inside those functions. This is called variable scoping. (Read more on variable scoping.)
+</p>
+
+<script>
+
+    function multiply(num1,num2) {
+        return num1 * num2;
+    }
+
+    console.log(multiply(4,7));
+    console.log(multiply(20,20));
+    console.log(multiply(0.5,3));
+
+
+</script>
+</body>
+</html>

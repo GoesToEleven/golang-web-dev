@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var ray = (function () {
+        var DEFAULTS = {
+            say: 'hello',
+            action: 'jump'
+        };
+        return {
+            speak: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || DEFAULTS.say;
+                console.log(statement);
+                return this;
+            },
+            action: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || DEFAULTS.action;
+                console.log(statement);
+                return this;
+            }
+        };
+    })();
+    ray.speak().action();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    variables
+    var myList = document.createElement('ul');
+    document.querySelector('body').appendChild(myList);
+
+    var customer = {
+        name: 'Todd',
+        cart: ['Toothpaste', 'Apples', 'Bananas', 'Coffee'],
+        comments: ['nice', 'good', 'happy']
+    };
+
+    // functions
+    function appendListItem(ulToAppend, textToAppend) {
+        var myListItem = document.createElement('li');
+        myListItem.innerHTML = textToAppend;
+        ulToAppend.appendChild(myListItem);
+    }
+
+    function printRecursive(obj) {
+        for (var i in obj) {
+            if (typeof obj[i] === 'object') {
+                printRecursive(obj[i]);
+            } else {
+                appendListItem(myList,obj[i]);
+            }
+        }
+    }
+
+    //    logic
+    printRecursive(customer);
+</script>
+</body>
+</html>

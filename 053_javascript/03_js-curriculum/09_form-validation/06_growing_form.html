@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        button {
+            width: 100px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<form name="myForm" id="myForm">
+    <label>Name: <input name="myName"></label>
+    <label>Address: <input name="myAddress"></label>
+    <label class="hidden">City: <input name="myCity"></label>
+    <label class="hidden">Zip: <input name="myZip"></label>
+    <button name="mySubmit" type="submit">Submit</button>
+</form>
+
+<script>
+   document.forms.myForm.myAddress.addEventListener('focus', function() {
+       var hiddenEls = document.querySelectorAll('.hidden');
+       for (var i = 0; i < hiddenEls.length; i++) {
+           hiddenEls[i].className = '';
+       }
+   })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form name="myForm">
+    <input name="myInput">
+    <input name="myButton" type="button" value="submit">
+</form>
+
+<script>
+    var exampleNode = document.forms.myForm;
+    exampleNode.myButton.addEventListener('click', function (e) {
+        var re5digit = /^[a-z]{5}$/;
+        e.preventDefault();
+        if (exampleNode.myInput.value.search(re5digit) === -1) {
+            alert("Enter five lowercase letters");
+        } else {
+            exampleNode.submit();
+        }
+    })
+</script>
+
+</body>
+</html>

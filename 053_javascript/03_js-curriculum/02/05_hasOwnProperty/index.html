@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var info = {
+        name: "Ray Villalobos",
+        links: {
+            blog: "http://raybo.org",
+            facebook: "http://facebook.com/viewsource"
+        }
+    };
+
+    console.log(info.links.blog);
+    console.log(info.links.facebook);
+
+
+    for (var i in info.links) {
+        if (info.links.hasOwnProperty(i)) {
+            console.log('INFO.LINKS i - ' + i);
+            console.log("Index: " + i + " Value: " + info.links[i] + "\n");
+        }
+    }
+
+
+    for (var i in info.links) {
+        console.log('Index: ' + i + 'Value' + '\n' + info.links[i] + '\n');
+    }
+    /*
+    it is a good idea to use hasOwnProperty
+    it checks to make sure an object property exists before you access it
+     */
+</script>
+</body>
+</html>

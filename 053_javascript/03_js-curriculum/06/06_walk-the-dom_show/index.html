@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>These Shoes Are Built For Walking</title>
+</head>
+<body>
+
+<header>
+    <h1>Woohoo!</h1>
+</header>
+
+<main>
+    <a href="#">learn something</a>
+</main>
+
+<footer id="item">THIS IS THE FOOTER</footer>
+
+<script>
+
+    var startNode = document.querySelector('html');
+
+    function walkDOM(currentNode) {
+            console.log();
+            console.log('--------------' + currentNode.nodeName + '---------------');
+            console.log('console log ', currentNode);
+            console.log('console log nodeType ', currentNode.nodeType);
+            console.log('console log nodeName ', currentNode.nodeName);
+            console.log('console log nodeValue ', currentNode.nodeValue);
+            console.log('console log hasChildNodes ', currentNode.hasChildNodes());
+            console.log('console log childNodes.length ', currentNode.childNodes.length);
+            console.log('console log childNodes ', currentNode.childNodes);
+            console.log('console log childNodes[0] ', currentNode.childNodes[0]);
+            console.log('console log childNodes[1] ', currentNode.childNodes[1]);
+            console.log('console log childNodes[2] ', currentNode.childNodes[2]);
+            console.dir('console dir ', currentNode);
+
+        if (currentNode.hasChildNodes()) {
+            for (var i = 0; i < currentNode.childNodes.length; i++) {
+                var nextNode = currentNode.childNodes[i];
+                walkDOM(nextNode);
+            }
+        }
+    }
+    walkDOM(startNode);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!-- emmet -->
+<!--(div{DIV $}+p{-------------})*3 -->
+
+<div>DIV 1</div>
+<p>-------------</p>
+<div>DIV 2</div>
+<p>-------------</p>
+<div>DIV 3</div>
+<p>-------------</p>
+
+<script>
+    var items = ['dog', 'chocolate', 'roses', 'blender'];
+    var things = {
+        food: 'quesadilla',
+        drink: 'beer',
+        dessert: ['ice cream', 'zang bar', 'peanut butter pie']
+    };
+    var otras = [
+        {
+            name: 'Todd',
+            friends: [1, 4, 7, 8, 53]
+        },
+        {
+            name: 'Julian',
+            friends: [7, 98, 16, 12, 44]
+        },
+        {
+            name: 'Nina',
+            friends: [65, 34, 23, 76, 33]
+        }
+    ];
+
+    var myNode = document.querySelector('div');
+    var paragraph = '';
+    for (var i = 0; i < items.length; i++) {
+        paragraph += items[i] + ' ';
+        paragraph += '<br>'
+    }
+    paragraph += '<p>-------------</p>';
+    for (var i in things) {
+        if (things.hasOwnProperty(i)) {
+            if(i !== 'dessert') {
+            paragraph += i + ' ' + things[i];
+                paragraph += '<br>'
+            } else {
+                paragraph += i + '<br>';
+                for(var j = 0; j < things[i].length; j++) {
+                    paragraph += things[i][j] + ' ';
+                    paragraph += '<br>'
+                }
+            }
+        }
+    }
+    paragraph += '<p>-------------</p>';
+    for(var i in otras){
+        for(var j in otras[i]){
+            paragraph += j + ' ' + otras[i][j];
+            paragraph += '<br>'
+        }
+        paragraph += '<br>'
+    }
+
+    myNode.innerHTML = paragraph;
+
+</script>
+</body>
+</html>

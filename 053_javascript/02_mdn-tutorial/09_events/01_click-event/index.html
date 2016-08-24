@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main {
+            width: 600px;
+            border: 20px groove hotpink;
+            padding: 20px;
+        }
+
+        pre {
+            background-color: rgba(211, 211, 211, 0.42);
+            border: 2px solid black;
+            padding: 25px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<main>
+
+    <h1>Events</h1>
+
+    <p>To create real interactivity on a website, you need events — these are code structures that listen out for things happening to the browser, and then allow you to run code in response to those things. The most obvious example is the <strong>click event</strong>, which is fired by the browser when the mouse clicks on something. To demonstrate this, try clicking on the current webpage:</p>
+
+<pre>document.querySelector('html').onclick = function() {
+    alert('Stop poking me!');
+}</pre>
+
+    <p>There are many ways to attach an event to an element. Here we are selecting the HTML element and setting its <code><strong>onclick</strong></code> handler property equal to an anonymous (i.e. nameless) function that contains the code we want to run when the click event occurs.</p>
+
+    <p>Note that</p>
+
+    <pre>document.querySelector('html').onclick = function() {};</pre>
+
+    <p>is equivalent to</p>
+
+<pre>var myHTML = document.querySelector('html');
+myHTML.onclick = function() {};</pre>
+
+    <p>It's just shorter.</p>
+
+</main>
+
+<script>
+
+    document.querySelector('html').onclick = function() {
+        alert('Ouch! Stop poking me!');
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            width: 700px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<table class="standard-table">
+    <thead>
+    <tr>
+        <th scope="row">Variable</th>
+        <th scope="col">Explanation</th>
+        <th scope="col">Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">String</th>
+        <td>A string of text. To signify that the variable is a string, you should enclose it in quote marks.</td>
+        <td><code>var myVariable = 'Bob';</code></td>
+    </tr>
+    <tr>
+        <th scope="row">Number</th>
+        <td>A number. Numbers don't have quotes around them.</td>
+        <td><code>var myVariable = 10;</code></td>
+    </tr>
+    <tr>
+        <th scope="row">Boolean</th>
+        <td>A True/False value. The words <code>true</code> and <code>false</code> are special keywords in JS, and don't need quotes.</td>
+        <td><code>var myVariable = true;</code></td>
+    </tr>
+    <tr>
+        <th scope="row">Array</th>
+        <td>A structure that allows you to store multiple values in one single reference.</td>
+        <td><code>var myVariable = [1,'Bob','Steve',10];</code><br>
+            Refer to each member of the array like this:<br>
+            <code>myVariable[0]</code>, <code>myVariable[1]</code>, etc.</td>
+    </tr>
+    <tr>
+        <th scope="row">Object</th>
+        <td>Basically, anything. Everything in JavaScript is an object, and can be stored in a variable. Keep this in mind as you learn.</td>
+        <td><code>var myVariable = document.querySelector('h1');</code><br>
+            All of the above examples too.</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

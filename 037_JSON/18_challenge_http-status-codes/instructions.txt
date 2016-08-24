@@ -1,0 +1,11 @@
+IN AN HTML FILE
+- create a webpage which illustrates the differences between HTTP status codes:
+
+    StatusMovedPermanently  = 301
+    StatusFound             = 302
+    StatusSeeOther          = 303
+    StatusTemporaryRedirect = 307
+
+- please also include a description of this HTTP status code:
+
+	StatusTeapot			= 418

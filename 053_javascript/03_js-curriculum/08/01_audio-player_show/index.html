@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Audio Player</h1>
+<audio src="music/AmazingLee.mp3"></audio>
+<ul>
+    <li>AmazingLee</li>
+    <li>EqueKenox</li>
+    <li>NightKitty</li>
+    <li>Phoebex</li>
+    <li>Shiloah</li>
+</ul>
+
+<script>
+
+    // audio is an html5 element
+    // has play() and pause() methods
+    var mySongs = document.querySelectorAll('li');
+    var audioPlayer = document.querySelector('audio');
+    audioPlayer.src = '';
+    var songPlaying = 'no song yet';
+
+
+    for (var i = 0; i < mySongs.length; i++) {
+        mySongs[i].addEventListener('click', function (e) {
+            // pauses currently playing song
+            if ((e.target.innerHTML == songPlaying) && (audioPlayer.paused)) {
+                audioPlayer.play();
+            } else if ((e.target.innerHTML == songPlaying) && (!audioPlayer.paused)) {
+                audioPlayer.pause();
+            } else {
+                audioPlayer.src = 'music/' + e.target.innerHTML + '.mp3';
+                audioPlayer.play();
+                songPlaying = e.target.innerHTML;
+            }
+            console.log(audioPlayer.src);
+            console.log(songPlaying);
+            console.log(e.target.innerHTML);
+            console.log('paused: ',audioPlayer.paused);
+            console.log('---------------');
+        }, false);
+    }
+
+</script>
+</body>
+</html>

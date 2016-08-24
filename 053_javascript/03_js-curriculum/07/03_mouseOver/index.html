@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1dbd25;
+        }
+
+        main {
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .picker {
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 6em;
+            color: #f5f5f5;
+            margin: 0 0 15px 0;
+        }
+
+        h2 {
+            font-size: 3em;
+            color: #dadada;
+        }
+
+        img {
+            border-radius: 50%;
+            margin: 20px;
+        }
+
+        #floatingImg {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+        }
+
+        img:hover {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="row">
+        <img src="img/1.jpeg" class="box"/>
+        <img src="img/2.jpeg" class="box"/>
+        <img src="img/3.jpeg" class="box"/>
+
+    </div>
+    <div class="row">
+        <img src="img/4.jpeg" class="box"/>
+        <img src="img/5.jpeg" class="box"/>
+        <img src="img/6.jpeg" class="box"/>
+    </div>
+    <div class="row">
+        <img src="img/7.jpeg" class="box"/>
+        <img src="img/8.jpeg" class="box"/>
+        <img src="img/9.jpeg" class="box"/>
+    </div>
+</main>
+
+<script>
+        var allImages = document.querySelectorAll('img');
+        for (var i = 0; i < allImages.length; i++) {
+            allImages[i].addEventListener('mouseenter', function (e) {
+                console.log('on mouse enter');
+                var myImg = document.createElement('img');
+                myImg.src = e.target.src;
+                myImg.id = 'floatingImg';
+                myImg.style.left = e.target.x + 200 + 'px';
+                myImg.style.top = e.target.y - 110 + 'px';
+                console.log(myImg.style.left);
+                console.log(myImg.style.top);
+                document.body.appendChild(myImg);
+
+                // remove on mouse out
+                e.target.addEventListener('mouseout', function () {
+                    console.log('on mouse out');
+                    document.body.removeChild(myImg);
+                }, false);
+            }, false);
+        }
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Source:
+https://developer.mozilla.org/en-US/Learn/JavaScript
+
+License:
+About MDN by Mozilla Contributors is licensed under CC-BY-SA 2.5.
+
+https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses
+
+http://creativecommons.org/licenses/by-sa/2.5/
+

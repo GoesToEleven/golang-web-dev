@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<main>
+    <h1>Welcome</h1>
+    <button>Would you like to begin?</button>
+    <h2></h2>
+</main>
+<script>
+    var myCounter;
+    var intervalHandler;
+    var firstTime = true;
+    var myMain = document.querySelector('main');
+    var myHeading = document.querySelector('h1');
+    var myButton = document.querySelector('button');
+    var myHeadingTwo = document.querySelector('h2');
+
+
+    function termsConditions() {
+        var myHeadingThree = document.createElement('h3');
+        myHeadingThree.innerHTML = '&ast; certain terms and conditions may apply.'
+        myMain.appendChild(myHeadingThree);
+        setTimeout(function () {
+                    myHeadingThree.style.color = '#f00';
+                }
+                , 1000);
+    }
+
+    function explosion() {
+        myMain.removeChild(myButton);
+        myMain.removeChild(myHeading);
+        myMain.removeChild(myHeadingTwo);
+        myMain.style.background = "url('free.jpg') no-repeat center center";
+        setTimeout(termsConditions, 2000);
+    }
+
+    function changeMessage(myCounter) {
+        myHeading.innerHTML = '' + myCounter;
+        if (myCounter > 100) {
+            myHeadingTwo.innerHTML = '&laquo; You Chose To Begin The Process &raquo;';
+            if (flag) {
+                myButton.innerHTML = 'RESET';
+            } else {
+            myButton.innerHTML = 'You Are Condemned To Pressing Reset';
+            }
+        } else if (myCounter > 80) {
+            myHeadingTwo.innerHTML = '&laquo; This Was Your Choice &raquo;';
+            myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 60) {
+            myHeadingTwo.innerHTML = '&laquo; You Chose This &raquo;';
+            myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 40) {
+            myHeadingTwo.innerHTML = '&laquo; Once Something Is Done ... &raquo;';
+            myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 30) {
+            myHeadingTwo.innerHTML = '&laquo; It Cannot Be Undone &raquo;';
+            myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 20) {
+            myHeadingTwo.innerHTML = '&laquo; You Must Push Rest &raquo;';
+            myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 10) {
+            myHeadingTwo.innerHTML = '&laquo; Save Your Life - Push Reset &raquo;';
+            myButton.innerHTML = 'PUSH THIS BUTTON TO RESET';
+        } else if (myCounter > 5) {
+            myHeadingTwo.innerHTML = '&laquo; PUSH THE BUTTON NOW! &raquo;';
+            myButton.innerHTML = 'PUSH THIS BUTTON';
+        } else if (myCounter > 3) {
+            myHeadingTwo.innerHTML = '&laquo; PUSH THE BUTTON! &raquo;';
+            myButton.innerHTML = 'PUSH THIS BUTTON';
+        } else if (myCounter > 1) {
+            myHeadingTwo.innerHTML = '&laquo; PUSH IT!!!! &raquo;';
+            myButton.innerHTML = 'PUSH THIS BUTTON';
+        } else if (myCounter === 0) {
+            explosion();
+        } else {
+
+        }
+    }
+
+    function countDown() {
+        myCounter--;
+        changeMessage(myCounter);
+    }
+    // responds to myButton click
+    function myButtonClicked() {
+        myCounter = 108;
+        myButton.innerHTML = 'YOU MAY PUSH THIS BUTTON TO RESET';
+        myButton.removeEventListener('click', myButtonClicked, false);
+        myButton.addEventListener('click', myButtonReset, false);
+        intervalHandler = setInterval(countDown, 100);
+    }
+
+    function myButtonReset() {
+        firstTime = false;
+        myCounter = 108;
+        clearInterval(intervalHandler);
+        myHeading.innerHTML = '' + myCounter;
+        myButton.innerHTML = 'You Are Condemned To Pressing Reset';
+        myHeadingTwo.innerHTML = '&laquo; There Is No Stopping &raquo;';
+        intervalHandler = setInterval(countDown, 100);
+    }
+
+    // entry point
+    myButton.addEventListener('click', myButtonClicked, false);
+
+</script>
+</body>
+</html>

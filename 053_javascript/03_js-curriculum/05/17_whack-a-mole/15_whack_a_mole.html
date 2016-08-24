@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Whack-A-President</title>
+    <link rel="stylesheet" href="15_css_reset.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(53, 126, 189, 1);
+        }
+
+        .countdown {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30em;
+            color: #cecece;
+        }
+
+        main {
+            margin: 0 auto;
+            transition: opacity 1.5s;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: #896d3d;
+        }
+
+        .picker {
+            margin: 10px;
+        }
+
+        h1 {
+            font-size: 6em;
+            color: #f5f5f5;
+            margin: 0 0 15px 0;
+        }
+
+        h2 {
+            font-size: 3em;
+            color: #dadada;
+        }
+
+    </style>
+</head>
+<body>
+
+<main></main>
+
+<script>
+
+    // variables - global
+    var myMain = document.querySelector('main');
+    var myBody = document.querySelector('body');
+    var audioPlayer = document.createElement('audio');
+    audioPlayer.loop = 'true';
+    myBody.appendChild(audioPlayer);
+    var myMoleImg;
+    var chosenBox;
+    var previousID = 999;
+    var intervalHandler;
+    var presidentContainer;
+    var gameCountdownNumber = 3;
+    var timesThrough;
+
+    // audio play audio
+    function playAudio() {
+//        audioPlayer.src = 'audio/bushw_solve.ogg';
+        if (myMoleImg == '15_imgs/george-w-bush.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/bushw_solve.ogg';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/bushw_propaganda.ogg';
+            } else {
+                audioPlayer.src = 'audio/bushw_politics.ogg';
+            }
+        }
+        else if (myMoleImg == '15_imgs/barack-obama.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/0_1.mp3';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/0_2.mp3';
+            } else {
+                audioPlayer.src = 'audio/0_3.mp3';
+            }
+        }
+        else if (myMoleImg == '15_imgs/arnold-schwarzenegger.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/schwarzenegger_girlie-men.ogg';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/schwarzenegger05.ogg';
+            } else {
+                audioPlayer.src = 'audio/schwarzenegger04.ogg';
+            }
+        }
+        else if (myMoleImg == '15_imgs/kermit-the-frog.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/kermit_kermit1.ogg';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/kermit_muppet.ogg';
+            } else {
+                audioPlayer.src = 'audio/kermit_kitchen.ogg';
+            }
+        }
+        else if (myMoleImg == '15_imgs/ronald-reagan.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/reagan_bomb_x.ogg';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/reagan_make_day2.ogg';
+            } else {
+                audioPlayer.src = 'audio/reagan_best_days.ogg';
+            }
+        }
+        else if (myMoleImg == '15_imgs/bill-clinton.jpg') {
+            if (timesThrough == 0) {
+                audioPlayer.src = 'audio/clinton_1992_dope.ogg';
+            } else if (timesThrough == 1) {
+                audioPlayer.src = 'audio/clinton_19980126_did_not.ogg';
+            } else {
+                audioPlayer.src = 'audio/clinton_1992_explanation.ogg';
+            }
+        }
+        audioPlayer.play();
+    }
+
+    // president picker
+    var presidents = [
+        '15_imgs/george-w-bush.jpg',
+        '15_imgs/barack-obama.jpg',
+        '15_imgs/arnold-schwarzenegger.jpg',
+        '15_imgs/kermit-the-frog.jpg',
+        '15_imgs/ronald-reagan.jpg',
+        '15_imgs/bill-clinton.jpg'
+
+    ];
+    // president picker
+    function presidentPicker() {
+        timesThrough = 0;
+        var myHeader = document.createElement('header');
+        var mySection = document.createElement('section');
+        var myFooter = document.createElement('footer');
+        myHeader.className = 'row';
+        mySection.className = 'row president';
+        myFooter.className = 'row';
+        // append to header
+        var myHeadingOne = document.createElement('h1');
+        var myHeadingOneText = document.createTextNode('Whack-A-President');
+        myHeadingOne.appendChild(myHeadingOneText);
+        myHeader.appendChild(myHeadingOne);
+        // append to section
+        for (var i = 0; i < presidents.length; i++) {
+            var myInnerDiv = document.createElement('div');
+            myInnerDiv.className = 'box picker';
+            var myInnerImg = document.createElement('img');
+            myInnerImg.src = presidents[i];
+            myInnerImg.id = presidents[i];
+            myInnerDiv.appendChild(myInnerImg);
+            mySection.appendChild(myInnerDiv)
+        }
+        // append to footer
+        var myHeadingTwo = document.createElement('h2');
+        var myHeadingTwoText = document.createTextNode('Choose a President');
+        myHeadingTwo.appendChild(myHeadingTwoText);
+        myFooter.appendChild(myHeadingTwo);
+        // append to main
+        myMain.appendChild(myHeader);
+        myMain.appendChild(mySection);
+        myMain.appendChild(myFooter);
+        addListener();
+    }
+    // president picker
+    var playingGame = false;
+    if (!playingGame) {
+        presidentPicker();
+    }
+    // president picker
+    function addListener() {
+        presidentContainer = document.querySelector('.president');
+        presidentContainer.addEventListener('click', fadeOutChooser, false);
+    }
+    // president picker
+    function fadeOutChooser(e) {
+        console.log(e.target.id);
+        myMoleImg = e.target.id;
+        console.log(myMoleImg);
+        myMain.style.opacity = 0;
+        presidentContainer.removeEventListener('click', fadeOutChooser, false);
+        setTimeout(removePresidentPicker, 1520);
+        playingGame = true;
+    }
+    // president picker - FADE OUT
+    function removePresidentPicker() {
+        var myHeader = document.querySelector('header');
+        var mySection = document.querySelector('section');
+        var myFooter = document.querySelector('footer');
+        console.log(myHeader);
+        console.log(mySection);
+        console.log(myFooter);
+        myMain.removeChild(myHeader);
+        myMain.removeChild(mySection);
+        myMain.removeChild(myFooter);
+        buildGame();
+        myMain.style.opacity = 1;
+    }
+
+    // game - build
+    function buildGame() {
+        var divIdCounter = 0;
+        for (var i = 0; i < 3; i++) {
+            var myDiv = document.createElement('div');
+            myDiv.className = 'row';
+            for (var j = 0; j < 3; j++) {
+                myInnerDiv = document.createElement('div');
+                myInnerDiv.className = 'box';
+                myInnerDiv.id = 'box-' + ++divIdCounter;
+                myDiv.appendChild(myInnerDiv);
+            }
+            myMain.appendChild(myDiv);
+        }
+        setTimeout(gameCountDown, 700);
+    }
+    // game - countdown
+    function gameCountDown() {
+        var myCountdownDiv = document.createElement('div');
+        myCountdownDiv.className = 'countdown';
+        myBody.appendChild(myCountdownDiv);
+        intervalHandler = setInterval(function () {
+            if (gameCountdownNumber === 0) {
+                gameCountdownNumber = 3;
+                myCountdownDiv.parentNode.removeChild(myCountdownDiv);
+                clearInterval(intervalHandler);
+                console.log('just before RUN GAME');
+                gameStarter();
+            } else {
+                myCountdownDiv.innerHTML = '' + gameCountdownNumber;
+                gameCountdownNumber--;
+            }
+            console.log(gameCountdownNumber);
+        }, 600);
+    }
+
+    // game - starter
+    function gameStarter() {
+        playAudio();
+        runGame();
+    }
+    // game - run
+    function runGame() {
+        // clear previous img and event listener
+        if (previousID != 999) {
+            chosenBox.removeEventListener('click', youWon, false);
+            chosenBox.style.background = "#896d3d URL('') no-repeat center center";
+        }
+        // show image
+        var allBoxes = document.querySelectorAll('.box');
+        var randomBoxID = '#box-' + Math.ceil(Math.random() * allBoxes.length);
+        while (previousID == randomBoxID) {
+            randomBoxID = '#box-' + Math.ceil(Math.random() * allBoxes.length)
+        }
+        chosenBox = document.querySelector(randomBoxID);
+        chosenBox.style.background = "URL('" + myMoleImg + "') no-repeat center center";
+        intervalHandler = setTimeout(runGame, ((Math.random() * 400) + 300));
+        previousID = randomBoxID;
+        chosenBox.addEventListener('click', youWon, false);
+    }
+
+    function youWon() {
+        clearTimeout(intervalHandler);
+        chosenBox.removeEventListener('click', youWon, false);
+        chosenBox.style.background = "#896d3d URL('') no-repeat center center";
+        setTimeout(setWinMsg, 10);
+        setTimeout(rmvWinMsg, 500);
+    }
+
+    function setWinMsg() {
+        var winMsg = document.createElement('div');
+        winMsg.className = 'countdown';
+        myBody.appendChild(winMsg);
+        winMsg.innerHTML = 'WIN!';
+    }
+
+    function rmvWinMsg() {
+        if (timesThrough === 2) {
+            var winMsg = document.querySelector('.countdown');
+            winMsg.parentNode.removeChild(winMsg);
+            var myDivs = document.querySelectorAll('div');
+            for (var i = 0; i < myDivs.length; i++) {
+                myDivs[i].parentNode.removeChild(myDivs[i]);
+            }
+            audioPlayer.pause();
+            presidentPicker();
+        } else {
+            var winMsg = document.querySelector('.countdown');
+            winMsg.parentNode.removeChild(winMsg);
+            timesThrough++;
+            gameStarter();
+        }
+
+    }
+
+</script>
+</body>
+</html>

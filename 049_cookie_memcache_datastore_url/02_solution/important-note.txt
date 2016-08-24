@@ -1,0 +1,4 @@
+I am using the standard library's log package for code readability.
+
+In production code, you would want to use:
+google.golang.org/appengine/log

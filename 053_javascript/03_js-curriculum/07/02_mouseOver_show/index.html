@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body, header, nav, img {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: url("img/3.jpeg");
+            background-size: cover;
+            transition: .1s ease;
+        }
+
+        header {
+            display: flex;
+            max-height: 100vh;
+        }
+
+        nav {
+            display: flex;
+            flex-flow: column wrap;
+            /*background: rgba(255,105,80,.2);*/
+            /*border: 2px solid #fff;*/
+        }
+
+        img {
+            margin: 5px;
+            width: 100px;
+            border: 2px solid #fff;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <img src="img/0.jpeg" alt="0"/>
+        <img src="img/1.jpeg" alt="1"/>
+        <img src="img/2.jpeg" alt="2"/>
+        <img src="img/3.jpeg" alt="3"/>
+        <img src="img/4.jpeg" alt="4"/>
+        <img src="img/5.jpeg" alt="5"/>
+        <img src="img/6.jpeg" alt="6"/>
+        <img src="img/7.jpeg" alt="7"/>
+        <img src="img/8.jpeg" alt="8"/>
+        <img src="img/9.jpeg" alt="9"/>
+        <img src="img/10.jpeg" alt="10"/>
+        <img src="img/11.jpeg" alt="11"/>
+        <img src="img/12.jpeg" alt="12"/>
+        <img src="img/13.jpeg" alt="13"/>
+        <img src="img/14.jpeg" alt="14"/>
+    </nav>
+</header>
+<script>
+    document.querySelector('nav').addEventListener('mouseover', function(e) {
+        console.log(e.target.src);
+        var myBody = document.querySelector('body');
+        myBody.style.background = "url('" + e.target.src + "')";
+        myBody.style.backgroundSize = 'cover';
+    }, false);
+</script>
+</body>
+</html>

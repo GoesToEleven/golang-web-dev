@@ -1,0 +1,69 @@
+html, body, h1, form, label, input {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+* {
+    /*border: 4px solid hotpink !important;*/
+}
+
+html, body {
+    height: 100%
+}
+
+html {
+    background-color: #00C957;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    text-align: center;
+    color: rgba(255,255,255,.7);
+    font-size: 10vw;
+    width: 100%;
+}
+
+#entry {
+    width: 70%;
+    font-size: 6vw;
+    text-align: center;
+}
+
+#btn {
+    height: 6vw;
+    width: 24vw;
+    border-radius: 20px;
+    margin: 2vw;
+    background-color: rgb(244, 194, 13);
+    font-size: 3vw;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.4);
+}
+
+#btn:hover {
+    color: rgb(0,0,0);
+}
+
+h1 {
+    text-align: center;
+    color: rgba(244, 194, 13, .9);
+    font-size: 6vw;
+    width: 100%;
+}
+

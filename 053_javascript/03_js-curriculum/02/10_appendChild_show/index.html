@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="item"></div>
+<script>
+    var myNode = document.querySelector('.item');
+    var images = [
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080',
+        'https://www.fillmurray.com/1920/1080'
+    ];
+
+    var sayings = [
+        'Explode',
+        'Live life',
+        'Charge',
+        'Beat The Odds',
+        'Full Throttle',
+        'Take It',
+        'Just Do It',
+        'No Complaining',
+        'Rocky Style',
+        'I Was Here',
+        'Tomorrow Never Comes',
+        'Live Before You Die',
+        'Maximum Overdrive',
+        'Full Octane',
+        'When You Are Young',
+        'The Brave Never Die',
+        'Italian Food',
+        'Sushi',
+        'Samurai Bushido',
+        'Hell Yeah',
+    ];
+
+    for (var i = 0; i < images.length; i++) {
+        var myDiv = document.createElement('div');
+        myDiv.style.position = 'relative';
+        myNode.appendChild(myDiv);
+        var myElement = document.createElement('img');
+        myElement.style.position = 'relative';
+        myElement.style.display = 'block';
+        myElement.src = images[i];
+        myElement.alt = 'sports image' + i;
+        myDiv.appendChild(myElement);
+        var justSaying = document.createElement('p');
+        justSaying.innerHTML = sayings[i];
+        justSaying.style.position = 'absolute';
+        justSaying.style.top = (i * 40) + 'px';
+        justSaying.style.right = (i * 12) + 'px';
+        justSaying.style.fontSize = '14em';
+//        justSaying.style.color = 'rgba(' + (12.5*i) + ',' + (12.5*i) + ',' + (12.5*i) + ',' + (.5*i) + ')';
+        justSaying.style.color = 'red';
+        justSaying.style.opacity = '.75';
+        myDiv.appendChild(justSaying);
+    }
+
+</script>
+</body>
+</html>

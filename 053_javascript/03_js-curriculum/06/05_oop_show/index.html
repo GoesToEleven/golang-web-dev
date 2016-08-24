@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function vehicle(name, model, price) {
+        this.name = name;
+        this.model = model;
+        this.price = price;
+        this.fun = function () {
+            console.log(this.name, this.model, this.price, ' is my car');
+        };
+    }
+
+    var cars = [
+        new vehicle('bmw', '528i xDrive', 53000),
+        new vehicle('toyota', 'tacoma', 32000),
+        new vehicle('porsche', 'carerra', 93000)
+    ];
+
+    for (var i = 0; i < cars.length; i++) {
+        cars[i].fun();
+    }
+
+    console.log(cars[1].model);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //    create object
+    var myObj = {
+        name: 'John Doe',
+        speak: 'Hello world',
+        age: 32,
+        numbers: [3, 5, 7, 9],
+        relatives: {
+            mom: 'Jan',
+            dad: 'John Sr.'
+        }
+    };
+
+    // we will pass an object to this function
+    // even though parameters aren't specified
+    // we can access any arguments passed in with ARGUMENTS array
+    var acceptsObj = (function () {
+        return {
+            speak: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.say || '';
+                console.log(statement);
+            },
+            name: function () {
+                var myArguments = arguments[0] || '';
+                var statement = myArguments.name || '';
+                console.log(statement);
+            }
+        };
+    })();
+
+    acceptsObj.speak();
+    acceptsObj.speak({say: 'howdy'});
+    acceptsObj.speak(myObj);
+    acceptsObj.name();
+    acceptsObj.name(myObj);
+
+</script>
+</body>
+</html>

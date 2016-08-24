@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    // function that returns an ANONYMOUS object
+    function returnsObj() {
+        return {
+            name: 'John Doe',
+            speak: function speak() {
+                console.log('speak');
+            },
+            sit: function sit() {
+                console.log('sit');
+            },
+            jump: function jump() {
+                console.log('jump');
+            }
+        };
+    }
+
+    var tryIt = returnsObj();
+    var tryAgain = returnsObj();
+    tryAgain.name = 'Jane';
+
+    // encapsulation means you have one container
+    // with variables & methods scoped to that one container
+
+    console.log(tryIt.name);
+    console.log(tryAgain.name);
+
+</script>
+</body>
+</html>

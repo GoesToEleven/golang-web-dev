@@ -1,0 +1,29 @@
+{{define "header"}}<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Information</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href="/public/main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="outer-container">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/new-movie">New Movie</a></li>
+          </ul>
+        </nav>
+        <h1>Movie Information</h1>
+      </header>
+      <div class="body">
+{{end}}
+
+{{define "footer"}}
+      </div>
+    </div>
+  </body>
+</html>
+{{end}}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            border: 1px solid red !important;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #cecece;
+            height: 5em;
+        }
+
+        ul {
+            height: 100%;
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            padding: 10px;
+        }
+
+        li {
+            height: 100%;
+            display: flex;
+            /*justify-content: center;*/
+            align-items: center;
+            /*align-content: center;*/
+            /*padding: 10px;*/
+        }
+
+        a {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        li:hover {
+            background-color: #2ec371;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <p>Acme Co</p>
+
+    <ul id="myList"></ul>
+</header>
+<script>
+
+    var myNav = [
+        'Info 001', '#',
+        'Info 002', '#',
+        'Info 003', '#',
+        'Info 004', '#'
+    ];
+
+    var myList = document.querySelector('#myList');
+
+//    <li><a id="1" href="#">Info 001</a></li>
+        var counter = 1;
+    for (var i = 0; i < myNav.length; i++) {
+        var myListItem = document.createElement('li');
+        var myAnchor = document.createElement('a');
+        myAnchor.innerHTML = myNav[i];
+        myAnchor.id = counter;
+        console.log(myAnchor.id);
+        counter++;
+        i++;
+        myAnchor.href = myNav[i];
+        myListItem.appendChild(myAnchor);
+        myList.appendChild(myListItem);
+    }
+//
+//    function popUp(event) {
+//        if (event.target.id == '1') {
+//            alert('you clicked info 001');
+//        } else if (event.target.id == '2') {
+//            alert('you clicked info 002');
+//        } else if (event.target.id == '3') {
+//            alert('you clicked info 003');
+//        } else if (event.target.id == '4') {
+//            alert('you clicked info 004');
+//        } else {
+//            alert('not sure what you clicked');
+//        }
+//    }
+//
+//    var myListItems = document.querySelectorAll('li');
+//    for (var i = 0; i < myListItems.length; i++) {
+//        myListItems[i].addEventListener('click', popUp, false);
+//    }
+
+
+    function popUp(event) {
+        if (event.target.id == '1') {
+            alert('you clicked info 001');
+        } else if (event.target.id == '2') {
+            alert('you clicked info 002');
+        } else if (event.target.id == '3') {
+            alert('you clicked info 003');
+        } else if (event.target.id == '4') {
+            alert('you clicked info 004');
+        } else {
+            alert('not sure what you clicked');
+        }
+    }
+
+    myList.addEventListener('click', popUp, false);
+
+</script>
+</body>
+</html>

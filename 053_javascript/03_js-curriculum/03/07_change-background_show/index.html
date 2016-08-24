@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html {
+            background-image: url('img/0.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            transition: all 2s;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    // load images into an array
+    var backgrounds = new Array();
+    function loadArray() {
+
+        for (var i = 0; i < 72; i++) {
+            backgrounds.push(`img/` + i + '.jpeg');
+        }
+
+        console.log(backgrounds);
+        console.log('--------------------------------');
+
+        // preload hack
+        function preload() {
+            var images = new Array();
+            for (i = 0; i < backgrounds.length; i++) {
+                images[i] = new Image();
+                images[i].src = backgrounds[i];
+            }
+        }
+        preload();
+    }
+
+    loadArray();
+
+    var intervalID = window.setInterval(myCallback, 4000);
+
+    function myCallback() {
+        var node = document.querySelector('html');
+        var backgroundIndex = Math.floor(Math.random() * backgrounds.length);
+        node.style.transition = 'all 2s';
+        node.style.backgroundImage = 'url(' + backgrounds[backgroundIndex] + ')';
+
+        console.log('Index position' + backgroundIndex);
+        console.log('Image shown' + backgrounds[backgroundIndex]);
+
+        // remove picture from array
+        backgrounds.splice(backgroundIndex, 1);
+        console.log('Array Length: ' + backgrounds.length);
+        if (backgrounds.length === 0) {
+            loadArray();
+        }
+        console.log('--------------------------------');
+    }
+
+</script>
+</body>
+</html>

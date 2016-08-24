@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            background: #22a7f0;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+            border: 10px solid darkslategray;
+        }
+
+        div:hover {
+            opacity: .5;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="my1"></div>
+<div id="my2"></div>
+<div id="my3"></div>
+<div id="my4"></div>
+<div id="my5"></div>
+
+<script>
+
+    var one = document.querySelector('#my1');
+    var two = document.querySelector('#my2');
+    var three = document.querySelector('#my3');
+    var four = document.querySelector('#my4');
+    var five = document.querySelector('#my5');
+    var myBody = document.querySelector('body');
+
+    // set css background
+    one.style.backgroundColor = '#f00';
+    two.style.backgroundColor = '#0f0';
+    three.style.backgroundColor = '#00f';
+    four.style.backgroundColor = '#fff';
+    five.style.backgroundColor = '#000';
+
+    myBody.addEventListener('click', changeColor, false);
+
+    function changeColor(e) {
+        console.log(e.target);
+        console.dir(e.target);
+        console.dir(e.target.style.backgroundColor);
+        myBody.style.backgroundColor = e.target.style.backgroundColor;
+    }
+
+</script>
+</body>
+</html>

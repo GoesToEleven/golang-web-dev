@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //    variables
+    var customer = {
+        name: 'Todd',
+        cart: ['Toothpaste', 'Apples', 'Bananas', 'Coffee'],
+        comments: ['nice', 'good', 'happy']
+    };
+
+    //    functions
+    function arrayPrinter(anArray) {
+        for (var i = 0; i < anArray.length; i++) {
+            console.log(anArray[i]);
+        }
+    }
+
+    function printObject(obj) {
+        for (var i in obj) {
+            console.log(obj[i]);
+            if (typeof obj[i] == 'object') {
+                arrayPrinter(obj[i]);
+                console.log('---------arrayPrinter ran inside printObject---------');
+            }
+        }
+    }
+
+    console.log('*******************');
+    console.log('running printObject');
+    console.log('*******************');
+    printObject(customer);
+    console.log('------------------------------------------------------------');
+
+    function printRecursive(obj) {
+        for (var i in obj) {
+            if (typeof obj[i] === 'object') {
+                printRecursive(obj[i]);
+            } else {
+                console.log(obj[i]);
+            }
+        }
+    }
+
+    console.log('*******************');
+    console.log('running printRecursive');
+    console.log('*******************');
+    printRecursive(customer);
+</script>
+</body>
+</html>

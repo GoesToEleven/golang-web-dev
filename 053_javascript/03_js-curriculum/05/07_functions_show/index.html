@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //    called function
+    function callMe() {
+        console.log('I was called');
+    }
+    callMe();
+
+    // self-executing function
+    // IIFE (Immediately Invoked Function Expression)
+    // a JavaScript function that runs as soon as it is defined
+    (function bootStrapper() {
+        console.log('I executed on my own');
+    })();
+
+    // self-executing ANONYMOUS function
+    (function() {
+        console.log('I am an ANONYMOUS function that executed on my own');
+    })();
+
+    //   I am a CALLED FUNCTION that returns a function (object)
+    function returnsObj() {
+        return (function anotherFunc() {
+            console.log('I was returned');
+        })();
+    }
+
+    returnsObj();
+
+</script>
+</body>
+</html>

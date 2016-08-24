@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300' rel='stylesheet'>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="css/mq_500-less_images.css">
+    <link rel="stylesheet" media="screen and (min-width: 501px)" href="css/mq_501-plus.css">
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="css/mq_900-plus.css">
+</head>
+<body>
+
+<!-- above the fold (atf) -->
+<div id="atf">
+
+    <header>
+        <a href="#" id="logo">The Endless Journey</a>
+        <!-- nav desktop (nd) -->
+        <ul class="nd">
+            <li><a href="#">Sponsors</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Pictures</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </header>
+
+    <div id="hero-img"></div>
+
+    <main>
+        <!-- call to action (cta) -->
+        <section id="cta">
+            <h1 id="cta-txt">Live Your Greatest Adventure</h1>
+            <h2 id="cta-btn"><a href="#">Start Now</a></h2>
+        </section>
+    </main>
+</div>
+
+<!-- below the fold (btf) -->
+
+<!-- images -->
+<section class="btf-images">
+    <!--<img src="photos/0.jpg">
+    <img src="photos/2.jpg">
+    <img src="photos/3.jpg">
+    <img src="photos/4.jpg">
+    <img src="photos/5.jpg">
+    <img src="photos/6.jpg">
+    <img src="photos/7.jpg">
+    <img src="photos/8.jpg">
+    <img src="photos/10.jpg">
+    <img src="photos/11.jpg">
+    <img src="photos/12.jpg">
+    <img src="photos/13.jpg">
+    <img src="photos/14.jpg">
+    <img src="photos/15.jpg">
+    <img src="photos/16.jpg">
+    <img src="photos/17.jpg">
+    <img src="photos/18.jpg">
+    <img src="photos/19.jpg">
+    <img src="photos/20.jpg">
+    <img src="photos/21.jpg">
+    <img src="photos/22.jpg">
+    <img src="photos/23.jpg">
+    <img src="photos/24.jpg">-->
+    <!--TODO: SHOW TO CLASS Very nice!-->
+    {{ range $user, $photos := . }}
+        {{ range $photos }}
+            <figure>
+                <img src={{.}}>
+                <figcaption>{{ $user }}'s image</figcaption>
+            </figure>
+        {{ end }}
+    {{ end }}
+</section>
+
+<!-- articles -->
+<section class="btf-articles">
+    <article>
+        <h3>This Is Interesting</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+
+    <article>
+        <h3>The Greatest Meal</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+
+    <article>
+        <h3>My Summer Vacation</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+
+    <article>
+        <h3>Things You Should Know</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+
+    <article>
+        <h3>The Secret</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+
+    <article>
+        <h3>Tomorrow's Journey</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam autem consectetur cum delectus doloribus, in nulla provident quasi similique ullam? Adipisci aliquam at dolores eum iusto minima placeat sed voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam laudantium maiores maxime molestiae veritatis voluptas voluptatem. Aperiam asperiores at consequatur dignissimos, dolores ducimus, itaque labore magni maiores quam quod rem. <small>
+            <a href="#">read more ...</a></small></p>
+    </article>
+</section>
+
+<!-- footer -->
+    <!-- nav mobile (nm) -->
+<ul class="nm">
+    <li><a href="#">Sponsors</a></li>
+    <li><a href="#">Music</a></li>
+    <li><a href="#">Pictures</a></li>
+    <li><a href="#">Map</a></li>
+    <li><a href="#">Blog</a></li>
+</ul>
+
+<footer>
+<p>Copyright &copy; www.freakingawesome.com 2016 · Website Created by Todd McLeod</p>
+</footer>
+
+</body>
+</html>

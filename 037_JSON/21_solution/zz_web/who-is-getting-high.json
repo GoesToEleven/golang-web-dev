@@ -1,0 +1,426 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "7wau-rnkf",
+      "name" : "Medical Marijuana Statistics - County Information",
+      "attribution" : "Colorado Department of Public Health & Environment",
+      "attributionLink" : "http://www.colorado.gov/cs/Satellite/CDPHE-CHEIS/CBON/1251593017044",
+      "averageRating" : 0,
+      "category" : "Health",
+      "createdAt" : 1394744995,
+      "description" : "Medical Marijuana Registry Program Update by County as of January 31, 2014",
+      "displayType" : "table",
+      "downloadCount" : 797,
+      "indexUpdatedAt" : 1414539255,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 8178240,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1402326629,
+      "publicationGroup" : 1509051,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1402326555,
+      "rowsUpdatedBy" : "xksg-xhsw",
+      "tableId" : 1610819,
+      "totalTimesRated" : 0,
+      "viewCount" : 368,
+      "viewLastModified" : 1405370392,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 152072187,
+        "name" : "County",
+        "dataTypeName" : "text",
+        "fieldName" : "county",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 18617748,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 64,
+          "smallest" : "Adams",
+          "null" : 0,
+          "largest" : "Yuma",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Moffat"
+          }, {
+            "count" : 19,
+            "item" : "Nontezuma"
+          }, {
+            "count" : 18,
+            "item" : "Montrose"
+          }, {
+            "count" : 17,
+            "item" : "Morgan"
+          }, {
+            "count" : 16,
+            "item" : "Otero"
+          }, {
+            "count" : 15,
+            "item" : "Oura"
+          }, {
+            "count" : 14,
+            "item" : "Park"
+          }, {
+            "count" : 13,
+            "item" : "Phillips"
+          }, {
+            "count" : 12,
+            "item" : "Pitkin"
+          }, {
+            "count" : 11,
+            "item" : "Prowers"
+          }, {
+            "count" : 10,
+            "item" : "Pueblo"
+          }, {
+            "count" : 9,
+            "item" : "Rio Blanco"
+          }, {
+            "count" : 8,
+            "item" : "Rio Grande"
+          }, {
+            "count" : 7,
+            "item" : "Routt"
+          }, {
+            "count" : 6,
+            "item" : "Saguache"
+          }, {
+            "count" : 5,
+            "item" : "San Juan"
+          }, {
+            "count" : 4,
+            "item" : "San Miguel"
+          }, {
+            "count" : 3,
+            "item" : "Sedgwick"
+          }, {
+            "count" : 2,
+            "item" : "Summit"
+          }, {
+            "count" : 1,
+            "item" : "Teller"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 152072188,
+        "name" : "Number of Patients",
+        "dataTypeName" : "number",
+        "fieldName" : "number_of_patients",
+        "position" : 3,
+        "renderTypeName" : "number",
+        "tableColumnId" : 18617749,
+        "width" : 316,
+        "cachedContents" : {
+          "non_null" : 64,
+          "smallest" : "14",
+          "sum" : "111031",
+          "null" : 0,
+          "average" : "1734.859375",
+          "largest" : "19582",
+          "top" : [ {
+            "count" : 20,
+            "item" : "204"
+          }, {
+            "count" : 19,
+            "item" : "636"
+          }, {
+            "count" : 18,
+            "item" : "549"
+          }, {
+            "count" : 17,
+            "item" : "191"
+          }, {
+            "count" : 16,
+            "item" : "270"
+          }, {
+            "count" : 15,
+            "item" : "151"
+          }, {
+            "count" : 14,
+            "item" : "651"
+          }, {
+            "count" : 13,
+            "item" : "25"
+          }, {
+            "count" : 12,
+            "item" : "632"
+          }, {
+            "count" : 11,
+            "item" : "113"
+          }, {
+            "count" : 10,
+            "item" : "2757"
+          }, {
+            "count" : 9,
+            "item" : "55"
+          }, {
+            "count" : 8,
+            "item" : "132"
+          }, {
+            "count" : 7,
+            "item" : "802"
+          }, {
+            "count" : 6,
+            "item" : "166"
+          }, {
+            "count" : 5,
+            "item" : "19"
+          }, {
+            "count" : 4,
+            "item" : "264"
+          }, {
+            "count" : 3,
+            "item" : "34"
+          }, {
+            "count" : 2,
+            "item" : "951"
+          }, {
+            "count" : 1,
+            "item" : "866"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 152072189,
+        "name" : "Percent of Patients",
+        "dataTypeName" : "percent",
+        "fieldName" : "percent_of_patients",
+        "position" : 4,
+        "renderTypeName" : "percent",
+        "tableColumnId" : 18617750,
+        "width" : 328,
+        "cachedContents" : {
+          "non_null" : 22,
+          "smallest" : "1",
+          "sum" : "95",
+          "null" : 42,
+          "average" : "4.318181818181818",
+          "largest" : "18",
+          "top" : [ {
+            "count" : 20,
+            "item" : "8"
+          }, {
+            "count" : 19,
+            "item" : "11"
+          }, {
+            "count" : 18,
+            "item" : "1"
+          }, {
+            "count" : 17,
+            "item" : "18"
+          }, {
+            "count" : 16,
+            "item" : "3"
+          }, {
+            "count" : 15,
+            "item" : "14"
+          }, {
+            "count" : 14,
+            "item" : "4"
+          }, {
+            "count" : 13,
+            "item" : "2"
+          } ]
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Geospatial" : {
+            "Horizontal Coordinate System" : "",
+            "Collection Method" : "",
+            "Horizontal Accuracy" : ""
+          },
+          "Data Description" : {
+            "Data Collection Instrument" : "",
+            "Collection Mode" : ""
+          },
+          "Additional Dataset Documentation" : {
+            "Data Dictionary" : "",
+            "Additional Metadata" : "",
+            "Technical Documentation" : ""
+          },
+          "Dataset Coverage" : {
+            "Geographic Coverage" : "",
+            "Granularity" : "",
+            "Unit of Analysis" : ""
+          },
+          "Contributing Agency Information" : {
+            "Agency Data Series Page" : "",
+            "Agency Program Page" : "",
+            "Citation" : ""
+          },
+          "Data Quality" : {
+            "Data Quality Certification" : "",
+            "Stewardship Plan" : "",
+            "Applicable Information Quality Guideline Designation" : ""
+          },
+          "Flood 2013" : {
+            "Content type" : ""
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0"
+      },
+      "owner" : {
+        "id" : "xksg-xhsw",
+        "displayName" : "April Broome",
+        "roleName" : "administrator",
+        "screenName" : "April Broome",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "xksg-xhsw",
+        "displayName" : "April Broome",
+        "roleName" : "administrator",
+        "screenName" : "April Broome",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "colorado department of public health & environment", "medical marijuana", "patients", "registry" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 1, "68F11DED-A370-4845-950D-FE78056583E2", 1, 1394744997, "860506", 1394744997, "860506", "{\n}", "Adams", "8772", "8" ]
+, [ 2, "CF48D021-E473-4D51-B03D-74F6226F028D", 2, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Alamosa", "204", null ]
+, [ 3, "E8293C9C-BE6E-4B2F-8EB8-5F33BA9D02E0", 3, 1394744997, "860506", 1394744997, "860506", "{\n}", "Arapahoe", "11985", "11" ]
+, [ 4, "17DC92B3-0577-4008-85B4-BC252644FECB", 4, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Archuleta", "378", null ]
+, [ 5, "0505510A-F16C-45E0-A769-2604867836C3", 5, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Baca", "35", null ]
+, [ 6, "6492EED7-9692-4D83-8356-D787FCC36E90", 6, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Bent", "73", null ]
+, [ 7, "ED45E6B9-E5AA-4924-B061-4EC6F170A2F6", 7, 1394744997, "860506", 1394744997, "860506", "{\n}", "Boulder", "8939", "8" ]
+, [ 8, "646741E6-E704-40C9-B14E-4577BCF37711", 8, 1394744997, "860506", 1394744997, "860506", "{\n}", "Broomfield", "1127", "1" ]
+, [ 9, "0F13E99F-3816-491A-88E9-EAA53BABD93E", 9, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Chaffee", "511", null ]
+, [ 10, "6A5A24E0-E407-4F9F-BDF1-9B4C6C1BB5AD", 10, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Cheyenne", "28", null ]
+, [ 11, "4B858428-E91C-401F-BBFC-7C96F3304A05", 11, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Clear Creek", "384", null ]
+, [ 12, "D617DCC8-983A-4C8D-81F9-F59BBCE7BD4E", 12, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Conejos", "60", null ]
+, [ 13, "773172D8-F169-4F39-9389-83FE43B9B406", 13, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Costilla", "131", null ]
+, [ 14, "76D02DA9-F638-4144-8DD4-60306BABDF99", 14, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Crowley", "59", null ]
+, [ 15, "35D080E0-3BF6-46FB-81CE-EC715A2E48BA", 15, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Custer", "103", null ]
+, [ 16, "5BA830A6-3ADF-4F12-A219-8609471543D9", 16, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Delta", "449", null ]
+, [ 17, "44C8DE23-F40A-411B-B940-764F0E85DE65", 17, 1394744997, "860506", 1394744997, "860506", "{\n}", "Denver", "19582", "18" ]
+, [ 18, "0C5D3CF8-C1FC-4BB8-B09D-B8EE74EF0449", 18, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Dolores", "67", null ]
+, [ 19, "B0B519F0-EE60-4473-8C11-941BC3C8597D", 19, 1394744997, "860506", 1394744997, "860506", "{\n}", "Douglas", "3596", "3" ]
+, [ 20, "3CBC7A79-ADFF-4396-B5FE-A4F5002D09AD", 20, 1394744997, "860506", 1394744997, "860506", "{\n}", "Eagle", "1102", "1" ]
+, [ 21, "DC570780-68EF-4F77-9D02-637F25B364F9", 21, 1394744997, "860506", 1394744997, "860506", "{\n}", "El Paso", "15328", "14" ]
+, [ 22, "E63D2B59-A6A4-41F8-A9FF-5E32102133F3", 22, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Elbert", "294", null ]
+, [ 23, "C24A2A56-D24C-4BCB-AEED-7FB3E3387F4F", 23, 1394744997, "860506", 1394744997, "860506", "{\n}", "Fremont", "959", "1" ]
+, [ 24, "498B29B0-5981-4C78-B30A-4DC425D741B9", 24, 1394744997, "860506", 1394744997, "860506", "{\n}", "Garfield", "1169", "1" ]
+, [ 25, "9F5424EE-61FA-48B6-B645-42048AD481FB", 25, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Gilpin", "284", null ]
+, [ 26, "54AE7D98-2EF4-4D85-890F-5AEC0AE74A7B", 26, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Grand", "355", null ]
+, [ 27, "6AB5630B-6DF5-42EF-889D-BF3787A97747", 27, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Gunnison", "264", null ]
+, [ 28, "6A3D055E-94FA-4465-9F85-654F5F637D1B", 28, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Hinsdale", "14", null ]
+, [ 29, "26539D91-7531-44CC-BD37-7AB172C09CF1", 29, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Huerfano", "204", null ]
+, [ 30, "F7401D16-34AD-4DE1-A93D-512AC9D3F606", 30, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Jackson", "20", null ]
+, [ 31, "A0654FDC-D601-44B3-96EB-BFD7618FBBEC", 31, 1394744997, "860506", 1394744997, "860506", "{\n}", "Jefferson", "12582", "11" ]
+, [ 32, "89C18096-2E91-4DEE-A555-551715BEA34A", 32, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Kiowa", "24", null ]
+, [ 33, "20EC5343-34A3-43CF-BCC1-0E88C8C4F76E", 33, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Kit carson", "65", null ]
+, [ 34, "781A404D-A199-44D1-BCC3-6C41A4BCC5E5", 34, 1394744997, "860506", 1394744997, "860506", "{\n}", "La Plata", "1620", "1" ]
+, [ 35, "F10C1543-2E4D-4904-9924-35FF603B151C", 35, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Lake", "189", null ]
+, [ 36, "171FBDF2-DCF3-4D3D-B219-30A64A192CF4", 36, 1394744997, "860506", 1394744997, "860506", "{\n}", "Larimer", "4785", "4" ]
+, [ 37, "CD5A8CF0-5661-4409-A569-AE31CDF934E8", 37, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Las Animas", "199", null ]
+, [ 38, "0FE07C06-A5B6-47F2-B636-E42952D65AC0", 38, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Linconln", "56", null ]
+, [ 39, "60DE743C-FF43-4E96-A200-375CD83EB3C8", 39, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Logan", "193", null ]
+, [ 40, "CC4C57CD-8C5B-4E53-B8D2-2E2B9F301631", 40, 1394744997, "860506", 1394744997, "860506", "{\n}", "Mesa", "1755", "2" ]
+, [ 41, "AEBF788C-9C99-4FB1-9D91-B4F43ECEBA16", 41, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Mineral", "17", null ]
+, [ 42, "11E25A39-6901-46CA-B993-44475E967478", 42, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Moffat", "169", null ]
+, [ 43, "4D39C306-C1FD-4B8B-A1E0-40253C792DC3", 43, 1394744997, "860506", 1394744997, "860506", "{\n}", "Nontezuma", "636", "1" ]
+, [ 44, "37FF999C-09B7-4424-9F20-1B1D184033FE", 44, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Montrose", "549", null ]
+, [ 45, "E14F4CBD-6D0D-43FF-A77F-D47CF70C97DE", 45, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Morgan", "191", null ]
+, [ 46, "5BCC5F21-89BE-4D77-9B20-03883C87E4CE", 46, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Otero", "270", null ]
+, [ 47, "E225745F-549E-4C4F-9A7B-AF8E50AC2DA5", 47, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Oura", "151", null ]
+, [ 48, "EF48F218-1853-48B8-9823-9F8DECF2E8AF", 48, 1394744997, "860506", 1394744997, "860506", "{\n}", "Park", "651", "1" ]
+, [ 49, "D9272B58-EAB5-4A35-B884-5EDDE95CCF27", 49, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Phillips", "25", null ]
+, [ 50, "86415276-80E7-4BEB-AB41-B40E402F52AC", 50, 1394744997, "860506", 1394744997, "860506", "{\n}", "Pitkin", "632", "1" ]
+, [ 51, "E110BB53-1B40-444E-9558-9D06B65A13D3", 51, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Prowers", "113", null ]
+, [ 52, "B9BC170A-7C79-4369-9128-27BF442A0613", 52, 1394744997, "860506", 1394744997, "860506", "{\n}", "Pueblo", "2757", "2" ]
+, [ 53, "6A7E564E-DFC8-46E6-9BEF-C481337B5941", 53, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Rio Blanco", "55", null ]
+, [ 54, "D65AC9C2-08CB-4421-B93A-A62E62D8E9A7", 54, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Rio Grande", "132", null ]
+, [ 55, "60F7BA60-A7A5-418D-B17E-E69F3FA188EC", 55, 1394744997, "860506", 1394744997, "860506", "{\n}", "Routt", "802", "1" ]
+, [ 56, "6860D5F1-FE15-4CFC-8C2F-3D62C69272E8", 56, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Saguache", "166", null ]
+, [ 57, "85431121-2991-4128-96CB-D1228E5E8C86", 57, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "San Juan", "19", null ]
+, [ 58, "0F96C924-E539-45FB-BB56-E973DB6CCFC0", 58, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "San Miguel", "264", null ]
+, [ 59, "32D33796-C0CB-4725-A3CB-8342230EB462", 59, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Sedgwick", "34", null ]
+, [ 60, "F0CE95DD-7818-4012-83D0-A2ADF875777B", 60, 1394744997, "860506", 1394744997, "860506", "{\n}", "Summit", "951", "1" ]
+, [ 61, "A85EE4BC-BA7E-4750-9D5E-F84BC15B9F16", 61, 1394744997, "860506", 1394744997, "860506", "{\n}", "Teller", "866", "1" ]
+, [ 62, "05B1F4E3-E395-442C-8524-0515F517BD80", 62, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Washington", "52", null ]
+, [ 63, "6F7E9B13-BF86-4CEE-9B8D-56382C9A78EB", 63, 1394744997, "860506", 1394744997, "860506", "{\n}", "Weld", "3495", "3" ]
+, [ 64, "6011C86B-4474-4123-BFB4-C59DC36599B6", 64, 1394744997, "860506", 1394744997, "860506", "{\n  \"invalidCells\" : {\n    \"18617750\" : \"<1%\"\n  }\n}", "Yuma", "90", null ]
+ ]
+}

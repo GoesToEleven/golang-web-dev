@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .invalid, input:invalid {
+            background: lightpink;
+        }
+
+    </style>
+</head>
+<body>
+
+<form name="myForm">
+    <input name="myInput" type="tel" pattern="^[0-9]{3}\-[0-9]{3}\-[0-9]{4}$">
+    <input name="myButton" type="submit" value="submit">
+</form>
+
+<script>
+    var exampleNode = document.forms.myForm;
+    exampleNode.myButton.addEventListener('click', function (e) {
+        var re5digit = /^[0-9]{3}\-[0-9]{3}\-[0-9]{4}$/;
+        e.preventDefault();
+        if (exampleNode.myInput.value.search(re5digit) === -1) {
+            alert("Enter a phone number 555-555-5555");
+//            exampleNode.myInput.style.color = 'red';
+            exampleNode.myInput.className = 'invalid';
+            var aReminder = document.createElement('p');
+            aReminder.innerHTML = 'Please enter correct info';
+            aReminder.style.color = 'red';
+            exampleNode.appendChild(aReminder);
+            console.log(aReminder);
+        } else {
+            exampleNode.myInput.className = '';
+            if(aReminder) {
+                aReminder.parentNode.removeChild(aReminder);
+            }
+            exampleNode.submit();
+        }
+    })
+</script>
+
+</body>
+</html>

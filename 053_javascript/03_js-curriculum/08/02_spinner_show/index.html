@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="main.css">
+<body>
+
+<img class="preview" src="img/taquitosandcheese_tn.jpg" alt="Taquitos and Cheese">
+<h1>click for larger image</h1>
+<div class="overlay"></div>
+
+<script>
+    document.querySelector('img.preview').addEventListener('click', function (e) {
+        var lowRes = e.target.src;
+        var myOverlay = document.querySelector('.overlay');
+        var highRes = document.createElement('img');
+        var mySpinner = document.createElement('img');
+
+        myOverlay.style.display = 'block';
+        highRes.className = 'bgImg';
+        highRes.src = 'img/taquitosandcheese.jpg';
+        myOverlay.appendChild(highRes);
+
+        mySpinner.className = 'spinner';
+        mySpinner.src = 'img/spinner.gif';
+        myOverlay.appendChild(mySpinner);
+
+        highRes.addEventListener('load', function () {
+            mySpinner.parentNode.removeChild(mySpinner);
+        });
+
+    }, false);
+</script>
+</body>
+</html>

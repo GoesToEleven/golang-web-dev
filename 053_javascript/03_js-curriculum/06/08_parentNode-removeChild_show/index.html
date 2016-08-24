@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-sizing: border-box;
+            background: .22a7f0;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+            border: 1px solid black;
+        }
+
+        div:hover {
+            opacity: .5;
+        }
+
+        .my1 {
+            background: #f22613;
+        }
+
+        .my2 {
+            background: #22a7f0;
+        }
+
+        .my3 {
+            background: #2ecc71;
+        }
+
+        .my4 {
+            background: #e87e04;
+        }
+
+        .my5 {
+            background: #6C7A89;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="my1">0</div>
+<div class="my2">1</div>
+<div class="my3">2</div>
+<div class="my4">3</div>
+<div class="my5">4</div>
+<div class="my1">5</div>
+<div class="my2">6</div>
+<div class="my3">7</div>
+<div class="my4">8</div>
+<div class="my5">9</div>
+<div class="my1">10</div>
+<div class="my2">11</div>
+<div class="my3">12</div>
+<div class="my4">13</div>
+<div class="my5">14</div>
+<div class="my1">15</div>
+<div class="my2">16</div>
+<div class="my3">17</div>
+<div class="my4">18</div>
+<div class="my5">19</div>
+<div class="my1">20</div>
+
+
+</body>
+<script>
+
+    setInterval(function() {
+        nodes = document.querySelectorAll('div');
+        console.log('removing', nodes[0]);
+        nodes[0].parentNode.removeChild(nodes[0]);
+    }, 1000);
+
+</script>
+</html>

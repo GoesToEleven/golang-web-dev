@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: flex;
+            flex-flow: wrap;
+            justify-content: center;
+        }
+
+        .square {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        #gray {
+            background-color: gray;
+            border-radius: 3%;
+        }
+
+        #pink {
+            background-color: pink;
+            border-radius: 20%;
+        }
+
+        #blue {
+            background-color: blue;
+            border-radius: 50%;
+            border: 8px solid deeppink;
+        }
+    </style>
+</head>
+<body>
+
+<section id="container">
+    <div class="square" id="gray">01</div>
+    <div class="square" id="gray">02</div>
+    <div class="square" id="gray">03</div>
+    <div class="square" id="gray">04</div>
+    <div class="square" id="gray">05</div>
+    <div class="square" id="gray">06</div>
+    <div class="square" id="gray">07</div>
+    <div class="square" id="gray">08</div>
+    <div class="square" id="gray">09</div>
+    <div class="square" id="gray">10</div>
+    <div class="square" id="gray">11</div>
+    <div class="square" id="gray">12</div>
+</section>
+
+<script>
+    var myDivs = document.querySelectorAll('div');
+
+    function changeColor(event) {
+        if (event.target.id == 'gray') {
+            event.target.id = 'pink';
+        } else if (event.target.id == 'pink') {
+            event.target.id = 'blue';
+        } else {
+            event.target.id = 'gray';
+        }
+    }
+
+    for (var i = 0; i < myDivs.length; i++) {
+        myDivs[i].addEventListener('click', changeColor, false);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .hover:hover {
+            opacity: .60;
+            width: 240px;
+            height: 240px;
+        }
+    </style>
+</head>
+<body>
+<div class="item"></div>
+<script>
+    var myNode = document.querySelector('.item');
+    var images = [
+        'http://lorempixel.com/120/120/sports/1/',
+        'http://lorempixel.com/120/120/sports/2/',
+        'http://lorempixel.com/120/120/sports/3/',
+        'http://lorempixel.com/120/120/sports/4/',
+        'http://lorempixel.com/120/120/sports/5/',
+        'http://lorempixel.com/120/120/sports/6/',
+        'http://lorempixel.com/120/120/sports/7/',
+        'http://lorempixel.com/120/120/sports/8/',
+        'http://lorempixel.com/120/120/sports/9/'
+    ];
+
+    for (var i = 0; i < images.length; i++) {
+        var myDiv = document.querySelector('.item');
+        var myElement = document.createElement('img');
+        myElement.src = images[i];
+        myElement.alt = 'sports image' + i;
+        myElement.style.padding = '10px';
+        myElement.style.borderRadius = '50%';
+        myElement.id = ''+i;
+        myElement.className = 'hover';
+        myDiv.appendChild(myElement);
+//        var myHoverElement = document.querySelector(':hover');
+//        myHoverElement.style.opacity = '.4'
+    }
+
+</script>
+</body>
+</html>

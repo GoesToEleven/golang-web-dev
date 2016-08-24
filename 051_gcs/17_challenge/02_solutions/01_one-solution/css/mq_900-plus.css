@@ -1,0 +1,26 @@
+header {
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#logo {
+
+    /* resets "width: 100%" to nothing */
+    flex-basis: 0;
+
+    /* grow horizontally */
+    flex-grow: 1;
+}
+
+.nd {
+
+    /* resets "width: 100%" to nothing */
+    flex-basis: 0;
+
+    /* grow horizontally */
+    flex-grow: 2;
+
+    height: 100%;
+}

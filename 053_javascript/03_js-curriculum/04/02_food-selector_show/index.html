@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /*border: 1px solid black;*/
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        section {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 2px solid #000;
+            background: no-repeat center center;
+            background-size: cover;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 12em;
+            opacity: .75;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+</main>
+<footer></footer>
+<script>
+    // create a data structure to hold food items
+    var myObject = {
+        food: [
+            {picture: '1.jpeg', descrip: 'pancakes'},
+            {picture: '2.jpeg', descrip: 'donuts'},
+            {picture: '3.jpeg', descrip: 'sushi'},
+            {picture: '4.jpeg', descrip: 'fruit'},
+            {picture: '5.jpeg', descrip: 'macaroni & cheese'},
+            {picture: '6.jpeg', descrip: 'pizza'},
+            {picture: '7.jpeg', descrip: 'strawberries'},
+            {picture: '8.jpeg', descrip: 'chinese food'},
+            {picture: '9.jpeg', descrip: 'froyo'},
+            {picture: '10.jpeg', descrip: 'torte'},
+            {picture: '11.jpeg', descrip: 'gummi bears'},
+            {picture: '12.jpeg', descrip: 'ice cream'},
+            {picture: '13.jpeg', descrip: 'cup cakes'},
+        ]
+    }
+
+    // get a reference/handle to the 'main' element
+    var myMain = document.querySelector('main');
+    var myFooter = document.querySelector('footer');
+
+    // when the last item is remove
+    // the page will repopulate page with food items
+    function removeDOM(event) {
+        if (document.querySelectorAll('section').length === 1) {
+            myMain.removeChild(event.target);
+            var myHeading = document.querySelector('h1');
+            myFooter.removeChild(myHeading);
+            displayItems();
+        } else if (document.querySelectorAll('section').length === 2) {
+            myMain.removeChild(event.target);
+            var myHeading = document.createElement('h1');
+            myHeading.innerHTML = myObject.food[document.querySelector('section').id].descrip;
+            myFooter.appendChild(myHeading);
+        } else {
+            myMain.removeChild(event.target);
+        }
+    }
+
+    // this puts all of the food items on the page
+    function displayItems() {
+        for (var i = 0; i < myObject.food.length; i++) {
+            var mySection = document.createElement('section');
+            mySection.id = '' + i;
+            mySection.alt = myObject.food[i].descrip;
+            mySection.style.backgroundImage = "url('food/" + myObject.food[i].picture + "')";
+            myMain.appendChild(mySection);
+            mySection.addEventListener('click', removeDOM, false);
+        }
+    }
+
+    // when the page initially loads
+    // this populates the page with all of the food items
+    document.addEventListener('DOMContentLoaded', displayItems);
+
+</script>
+</body>
+</html>

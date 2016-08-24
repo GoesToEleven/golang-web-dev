@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- IMPORTANT -->
+<!-- this is Javascript, not Go code -->
+<script>
+    var cities = [
+        {
+            "precision": "zip",
+            "Latitude":  37.7668,
+            "Longitude": -122.3959,
+            "Address":   "",
+            "City":      "SAN FRANCISCO",
+            "State":     "CA",
+            "Zip":       "94107",
+            "Country":   "US"
+        },
+        {
+            "precision": "zip",
+            "Latitude":  37.371991,
+            "Longitude": -122.026020,
+            "Address":   "",
+            "City":      "SUNNYVALE",
+            "State":     "CA",
+            "Zip":       "94085",
+            "Country":   "US"
+        }
+    ];
+
+    document.write(cities[0].City);
+    document.write("<br>");
+    document.write(cities[0].Latitude);
+    document.write("<br>");
+    document.write(cities[0].Longitude);
+    document.write("<br>");
+    document.write(cities[1].City);
+    document.write("<br>");
+    document.write(cities[1].Latitude);
+    document.write("<br>");
+    document.write(cities[1].Longitude);
+</script>
+</body>
+</html>
+
+<!--NOTES-->
+<!--
+
+zero based index
+
+-->
