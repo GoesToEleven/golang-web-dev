@@ -17,7 +17,7 @@ func bar(res http.ResponseWriter, req *http.Request) {
 		log.Fatalln(err)
 	}
 
-	tpl.Execute(res, nil)
+	tpl.Execute(res, 4)
 }
 
 func main() {
