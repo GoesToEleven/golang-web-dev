@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wisdom & Transport</title>
+</head>
+<body>
+
+{{(index .Wisdom 0).Name}}
+{{(index .Wisdom 1).Name}}
+{{(index .Wisdom 2).Name}}
+
+{{(uc (index .Wisdom 0).Name)}}
+{{(uc (index .Wisdom 1).Name)}}
+{{(uc (index .Wisdom 2).Name)}}
+
+
+{{(ff (index .Wisdom 0).Name)}}
+{{(ff (index .Wisdom 1).Name)}}
+{{(ff (index .Wisdom 2).Name)}}
+
+
+{{(uc (index .Wisdom 2).Name)}}
+{{(ff (index .Transport 1).Manufacturer)}}
+{{(ff (index .Transport 1).Model)}}
+
+
+</body>
+</html>
