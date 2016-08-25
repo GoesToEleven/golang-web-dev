@@ -10,9 +10,8 @@ import (
 
 func main() {
 	name := os.Args[1]
-	fmt.Println(os.Args[0])
-	fmt.Println(os.Args[1])
-	//	fmt.Println(os.Args[2])
+	//fmt.Println(os.Args[0])
+	//fmt.Println(os.Args[1])
 	str := fmt.Sprint(`
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +39,4 @@ func main() {
 /*
 at the terminal:
 go run main.go Todd
-
-or at the terminal:
-go build
-./03_os-Args Todd
-
-or at the terminal:
-go install
-03_os-Args Todd
 */

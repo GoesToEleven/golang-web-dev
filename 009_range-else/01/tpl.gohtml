@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Buddha</title>
+</head>
+<body>
+<ul>
+
+    {{range .}}
+        <li>{{.Name}} - {{.Motto}}</li>
+    {{else}}
+        <li>No Results - Move Along</li>
+    {{end}}
+</ul>
+</body>
+</html>
