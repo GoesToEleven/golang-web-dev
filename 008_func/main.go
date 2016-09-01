@@ -22,16 +22,19 @@ type car struct {
 
 // create a FuncMap to register functions.
 var funcMap = template.FuncMap{
-	// "uc" is what the function will be called in the template
+	// "uc" is what the func will be called in the template
+	// "uc" is the ToUpper func from package strings
 	"uc": strings.ToUpper,
-	"ff": firstFive,
+	// "ft" is a func I declared
+	// "ft" slices a string, returning the first three characters
+	"ft": firstThree,
 }
 
 func init() {
 	tpl = template.Must(template.New("").Funcs(funcMap).ParseFiles("tpl.gohtml"))
 }
 
-func firstFive(s string) string {
+func firstThree(s string) string {
 	s = strings.TrimSpace(s)
 	s = s[:3]
 	return s
