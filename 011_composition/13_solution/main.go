@@ -22,7 +22,7 @@ func main() {
 
 func foo(res http.ResponseWriter, req *http.Request) {
 	// parse csv
-	records := bar("table.csv")
+	records := prs("table.csv")
 
 	// parse template
 	tpl, err := template.ParseFiles("hw.gohtml")
@@ -37,7 +37,7 @@ func foo(res http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func bar(filePath string) []Record {
+func prs(filePath string) []Record {
 	src, err := os.Open(filePath)
 	if err != nil {
 		panic(err)
