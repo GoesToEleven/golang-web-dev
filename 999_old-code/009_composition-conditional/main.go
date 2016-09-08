@@ -23,6 +23,7 @@ func init() {
 }
 
 func main() {
+	// YOU CAN INITIALIZE A VARIABLE WITH AN UNDERLYING TYPE OF STRUCT EITHER WAY
 	p1 := doubleZero{
 		person: person{
 			Name: "Ian Fleming",
@@ -30,6 +31,14 @@ func main() {
 		},
 		LicenseToKill: false,
 	}
+
+	//p1 := doubleZero{
+	//	person{
+	//		Name: "Ian Fleming",
+	//		Age:  56,
+	//	},
+	//	false,
+	//}
 
 	err := tpl.Execute(os.Stdout, p1)
 	if err != nil {
