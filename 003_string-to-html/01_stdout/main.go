@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	name := "Todd McLeod"
 
-	fmt.Println(`
+	tpl := `
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -13,10 +13,9 @@ func main() {
 	<title>Hello World!</title>
 	</head>
 	<body>
-	<h1>` +
-		name +
-		`</h1>
+	<h1>` + name + `</h1>
 	</body>
 	</html>
-	`)
+	`
+	fmt.Println(tpl)
 }

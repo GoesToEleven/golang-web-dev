@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 )
 func main() {
-	http.ListenAndServe(":9000", http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
+	http.ListenAndServe(":8080", http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		if req.Method == "POST" {
 			file, _, err := req.FormFile("my-file")
 			if err != nil {

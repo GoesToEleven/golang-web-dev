@@ -16,12 +16,10 @@ func bar(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 	tpl.Execute(res, 4)
 }
 
 func main() {
-
 	http.HandleFunc("/", foo)
 	http.HandleFunc("/dog/", bar)
 	http.ListenAndServe(":8080", nil)

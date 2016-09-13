@@ -6,26 +6,22 @@ import (
 	"strings"
 )
 
-type DogHandler int
-
-func (h DogHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+func upTown(res http.ResponseWriter, req *http.Request) {
 	res.Header().Set("Content-Type", "text/html; charset=utf-8")
 	var dogName string
 	fs := strings.Split(req.URL.Path, "/")
 	if len(fs) >= 3 {
 		dogName = fs[2]
 	}
+	// the image doesn't serve
 	io.WriteString(res, `
 	Dog Name: <strong>`+dogName+`</strong><br>
-	<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg">
+	<img src="/assets/toby.jpg">
 	`)
 }
 
 func main() {
-	var dog DogHandler
-
-	mux := http.NewServeMux()
-	mux.Handle("/", dog)
-
-	http.ListenAndServe(":8080", mux)
+	http.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir("./assets"))))
+	http.HandleFunc("/dog/", upTown)
+	http.ListenAndServe(":8080", nil)
 }
