@@ -1,0 +1,1 @@
+Building upon the code from the previous problem: we have READ from the connection; now we are going to WRITE to the connection. In the ‘serve’ func, use io.WriteString to write some string on the connection. Make every call to your ‘serve’ func a goroutine.
