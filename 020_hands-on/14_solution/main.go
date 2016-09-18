@@ -38,4 +38,5 @@ func serve(c net.Conn) {
 			break
 		}
 	}
+	io.WriteString(c, "CHECK OUT THE RESPONSE BODY PAYLOAD")
 }
