@@ -6,6 +6,14 @@
 </head>
 <body>
 
+{{range .Wisdom}}
+{{uc .Name}}
+{{end}}
+
+<!-- by index position -->
+<!-- index is a "predefined global function" -->
+<!-- https://godoc.org/text/template#hdr-Functions -->
+
 {{(index .Wisdom 0).Name}}
 {{(index .Wisdom 1).Name}}
 {{(index .Wisdom 2).Name}}

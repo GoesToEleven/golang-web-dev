@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        /*div + h1 {color: red;} !*SIBLING first following*!*/
+        /*div ~ h2 {color: orange;} !*SIBLING all following*!*/
+        /*div > h2 {color: deeppink;} !*CHILDREN first level*!*/
+        /*div h2 {color: deeppink;} !*CHILDREN all levels*!*/
+    </style>
 </head>
 <body>
-
+<h1>h1 before div</h1>
+<h2>h2 before div</h2>
+<div>
+    <h2>before</h2>
+    <main><h2>h2 in main</h2></main>
+    <p>01</p>
+    <p>02</p>
+    <p>03</p>
+    <h2>after</h2>
+    <h2>after after</h2>
+    <h2 id="test">after after after</h2>
+</div>
+<h1>h1 after div</h1>
+<h1>h1 after div</h1>
+<h2>h2 after div</h2>
+<h2>h2 after div</h2>
+<h2>h2 after div</h2>
 </body>
 </html>
