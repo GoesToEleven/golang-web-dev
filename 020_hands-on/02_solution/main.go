@@ -7,20 +7,21 @@ import (
 )
 
 func main() {
-	ln, err := net.Listen("tcp", ":8080")
+	l, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
+	defer l.Close()
 
 	for {
-		conn, err := ln.Accept()
+		c, err := l.Accept()
 		if err != nil {
 			log.Println(err)
 		}
 
 		// write to connection
-		io.WriteString(conn, "I see you connected")
+		io.WriteString(c, "I see you connected")
 
-		conn.Close()
+		c.Close()
 	}
 }

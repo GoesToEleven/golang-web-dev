@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"bufio"
 	"strings"
+	"io"
 )
 
 func main() {
@@ -58,18 +59,24 @@ func index(c net.Conn) {
 }
 
 func woof(c net.Conn) {
-	fmt.Fprintln(c, `
-	<!DOCTYPE html>
-<html>
-<body>
+
+	body := `
+		<!DOCTYPE html>
+		<html>
+		<body>
 		<form action="/dog" method="POST">
 		<input name="fname" type="text" placeholder="first name">
 		<input name="lname" type="text" placeholder="last name">
 		<input type="submit" value="SEND TO SERVER">
 		</form>
-</body>
-</html>
-	`)
+		</body>
+		</html>
+	`
+	io.WriteString(c, "HTTP/1.1 200 OK\r\n")
+	fmt.Fprintf(c, "Content-Length: %d\r\n", len(body))
+	fmt.Fprint(c, "Content-Type: text/plain\r\n")
+	io.WriteString(c, "\r\n")
+	io.WriteString(c, body)
 }
 
 func bowwow(c net.Conn) {

@@ -6,13 +6,11 @@ import (
 )
 
 type DogHandler int
-
 func (h DogHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "doggy doggy doggy")
 }
 
 type CatHandler int
-
 func (h CatHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "catty catty catty")
 }

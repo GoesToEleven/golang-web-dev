@@ -1,1 +1,3 @@
-Building upon the code from the previous problem: we have READ from the connection; now we are going to WRITE to the connection. In the ‘serve’ func, use io.WriteString to write "CHECK OUT THE RESPONSE BODY PAYLOAD" on the connection.
+Building upon the code from the previous problem:
+
+Print to standard out (the terminal) the REQUEST method from the REQUEST LINE and the REQUEST URI from the REQUEST LINE; add this data to your REPONSE so that this data is displayed in the browser.

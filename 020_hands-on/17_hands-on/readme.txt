@@ -1,1 +1,7 @@
-Building upon the code from the previous problem: print to standard out (the terminal) the REQUEST method from the REQUEST LINE and the REQUEST URI from the REQUEST LINE; also add this data to your REPONSE BODY PAYLOAD so that this data is displayed in the browser.
+Building upon the code from the previous problem:
+
+- add code to respond to the following METHODS & ROUTES:
+	GET /
+	GET /dog
+	POST /dog
+

@@ -1,1 +1,1 @@
-Make every call to your ‘serve’ func a goroutine.
+Add code to WRITE to the connection.

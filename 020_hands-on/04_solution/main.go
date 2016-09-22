@@ -9,27 +9,28 @@ import (
 )
 
 func main() {
-	ln, err := net.Listen("tcp", ":8080")
+	l, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatalln(err)
 	}
+	defer l.Close()
 
 	for {
-		conn, err := ln.Accept()
+		c, err := l.Accept()
 		if err != nil {
 			log.Println(err)
 		}
 
 		// read from connection
-		bs, err := ioutil.ReadAll(conn)
+		bs, err := ioutil.ReadAll(c)
 		if err != nil {
 			log.Println(err)
 		}
 		fmt.Println(string(bs))
 
-		// write to connection
-		io.WriteString(conn, "I see you connected")
+		// WHY IS THIS LINE NEVER WRITTEN?
+		io.WriteString(c, "I see you connected")
 
-		conn.Close()
+		c.Close()
 	}
 }
