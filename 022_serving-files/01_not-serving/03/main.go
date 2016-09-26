@@ -7,24 +7,31 @@ import (
 	"strings"
 )
 
-func upTown(res http.ResponseWriter, req *http.Request) {
+
+func main() {
+	http.HandleFunc("/", pURL)
+	http.HandleFunc("/uptown/", dog)
+	http.ListenAndServe(":8080", nil)
+}
+
+func dog(res http.ResponseWriter, req *http.Request) {
+
 	res.Header().Set("Content-Type", "text/html; charset=utf-8")
+
 	var dogName string
+
 	fs := strings.Split(req.URL.Path, "/")
 	if len(fs) >= 3 {
 		dogName = fs[2]
 	}
+
 	// the image doesn't serve
 	io.WriteString(res, `
-	Dog Name: <strong>`+dogName+`</strong><br>
+	<h1>Dog Name:`+dogName+`</h1>
 	<img src="/toby.jpg">
 	`)
 }
 
-func main() {
-	http.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
-		fmt.Println(req.URL)
-	})
-	http.HandleFunc("/dog/", upTown)
-	http.ListenAndServe(":8080", nil)
+func pURL(res http.ResponseWriter, req *http.Request) {
+	fmt.Println(req.URL)
 }
