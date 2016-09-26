@@ -7,6 +7,6 @@ import (
 
 func main() {
 	r := httprouter.New()
-	initCRM(r)
+	initSection(r)
 	http.ListenAndServe(":8080", r)
 }
