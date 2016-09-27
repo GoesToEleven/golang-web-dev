@@ -21,12 +21,12 @@ type car struct {
 }
 
 // create a FuncMap to register functions.
+// "uc" is what the func will be called in the template
+// "uc" is the ToUpper func from package strings
+// "ft" is a func I declared
+// "ft" slices a string, returning the first three characters
 var funcMap = template.FuncMap{
-	// "uc" is what the func will be called in the template
-	// "uc" is the ToUpper func from package strings
 	"uc": strings.ToUpper,
-	// "ft" is a func I declared
-	// "ft" slices a string, returning the first three characters
 	"ft": firstThree,
 }
 
@@ -39,7 +39,6 @@ func firstThree(s string) string {
 	s = s[:3]
 	return s
 }
-
 
 func main() {
 

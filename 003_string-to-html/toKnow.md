@@ -1,7 +1,13 @@
-1. template
-1. concatenate
-1. pipeline output to a file with > 
-1. os.Create
-1. defer
-1. io.Copy
-1. strings.NewReader
+- concatenate
+- pipeline output to a file with > 
+
+- [os.Create](https://godoc.org/os#Create)
+- func Create(name string) (*File, error)
+
+- defer
+
+- [io.Copy](https://godoc.org/io#Copy)
+- func Copy(dst Writer, src Reader) (written int64, err error)
+
+- [strings.NewReader](https://godoc.org/strings#NewReader)
+- func NewReader(s string) *Reader
