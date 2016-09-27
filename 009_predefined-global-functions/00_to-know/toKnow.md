@@ -11,6 +11,7 @@
 - comparison
 
 - [Template Comments](https://godoc.org/text/template#hdr-Actions)
-
-- {{/* a comment */}}
 - A comment; discarded. May contain newlines. Comments do not nest and must start and end at the delimiters, as shown here.
+``` Go
+{{/* a comment */}}
+```

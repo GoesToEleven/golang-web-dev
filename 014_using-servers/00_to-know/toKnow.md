@@ -1,10 +1,13 @@
 
 - [http.ListenAndServer](https://godoc.org/net/http#ListenAndServe)
-``` go
+``` Go
 func ListenAndServe(addr string, handler Handler) error
 ```
+
 - [http.ListenAndServeTLS](https://godoc.org/net/http#ListenAndServeTLS)
--func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
+``` Go
+func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
+```
 
 - [http.Handler](https://godoc.org/net/http#Handler)
 ``` Go

@@ -1,7 +1,9 @@
 - [template variables](https://godoc.org/text/template#hdr-Variables)
 
-- {{$wisdom := .}}
-- {{$wisdom}}
+``` Go
+{{$wisdom := .}}
+{{$wisdom}}
+```
 
 A pipeline inside an action may initialize a variable to capture the result. The initialization has syntax
  

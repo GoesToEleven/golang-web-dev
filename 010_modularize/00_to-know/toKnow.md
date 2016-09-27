@@ -1,5 +1,9 @@
 - [nested templates](https://godoc.org/text/template#hdr-Nested_template_definitions)
 - define: 
-  - {{define "TemplateName"}}
+``` Go
+{{define "TemplateName"}}
+```
 - use: 
-  - {{template "TemplateName"}}
+``` Go
+{{template "TemplateName"}}
+```
