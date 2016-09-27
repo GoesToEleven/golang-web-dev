@@ -6,7 +6,6 @@ import (
 )
 
 type MyHandler int
-
 func (m MyHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "Hello World")
 }

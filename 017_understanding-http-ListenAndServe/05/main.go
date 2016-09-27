@@ -6,7 +6,6 @@ import (
 )
 
 type myHandler int
-
 func (m myHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	switch req.URL.Path {
 	case "/cat":

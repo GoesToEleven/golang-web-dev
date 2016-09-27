@@ -1,0 +1,1 @@
+Serve the files in the "starting-files" folder

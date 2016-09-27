@@ -6,7 +6,6 @@ import (
 	"io"
 	"fmt"
 	"bufio"
-	"io/ioutil"
 )
 
 func main() {
