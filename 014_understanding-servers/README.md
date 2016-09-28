@@ -19,18 +19,18 @@ A *handler* will handle a request by providing a response.
 ***
 
 # Web Programming Synonymous Terms
-router
-request router
-multiplexer
-mux
-servemux
-server
-http router
-http request router
-http multiplexer
-http mux
-http servemux
-http server
+- router
+- request router
+- multiplexer
+- mux
+- servemux
+- server
+- http router
+- http request router
+- http multiplexer
+- http mux
+- http servemux
+- http server
 
 ***
 
