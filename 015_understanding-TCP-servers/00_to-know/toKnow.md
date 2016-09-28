@@ -3,7 +3,7 @@
 func Listen(net, laddr string) (Listener, error)
 ```
 
--[net.Listener](https://godoc.org/net#Listener)
+- [net.Listener](https://godoc.org/net#Listener)
 ``` Go
 type Listener interface {
     // Accept waits for and returns the next connection to the listener.
@@ -18,7 +18,7 @@ type Listener interface {
 }
 ```
 
--[net.Conn](https://godoc.org/net#Conn)
+- [net.Conn](https://godoc.org/net#Conn)
 ``` Go
 type Conn interface {
     // Read reads data from the connection.
