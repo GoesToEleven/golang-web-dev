@@ -7,6 +7,13 @@ import (
 	"log"
 )
 
+func main() {
+	http.HandleFunc("/", foo)
+	http.HandleFunc("/dog/", bar)
+	http.HandleFunc("/tm/", mcleod)
+	http.ListenAndServe(":8080", nil)
+}
+
 func foo(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "foo ran")
 }
@@ -25,11 +32,4 @@ func mcleod(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Fatalln("error executing template", err)
 	}
-}
-
-func main() {
-	http.HandleFunc("/", foo)
-	http.HandleFunc("/dog/", bar)
-	http.HandleFunc("/tm/", mcleod)
-	http.ListenAndServe(":8080", nil)
 }

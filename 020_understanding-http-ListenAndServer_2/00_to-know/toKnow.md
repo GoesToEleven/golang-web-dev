@@ -39,9 +39,7 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 type HandlerFunc func(ResponseWriter, *Request)
 ```
 
-- [http.ServeHTTP](https://godoc.org/net/http#HandlerFunc.ServeHTTP)
+- [http.HandleFunc](https://godoc.org/net/http#HandleFunc)
 ``` Go
-func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
+func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 ```
-
-## As HandlerFunc has the ServeHTTP method, it implicitly implements the Handler interface. A HandlerFunc is also of type Handler. This means that we can pass a HandlerFunc as an argument to any func with a handler parameter.

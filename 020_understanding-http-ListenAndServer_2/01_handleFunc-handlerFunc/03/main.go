@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {

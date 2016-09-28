@@ -2,26 +2,24 @@ package main
 
 import (
 	"io"
-	"log"
-	"net"
+	"net/http"
 )
 
 func main() {
-	l, err := net.Listen("tcp", ":8080")
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer l.Close()
+	http.HandleFunc("/", foo)
+	http.HandleFunc("/dog/", bar)
+	http.HandleFunc("/tm/", mcleod)
+	http.ListenAndServe(":8080", nil)
+}
 
-	for {
-		c, err := l.Accept()
-		if err != nil {
-			log.Println(err)
-		}
+func foo(res http.ResponseWriter, req *http.Request) {
+	io.WriteString(res, "foo ran")
+}
 
-		// write to connection
-		io.WriteString(c, "I see you connected")
+func bar(res http.ResponseWriter, req *http.Request) {
+	io.WriteString(res, "bar ran")
+}
 
-		c.Close()
-	}
+func mcleod(res http.ResponseWriter, req *http.Request) {
+	io.WriteString(res, "hello mcleod")
 }
