@@ -7,8 +7,6 @@ func ListenAndServe(addr string, handler Handler) error
 ********************
 # HANDLER
 
-## This is one of the most important things to know!
-
 - [http.Handler](https://godoc.org/net/http#Handler)
 ``` Go
 type Handler interface {
@@ -52,6 +50,3 @@ func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 ```
 
 ********************
-# QUESTION
-
-## Could you get HANDLE to take a func with this signature: func(ResponseWriter, *Request)?
