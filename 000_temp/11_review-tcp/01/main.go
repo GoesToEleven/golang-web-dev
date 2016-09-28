@@ -3,9 +3,7 @@ package main
 import (
 	"net"
 	"log"
-	"fmt"
 	"io"
-	"time"
 )
 
 func main() {
@@ -18,11 +16,12 @@ func main() {
 	for {
 		c, err := l.Accept()
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		}
 
-		io.WriteString(c, "HELLO FROM SERVER" + time.Now().String())
 
+
+		io.WriteString(c, "wassup\n")
 		c.Close()
 	}
 }
