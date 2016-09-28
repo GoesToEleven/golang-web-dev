@@ -2,8 +2,13 @@
 
 ## [template variables](https://godoc.org/text/template#hdr-Variables)
 
+### ASSIGN
 ``` Go
 {{$wisdom := .}}
+```
+
+### USE
+``` Go
 {{$wisdom}}
 ```
 
