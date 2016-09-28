@@ -80,3 +80,9 @@ type ResponseWriter interface {
 ``` Go
 res.Header().Set("Content-Type", "text/html; charset=utf-8")
 ```
+
+********************
+# REQUEST URL
+req.URL.RequestURI()
+req.URL.Path
+req.URL

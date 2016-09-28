@@ -1,21 +1,17 @@
 package main
 
 import (
-	"io"
+	"fmt"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", dog)
+	// http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
 
 func dog(res http.ResponseWriter, req *http.Request) {
-
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
-
-	io.WriteString(res, `
-	<!--image doesn't serve-->
-	<img src="/toby.jpg">
-	`)
+	fmt.Println(req.URL)
+	fmt.Fprintln(res, "go look at your terminal")
 }

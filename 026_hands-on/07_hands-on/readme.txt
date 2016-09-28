@@ -1,0 +1,1 @@
+Modify the code from the previous problem so that the default ServeMux is used and http.HandleFunc is used.

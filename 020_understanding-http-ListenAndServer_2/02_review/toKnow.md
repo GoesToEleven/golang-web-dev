@@ -1,3 +1,4 @@
+# ListenAndServe
 
 - [http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
 ``` Go
@@ -35,11 +36,14 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 ********************
 # HANDLERFUNC & func(ResponseWriter, *Request)
 
-## This is also one of the most important things to know!
-
 - [http.HandlerFunc](https://godoc.org/net/http#HandlerFunc)
 ``` Go
 type HandlerFunc func(ResponseWriter, *Request)
+```
+
+- [http.ServeHTTP](https://godoc.org/net/http#HandlerFunc.ServeHTTP)
+``` Go
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
 # HANDLEFUNC

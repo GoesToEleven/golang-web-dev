@@ -1,13 +1,15 @@
 package main
 
 import (
-	"io"
 	"net/http"
+	"fmt"
 )
 
 type myHandler int
 func (m myHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, req.URL.RequestURI())
+	fmt.Fprintln(res, req.URL.RequestURI())
+	fmt.Fprintln(res, req.URL.Path)
+	fmt.Fprintln(res, req.URL)
 }
 
 func main() {

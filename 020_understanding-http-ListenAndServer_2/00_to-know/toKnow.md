@@ -44,6 +44,11 @@ func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 type HandlerFunc func(ResponseWriter, *Request)
 ```
 
+- [http.ServeHTTP](https://godoc.org/net/http#HandlerFunc.ServeHTTP)
+``` Go
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
+```
+
 # HANDLEFUNC
 
 - [http.HandleFunc](https://godoc.org/net/http#HandleFunc)
