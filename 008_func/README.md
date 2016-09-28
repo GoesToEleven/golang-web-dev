@@ -1,6 +1,6 @@
 # USING FUNCTIONS IN TEMPLATES
 
-## [template function](https://godoc.org/text/template#hdr-Functions)
+## [template function documentation](https://godoc.org/text/template#hdr-Functions)
 
 ***
 
