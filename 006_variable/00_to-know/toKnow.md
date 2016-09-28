@@ -1,4 +1,6 @@
-- [template variables](https://godoc.org/text/template#hdr-Variables)
+# TEMPLATE VARIABLES
+
+## [template variables](https://godoc.org/text/template#hdr-Variables)
 
 ``` Go
 {{$wisdom := .}}
