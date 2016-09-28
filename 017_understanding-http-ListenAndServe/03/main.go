@@ -6,8 +6,8 @@ import (
 )
 
 type myHandler int
-func (m myHandler) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
-	io.WriteString(resp, req.URL.RequestURI())
+func (m myHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+	io.WriteString(res, req.URL.RequestURI())
 }
 
 func main() {

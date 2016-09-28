@@ -3,8 +3,9 @@ package main
 import (
 	"net"
 	"log"
-	"io/ioutil"
+	"io"
 	"fmt"
+	"bufio"
 )
 
 func main() {
@@ -14,9 +15,10 @@ func main() {
 	}
 	defer c.Close()
 
-	bs, err := ioutil.ReadAll(c)
-	if err != nil {
-		log.Fatalln(err)
+	io.WriteString(c, "hello from dial in\n")
+
+	s := bufio.NewScanner(c)
+	for s.Scan() {
+		fmt.Println(s.Text())
 	}
-	fmt.Println(string(bs))
 }

@@ -3,6 +3,8 @@ package main
 import (
 	"net"
 	"log"
+	"fmt"
+	"bufio"
 	"io"
 )
 
@@ -19,8 +21,11 @@ func main() {
 			log.Println(err)
 		}
 
-
-
+		s := bufio.NewScanner(c)
+		for s.Scan() {
+			fmt.Println(s.Text())
+			break
+		}
 		io.WriteString(c, "wassup\n")
 		c.Close()
 	}
