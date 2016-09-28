@@ -5,6 +5,8 @@
 ## define: 
 ``` Go
 {{define "TemplateName"}}
+insert content here
+{{end}}
 ```
 ## use: 
 ``` Go
