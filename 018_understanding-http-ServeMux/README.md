@@ -1,4 +1,4 @@
-# SERVEMUX
+# ServeMux
 
 [http.ServeMux](https://godoc.org/net/http#ServeMux)
 
