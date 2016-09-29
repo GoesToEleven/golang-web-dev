@@ -4,7 +4,9 @@ You can search [godoc.org](https://godoc.org/) for third-party packages.
 
 Here is [a good third-party ServeMux]() that allows easy access to methods for routing & path parameters.
 
-## [julienschmidt/httprouter](https://godoc.org/github.com/julienschmidt/httprouter)
+# [julienschmidt/httprouter](https://godoc.org/github.com/julienschmidt/httprouter)
+
+## Match method & path
 
 The router matches incoming requests by the request method and the path.
  
@@ -16,6 +18,8 @@ The router matches incoming requests by the request method and the path.
      log.Fatal(http.ListenAndServe(":8080", router))
  }
  ```
+
+## Named path parameters
 
 The registered path, against which the router matches incoming requests, can also contain parameters. Parameters are dynamic path segments. They match anything until the next '/' or the path end.
 
@@ -35,5 +39,66 @@ Requests:
  /blog/go/request-routers/comments   no match
 ```
 
+## Catch-all path parameters
 
+Catch-all parameters match anything until the path end, including the directory index (the '/' before the catch-all). Since they match anything until the end, catch-all parameters must always be the final path element.
+
+``` Go
+func main() {
+    router := httprouter.New()
+    router.GET("/files/*filepath", loadFile)
+    log.Fatal(http.ListenAndServe(":8080", router))
+}
+```
+
+```
+Requests:
+ /files/                             match: filepath="/"
+ /files/LICENSE                      match: filepath="/LICENSE"
+ /files/templates/article.html       match: filepath="/templates/article.html"
+ /files                              no match
+```
+
+## Using path parameters
+
+The value of parameters is saved as a []Param
+
+
+``` Go
+type Param struct {
+    Key   string
+    Value string
+}
+```
+
+The slice is passed to the Handle func as a third parameter. 
+
+``` Go
+func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+    fmt.Fprint(w, "Welcome!\n")
+}
+
+func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+    fmt.Fprintf(w, "hello, %s!\n", ps.ByName("user"))
+}
+
+func main() {
+    router := httprouter.New()
+    router.GET("/", Index)
+    router.GET("/hello/:user", Hello)
+
+    log.Fatal(http.ListenAndServe(":8080", router))
+}
+```
+
+There are two ways to retrieve the value of a parameter:
+
+``` Go
+// by the name of the parameter
+user := ps.ByName("user") // defined by :user or *user
+
+// by the index of the parameter. This way you can also get the name (key)
+thirdKey   := ps[2].Key   // the name of the 3rd parameter
+thirdValue := ps[2].Value // the value of the 3rd parameter
+```
 
