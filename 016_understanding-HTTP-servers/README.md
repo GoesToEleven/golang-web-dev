@@ -1,14 +1,16 @@
-REQUEST
+# Request line (request)
 GET / HTTP/1.1
 method SP request-target SP HTTP-version CRLF
 https://tools.ietf.org/html/rfc7230#section-3.1.1
 
-RESPONSE (STATUS)
+# Status line (response)
 HTTP/1.1 302 Found
 HTTP-version SP status-code SP reason-phrase CRLF
 https://tools.ietf.org/html/rfc7230#section-3.1.2
 
-*******************************
+***
+
+## Writing a response
 
 ``` Go
 body := "CHECK OUT THE RESPONSE BODY PAYLOAD"
@@ -19,7 +21,7 @@ io.WriteString(conn, "\r\n")
 io.WriteString(conn, body)
 ```
 
-*******************************
+***
 
 All HTTP/1.1 messages consist of a start-line 
 followed by a sequence of octets in a format similar to 
@@ -28,7 +30,7 @@ the Internet Message Format: zero or more header fields
 an empty line indicating the end of the header section, 
 and an optional message body.
 
-*******************************
+***
 
 # Parsing String
 - [strings.Fields](https://godoc.org/strings#Fields)
