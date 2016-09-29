@@ -13,7 +13,7 @@ func Create(name string) (*File, error)
 
 *** 
 
-## DEFER
+## [defer](https://golang.org/ref/spec#Defer_statements)
 The defer keyword allows us to defer the execution of a statement until the function in which we have placed the defer statement returns.
 
 ***
