@@ -1,3 +1,31 @@
+# HandleFunc & HandlerFunc
+
+## HandleFunc
+
+[http.HandleFunc](https://godoc.org/net/http#HandleFunc)
+``` Go
+func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
+```
+
+## HandlerFunc
+
+**This is also one of the most important things to know!**
+
+## [http.HandlerFunc](https://godoc.org/net/http#HandlerFunc)
+``` Go
+type HandlerFunc func(ResponseWriter, *Request)
+```
+
+## [http.ServeHTTP](https://godoc.org/net/http#HandlerFunc.ServeHTTP)
+``` Go
+func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
+```
+
+
+***
+
+# Review
+
 
 - [http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
 ``` Go
@@ -34,27 +62,6 @@ func NewServeMux() *ServeMux
 func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
-********************
-# HANDLERFUNC & func(ResponseWriter, *Request)
-
-## This is also one of the most important things to know!
-
-- [http.HandlerFunc](https://godoc.org/net/http#HandlerFunc)
-``` Go
-type HandlerFunc func(ResponseWriter, *Request)
-```
-
-- [http.ServeHTTP](https://godoc.org/net/http#HandlerFunc.ServeHTTP)
-``` Go
-func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
-```
-
-# HANDLEFUNC
-
-- [http.HandleFunc](https://godoc.org/net/http#HandleFunc)
-``` Go
-func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
-```
 
 ********************
 # QUESTION
