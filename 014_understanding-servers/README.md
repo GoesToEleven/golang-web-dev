@@ -1,11 +1,11 @@
-# CORE CONCEPTS
+# Core concepts
 
 To understand web dev with Go, you must understand these core concepts:
 
-## INTERFACE
+## Interface
 defining functionality; defining behavior
 
-## REQUEST RESPONSE pattern
+## Request response pattern
 
 ## http.Handler
 ``` go
@@ -34,7 +34,7 @@ A *handler* will handle a request by providing a response.
 
 ***
 
-# REQUEST & RESPONSE
+# Request & response
 
 Request and response messages are similar. Both messages consist of:
 
@@ -45,7 +45,7 @@ Request and response messages are similar. Both messages consist of:
 
 ***
 
-## HTTP REQUEST
+## HTTP request
 
 request line
 headers
@@ -59,7 +59,7 @@ GET /path/to/file/index.html HTTP/1.0
 
 ***
 
-## HTTP RESPONSE
+## HTTP response
 
 status line
 headers
@@ -78,7 +78,7 @@ HTTP/1.0 200 OK
 
 ***
 
-## INSPECT
+## Inspect
 - you can use google chrome dev tools / network
 - you can use CURL at the command line
 
@@ -88,7 +88,7 @@ curl -v golang.org
 
 ***
 
-# DOCUMENTATION
+# Documentation
 
 ## [Hypertext Transfer Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 

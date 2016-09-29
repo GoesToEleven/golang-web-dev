@@ -1,9 +1,15 @@
-- [net.Listen](https://godoc.org/net#Listen)
+# TCP server
+
+## Listen
+ 
+ [net.Listen](https://godoc.org/net#Listen)
 ``` Go
 func Listen(net, laddr string) (Listener, error)
 ```
 
-- [net.Listener](https://godoc.org/net#Listener)
+## Listener
+
+[net.Listener](https://godoc.org/net#Listener)
 ``` Go
 type Listener interface {
     // Accept waits for and returns the next connection to the listener.
@@ -18,7 +24,9 @@ type Listener interface {
 }
 ```
 
-- [net.Conn](https://godoc.org/net#Conn)
+## Connection
+
+[net.Conn](https://godoc.org/net#Conn)
 ``` Go
 type Conn interface {
     // Read reads data from the connection.
@@ -45,26 +53,28 @@ type Conn interface {
 }
 ```
 
-- [net.Dial](https://godoc.org/net#Dial)
+## Dial
+
+[net.Dial](https://godoc.org/net#Dial)
 ``` Go
 func Dial(network, address string) (Conn, error)
 ```
 
-********************************
+***
 
 # WRITE
 
-- [io.WriteString](https://godoc.org/io#WriteString)
+[io.WriteString](https://godoc.org/io#WriteString)
 ``` Go
 func WriteString(w Writer, s string) (n int, err error)
 ```
 
-- [fmt.Fprintln](https://godoc.org/fmt#Fprintln)
+[fmt.Fprintln](https://godoc.org/fmt#Fprintln)
 ``` Go
 func Fprintln(w io.Writer, a ...interface{}) (n int, err error)
 ```
 
-********************************
+***
 
 # READ
 
@@ -88,7 +98,7 @@ func (s *Scanner) Scan() bool
 func (s *Scanner) Text() string
 ```
 
-********************************
+***
 
 # READ & WRITE
 

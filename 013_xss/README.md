@@ -34,7 +34,7 @@ Regarding the sending of new transactions, even CSRF (cross-site request forgery
 
 So this is a concern for all sites where you use sessions and/or need to be logged in. 
 
-## All modern browsers implement some form of the Same-Origin Policy as it is an important security cornerstone.[
+## All modern browsers implement some form of the Same-Origin Policy as it is an important security cornerstone.
 
 This mechanism bears a particular significance for modern web applications that extensively depend on HTTP cookies to maintain authenticated user sessions, as servers act based on the HTTP cookie information to reveal sensitive information or take state-changing actions. 
 
