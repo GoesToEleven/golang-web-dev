@@ -37,6 +37,8 @@ func (t *Template) ParseGlob(pattern string) (*Template, error)
 
 ***
 
+# Executing templates
+
 ## [template.Execute](https://godoc.org/text/template#Template.Execute)
 ``` Go
 func (t *Template) Execute(wr io.Writer, data interface{}) error
@@ -49,6 +51,8 @@ func (t *Template) ExecuteTemplate(wr io.Writer, name string, data interface{}) 
 
 ***
 
+# Helpful template functions
+
 ## [template.Must](https://godoc.org/text/template#Must)
 ``` Go
 func Must(t *Template, err error) *Template
@@ -60,6 +64,8 @@ func New(name string) *Template
 ```
 
 ***
+
+# The init function
 
 ## [The init function](https://golang.org/doc/effective_go.html#init)
 ``` Go
