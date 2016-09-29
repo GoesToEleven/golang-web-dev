@@ -62,7 +62,7 @@ func Dial(network, address string) (Conn, error)
 
 ***
 
-# WRITE
+# Write
 
 [io.WriteString](https://godoc.org/io#WriteString)
 ``` Go
@@ -76,7 +76,7 @@ func Fprintln(w io.Writer, a ...interface{}) (n int, err error)
 
 ***
 
-# READ
+# Read
 
 - [ioutil.ReadAll](https://godoc.org/io/ioutil#ReadAll)
 ``` Go
@@ -100,7 +100,7 @@ func (s *Scanner) Text() string
 
 ***
 
-# READ & WRITE
+# Read & Write
 
 - [io.Copy](https://godoc.org/io#Copy)
 ``` GO

@@ -3,7 +3,11 @@
 To understand web dev with Go, you must understand these core concepts:
 
 ## Interface
-defining functionality; defining behavior
+- Defines functionality; defines behavior
+- OOP: objects know & do; data & methods; knowledge & behavior
+- An interface creates a new type: the type that implements the interface is then *two* types - its interface type and its underlying type.
+- implicit implementation (not explicit): if a type has the method defined by the interface, then that type implements the interface.
+
 
 ## Request response pattern
 
