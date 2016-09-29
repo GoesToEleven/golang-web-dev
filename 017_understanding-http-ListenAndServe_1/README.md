@@ -1,30 +1,33 @@
+# Server
 
-- [http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
+[http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
 ``` Go
 func ListenAndServe(addr string, handler Handler) error
 ```
 
-- [http.ListenAndServeTLS](https://godoc.org/net/http#ListenAndServeTLS)
+[http.ListenAndServeTLS](https://godoc.org/net/http#ListenAndServeTLS)
 ``` Go
 func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 ```
 
-********************
+***
+
 # HANDLER
 
 ## This is one of the most important things to know!
 
-- [http.Handler](https://godoc.org/net/http#Handler)
+[http.Handler](https://godoc.org/net/http#Handler)
 ``` Go
 type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
 }
 ```
 
-********************
+***
+
 # REQUEST
 
-- [http.Request](https://godoc.org/net/http#Request)
+[http.Request](https://godoc.org/net/http#Request)
 ``` Go 
 type Request struct {
     // Method specifies the HTTP method (GET, POST, PUT, etc.).
@@ -46,7 +49,8 @@ type Request struct {
 }
 ```
 
-********************
+***
+
 # RESPONSE
 
 - [http.ResponseWriter](https://godoc.org/net/http#ResponseWriter)
