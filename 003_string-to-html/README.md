@@ -1,13 +1,12 @@
-# concatenate
+# TECHNIQUES WE WILL LEARN
 
-*** 
+- concatenate
+- CLI pipeline - output to a file with > 
 
-# pipeline output to a file with > 
-
-***
-# CREATE A FILE
+# CODE WE WILL USE FROM THE STANDARD LIBRARY
 
 ## [os.Create](https://godoc.org/os#Create)
+This allows us to create a file.
 ``` Go
 func Create(name string) (*File, error)
 ```
