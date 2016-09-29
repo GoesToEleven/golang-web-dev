@@ -79,6 +79,7 @@ Request and response messages are similar. Both messages consist of:
 
 ## HTTP request
 
+Request
 - request line
 - headers
 - optional message body
@@ -93,15 +94,16 @@ example request line:
 
 ## HTTP response
 
-status line
-headers
-optional message body
+Reponse
+- status line
+- headers
+- optional message body
 
 Status-Line
-HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+- HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 
 example status line:
-HTTP/1.0 200 OK
+- HTTP/1.0 200 OK
 
 ***
 
