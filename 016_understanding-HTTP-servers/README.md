@@ -12,7 +12,7 @@ HTTP/1.1 302 Found
 
 ***
 
-## Writing a response
+# Writing a response
 
 ``` Go
 body := "CHECK OUT THE RESPONSE BODY PAYLOAD"
@@ -25,12 +25,13 @@ io.WriteString(conn, body)
 
 ***
 
-All HTTP/1.1 messages consist of a start-line 
-followed by a sequence of octets in a format similar to 
-the Internet Message Format: zero or more header fields 
-(collectively referred to as the "headers" or the "header section"), 
-an empty line indicating the end of the header section, 
-and an optional message body.
+All HTTP/1.1 messages consist 
+- of a start-line 
+- followed by a sequence of octets in a format similar to 
+- the Internet Message Format: zero or more header fields 
+- (collectively referred to as the "headers" or the "header section"), 
+- an empty line indicating the end of the header section, 
+- and an optional message body.
 
 ***
 
