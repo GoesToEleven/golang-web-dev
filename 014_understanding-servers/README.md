@@ -84,10 +84,10 @@ Request and response messages are similar. Both messages consist of:
 - optional message body
 
 Request-Line
-Method SP Request-URI SP HTTP-Version CRLF
+- Method SP Request-URI SP HTTP-Version CRLF
 
 example request line:
-GET /path/to/file/index.html HTTP/1.0
+- GET /path/to/file/index.html HTTP/1.0
 
 ***
 
