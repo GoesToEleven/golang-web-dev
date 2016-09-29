@@ -1,6 +1,16 @@
-# HTTP/1.1 message
+# HTTP Server
 
-- a start-line 
+HTTP runs on top of TCP.
+
+To create a server that works with HTTP, we just create a TCP server.
+
+To configure our code to handle request/response in an HTTP fashion which works with browsers, we need to adhere to HTTP standards.
+
+## HTTP/1.1 message
+
+An HTTP message is made up of the following:
+
+- a request/status line 
 - zero or more header fields 
 - an empty line indicating the end of the header section 
 - an optional message body.
