@@ -81,17 +81,29 @@ type ResponseWriter interface {
 
 ***
 
-## Setting a response header
-``` Go
-res.Header().Set("Content-Type", "text/html; charset=utf-8")
-```
-
-***
-
-# Request URL
+## Request URL
 
 req.URL.RequestURI()
 
 req.URL.Path
 
 req.URL
+
+Example:
+``` Go
+switch req.URL.Path {
+	case "/cat":
+		io.WriteString(res, `some text`)
+	case "/dog":
+		io.WriteString(res, `some other text`)
+	}
+```
+
+***
+
+## Setting a response header
+
+Example:
+``` Go
+res.Header().Set("Content-Type", "text/html; charset=utf-8")
+```
