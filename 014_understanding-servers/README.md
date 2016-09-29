@@ -79,9 +79,9 @@ Request and response messages are similar. Both messages consist of:
 
 ## HTTP request
 
-request line
-headers
-optional message body
+- request line
+- headers
+- optional message body
 
 Request-Line
 Method SP Request-URI SP HTTP-Version CRLF
