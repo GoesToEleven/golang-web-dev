@@ -102,3 +102,7 @@ thirdKey   := ps[2].Key   // the name of the 3rd parameter
 thirdValue := ps[2].Value // the value of the 3rd parameter
 ```
 
+## Performance
+
+Julien Schmidt's router is [nicely performant](https://github.com/julienschmidt/go-http-routing-benchmark#static-routes)
+
