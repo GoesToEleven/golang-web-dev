@@ -1,4 +1,4 @@
-# CODE WE WILL USE FROM THE STANDARD LIBRARY
+# Type Template from the standard library
 
 ## [template.Template](https://godoc.org/text/template#Template)
 ``` Go
