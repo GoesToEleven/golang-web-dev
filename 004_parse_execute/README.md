@@ -7,6 +7,8 @@ template.Template
 
 ***
 
+# Parsing templates
+
 ## [template.ParseFiles](https://godoc.org/text/template#ParseFiles)
 ``` Go
 func ParseFiles(filenames ...string) (*Template, error)
