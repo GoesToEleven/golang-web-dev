@@ -9,8 +9,6 @@ func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 
 ## HandlerFunc
 
-**This is also one of the most important things to know!**
-
 ## [http.HandlerFunc](https://godoc.org/net/http#HandlerFunc)
 ``` Go
 type HandlerFunc func(ResponseWriter, *Request)
@@ -21,49 +19,53 @@ type HandlerFunc func(ResponseWriter, *Request)
 func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
+Note the underlying type of HandlerFunc vs. Handler
 
 ***
 
 # Review
 
+## Handler
 
-- [http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
-``` Go
-func ListenAndServe(addr string, handler Handler) error
-```
-
-********************
-# HANDLER
-
-## This is one of the most important things to know!
-
-- [http.Handler](https://godoc.org/net/http#Handler)
+[http.Handler](https://godoc.org/net/http#Handler)
 ``` Go
 type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
 }
 ```
-# HANDLE
+
+## Handle
 
 - [http.Handle](https://godoc.org/net/http#Handle)
 ``` Go
 func Handle(pattern string, handler Handler)
 ```
-********************
-# SERVEMUX
 
-- [http.NewServeMux](https://godoc.org/net/http#NewServeMux)
+***
+
+## ListenAndServe
+
+[http.ListenAndServe](https://godoc.org/net/http#ListenAndServe)
+``` Go
+func ListenAndServe(addr string, handler Handler) error
+```
+
+***
+
+# ServeMux
+
+[http.NewServeMux](https://godoc.org/net/http#NewServeMux)
 ``` Go
 func NewServeMux() *ServeMux
 ```
 
-- [http.ServeHTTP](https://godoc.org/net/http#ServeMux.ServeHTTP)
+[http.ServeHTTP](https://godoc.org/net/http#ServeMux.ServeHTTP)
 ``` Go
 func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
+***
 
-********************
-# QUESTION
+## QUESTION
 
-## Could you get HANDLE to take a func with this signature: func(ResponseWriter, *Request)?
+Could you get http.Handle to take a func with this signature: func(ResponseWriter, *Request)?
