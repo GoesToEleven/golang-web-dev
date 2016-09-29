@@ -25,11 +25,11 @@ HTTP/1.1 302 Found
 
 ``` Go
 body := "CHECK OUT THE RESPONSE BODY PAYLOAD"
-io.WriteString(conn, "HTTP/1.1 200 OK\r\n") // status line
-fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body)) // header
-fmt.Fprint(conn, "Content-Type: text/plain\r\n") // header
-io.WriteString(conn, "\r\n") // blank line; CRLF; carriage-return line-feed
-io.WriteString(conn, body) // body, aka, payload
+io.WriteString(conn, "HTTP/1.1 200 OK\r\n") 			// status line
+fmt.Fprintf(conn, "Content-Length: %d\r\n", len(body)) 	// header
+fmt.Fprint(conn, "Content-Type: text/plain\r\n") 		// header
+io.WriteString(conn, "\r\n") 							// blank line; CRLF; carriage-return line-feed
+io.WriteString(conn, body) 								// body, aka, payload
 ```
 
 ***
