@@ -1,3 +1,11 @@
-1. Take the previous program in the previous folder and change it so that:
-* add your name as a route for your server
-* add the correponding func to print your name
+ListenAndServe on port ":8080" using the default ServeMux.
+
+Use HandleFunc to add the following routes to the default ServeMux: 
+
+"/"
+"/dog/"
+"/me/
+
+Add a HandlerFunc for each of the routes. 
+
+Have the "/me/" route print out your name.

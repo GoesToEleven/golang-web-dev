@@ -19,8 +19,6 @@ type HandlerFunc func(ResponseWriter, *Request)
 func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
-Note the underlying type of HandlerFunc vs. Handler
-
 ***
 
 # Review

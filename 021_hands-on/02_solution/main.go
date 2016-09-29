@@ -8,7 +8,7 @@ import (
 func main() {
 	http.HandleFunc("/", foo)
 	http.HandleFunc("/dog/", bar)
-	http.HandleFunc("/tm/", mcleod)
+	http.HandleFunc("/me/", myName)
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -20,6 +20,6 @@ func bar(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "bar ran")
 }
 
-func mcleod(res http.ResponseWriter, req *http.Request) {
+func myName(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "hello mcleod")
 }
