@@ -12,7 +12,7 @@ func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 
 ***
 
-# HANDLER
+# Handler
 
 ## This is one of the most important things to know!
 
@@ -25,7 +25,7 @@ type Handler interface {
 
 ***
 
-# REQUEST
+# Request
 
 [http.Request](https://godoc.org/net/http#Request)
 ``` Go 
@@ -51,7 +51,7 @@ type Request struct {
 
 ***
 
-# RESPONSE
+# Response
 
 - [http.ResponseWriter](https://godoc.org/net/http#ResponseWriter)
 ``` Go
@@ -86,7 +86,7 @@ res.Header().Set("Content-Type", "text/html; charset=utf-8")
 ```
 
 ********************
-# REQUEST URL
+# Request URL
 req.URL.RequestURI()
 req.URL.Path
 req.URL
