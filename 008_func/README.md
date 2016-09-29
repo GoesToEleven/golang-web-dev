@@ -1,4 +1,4 @@
-# USING FUNCTIONS IN TEMPLATES
+# Using functions in templates
 
 ## [template function documentation](https://godoc.org/text/template#hdr-Functions)
 
