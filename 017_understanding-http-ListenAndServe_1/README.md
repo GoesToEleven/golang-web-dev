@@ -53,7 +53,7 @@ type Request struct {
 
 # Response
 
-- [http.ResponseWriter](https://godoc.org/net/http#ResponseWriter)
+[http.ResponseWriter](https://godoc.org/net/http#ResponseWriter)
 ``` Go
 type ResponseWriter interface {
     // Header returns the header map that will be sent by
@@ -79,14 +79,19 @@ type ResponseWriter interface {
 }
 ```
 
-********************
-- Setting a response header
+***
+
+## Setting a response header
 ``` Go
 res.Header().Set("Content-Type", "text/html; charset=utf-8")
 ```
 
-********************
+***
+
 # Request URL
+
 req.URL.RequestURI()
+
 req.URL.Path
+
 req.URL

@@ -44,7 +44,9 @@ io.WriteString(conn, body) 								// body, aka, payload
 
 ***
 
-# Parsing String
+# Useful for parsing the request-line & status-line
+
+## Parsing String
 
 [strings.Fields](https://godoc.org/strings#Fields)
 ``` Go
