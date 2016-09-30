@@ -1,9 +1,9 @@
-# TECHNIQUES WE WILL LEARN
+# Techniques we will learn
 
 - concatenate
 - CLI pipeline - output to a file with > 
 
-# CODE WE WILL USE FROM THE STANDARD LIBRARY
+# Code we will use from the standard library
 
 ## [os.Create](https://godoc.org/os#Create)
 This allows us to create a file.

@@ -1,4 +1,4 @@
-# UNDERSTANDING TEMPLATES
+# Understanding templates
 
 A template allows us to create one document and then merge data with it.
 

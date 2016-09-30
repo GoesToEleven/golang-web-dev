@@ -1,4 +1,4 @@
-# TEMPLATE VARIABLES
+# Template variables
 
 ## [template variables](https://godoc.org/text/template#hdr-Variables)
 
