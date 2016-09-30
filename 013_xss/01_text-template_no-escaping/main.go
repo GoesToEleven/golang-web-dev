@@ -26,7 +26,7 @@ func main() {
 		Input:   `<script>alert("Yow!");</script>`,
 	}
 
-	err := tpl.Execute(os.Stdout, home)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", home)
 	if err != nil {
 		log.Fatalln(err)
 	}

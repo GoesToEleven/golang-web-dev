@@ -3,31 +3,19 @@ package main
 import (
 	"log"
 	"os"
-	"text/template"
 )
 
-type course struct {
-	Number, Name, Units string
-}
-
-type semester struct {
-	Term    string
-	Courses []course
-}
-
-type year struct {
-	AcaYear              string
-	Fall, Spring, Summer semester
-}
-
-var tpl *template.Template
-
-func init() {
-	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
-}
-
 func main() {
-	years := []year{
+	years := populateData()
+
+	err := tpl.Execute(os.Stdout, years)
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func populateData() []year {
+	return []year{
 		year{
 			AcaYear: "2020-2021",
 			Fall: semester{
@@ -66,10 +54,5 @@ func main() {
 				},
 			},
 		},
-	}
-
-	err := tpl.Execute(os.Stdout, nil)
-	if err != nil {
-		log.Fatalln(err)
 	}
 }

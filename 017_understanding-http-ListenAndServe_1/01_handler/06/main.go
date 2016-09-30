@@ -8,7 +8,7 @@ import (
 type myHandler int
 
 func (m myHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
+	res.Header().Set("Content-Type", "text/plain; charset=utf-8")
 	switch req.URL.Path {
 	case "/cat":
 		io.WriteString(res, "<h1>kitty kitty kitty<h1>")

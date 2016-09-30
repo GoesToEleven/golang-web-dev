@@ -20,7 +20,7 @@ func main() {
 	var cat CatHandler
 
 	mux := http.NewServeMux()
-	mux.Handle("/dog/", dog)
+	mux.Handle("/", dog)
 	mux.Handle("/cat/", cat)
 
 	http.ListenAndServe(":8080", mux)
