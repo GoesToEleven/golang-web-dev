@@ -1,3 +1,1 @@
-1. Take the code in the previous folder and change it so that:
-* you can pass into your template multiple years of classes
-* have those multiple years displayed
+Take the code in the "starting code" folder, then show the data in a template!
