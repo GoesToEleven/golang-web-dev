@@ -1,4 +1,12 @@
-# TCP server
+# HTTP Server
+
+HTTP uses TCP.
+
+To create a server that works with HTTP, we just create a TCP server.
+
+To configure our code to handle request/response in an HTTP fashion which works with browsers, we need to adhere to HTTP standards.
+
+# TCP server essentials
 
 ## Listen
  

@@ -17,11 +17,11 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-
-		// handles unlimited connections
-		go func() {
-			io.Copy(conn, conn)
-			conn.Close()
-		}()
+		go handle(conn)
 	}
+}
+
+func handle(conn net.Conn) {
+	defer conn.Close()
+	io.Copy(conn, conn)
 }

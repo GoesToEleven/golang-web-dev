@@ -18,15 +18,16 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-
-		fmt.Println("\nNEW CONNECTION")
-		bs := make([]byte, 20)
-		fmt.Println("before read", bs)
-		conn.Read(bs)
-		fmt.Println("after read", bs)
-		fmt.Println(string(bs))
-
-		fmt.Println("Code got here.")
-		conn.Close()
+		go handle(conn)
 	}
+}
+
+func handle(conn net.Conn) {
+	defer conn.Close()
+
+	bs := make([]byte, 20)
+	conn.Read(bs)
+	fmt.Fprintf(conn, "I heard you say: %s", bs)
+
+	fmt.Println("Code got here.")
 }

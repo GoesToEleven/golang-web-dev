@@ -1,6 +1,6 @@
 # HTTP Server
 
-HTTP runs on top of TCP.
+HTTP uses TCP.
 
 To create a server that works with HTTP, we just create a TCP server.
 

@@ -9,7 +9,21 @@ import (
 	"strings"
 )
 
-var data = make(map[string]string)
+func main() {
+	li, err := net.Listen("tcp", ":8080")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer li.Close()
+
+	for {
+		conn, err := li.Accept()
+		if err != nil {
+			log.Fatalln(err)
+		}
+		go handle(conn)
+	}
+}
 
 func handle(conn net.Conn) {
 	defer conn.Close()
@@ -24,12 +38,12 @@ func handle(conn net.Conn) {
 		"SET fav chocolate \n"+
 		"GET fav \n\n\n")
 
-	// read
+	// read & write
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
-
+		data := make(map[string]string)
 		// logic
 		switch fs[0] {
 		case "GET":
@@ -50,21 +64,5 @@ func handle(conn net.Conn) {
 		default:
 			io.WriteString(conn, "INVALID COMMAND "+fs[0]+"\n")
 		}
-	}
-}
-
-func main() {
-	li, err := net.Listen("tcp", ":8080")
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer li.Close()
-
-	for {
-		conn, err := li.Accept()
-		if err != nil {
-			log.Fatalln(err)
-		}
-		go handle(conn)
 	}
 }
