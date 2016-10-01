@@ -14,15 +14,23 @@ var data = make(map[string]string)
 func handle(conn net.Conn) {
 	defer conn.Close()
 
+	// instructions
+	io.WriteString(conn, "\nIN-MEMORY DATABASE\n\n"+
+		"USE:\n"+
+		"SET key value \n"+
+		"GET key \n"+
+		"DEL key \n\n"+
+		"EXAMPLE:\n"+
+		"SET fav chocolate \n"+
+		"GET fav \n\n\n")
+
+	// read
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
-		// skip blank lines
-		if len(fs) < 2 {
-			continue
-		}
 
+		// logic
 		switch fs[0] {
 		case "GET":
 			key := fs[1]
@@ -57,9 +65,6 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
-		handle(conn)
-		// ONLY HANDLES ONE CONNECTION AT A TIME
-		// Could we make it concurrent? How?
-		// What are the considerations?
+		go handle(conn)
 	}
 }

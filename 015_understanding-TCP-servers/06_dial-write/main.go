@@ -1,8 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"net"
-	"io"
 )
 
 func main() {
@@ -12,5 +12,5 @@ func main() {
 	}
 	defer conn.Close()
 
-	io.WriteString(conn, "Hi, I am dialing in.")
+	fmt.Fprintln(conn, "I dialed you.")
 }

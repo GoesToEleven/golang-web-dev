@@ -1,7 +1,0 @@
-on windows you can install telnet
-on Mac, should be there
-
-start main.go (go run main.go) and then, in a browser, go to this URI:
-
-http://localhost:8080/
-
