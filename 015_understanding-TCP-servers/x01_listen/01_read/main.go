@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bufio"
+	"fmt"
 	"io"
 	"net"
 )
@@ -19,10 +19,7 @@ func main() {
 			panic(err)
 		}
 
-		scanner := bufio.NewScanner(conn)
-		for scanner.Scan() {
-			io.WriteString(conn, scanner.Text())
-		}
+		io.WriteString(conn, fmt.Sprint("\nFROM SERVER: HELLO CLASS\n"))
 
 		conn.Close()
 	}

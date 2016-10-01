@@ -1,6 +1,9 @@
 package main
 
-import "net"
+import (
+	"io"
+	"net"
+)
 
 func main() {
 	li, err := net.Listen("tcp", ":8080")
@@ -15,18 +18,7 @@ func main() {
 			panic(err)
 		}
 
-		for {
-			bs := make([]byte, 1024)
-			n, err := conn.Read(bs)
-			if err != nil {
-				break
-			}
-			_, err = conn.Write(bs[:n])
-			if err != nil {
-				break
-			}
-		}
-
+		io.Copy(conn, conn)
 		conn.Close()
 	}
 }

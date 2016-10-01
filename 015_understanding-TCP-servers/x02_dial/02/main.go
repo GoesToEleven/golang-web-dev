@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net"
+	"log"
 )
 
 func main() {
@@ -13,7 +14,11 @@ func main() {
 	}
 	defer conn.Close()
 
-	bs, _ := ioutil.ReadAll(conn)
+	bs, err := ioutil.ReadAll(conn)
+	if err != nil {
+		log.Println(err)
+	}
+
 	fmt.Println(string(bs))
 
 }

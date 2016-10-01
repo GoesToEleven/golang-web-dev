@@ -1,25 +1,30 @@
 package main
 
 import (
-	"io"
 	"net"
+	"log"
+	"bufio"
+	"fmt"
 )
 
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		panic(err)
+		log.Panic(err)
 	}
 	defer li.Close()
 
 	for {
 		conn, err := li.Accept()
 		if err != nil {
-			panic(err)
+			log.Println(err)
 		}
 
-		// handles only one connection
-		io.Copy(conn, conn)
+		scanner := bufio.NewScanner(conn)
+		for scanner.Scan() {
+			ln := scanner.Text()
+			fmt.Println(ln)
+		}
 		conn.Close()
 	}
 }
