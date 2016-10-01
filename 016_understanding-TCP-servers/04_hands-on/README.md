@@ -1,0 +1,1 @@
+create a multiplexer (mux) so that your server responds to different URIs and METHODS
