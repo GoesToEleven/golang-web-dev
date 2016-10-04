@@ -13,3 +13,10 @@ func main() {
 	var h MyHandler
 	http.ListenAndServe(":8080", h)
 }
+
+
+/*
+type Handler interface {
+    ServeHTTP(ResponseWriter, *Request)
+}
+*/
