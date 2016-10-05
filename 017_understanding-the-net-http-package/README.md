@@ -31,30 +31,30 @@ func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 
 See [http.Request](https://godoc.org/net/http#Request) in the documentation.
  
-Here it is with the comments stripped out:
+Here it is with most of the comments *and some of the fields* stripped out:
 
 ```go 
 type Request struct {
     Method string
     URL *url.URL
-    Proto      string // "HTTP/1.0"
-    ProtoMajor int    // 1
-    ProtoMinor int    // 0
+	//	Header = map[string][]string{
+	//		"Accept-Encoding": {"gzip, deflate"},
+	//		"Accept-Language": {"en-us"},
+	//		"Foo": {"Bar", "two"},
+	//	}
     Header Header
     Body io.ReadCloser
     ContentLength int64
-    TransferEncoding []string
-    Close bool
     Host string
+    // This field is only available after ParseForm is called.
     Form url.Values
+    // This field is only available after ParseForm is called.
     PostForm url.Values
     MultipartForm *multipart.Form
-    Trailer Header
+    // RemoteAddr allows HTTP servers and other software to record
+	// the network address that sent the request, usually for
+	// logging. 
     RemoteAddr string
-    RequestURI string
-    TLS *tls.ConnectionState
-    Cancel <-chan struct{}
-    Response *Response
 }
 ```
 
