@@ -29,27 +29,33 @@ func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 
 # Request
 
-[http.Request](https://godoc.org/net/http#Request)
-``` Go 
-type Request struct {
-    // Method specifies the HTTP method (GET, POST, PUT, etc.).
-    // For client requests an empty string means GET.
-    Method string
+See [http.Request](https://godoc.org/net/http#Request) in the documentation.
 
-    // URL specifies either the URI being requested (for server
-    // requests) or the URL to access (for client requests).
-    URL *url.URL
+Also see the index showing type [Request]() from the http package.
 
-    // Header contains the request header fields either received
-    // by the server or to be sent by the client.
-    Header Header
+Some interesting things you can do with a request:
 
-    // Body is the request's body.
-    Body io.ReadCloser
+## Retrieve URL & Form data
 
-	// other methods not mentioned
-}
+```http.Request``` is a struct. It has the fields ```Form``` & ```PostForm```. If we read the documentation on these, we see:
+
 ```
+    // Form contains the parsed form data, including both the URL
+    // field's query parameters and the POST or PUT form data.
+    // This field is only available after *ParseForm* is called.
+    // The HTTP client ignores Form and uses Body instead.
+    Form url.Values
+
+    // PostForm contains the parsed form data from POST, PATCH,
+    // or PUT body parameters.
+    //
+    // This field is only available after *ParseForm* is called.
+    // The HTTP client ignores PostForm and uses Body instead.
+    PostForm url.Values
+
+```
+
+If we look at *ParseForm*, we see that this is a method attached to a *http.Request.
 
 ***
 

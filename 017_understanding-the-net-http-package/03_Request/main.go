@@ -5,14 +5,14 @@ import (
 	"fmt"
 )
 
-type myHandler int
-func (m myHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+type hotdog int
+
+func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(res, req.URL.RequestURI())
 	fmt.Fprintln(res, req.URL.Path)
-	fmt.Fprintln(res, req.URL)
-}
+	fmt.Fprintln(res, req.URL)}
 
 func main() {
-	var h myHandler
+	var h hotdog
 	http.ListenAndServe(":8080", h)
 }
