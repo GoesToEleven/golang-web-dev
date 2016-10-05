@@ -23,6 +23,8 @@ func ListenAndServe(addr string, handler Handler) error
 func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 ```
 
+*Notice that both of the above functions take a handler*
+
 ***
 
 # Request
