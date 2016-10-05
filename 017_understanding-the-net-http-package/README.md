@@ -1,6 +1,6 @@
 # Handler
 
-## This is one of the most important things to know!
+**This is one of the most important things to know**
 
 [http.Handler](https://godoc.org/net/http#Handler)
 ``` Go
