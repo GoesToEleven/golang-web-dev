@@ -57,17 +57,13 @@ Some interesting things you can do with a request:
 
 If we look at **ParseForm**, 
 
-
-### func (*Request) ParseForm
 ```go func (r *Request) ParseForm() error ```
 
 we see that this is a method attached to a *http.Request.
 
 ##  Retrieve URL & Form data - by identifier (key)
 
-
-### func (*Request) FormValue
-``` gofunc (r *Request) FormValue(key string) string```
+``` go func (r *Request) FormValue(key string) string```
 FormValue returns the first value for the named component of the query. POST and PUT body parameters take precedence over URL query string values. FormValue calls ParseMultipartForm and ParseForm if necessary and ignores any errors returned by these functions. If key is not present, FormValue returns the empty string. To access multiple values of the same key, call ParseForm and then inspect Request.Form directly.
 
 
