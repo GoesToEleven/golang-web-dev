@@ -71,6 +71,52 @@ we see that this is a method attached to a *http.Request. FormValue returns the 
 
 ***
 
+## See the HTTP Method
+
+The ```http.Request``` type is a struct which has a ```Method``` field.
+
+***
+
+## See URL values
+
+The ```http.Request``` type is a struct which has a ```URL``` field. Notice that the type is a ```*url.URL```
+
+Take a look at type ```url.URL```
+
+``` go
+type URL struct {
+    Scheme     string
+    Opaque     string    // encoded opaque data
+    User       *Userinfo // username and password information
+    Host       string    // host or host:port
+    Path       string
+    RawPath    string // encoded path hint (Go 1.5 and later only; see EscapedPath method)
+    ForceQuery bool   // append a query ('?') even if RawQuery is empty
+    RawQuery   string // encoded query values, without '?'
+    Fragment   string // fragment for references, without '#'
+}
+```
+
+***
+
+## Work with the HTTP header
+
+The ```http.Request``` type is a struct which has a ```Header``` field. Notice that the type is a ```http.Header```
+
+Look at the methods which are attached to type ```http.Header```
+
+``` go
+type Header
+func (h Header) Add(key, value string)
+func (h Header) Del(key string)
+func (h Header) Get(key string) string
+func (h Header) Set(key, value string)
+func (h Header) Write(w io.Writer) error
+func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
+```
+
+***
+
 # Response
 
 [http.ResponseWriter](https://godoc.org/net/http#ResponseWriter)
