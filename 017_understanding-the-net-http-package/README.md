@@ -35,7 +35,7 @@ Also see the index showing type [Request]() from the http package.
 
 Some interesting things you can do with a request:
 
-## Retrieve URL & Form data - all of it
+## Retrieve URL & Form data
 
 ```http.Request``` is a struct. It has the fields ```Form``` & ```PostForm```. If we read the documentation on these, we see:
 
@@ -48,7 +48,6 @@ Some interesting things you can do with a request:
 
     // PostForm contains the parsed form data from POST, PATCH,
     // or PUT body parameters.
-    //
     // This field is only available after **ParseForm** is called.
     // The HTTP client ignores PostForm and uses Body instead.
     PostForm url.Values
@@ -61,10 +60,13 @@ If we look at **ParseForm**,
 
 we see that this is a method attached to a *http.Request.
 
-##  Retrieve URL & Form data - by identifier (key)
+###
+
+If we look at **FormValue***
 
 ``` go func (r *Request) FormValue(key string) string```
-FormValue returns the first value for the named component of the query. POST and PUT body parameters take precedence over URL query string values. FormValue calls ParseMultipartForm and ParseForm if necessary and ignores any errors returned by these functions. If key is not present, FormValue returns the empty string. To access multiple values of the same key, call ParseForm and then inspect Request.Form directly.
+
+we see that this is a method attached to a *http.Request. FormValue returns the first value for the named component of the query. POST and PUT body parameters take precedence over URL query string values. FormValue calls ParseMultipartForm and ParseForm if necessary and ignores any errors returned by these functions. If key is not present, FormValue returns the empty string. To access multiple values of the same key, call ParseForm and then inspect Request.Form directly.
 
 
 ***
