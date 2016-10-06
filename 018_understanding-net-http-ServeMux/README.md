@@ -110,3 +110,17 @@ If a subtree has been registered and a request is received naming the subtree ro
 Patterns may optionally begin with a host name, restricting matches to URLs on that host only. Host-specific patterns take precedence over general patterns, so that a handler might register for the two patterns "/codesearch" and "codesearch.google.com/" without also taking over requests for "http://www.google.com/". 
 
 ServeMux also takes care of sanitizing the URL request path, redirecting any request containing . or .. elements or repeated slashes to an equivalent, cleaner URL.
+
+***
+
+# DefaultServeMux
+
+ListenAndServe starts an HTTP server with a given address and handler. The handler is usually nil, which means to use DefaultServeMux. Handle and HandleFunc add handlers to DefaultServeMux:
+
+```
+http.ListenAndServe(":8080", nil)
+```
+
+***
+
+
