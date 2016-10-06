@@ -18,9 +18,11 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	data := struct{
 		Method string
 		Submissions url.Values
+		URL *url.URL
 	}{
 		req.Method,
 		req.Form,
+		req.URL,
 	}
 	tpl.ExecuteTemplate(res, "index.gohtml", data)
 }
