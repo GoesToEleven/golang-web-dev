@@ -22,6 +22,18 @@
     </ul>
     {{end}}
 
+
+    {{if .Header}}
+        {{range $k, $v := .Header}}
+            <h1>{{$k}}</h1>
+            <ul>
+            {{range $v}}
+                <li>{{.}}</li>
+            {{end}}
+            </ul>
+        {{end}}
+    {{end}}
+
     {{if .Submissions}}<p><strong>variable names</strong> (identifiers) and <em>values</em>:</p>
         {{range $key, $value := .Submissions}}
                 <p><strong>{{$key}}</strong></p>
