@@ -53,7 +53,7 @@ type ServeMux
 	func (mux *ServeMux) ServeHTTP(w ResponseWriter, r *Request)
 ```
 
-Any value of type ```*http.ServeMux*``` implements the ```http.Handler``` interface.
+Any value of type ```*http.ServeMux``` implements the ```http.Handler``` interface.
 
 Remember, the ```http.Handler``` interface requires that a type have the ```ServeHTTP``` method.
 
@@ -61,6 +61,12 @@ Remember, the ```http.Handler``` interface requires that a type have the ```Serv
 type Handler interface {
     ServeHTTP(ResponseWriter, *Request)
 }
+```
+
+What this tells us is that we can pass a value of type ```*http.ServeMux``` into ```http.ListenAndServe```
+
+```
+func ListenAndServe(addr string, handler Handler) error
 ```
 
 *** 
