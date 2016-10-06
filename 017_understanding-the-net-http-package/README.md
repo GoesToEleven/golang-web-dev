@@ -31,7 +31,7 @@ func ListenAndServeTLS(addr, certFile, keyFile string, handler Handler) error
 
 See [http.Request](https://godoc.org/net/http#Request) in the documentation.
  
-Here it is with most of the comments *and some of the fields* stripped out:
+Here it is with *most of the comments and some of the fields* stripped out:
 
 ```go 
 type Request struct {
@@ -128,18 +128,16 @@ type URL struct {
 
 ## Work with the HTTP header
 
-The ```http.Request``` type is a struct which has a ```Header``` field. Notice that the type is a ```http.Header```
+The ```http.Request``` type is a struct which has a ```Header``` field. 
 
-Look at the methods which are attached to type ```http.Header```
+From the documentation about the ```http.Request``` struct, we see that:
 
-``` go
-type Header
-func (h Header) Add(key, value string)
-func (h Header) Del(key string)
-func (h Header) Get(key string) string
-func (h Header) Set(key, value string)
-func (h Header) Write(w io.Writer) error
-func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
+```
+//	Header = map[string][]string{
+//		"Accept-Encoding": {"gzip, deflate"},
+//		"Accept-Language": {"en-us"},
+//		"Foo": {"Bar", "two"},
+//	}
 ```
 
 ***
@@ -199,4 +197,23 @@ switch req.URL.Path {
 Example:
 ``` Go
 res.Header().Set("Content-Type", "text/html; charset=utf-8")
+```
+
+
+
+
+////
+
+Notice that the type is a ```http.Header```
+
+Look at the methods which are attached to type ```http.Header```
+
+``` go
+type Header
+func (h Header) Add(key, value string)
+func (h Header) Del(key string)
+func (h Header) Get(key string) string
+func (h Header) Set(key, value string)
+func (h Header) Write(w io.Writer) error
+func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
 ```
