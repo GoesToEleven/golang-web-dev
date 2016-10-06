@@ -25,3 +25,5 @@ func main() {
 
 	http.ListenAndServe(":8080", mux)
 }
+
+// create a route for hamster
