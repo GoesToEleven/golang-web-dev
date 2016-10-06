@@ -16,11 +16,11 @@ func (c hotcat) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	var h hotdog
+	var d hotdog
 	var c hotcat
 
 	mux := http.NewServeMux()
-	mux.Handle("/dog", h)
+	mux.Handle("/dog", d)
 	mux.Handle("/cat", c)
 
 	http.ListenAndServe(":8080", mux)

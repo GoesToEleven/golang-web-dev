@@ -34,6 +34,6 @@ func init() {
 }
 
 func main() {
-	var h hotdog
-	http.ListenAndServe(":8080", h)
+	var d hotdog
+	http.ListenAndServe(":8080", d)
 }
