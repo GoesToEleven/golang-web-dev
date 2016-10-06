@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"html/template"
 	"log"
+	"net/url"
 )
 
 type hotdog int
@@ -15,7 +16,7 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	}
 
 	data := struct{
-		Submissions map[string][]string
+		Submissions url.Values
 	}{
 		req.Form,
 	}

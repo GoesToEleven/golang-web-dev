@@ -18,7 +18,7 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	data := struct{
 		Method string
 		URL *url.URL
-		Submissions map[string][]string
+		Submissions url.Values
 	}{
 		req.Method,
 		req.URL,
