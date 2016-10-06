@@ -168,39 +168,16 @@ type ResponseWriter interface {
 
 ***
 
-## Request URL
-
-req.URL.RequestURI()
-
-req.URL.Path
-
-req.URL
-
-Example:
-``` Go
-switch req.URL.Path {
-	case "/cat":
-		io.WriteString(res, `some text`)
-	case "/dog":
-		io.WriteString(res, `some other text`)
-	}
-```
-
-***
-
 ## Setting a response header
 
-Example:
+An ```http.ResponseWriter``` has a method ```Header()``` which returns a ```http.Header```.
+
+Look at the documentation for ```http.Header```
+
 ``` Go
-res.Header().Set("Content-Type", "text/html; charset=utf-8")
+type Header map[string][]string
+
 ```
-
-
-
-
-////
-
-Notice that the type is a ```http.Header```
 
 Look at the methods which are attached to type ```http.Header```
 
@@ -212,4 +189,10 @@ func (h Header) Get(key string) string
 func (h Header) Set(key, value string)
 func (h Header) Write(w io.Writer) error
 func (h Header) WriteSubset(w io.Writer, exclude map[string]bool) error
+```
+
+We can set headers for a response like this:
+
+``` Go
+res.Header().Set("Content-Type", "text/html; charset=utf-8")
 ```
