@@ -130,14 +130,10 @@ type URL struct {
 
 The ```http.Request``` type is a struct which has a ```Header``` field. 
 
-From the documentation about the ```http.Request``` struct, we see that:
+From the documentation about the ```http.Header``` struct, we see that:
 
 ```
-//	Header = map[string][]string{
-//		"Accept-Encoding": {"gzip, deflate"},
-//		"Accept-Language": {"en-us"},
-//		"Foo": {"Bar", "two"},
-//	}
+type Header map[string][]string
 ```
 
 ***
