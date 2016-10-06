@@ -1,13 +1,15 @@
-# HandleFunc & HandlerFunc
-
-## HandleFunc
+# HandleFunc
 
 [http.HandleFunc](https://godoc.org/net/http#HandleFunc)
 ``` Go
 func HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 ```
 
-## HandlerFunc
+***
+
+# HandlerFunc 
+
+[http.HandlerFunc](https://godoc.org/net/http#HandlerFunc)
 
 ``` Go
 type HandlerFunc func(ResponseWriter, *Request)
@@ -19,5 +21,5 @@ func (f HandlerFunc) ServeHTTP(w ResponseWriter, r *Request)
 
 ***
 
-## QUESTION
+## Question
 Could you get http.Handle to take a func with this signature: func(ResponseWriter, *Request)?
