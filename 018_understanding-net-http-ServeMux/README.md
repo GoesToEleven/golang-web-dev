@@ -22,17 +22,17 @@ The term multiplexer has been adopted by web programming to refer to the process
 A web server has requests coming in at different routers and via different HTTP methods. For instance, we might have these requests:
 
 REQUEST #1
-  Path: /cat
-  Method: GET
+  - Path: /cat
+  - Method: GET
 
 
 REQUEST #2
-  Path: /apply
-  Method: Get
+  - Path: /apply
+  - Method: Get
 
 Request #3
-  Path: /apply
-  Method: Post
+  - Path: /apply
+  - Method: Post
 
 Based upon the requests coming in, the server needs to determine how to respond to that request - for each request that comes in, different code will be run.
 
