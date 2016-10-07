@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"net"
 	"log"
+	"net"
 )
 
 func main() {

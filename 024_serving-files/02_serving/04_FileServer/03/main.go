@@ -5,7 +5,6 @@ import (
 	"net/http"
 )
 
-
 func main() {
 	http.HandleFunc("/", dog)
 	http.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir("./assets"))))

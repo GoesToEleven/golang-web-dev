@@ -6,11 +6,13 @@ import (
 )
 
 type hotdog int
+
 func (d hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "dog dog dog")
 }
 
 type hotcat int
+
 func (c hotcat) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "cat cat cat")
 }

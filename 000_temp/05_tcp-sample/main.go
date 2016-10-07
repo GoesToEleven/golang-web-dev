@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net"
 	"io"
 	"log"
+	"net"
 )
 
 func main() {
@@ -30,4 +30,3 @@ func main() {
 		}(conn)
 	}
 }
-

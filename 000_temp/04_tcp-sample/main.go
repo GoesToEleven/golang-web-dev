@@ -16,4 +16,3 @@ func main() {
 	status, err := bufio.NewReader(conn).ReadString('\n')
 	fmt.Println(status)
 }
-

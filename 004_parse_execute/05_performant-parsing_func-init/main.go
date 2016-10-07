@@ -9,7 +9,7 @@ import (
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.gmao"))
+	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func main() {
@@ -18,17 +18,17 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "two.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "two.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "one.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "one.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}

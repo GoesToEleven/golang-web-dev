@@ -1,11 +1,11 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"time"
 )
 
-func main(){
+func main() {
 	t1 := time.Now()
 	//fmt.Println(t1)
 	fmt.Println(t1.Format("03:04"))
@@ -17,4 +17,3 @@ func main(){
 
 	fmt.Println(t1.Before(t2))
 }
-

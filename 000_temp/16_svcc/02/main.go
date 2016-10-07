@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 
-	x := []int{7,14,12,42}
+	x := []int{7, 14, 12, 42}
 	fmt.Println(x)
 
-	y := map[string]int {"todd":45,"max":40}
+	y := map[string]int{"todd": 45, "max": 40}
 	fmt.Println(y)
 	fmt.Println(y["todd"])
 
-	z := struct{
+	z := struct {
 		fname string
 		lname string
 	}{

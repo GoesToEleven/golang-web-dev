@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
-	"io"
-	"fmt"
 	"bufio"
+	"fmt"
+	"io"
+	"log"
+	"net"
 	"strings"
 )
 
@@ -27,6 +27,7 @@ func main() {
 }
 
 var counter int
+
 func serve(c net.Conn) {
 	defer c.Close()
 	s := bufio.NewScanner(c)

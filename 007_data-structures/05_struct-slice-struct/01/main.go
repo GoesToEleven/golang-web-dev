@@ -14,13 +14,13 @@ type sage struct {
 }
 
 type car struct {
-	Manufacturer  string
-	Model string
-	Doors int
+	Manufacturer string
+	Model        string
+	Doors        int
 }
 
 type items struct {
-	Wisdom	[]sage
+	Wisdom    []sage
 	Transport []car
 }
 
@@ -47,21 +47,21 @@ func main() {
 
 	f := car{
 		Manufacturer: "Ford",
-		Model: "F150",
-		Doors: 2,
+		Model:        "F150",
+		Doors:        2,
 	}
 
 	c := car{
 		Manufacturer: "Toyota",
-		Model: "Corolla",
-		Doors: 4,
+		Model:        "Corolla",
+		Doors:        4,
 	}
 
 	sages := []sage{b, g, m}
 	cars := []car{f, c}
 
 	data := items{
-		Wisdom: sages,
+		Wisdom:    sages,
 		Transport: cars,
 	}
 

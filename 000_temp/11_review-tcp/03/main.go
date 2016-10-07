@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
+	"bufio"
 	"fmt"
 	"io"
-	"bufio"
+	"log"
+	"net"
 )
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 			if ln == "" {
 				break
 			}
-			io.WriteString(c, ln + "\n")
+			io.WriteString(c, ln+"\n")
 		}
 
 		c.Close()

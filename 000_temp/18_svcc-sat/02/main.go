@@ -18,7 +18,6 @@ func (p person) speak() {
 	fmt.Println(p.fname, p.lname, `delicately says, "Hello, James."`)
 }
 
-
 func (s secretAgent) speak() {
 	fmt.Println(s.fname, s.lname, `says, "Shaken, not stirred."`)
 }

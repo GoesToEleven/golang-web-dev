@@ -1,12 +1,12 @@
 package main
 
 import (
-	"net"
-	"log"
-	"fmt"
 	"bufio"
-	"strings"
+	"fmt"
 	"io"
+	"log"
+	"net"
+	"strings"
 )
 
 func main() {
@@ -37,7 +37,7 @@ func serve(c net.Conn) {
 			words := strings.Split(ln, " ")
 			method := words[0]
 			uri := words[1]
-			if uri == "/"{
+			if uri == "/" {
 				index(c)
 			}
 			if uri == "/dog" && method == "GET" {

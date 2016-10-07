@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"net"
-	"io"
 )
 
 func main() {

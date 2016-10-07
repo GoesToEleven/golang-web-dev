@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
+	"fmt"
 	"io"
 	"io/ioutil"
-	"fmt"
+	"log"
+	"net"
 )
 
 func main() {

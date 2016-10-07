@@ -30,8 +30,8 @@ func saySomething(h human) {
 
 func main() {
 	p1 := person{
-			"Miss",
-			"Moneypenny",
+		"Miss",
+		"Moneypenny",
 	}
 
 	sa1 := secretAgent{

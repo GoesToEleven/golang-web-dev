@@ -4,7 +4,7 @@ import "fmt"
 
 type hotdog int
 
-func main(){
+func main() {
 	x := 42
 	var y hotdog
 	y = 17
@@ -17,7 +17,6 @@ func main(){
 	x = int(y)
 	fmt.Println(x)
 }
-
 
 /*
 func (receiver) identifier(params) (returns) {

@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"net"
-	"io"
 	"strings"
 )
 
@@ -38,8 +38,8 @@ func serve(c net.Conn) {
 			xs := strings.Fields(ln)
 			rMethod = xs[0]
 			rURI = xs[1]
-			fmt.Println("METHOD:",rMethod)
-			fmt.Println("URI:",rURI)
+			fmt.Println("METHOD:", rMethod)
+			fmt.Println("URI:", rURI)
 		}
 		if ln == "" {
 			fmt.Println("THIS IS THE END OF THE HTTP REQUEST HEADERS")

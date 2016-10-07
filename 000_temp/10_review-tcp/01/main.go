@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net"
-	"log"
 	"io"
+	"log"
+	"net"
 )
 
 func main() {

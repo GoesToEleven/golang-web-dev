@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
 	"log"
+	"net/http"
 	"net/url"
 )
 
@@ -15,12 +15,12 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 		log.Println(err)
 	}
 
-	data := struct{
-		Method string
-		URL *url.URL
-		Submissions map[string][]string
-		Header http.Header
-		Host string
+	data := struct {
+		Method        string
+		URL           *url.URL
+		Submissions   map[string][]string
+		Header        http.Header
+		Host          string
 		ContentLength int64
 	}{
 		req.Method,

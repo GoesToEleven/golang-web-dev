@@ -3,17 +3,17 @@ package main
 import "fmt"
 
 type person struct {
-	fname string
-	lname string
+	fname       string
+	lname       string
 	secretAgent bool
 }
 
-func main(){
+func main() {
 
-	x := []int{7,14,12,42}
+	x := []int{7, 14, 12, 42}
 	fmt.Println(x)
 
-	y := map[string]int{"todd":45,"max":40}
+	y := map[string]int{"todd": 45, "max": 40}
 	fmt.Println(y)
 	fmt.Println(y["todd"])
 

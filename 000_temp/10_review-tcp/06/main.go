@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net"
-	"log"
-	"io"
-	"fmt"
 	"bufio"
+	"fmt"
+	"io"
+	"log"
+	"net"
 	"strings"
 )
 

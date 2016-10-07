@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
-	"net/http"
-	"log"
-	"html/template"
 	"fmt"
+	"github.com/julienschmidt/httprouter"
+	"html/template"
+	"log"
+	"net/http"
 )
 
 var tpl *template.Template

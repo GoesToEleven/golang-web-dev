@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	tpl, err := template.ParseGlob("templates/*.gmao")
+	tpl, err := template.ParseGlob("templates/*")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -17,17 +17,17 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "vespa.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "two.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "two.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	err = tpl.ExecuteTemplate(os.Stdout, "one.gmao", nil)
+	err = tpl.ExecuteTemplate(os.Stdout, "one.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}

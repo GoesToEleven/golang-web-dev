@@ -58,7 +58,6 @@ func index() {
 	fmt.Println("YOU ARE AT INDEX")
 }
 
-
 func doggy() {
 	fmt.Println("YOU ARE AT DOGGY")
 }

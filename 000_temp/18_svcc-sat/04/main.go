@@ -11,14 +11,14 @@ var chs = make(chan string)
 
 func main() {
 
-	xs := []string{"a", "b", "c", "d", "e",}
+	xs := []string{"a", "b", "c", "d", "e"}
 	wg.Add(len(xs))
 
 	for _, v := range xs {
 		go count(v)
 	}
 
-	go func(){
+	go func() {
 		wg.Wait()
 		close(chs)
 	}()
@@ -31,7 +31,7 @@ func main() {
 }
 
 func count(a string) {
-	for i := 0; i <=100; i++ {
+	for i := 0; i <= 100; i++ {
 		chs <- fmt.Sprintln(a, "-", i)
 	}
 	wg.Done()
