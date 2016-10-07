@@ -21,7 +21,8 @@ func main() {
 		"America":  "MLK",
 		"Meditate": "Buddha",
 		"Love":     "Jesus",
-		"Prophet":  "Muhammad"}
+		"Prophet":  "Muhammad",
+	}
 
 	err := tpl.Execute(os.Stdout, sages)
 	if err != nil {

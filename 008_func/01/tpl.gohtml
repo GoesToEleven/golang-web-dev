@@ -10,27 +10,10 @@
 {{uc .Name}}
 {{end}}
 
-<!-- by index position -->
-<!-- index is a "predefined global function" -->
-<!-- https://godoc.org/text/template#hdr-Functions -->
 
-{{(index .Wisdom 0).Name}}
-{{(index .Wisdom 1).Name}}
-{{(index .Wisdom 2).Name}}
-
-{{(uc (index .Wisdom 0).Name)}}
-{{(uc (index .Wisdom 1).Name)}}
-{{(uc (index .Wisdom 2).Name)}}
-
-
-{{(ft (index .Wisdom 0).Name)}}
-{{(ft (index .Wisdom 1).Name)}}
-{{(ft (index .Wisdom 2).Name)}}
-
-
-{{(uc (index .Wisdom 2).Name)}}
-{{(ft (index .Transport 1).Manufacturer)}}
-{{(ft (index .Transport 1).Model)}}
+{{range .Wisdom}}
+{{ft .Name}}
+{{end}}
 
 
 </body>

@@ -6,31 +6,32 @@
 </head>
 <body>
 
-EXAMPLE: if .
-{{if .}}
-    if .
-{{end}}
 
-
-EXAMPLE: range .
+EXAMPLE #1
 {{range .}}
     {{.}}
 {{end}}
 
-EXAMPLE: if .Name
+
+EXAMPLE #2
+{{if .}}
+    EXAMPLE #2 - {{.}}
+{{end}}
+
+EXAMPLE #3
 {{range .}}
     {{if .Name}}
-        Name: {{.Name}}
+       EXAMPLE #3 - {{.Name}}
     {{end}}
 {{end}}
 
 
-EXAMPLE: and
+EXAMPLE #4
 {{range .}}
     {{if and .Name .Admin}}
-        Name: {{.Name}}
-        Motto: {{.Motto}}
-        Admin: {{.Admin}}
+        EXAMPLE #4 - Name: {{.Name}}
+        EXAMPLE #4 - Motto: {{.Motto}}
+        EXAMPLE #4 - Admin: {{.Admin}}
     {{end}}
 {{end}}
 

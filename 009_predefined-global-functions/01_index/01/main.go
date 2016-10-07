@@ -14,15 +14,9 @@ func init() {
 
 func main() {
 
-	g1 := struct {
-		Score1 int
-		Score2 int
-	}{
-		7,
-		9,
-	}
+	xs := []string{"zero", "one", "two", "three", "four", "five",}
 
-	err := tpl.Execute(os.Stdout, g1)
+	err := tpl.Execute(os.Stdout, xs)
 	if err != nil {
 		log.Fatalln(err)
 	}

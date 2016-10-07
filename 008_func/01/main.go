@@ -25,13 +25,13 @@ type car struct {
 // "uc" is the ToUpper func from package strings
 // "ft" is a func I declared
 // "ft" slices a string, returning the first three characters
-var funcMap = template.FuncMap{
+var fm = template.FuncMap{
 	"uc": strings.ToUpper,
 	"ft": firstThree,
 }
 
 func init() {
-	tpl = template.Must(template.New("").Funcs(funcMap).ParseFiles("tpl.gohtml"))
+	 tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))
 }
 
 func firstThree(s string) string {
