@@ -25,8 +25,6 @@ func main() {
 }
 
 func handle(conn net.Conn) {
-	defer conn.Close()
-
 	err := conn.SetDeadline(time.Now().Add(10 * time.Second))
 	if err != nil {
 		log.Println("CONN TIMEOUT")
@@ -36,7 +34,9 @@ func handle(conn net.Conn) {
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
+		fmt.Fprintln(conn, ln)
 	}
+	defer conn.Close()
 
 	// now we get here
 	// the connection will time out
