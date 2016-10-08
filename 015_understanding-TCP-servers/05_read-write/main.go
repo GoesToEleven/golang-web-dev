@@ -3,6 +3,9 @@ package main
 import (
 	"io"
 	"net"
+	"time"
+	"log"
+	"fmt"
 )
 
 func main() {
@@ -22,6 +25,15 @@ func main() {
 }
 
 func handle(conn net.Conn) {
+	err := conn.SetDeadline(time.Now().Add(10 * time.Second))
+	if err != nil {
+		log.Println("CONN TIMEOUT")
+	}
+
+	for {
+		io.Copy(conn, conn)
+	}
 	defer conn.Close()
-	io.Copy(conn, conn)
+	
+	fmt.Println("***CODE GOT HERE***")
 }

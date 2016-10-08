@@ -41,5 +41,5 @@ func handle(conn net.Conn) {
 	// now we get here
 	// the connection will time out
 	// that breaks us out of the scanner loop
-	fmt.Println("***CODE GOT HERE***\n\n")
+	fmt.Println("***CODE GOT HERE***")
 }
