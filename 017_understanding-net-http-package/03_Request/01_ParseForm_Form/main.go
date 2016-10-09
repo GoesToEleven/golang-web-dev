@@ -9,8 +9,8 @@ import (
 
 type hotdog int
 
-func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	err := req.ParseForm()
+func (m hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
 	if err != nil {
 		log.Println(err)
 	}
@@ -18,9 +18,9 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	data := struct {
 		Submissions url.Values
 	}{
-		req.Form,
+		r.Form,
 	}
-	tpl.ExecuteTemplate(res, "index.gohtml", data)
+	tpl.ExecuteTemplate(w, "index.gohtml", data)
 }
 
 var tpl *template.Template
