@@ -39,30 +39,30 @@ func handle(conn net.Conn) {
 		"GET fav \n\n\n")
 
 	// read & write
+	data := make(map[string]string)
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
-		data := make(map[string]string)
 		// logic
 		switch fs[0] {
 		case "GET":
-			key := fs[1]
-			value := data[key]
-			fmt.Fprintf(conn, "%s\n", value)
+			k := fs[1]
+			v := data[k]
+			fmt.Fprintf(conn, "%s\n", v)
 		case "SET":
 			if len(fs) != 3 {
-				io.WriteString(conn, "EXPECTED VALUE\n")
+				fmt.Fprintln(conn, "EXPECTED VALUE")
 				continue
 			}
-			key := fs[1]
-			value := fs[2]
-			data[key] = value
+			k := fs[1]
+			v := fs[2]
+			data[k] = v
 		case "DEL":
-			key := fs[1]
-			delete(data, key)
+			k := fs[1]
+			delete(data, k)
 		default:
-			io.WriteString(conn, "INVALID COMMAND "+fs[0]+"\n")
+			fmt.Fprintln(conn, "INVALID COMMAND "+fs[0])
 		}
 	}
 }
