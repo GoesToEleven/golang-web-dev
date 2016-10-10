@@ -6,6 +6,6 @@ Use HandleFunc to add the following routes to the default ServeMux:
 "/dog/"
 "/me/
 
-Add a func(res http.ResponseWriter, req *http.Request) for each of the routes.
+Add a func for each of the routes.
 
 Have the "/me/" route print out your name.
