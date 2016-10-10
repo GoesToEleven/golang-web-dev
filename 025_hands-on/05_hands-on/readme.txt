@@ -1,5 +1,12 @@
-Serve the files in the "starting-files" folder
+Modify the code from the previous problem so that the path of a url is split on the "/" and then the response writes back the parts of the path separated by dashes. For instance:
 
-To get your images to serve, use only this:
-	fs := http.FileServer(http.Dir("public"))
-Hint: look to see what type FileServer returns, then think it through.
+http://localhost:8080/todd/mcleod/dad
+
+Prints out
+
+- todd - mcleod - dad
+
+Use:
+req.URL.Path
+strings.Split
+strings.Join

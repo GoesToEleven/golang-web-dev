@@ -1,15 +1,13 @@
-ListenAndServe on port 8080 of localhost
+Use http.ListenAndServe on port 8080 of localhost with the default ServeMux.
 
-For the default route "/"
-Have a func(res http.ResponseWriter, req *http.Request)
-called "foo" which writes to the response "foo ran"
+Use http.HandleFunc to serve a func called dog.
 
-For the default route "/uptown/"
-Have a func(res http.ResponseWriter, req *http.Request)
-called "dog" which parses a template called "fido.gohtml"
-and writes to the response "<h1>This is from dog</h1>"
-and also shows a picture of a dog when the template is executed.
+Use io.WriteString to write this HTML:
 
-For the default route "/fido/"
-Have a func(res http.ResponseWriter, req *http.Request)
-called "chien" which serves the file "dog.jpeg"
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg">
+
+Set the following header using res.Header().Set:
+
+"Content-Type", "text/html; charset=utf-8"
+
+What happens when you do not set the header?

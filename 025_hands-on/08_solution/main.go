@@ -1,26 +1,19 @@
 package main
 
 import (
-	"html/template"
-	"log"
+	"io"
 	"net/http"
+	"strings"
 )
 
-var tpl *template.Template
-
-func init() {
-	tpl = template.Must(template.ParseFiles("templates/index.gohtml"))
-}
-
 func main() {
-	http.HandleFunc("/", dogs)
-	http.Handle("/resources/", http.StripPrefix("/resources", http.FileServer(http.Dir("public"))))
+	http.HandleFunc("/", dog)
 	http.ListenAndServe(":8080", nil)
 }
 
-func dogs(res http.ResponseWriter, req *http.Request) {
-	err := tpl.Execute(res, nil)
-	if err != nil {
-		log.Fatalln("template didn't execute: ", err)
-	}
+func dog(res http.ResponseWriter, req *http.Request) {
+	fs := strings.Split(req.URL.Path, "/")
+	s := strings.Join(fs, " - ")
+	res.Header().Set("Content-Type", "text/html; charset=utf-8")
+	io.WriteString(res, `<h1>`+s+`</h1><br>`)
 }
