@@ -6,10 +6,18 @@ Now I want you to READ from the connection.
 
 You can READ and WRITE to a net.Conn (a connection implements both the reader and writer interface).
 
-Use ioutil.ReadAll to read from the connection. This will give you a []byte. You can convert a []byte to a string like this: string([]byte). You can then print that string to standard out (the terminal).
+Use bufio.NewScanner() to read from the connection.
 
-See this code: https://play.golang.org/p/LSsrFCOJR0
+After all of the reading, have these lines of code:
 
-Launch your TCP server and in your web browser, visit localhost:8080. Now go back and look at your terminal. What did you find?
+fmt.Println("Code got here.")
+io.WriteString(c, "I see you connected.")
 
-Can you answer the question as to why "I see you connected" is never written?
+
+Launch your TCP server.
+
+In your web browser, visit localhost:8080.
+
+Now go back and look at your terminal.
+
+Can you answer the question as to why "I see you connected." is never written?

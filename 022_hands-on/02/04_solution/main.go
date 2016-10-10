@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net"
+	"bufio"
 )
 
 func main() {
@@ -21,15 +21,18 @@ func main() {
 			log.Println(err)
 		}
 
-		// read from connection
-		bs, err := ioutil.ReadAll(c)
-		if err != nil {
-			log.Println(err)
+		scanner := bufio.NewScanner(c)
+		for scanner.Scan() {
+			ln := scanner.Text()
+			fmt.Println(ln)
 		}
-		fmt.Println(string(bs))
+		defer c.Close()
 
-		// WHY IS THIS LINE NEVER WRITTEN?
-		io.WriteString(c, "I see you connected")
+		// we never get here
+		// we have an open stream connection
+		// how does the above reader know when it's done?
+		fmt.Println("Code got here.")
+		io.WriteString(c, "I see you connected.")
 
 		c.Close()
 	}

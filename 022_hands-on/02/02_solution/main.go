@@ -20,7 +20,7 @@ func main() {
 		}
 
 		// write to connection
-		io.WriteString(c, "I see you connected")
+		io.WriteString(c, "I see you connected.")
 
 		c.Close()
 	}

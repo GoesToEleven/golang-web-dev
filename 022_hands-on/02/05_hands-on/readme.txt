@@ -2,9 +2,9 @@ Building upon the code from the previous exercise:
 
 We are now going to get "I see you connected" to be written.
 
-When we used ioutil.ReadAll, our code was reading from a io.Reader that never ended.
+When we used bufio.NewScanner(), our code was reading from a io.Reader that never ended.
 
-We will now use bufio.Scanner instead of ioutil.ReadAll. This will allow us to breakt out of the reading.
+We will now break out of the reading.
 
 Package bufio has the Scanner type. The Scanner type "provides a convenient interface for reading data". When you have a Scanner type, you can call the SCAN method on it. Successive calls to the Scan method will step through the tokens (piece of data). The Scanner type also has a TEXT method. When you call this method, you will be given the text from the current token. Here is how you will use it:
 
