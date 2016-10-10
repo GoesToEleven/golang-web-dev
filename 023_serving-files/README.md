@@ -2,25 +2,6 @@
 
 ***
 
-## io.Copy
-
-[os.Open](https://godoc.org/os#Open)
-``` go
-func Open(name string) (*File, error)
-```
-
-[os.File.Read](https://godoc.org/os#File.Read)
-``` go
-func (f *File) Read(b []byte) (n int, err error)
-```
-
-[io.Copy](https://godoc.org/io#Copy)
-``` go
-func Copy(dst Writer, src Reader) (written int64, err error)
-```
-
-***
-
 # ServeContent
 
 [http.ServeContent](https://godoc.org/net/http#ServeContent)
