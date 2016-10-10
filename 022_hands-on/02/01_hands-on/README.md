@@ -8,8 +8,8 @@ Remember that from the "net" package you first need to LISTEN, then you need to 
  
 Now write a response back on the connection.
 
-Use io.WriteString to write this response: I see you connected.
+Use io.WriteString to write the response: I see you connected.
 
 Remember to close the connection.
 
-Once you have all of that working, run your TCP server and from test it from telnet (telnet localhost 8080).
+Once you have all of that working, run your TCP server and test it from telnet (telnet localhost 8080).

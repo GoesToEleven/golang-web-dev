@@ -14,14 +14,14 @@ func main() {
 	defer l.Close()
 
 	for {
-		c, err := l.Accept()
+		conn, err := l.Accept()
 		if err != nil {
 			log.Println(err)
 		}
 
 		// write to connection
-		io.WriteString(c, "I see you connected.")
+		io.WriteString(conn, "I see you connected.")
 
-		c.Close()
+		conn.Close()
 	}
 }

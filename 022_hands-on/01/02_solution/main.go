@@ -12,14 +12,14 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "foo ran")
+func foo(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "foo ran")
 }
 
-func bar(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "bar ran")
+func bar(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "bar ran")
 }
 
-func myName(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "hello mcleod")
+func myName(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "hello mcleod")
 }

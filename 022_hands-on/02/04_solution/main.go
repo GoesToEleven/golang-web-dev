@@ -16,24 +16,24 @@ func main() {
 	defer l.Close()
 
 	for {
-		c, err := l.Accept()
+		conn, err := l.Accept()
 		if err != nil {
 			log.Println(err)
 		}
 
-		scanner := bufio.NewScanner(c)
+		scanner := bufio.NewScanner(conn)
 		for scanner.Scan() {
 			ln := scanner.Text()
 			fmt.Println(ln)
 		}
-		defer c.Close()
+		defer conn.Close()
 
 		// we never get here
 		// we have an open stream connection
 		// how does the above reader know when it's done?
 		fmt.Println("Code got here.")
-		io.WriteString(c, "I see you connected.")
+		io.WriteString(conn, "I see you connected.")
 
-		c.Close()
+		conn.Close()
 	}
 }

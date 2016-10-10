@@ -66,14 +66,6 @@ func blogWrite(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "WRITE ARTICLE, %s!\n", ps.ByName("article"))
 }
 
-func update(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "UPDATE, %s!\n", ps.ByName("name"))
-}
-
-func trailing(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "TRAILING, %s!\n", ps.ByName("name"))
-}
-
 func HandleError(w http.ResponseWriter, e error) {
 	if e != nil {
 		http.Error(w, e.Error(), http.StatusInternalServerError)

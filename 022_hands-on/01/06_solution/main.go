@@ -14,21 +14,21 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "foo ran")
+func foo(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "foo ran")
 }
 
-func bar(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "bar ran")
+func bar(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "bar ran")
 }
 
-func mcleod(res http.ResponseWriter, req *http.Request) {
+func mcleod(w http.ResponseWriter, req *http.Request) {
 	tpl, err := template.ParseFiles("something.gohtml")
 	if err != nil {
 		log.Fatalln("error parsing template", err)
 	}
 
-	err = tpl.ExecuteTemplate(res, "something.gohtml", "McLeod")
+	err = tpl.ExecuteTemplate(w, "something.gohtml", "McLeod")
 	if err != nil {
 		log.Fatalln("error executing template", err)
 	}

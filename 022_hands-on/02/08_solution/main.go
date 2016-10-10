@@ -15,11 +15,11 @@ func main() {
 	defer l.Close()
 
 	for {
-		c, err := l.Accept()
+		conn, err := l.Accept()
 		if err != nil {
 			log.Println(err)
 		}
-		go serve(c)
+		go serve(conn)
 	}
 }
 

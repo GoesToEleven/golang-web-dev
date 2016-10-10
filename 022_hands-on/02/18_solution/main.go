@@ -53,10 +53,10 @@ func serve(c net.Conn) {
 	switch {
 	case rMethod == "GET" && rURI == "/":
 		handleIndex(c)
-	case rMethod == "GET" && rURI == "/dog":
-		handleDog(c)
-	case rMethod == "POST" && rURI == "/dog":
-		handleDogPost(c)
+	case rMethod == "GET" && rURI == "/apply":
+		handleApply(c)
+	case rMethod == "POST" && rURI == "/apply":
+		handleApplyPost(c)
 	default:
 		handleDefault(c)
 	}
@@ -72,6 +72,8 @@ func handleIndex(c net.Conn) {
 		</head>
 		<body>
 			<h1>"GET INDEX"</h1>
+			<a href="/">index</a><br>
+			<a href="/apply">apply</a><br>
 		</body>
 		</html>
 	`
@@ -82,7 +84,7 @@ func handleIndex(c net.Conn) {
 	io.WriteString(c, body)
 }
 
-func handleDog(c net.Conn) {
+func handleApply(c net.Conn) {
 	body := `
 		<!DOCTYPE html>
 		<html lang="en">
@@ -91,8 +93,10 @@ func handleDog(c net.Conn) {
 			<title>GET DOG</title>
 		</head>
 		<body>
-			<h1>"GET DOG"</h1>
-			<form action="/dog" method="post">
+			<h1>"GET APPLY"</h1>
+			<a href="/">index</a><br>
+			<a href="/apply">apply</a><br>
+			<form action="/apply" method="post">
 			<input type="hidden" value="In my good death">
 			<input type="submit" value="submit">
 			</form>
@@ -106,18 +110,20 @@ func handleDog(c net.Conn) {
 	io.WriteString(c, body)
 }
 
-func handleDogPost(c net.Conn) {
+func handleApplyPost(c net.Conn) {
 	body := `
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
 			<meta charset="UTF-8">
-			<title>POST DOG</title>
+			<title>POST APPLY</title>
 		</head>
 		<body>
-			<h1>"POST DOG"</h1>
+			<h1>"POST APPLY"</h1>
+			<a href="/">index</a><br>
+			<a href="/apply">apply</a><br>
 		</body>
-		</html>
+	</html>
 	`
 	io.WriteString(c, "HTTP/1.1 200 OK\r\n")
 	fmt.Fprintf(c, "Content-Length: %d\r\n", len(body))
