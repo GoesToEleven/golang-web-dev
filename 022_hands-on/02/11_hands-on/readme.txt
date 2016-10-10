@@ -22,4 +22,4 @@ fmt.Fprint(c, "Content-Type: text/plain\r\n")
 
 "\r\n"
 
-Look in your browser "developer tools" under the network tab. Compare the RESPONSE HEADERS from the previous file (folder 14) with the RESPONSE HEADERS in your new solution (folder 16).
+Look in your browser "developer tools" under the network tab. Compare the RESPONSE HEADERS from the previous file with the RESPONSE HEADERS in your new solution.
