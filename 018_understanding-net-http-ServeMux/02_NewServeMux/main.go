@@ -8,7 +8,7 @@ import (
 type hotdog int
 
 func (d hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "dog dog dog")
+	io.WriteString(res, "dog dog dogggy")
 }
 
 type hotcat int
@@ -22,7 +22,7 @@ func main() {
 	var c hotcat
 
 	mux := http.NewServeMux()
-	mux.Handle("/dog", d)
+	mux.Handle("/dog/", d)
 	mux.Handle("/cat", c)
 
 	http.ListenAndServe(":8080", mux)

@@ -2,7 +2,7 @@
 
 You can search [godoc.org](https://godoc.org/) for third-party packages.
 
-Here is [a good third-party ServeMux]() that allows easy access to methods for routing & path parameters.
+Here is [a good third-party ServeMux](https://godoc.org/github.com/julienschmidt/httprouter) that allows easy access to methods for routing & path parameters.
 
 # [julienschmidt/httprouter](https://godoc.org/github.com/julienschmidt/httprouter)
 
@@ -15,7 +15,7 @@ The router matches incoming requests by the request method and the path.
      router := httprouter.New()
      router.GET("/apply", apply)
      router.POST("/apply", applyProcess) 
-     log.Fatal(http.ListenAndServe(":8080", router))
+     http.ListenAndServe(":8080", router)
  }
  ```
 
@@ -27,7 +27,7 @@ The registered path, against which the router matches incoming requests, can als
 func main() {
     router := httprouter.New()
     router.GET("/blog/:category/:post", blog)
-    log.Fatal(http.ListenAndServe(":8080", router))
+    http.ListenAndServe(":8080", router)
 }
 ```
 
@@ -47,7 +47,7 @@ Catch-all parameters match anything until the path end, including the directory 
 func main() {
     router := httprouter.New()
     router.GET("/files/*filepath", loadFile)
-    log.Fatal(http.ListenAndServe(":8080", router))
+    http.ListenAndServe(":8080", router)
 }
 ```
 
@@ -87,7 +87,7 @@ func main() {
     router.GET("/", Index)
     router.GET("/hello/:user", Hello)
 
-    log.Fatal(http.ListenAndServe(":8080", router))
+    http.ListenAndServe(":8080", router)
 }
 ```
 

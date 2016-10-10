@@ -9,7 +9,7 @@ import (
 
 type hotdog int
 
-func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	err := req.ParseForm()
 	if err != nil {
 		log.Println(err)
@@ -30,7 +30,7 @@ func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 		req.Host,
 		req.ContentLength,
 	}
-	tpl.ExecuteTemplate(res, "index.gohtml", data)
+	tpl.ExecuteTemplate(w, "index.gohtml", data)
 }
 
 var tpl *template.Template
