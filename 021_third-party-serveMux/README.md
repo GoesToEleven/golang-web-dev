@@ -26,14 +26,14 @@ The registered path, against which the router matches incoming requests, can als
 ``` Go
 func main() {
     router := httprouter.New()
-    router.GET("/blog/:category/:post", blog)
+    router.GET("/blog/:category/:article", blog)
     http.ListenAndServe(":8080", router)
 }
 ```
 
 ```
 Requests:
- /blog/go/request-routers            match: category="go", post="request-routers"
+ /blog/go/request-routers            match: category="go", article="request-routers"
  /blog/go/request-routers/           no match, but the router would redirect
  /blog/go/                           no match
  /blog/go/request-routers/comments   no match
@@ -91,15 +91,11 @@ func main() {
 }
 ```
 
-There are two ways to retrieve the value of a parameter:
+Retrieve the value of a parameter:
 
 ``` Go
-// by the name of the parameter
 user := ps.ByName("user") // defined by :user or *user
 
-// by the index of the parameter. This way you can also get the name (key)
-thirdKey   := ps[2].Key   // the name of the 3rd parameter
-thirdValue := ps[2].Value // the value of the 3rd parameter
 ```
 
 ## Performance
