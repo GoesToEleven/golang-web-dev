@@ -11,7 +11,7 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func dog(res http.ResponseWriter, req *http.Request) {
+func dog(w http.ResponseWriter, req *http.Request) {
 	fmt.Println(req.URL)
-	fmt.Fprintln(res, "go look at your terminal")
+	fmt.Fprintln(w, "go look at your terminal")
 }

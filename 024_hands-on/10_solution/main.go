@@ -17,6 +17,6 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
-	tpl.ExecuteTemplate(res, "index.gohtml", nil)
+func index(w http.ResponseWriter, req *http.Request) {
+	tpl.ExecuteTemplate(w, "index.gohtml", nil)
 }

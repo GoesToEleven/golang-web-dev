@@ -9,24 +9,24 @@ import (
 
 func main() {
 	http.HandleFunc("/", foo)
-	http.HandleFunc("/uptown/", dog)
+	http.HandleFunc("/dog/", dog)
 	http.HandleFunc("/fido/", chien)
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "foo ran")
+func foo(w http.ResponseWriter, req *http.Request) {
+	io.WriteString(w, "foo ran")
 }
 
-func dog(res http.ResponseWriter, req *http.Request) {
-	tpl, err := template.ParseFiles("fido.gohtml")
+func dog(w http.ResponseWriter, req *http.Request) {
+	tpl, err := template.ParseFiles("dog.gohtml")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	tpl.Execute(res, nil)
+	tpl.Execute(w, nil)
 }
 
-func chien(res http.ResponseWriter, req *http.Request) {
-	http.ServeFile(res, req, "dog.jpeg")
+func chien(w http.ResponseWriter, req *http.Request) {
+	http.ServeFile(w, req, "dog.jpeg")
 }

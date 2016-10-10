@@ -11,7 +11,7 @@ func initSection(r *httprouter.Router) {
 	r.GET(pathSection, somethingHandler)
 }
 
-func somethingHandler(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
+func somethingHandler(w http.ResponseWriter, req *http.Request, params httprouter.Params) {
 	d := something()
-	serveTemplate(res, "something.gohtml", d)
+	serveTemplate(w, "something.gohtml", d)
 }

@@ -11,15 +11,15 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func dog(res http.ResponseWriter, req *http.Request) {
+func dog(w http.ResponseWriter, req *http.Request) {
 
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
-	io.WriteString(res, `
+	io.WriteString(w, `
 	<img src="toby.jpg">
 	`)
 }
 
-func dogPic(res http.ResponseWriter, req *http.Request) {
-	http.ServeFile(res, req, "toby.jpg")
+func dogPic(w http.ResponseWriter, req *http.Request) {
+	http.ServeFile(w, req, "toby.jpg")
 }
