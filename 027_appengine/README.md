@@ -11,7 +11,7 @@ https://domains.google/#/
   - get the project ID
 - update the app.yaml file with your project ID
 - deploy to that project
-  - appcfg.py -A <YOUR_PROJECT_ID> -V v1 update .
+  - appcfg.py -A YOUR_PROJECT_ID -V v1 update .
 - view your project
   - http://YOUR_PROJECT_ID.appspot.com/
 
