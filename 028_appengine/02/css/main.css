@@ -1,0 +1,142 @@
+html {
+    font-family: 'Cantarell', sans-serif;
+    color: whitesmoke;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    /*flex-direction: row;*/
+    /*flex-wrap: nowrap;*/
+    /*flex-flow: row nowrap;*/
+    justify-content: center;
+    align-items: center;
+    /* formatting */
+    background-color: rgba(0,0,0,.6);
+}
+
+header div, header nav {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+header nav, header nav a, header svg {
+    display: none;
+}
+
+header a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header a:hover {
+    color: #9dbb88;
+}
+
+header div a h1 {
+    font-size: 1rem;
+    margin-left: .5rem;
+}
+
+#idx-atf {
+    /* layout */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background */
+    background-color: #5b5b5b;
+    background-image: url("../img/background-photo-mobile-devices.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /*background-origin: border-box;*/
+    background-attachment: fixed;
+    /* formatting */
+}
+
+#idx-atf > div {
+    height: 85vh;
+}
+
+.idx-center-spacebetween {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.idx-center-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#idx-atf h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+#idx-atf h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+#idx-atf h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: .8rem;
+    line-height: 1.2;
+}
+
+#idx-atf button {
+    color: rgb(202, 250, 234);
+    font-size: 1.4rem;
+    font-weight: 700;
+    border: 1px solid rgb(202, 250, 234);
+    padding: .7rem 1.2rem;
+    border-radius: 3px;
+}
+
+footer {
+    font-size: 1.6rem;
+}
+
+footer nav {
+    display: flex;
+    flex-direction: column;
+}
+
+footer nav a {
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    background-color: deepskyblue;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+footer nav a:last-child {
+    border-bottom: none;
+}
+
+footer nav a:hover {
+    background-color: royalblue;
+}
+
+footer nav a svg {
+    padding-right: 1.7rem;
+}

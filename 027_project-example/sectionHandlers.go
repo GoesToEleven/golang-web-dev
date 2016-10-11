@@ -5,13 +5,11 @@ import (
 	"net/http"
 )
 
-const pathSection = "/section/something"
-
 func initSection(r *httprouter.Router) {
-	r.GET(pathSection, somethingHandler)
+	r.GET("/section/something", some)
 }
 
-func somethingHandler(w http.ResponseWriter, req *http.Request, params httprouter.Params) {
+func some(w http.ResponseWriter, req *http.Request, params httprouter.Params) {
 	d := something()
-	serveTemplate(w, "something.gohtml", d)
+	serveTemplate(w, "som.gohtml", d)
 }

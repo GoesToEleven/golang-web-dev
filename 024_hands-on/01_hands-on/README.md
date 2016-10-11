@@ -4,7 +4,7 @@ For the default route "/"
 Have a func called "foo" 
 which writes to the response "foo ran"
 
-For the default route "/dog/"
+For the route "/dog/"
 Have a func called "dog" 
 which parses a template called "dog.gohtml"
 and writes to the response "<h1>This is from dog</h1>"

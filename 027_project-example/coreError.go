@@ -5,9 +5,9 @@ import (
 	"net/http"
 )
 
-func HandleError(w http.ResponseWriter, e error) {
-	if e != nil {
-		http.Error(w, e.Error(), http.StatusInternalServerError)
-		log.Println(e)
+func HandleError(w http.ResponseWriter, err error) {
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		log.Println(err)
 	}
 }
