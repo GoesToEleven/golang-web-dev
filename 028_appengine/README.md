@@ -13,7 +13,7 @@ https://domains.google/#/
 - deploy to that project
   - appcfg.py -A <YOUR_PROJECT_ID> -V v1 update .
 - view your project
-  - http://<YOUR PROJECT ID>.appspot.com/
+  - http://YOUR_PROJECT_ID.appspot.com/
 
 
 example
