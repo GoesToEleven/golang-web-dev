@@ -16,6 +16,12 @@ get
 url
 ```
 
+**Post** has four letters and so does **form**.
+
+**Get** has three letters and so does **url**.
+
+***
+
 ## URL values
 
 You can always append values to a URL.
@@ -23,3 +29,7 @@ You can always append values to a URL.
 Anything after the ```?``` is the query string - the area where values are stored.
 
 ![anatomy of a URL](URL.png)
+
+The values are stord in a ```identifier=value``` fashion.
+
+You can have multiple ```identifier=value``` by separating them with the ```&``` ampersand.
