@@ -26,7 +26,7 @@ func main() {
 func foo(w http.ResponseWriter, req *http.Request) {
 
 	var s string
-	if req.Method == "post" {
+	if req.Method == "POST" {
 
 		// open
 		f, h, err := req.FormFile("q")

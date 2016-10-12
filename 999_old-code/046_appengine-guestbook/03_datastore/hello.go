@@ -64,7 +64,7 @@ var guestbookTemplate = template.Must(template.New("book").Parse(`
       {{end}}
       <pre>{{.Content}}</pre>
     {{end}}
-    <form action="/sign" method="post">
+    <form action="/sign" method="POST">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
       <div><input type="submit" value="Sign Guestbook"></div>
     </form>

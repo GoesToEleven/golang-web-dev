@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"strings"
 )
 
 func main() {
@@ -18,7 +17,8 @@ func main() {
 func foo(w http.ResponseWriter, req *http.Request) {
 
 	var s string
-	if req.Method == "post" {
+	fmt.Println(req.Method)
+	if req.Method == "POST" {
 
 		// open
 		f, h, err := req.FormFile("q")
@@ -40,7 +40,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	io.WriteString(w, `
-	<form method="post" enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 	<input type="file" name="q">
 	<input type="submit">
 	</form>

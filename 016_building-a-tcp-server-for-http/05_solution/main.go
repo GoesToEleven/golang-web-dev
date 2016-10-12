@@ -127,7 +127,7 @@ func apply(conn net.Conn) {
 	<a href="/about">about</a><br>
 	<a href="/contact">contact</a><br>
 	<a href="/apply">apply</a><br>
-	<form method="post" action="/apply">
+	<form method="POST" action="/apply">
 	<input type="submit" value="apply">
 	</form>
 	</body></html>`

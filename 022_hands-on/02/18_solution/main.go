@@ -96,7 +96,7 @@ func handleApply(c net.Conn) {
 			<h1>"GET APPLY"</h1>
 			<a href="/">index</a><br>
 			<a href="/apply">apply</a><br>
-			<form action="/apply" method="post">
+			<form action="/apply" method="POST">
 			<input type="hidden" value="In my good death">
 			<input type="submit" value="submit">
 			</form>
