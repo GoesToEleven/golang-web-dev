@@ -40,7 +40,7 @@ func index(res http.ResponseWriter, req *http.Request) {
 func bar(data string) []byte {
 	bs, err := base64.URLEncoding.DecodeString(data)
 	if err != nil {
-		log.Println("Error decoding base64", err)
+		log.Fatalln("Error decoding base64", err)
 	}
 	return bs
 }

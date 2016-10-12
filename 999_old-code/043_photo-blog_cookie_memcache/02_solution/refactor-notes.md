@@ -14,7 +14,7 @@ func makeCookie(mm []byte, id string, req *http.Request) *http.Cookie {
 	// Anytime a cookie is created, let's print the id
 	// The id is the key for the value in memcache
 	// Having the id will allow us to lookup the value in memcache
-	log.Println("ID:", id)
+	log.Fatalln("ID:", id)
 
 	b64 := base64.URLEncoding.EncodeToString(mm)
 
@@ -122,7 +122,7 @@ func Model(c *http.Cookie, req *http.Request) model {
 
 	bs, err := base64.URLEncoding.DecodeString(usrData)
 	if err != nil {
-		log.Println("Error decoding base64", err)
+		log.Fatalln("Error decoding base64", err)
 	}
 
 	m := unmarshalModel(bs)
@@ -131,8 +131,8 @@ func Model(c *http.Cookie, req *http.Request) model {
 	m2 := retrieveMemc(req, id)
 	if m2.Pictures != nil {
 		m.Pictures = m2.Pictures
-		log.Println("PICTURE PATHS RETURNED FROM MEMCACHE")
-		log.Println(m.Pictures)
+		log.Fatalln("PICTURE PATHS RETURNED FROM MEMCACHE")
+		log.Fatalln(m.Pictures)
 	}
 
 	return m
@@ -155,7 +155,7 @@ func retrieveMemc(req *http.Request, id string) model {
 	// decode item.Value from base64
 	bs, err := base64.URLEncoding.DecodeString(string(item.Value))
 	if err != nil {
-		log.Println("Error decoding base64 in retrieveMemc", err)
+		log.Fatalln("Error decoding base64 in retrieveMemc", err)
 	}
 
 	// unmarshal from JSON
@@ -205,7 +205,7 @@ func addPhoto(fName string, c *http.Cookie, req *http.Request) *http.Cookie {
 	usrData := xs[1]
 	bs, err := base64.URLEncoding.DecodeString(usrData)
 	if err != nil {
-		log.Println("Error decoding base64", err)
+		log.Fatalln("Error decoding base64", err)
 	}
 	m := unmarshalModel(bs)
 	m.Pictures = append(m.Pictures, fName)

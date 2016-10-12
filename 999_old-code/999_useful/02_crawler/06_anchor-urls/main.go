@@ -11,7 +11,7 @@ func main() {
 
 	resp, err := http.Get("http://www.reddit.com")
 	if err != nil {
-		log.Println("http get error:", err)
+		log.Fatalln("http get error:", err)
 	}
 	defer resp.Body.Close()
 

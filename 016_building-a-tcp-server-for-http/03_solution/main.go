@@ -18,7 +18,8 @@ func main() {
 	for {
 		conn, err := li.Accept()
 		if err != nil {
-			log.Fatalln(err.Error())
+			log.Println(err.Error())
+			continue
 		}
 		go handle(conn)
 	}

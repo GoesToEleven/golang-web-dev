@@ -19,7 +19,8 @@ func main() {
 	for {
 		conn, err := li.Accept()
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
+			continue
 		}
 		go handle(conn)
 	}
@@ -63,6 +64,7 @@ func handle(conn net.Conn) {
 			delete(data, k)
 		default:
 			fmt.Fprintln(conn, "INVALID COMMAND "+fs[0])
+			continue
 		}
 	}
 }

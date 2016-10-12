@@ -11,7 +11,7 @@ func main() {
 	rcvd := `true`
 	err := json.Unmarshal([]byte(rcvd), &data)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 	fmt.Println(data)
 }

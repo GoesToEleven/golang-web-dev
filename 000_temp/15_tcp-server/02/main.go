@@ -10,7 +10,7 @@ import (
 func main() {
 	conn, err := net.Dial("tcp", ":8080")
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	fmt.Fprintln(conn, "hello from calling in")

@@ -8,7 +8,7 @@ import (
 type hotdog int
 
 func (d hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	io.WriteString(res, "dog dog dogggy")
+	io.WriteString(res, "dog dog dog")
 }
 
 type hotcat int

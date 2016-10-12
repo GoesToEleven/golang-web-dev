@@ -2,9 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"html/template"
@@ -30,7 +28,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		// open
 		f, h, err := req.FormFile("q")
 		if err != nil {
-			log.Println("err opening file", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		defer f.Close()
@@ -41,7 +39,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		// read
 		bs, err := ioutil.ReadAll(f)
 		if err != nil {
-			log.Println("err reading file", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		s = string(bs)
@@ -49,12 +47,15 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		// store on server
 		dst, err := os.Create(h.Filename)
 		if err != nil {
-			http.Error(w, err.Error(), 500)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 		defer dst.Close()
 
-		io.Copy(dst, f)
+		_, err = dst.Write(bs)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 	}
 
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")

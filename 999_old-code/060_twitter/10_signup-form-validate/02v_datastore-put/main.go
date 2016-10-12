@@ -52,10 +52,10 @@ func checkUserName(res http.ResponseWriter, req *http.Request, _ httprouter.Para
 	ctx := appengine.NewContext(req)
 	bs, err := ioutil.ReadAll(req.Body)
 	sbs := string(bs)
-	stdlog.Println("REQUEST BODY: ", sbs)
+	stdlog.Fatalln("REQUEST BODY: ", sbs)
 	q, err := datastore.NewQuery("Users").Filter("UserName=", sbs).Count(ctx)
-	stdlog.Println("ERR: ", err)
-	stdlog.Println("QUANTITY: ", q)
+	stdlog.Fatalln("ERR: ", err)
+	stdlog.Fatalln("QUANTITY: ", q)
 	if err != nil {
 		fmt.Fprint(res, "false")
 		return

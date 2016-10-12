@@ -14,7 +14,7 @@ func main() {
 
 	nf, err := os.Create("index.html")
 	if err != nil {
-		log.Println("error creating file", err)
+		log.Fatalln("error creating file", err)
 	}
 	defer nf.Close()
 
@@ -23,3 +23,6 @@ func main() {
 		log.Fatalln(err)
 	}
 }
+
+// Do not use the above code in production
+// We will learn about efficiency improvements soon!

@@ -5,19 +5,21 @@ import (
 	"fmt"
 	"net"
 	"strings"
+	"log"
 )
 
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 	defer li.Close()
 
 	for {
 		conn, err := li.Accept()
 		if err != nil {
-			panic(err)
+			log.Println(err)
+			continue
 		}
 		go handle(conn)
 	}

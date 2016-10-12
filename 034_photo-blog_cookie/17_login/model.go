@@ -22,7 +22,7 @@ func Model(c *http.Cookie) model {
 	// decode from base64
 	bs, err := base64.URLEncoding.DecodeString(usrData)
 	if err != nil {
-		log.Println("Error decoding base64", err)
+		log.Fatalln("Error decoding base64", err)
 	}
 
 	// unmarshal from JSON

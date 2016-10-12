@@ -20,6 +20,7 @@ func main() {
 		c, err := l.Accept()
 		if err != nil {
 			log.Println(err)
+			continue
 		}
 		// now handles multiple connections
 		go serve(c)

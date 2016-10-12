@@ -12,7 +12,7 @@ type hotdog int
 func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	err := req.ParseForm()
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	data := struct {

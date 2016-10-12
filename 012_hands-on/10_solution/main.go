@@ -40,14 +40,14 @@ func foo(res http.ResponseWriter, req *http.Request) {
 func prs(filePath string) []Record {
 	src, err := os.Open(filePath)
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 	defer src.Close()
 
 	rdr := csv.NewReader(src)
 	rows, err := rdr.ReadAll()
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 
 	records := make([]Record, 0, len(rows))

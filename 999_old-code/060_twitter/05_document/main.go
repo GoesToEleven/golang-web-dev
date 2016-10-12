@@ -57,11 +57,11 @@ func home(res http.ResponseWriter, req *http.Request) {
 // GodocExperiment tests whether or not exported functions appear in
 // documentation when godoc is run.
 func GodocExperiment() {
-	log.Println("This is a godoc EXPORTED experiment")
+	log.Fatalln("This is a godoc EXPORTED experiment")
 }
 
 // godocUnexported tests whether or not exported functions appear in
 // documentation when godoc is run.
 func godocUnexported() {
-	log.Println("This is a godoc UNEXPORTED experiment")
+	log.Fatalln("This is a godoc UNEXPORTED experiment")
 }

@@ -18,7 +18,7 @@ func main() {
 	for {
 		c, err := l.Accept()
 		if err != nil {
-			log.Println(err)
+			log.Fatalln(err)
 		}
 
 		s := bufio.NewScanner(c)

@@ -11,7 +11,7 @@ import (
 func main() {
 	c, err := net.Dial("tcp", "localhost:8080")
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 	defer c.Close()
 

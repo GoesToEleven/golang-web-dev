@@ -10,7 +10,7 @@ import (
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		log.Panic(err)
+		log.Fatalln(err)
 	}
 	defer li.Close()
 
@@ -18,6 +18,7 @@ func main() {
 		conn, err := li.Accept()
 		if err != nil {
 			log.Println(err)
+			continue
 		}
 
 		io.WriteString(conn, "\nHello from TCP server\n")

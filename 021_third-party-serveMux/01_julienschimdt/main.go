@@ -66,9 +66,9 @@ func blogWrite(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "WRITE ARTICLE, %s!\n", ps.ByName("article"))
 }
 
-func HandleError(w http.ResponseWriter, e error) {
-	if e != nil {
-		http.Error(w, e.Error(), http.StatusInternalServerError)
-		log.Println(e)
+func HandleError(w http.ResponseWriter, err error) {
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		log.Fatalln(err)
 	}
 }

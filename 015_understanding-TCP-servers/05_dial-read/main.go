@@ -10,13 +10,13 @@ import (
 func main() {
 	conn, err := net.Dial("tcp", "localhost:8080")
 	if err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 	defer conn.Close()
 
 	bs, err := ioutil.ReadAll(conn)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	fmt.Println(string(bs))

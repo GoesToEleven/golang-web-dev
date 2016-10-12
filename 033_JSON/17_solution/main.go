@@ -18,7 +18,7 @@ func main() {
 
 	err := json.Unmarshal([]byte(rcvd), &data)
 	if err != nil {
-		log.Println(err)
+		log.Fatalln(err)
 	}
 
 	for _, v := range data {

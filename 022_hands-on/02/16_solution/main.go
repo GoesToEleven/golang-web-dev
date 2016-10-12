@@ -20,6 +20,7 @@ func main() {
 		conn, err := l.Accept()
 		if err != nil {
 			log.Println(err)
+			continue
 		}
 		go serve(conn)
 	}

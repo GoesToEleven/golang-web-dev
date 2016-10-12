@@ -11,7 +11,7 @@ import (
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
-		log.Panic(err)
+		log.Fatalln(err)
 	}
 	defer li.Close()
 
@@ -19,6 +19,7 @@ func main() {
 		conn, err := li.Accept()
 		if err != nil {
 			log.Println(err)
+			continue
 		}
 		go handle(conn)
 	}
@@ -27,7 +28,7 @@ func main() {
 func handle(conn net.Conn) {
 	err := conn.SetDeadline(time.Now().Add(10 * time.Second))
 	if err != nil {
-		log.Println("CONN TIMEOUT")
+		log.Fatalln("CONN TIMEOUT")
 	}
 
 	scanner := bufio.NewScanner(conn)

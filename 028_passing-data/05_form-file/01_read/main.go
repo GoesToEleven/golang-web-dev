@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -23,7 +22,8 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		// open
 		f, h, err := req.FormFile("q")
 		if err != nil {
-			log.Println("err opening file", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 		defer f.Close()
 
@@ -33,7 +33,8 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		// read
 		bs, err := ioutil.ReadAll(f)
 		if err != nil {
-			log.Println("err reading file", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 		s = string(bs)
 	}

@@ -30,7 +30,7 @@ func index(res http.ResponseWriter, req *http.Request) {
 	if req.Method == "POST" {
 		src, hdr, err := req.FormFile("data")
 		if err != nil {
-			log.Println("error uploading photo: ", err)
+			log.Fatalln("error uploading photo: ", err)
 			// TODO: create error page to show user
 		}
 		cookie = uploadPhoto(src, hdr, cookie)

@@ -17,3 +17,6 @@ func main() {
 		log.Fatalln(err)
 	}
 }
+
+// Do not use the above code in production
+// We will learn about efficiency improvements soon!
