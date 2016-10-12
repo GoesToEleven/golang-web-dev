@@ -1,3 +1,5 @@
+{{template "header"}}
+
 <form method="post">
     <label for="firstName">First Name</label>
     <input type="text" id="firstName" name="first">
@@ -16,3 +18,5 @@
 <h1>First: {{.FirstName}}</h1>
 <h1>Last: {{.LastName}}</h1>
 <h1>Subscribed: {{.Subscribed}}</h1>
+
+{{template "footer"}}

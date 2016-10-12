@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/alecthomas/template"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"github.com/alecthomas/template"
-	"path/filepath"
 	"os"
+	"path/filepath"
 )
 
 var tpl *template.Template
