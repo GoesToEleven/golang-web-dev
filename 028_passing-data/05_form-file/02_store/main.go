@@ -25,12 +25,13 @@ func main() {
 func foo(w http.ResponseWriter, req *http.Request) {
 
 	var s string
-	if req.Method == "POST" {
+	if req.Method == http.MethodPost {
 
 		// open
 		f, h, err := req.FormFile("q")
 		if err != nil {
 			log.Println("err opening file", err)
+			return
 		}
 		defer f.Close()
 
@@ -41,6 +42,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		bs, err := ioutil.ReadAll(f)
 		if err != nil {
 			log.Println("err reading file", err)
+			return
 		}
 		s = string(bs)
 
