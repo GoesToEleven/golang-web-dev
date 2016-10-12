@@ -16,4 +16,4 @@ func foo(w http.ResponseWriter, req *http.Request) {
 }
 
 // visit this page:
-// http://localhost:8080/?q="dog"
+// http://localhost:8080/?q=dog
