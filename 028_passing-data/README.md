@@ -22,4 +22,4 @@ You can always append values to a URL.
 
 Anything after the ```?``` is the query string - the area where values are stored.
 
-![anatomy of a URL][URL.png]
+![anatomy of a URL](URL.png)
