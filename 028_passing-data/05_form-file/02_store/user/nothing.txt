@@ -1,3 +1,0 @@
-This file exists to keep the dir "user" from being deleted.
-
-Some IDE's will delete empty dirs.

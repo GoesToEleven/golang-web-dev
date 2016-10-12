@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/alecthomas/template"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
+	"html/template"
 )
 
 var tpl *template.Template
@@ -46,7 +45,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		s = string(bs)
 
 		// store on server
-		dst, err := os.Create(filepath.Join("./user/", h.Filename))
+		dst, err := os.Create(h.Filename)
 		if err != nil {
 			http.Error(w, err.Error(), 500)
 			return
