@@ -10,7 +10,7 @@ I remember this like this:
 
 ```
 post
-form
+body
 
 get
 url
