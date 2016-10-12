@@ -31,7 +31,7 @@ var fm = template.FuncMap{
 }
 
 func init() {
-	 tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))
+	tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))
 }
 
 func firstThree(s string) string {

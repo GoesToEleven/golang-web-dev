@@ -14,9 +14,9 @@ func init() {
 
 func main() {
 
-	xs := []string{"zero", "one", "two", "three", "four", "five",}
+	xs := []string{"zero", "one", "two", "three", "four", "five"}
 
-	data := struct{
+	data := struct {
 		Words []string
 		Lname string
 	}{
