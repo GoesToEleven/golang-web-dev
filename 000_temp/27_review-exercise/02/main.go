@@ -12,11 +12,10 @@ func init() {
 }
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", foo)
-	mux.HandleFunc("/bar/", bar)
-	mux.HandleFunc("/about", about)
-	http.ListenAndServe(":8080", mux)
+	http.HandleFunc("/", foo)
+	http.HandleFunc("/bar/", bar)
+	http.HandleFunc("/about", about)
+	http.ListenAndServe(":8080", nil)
 }
 
 func foo(w http.ResponseWriter, req *http.Request) {

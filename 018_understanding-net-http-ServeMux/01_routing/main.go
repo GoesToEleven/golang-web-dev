@@ -7,12 +7,12 @@ import (
 
 type hotdog int
 
-func (m hotdog) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+func (m hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	switch req.URL.Path {
 	case "/dog":
-		io.WriteString(res, "doggy doggy doggy")
+		io.WriteString(w, "doggy doggy doggy")
 	case "/cat":
-		io.WriteString(res, "kitty kitty kitty")
+		io.WriteString(w, "kitty kitty kitty")
 	}
 }
 
