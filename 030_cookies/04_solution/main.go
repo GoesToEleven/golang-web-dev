@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"strconv"
+	"log"
 )
 
 func main() {
@@ -23,7 +24,10 @@ func foo(res http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	count, _ := strconv.Atoi(cookie.Value)
+	count, err := strconv.Atoi(cookie.Value)
+	if err != nil {
+		log.Fatalln(err)
+	}
 	count++
 	cookie.Value = strconv.Itoa(count)
 
