@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"net"
 	"log"
+	"net"
 )
 
 func main() {
