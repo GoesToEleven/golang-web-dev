@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
 	"log"
+	"net/http"
 )
 
 func main() {
@@ -23,7 +23,6 @@ func set(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(w, "in chrome go to: dev tools / application / cookies")
 }
 
-
 func abundance(w http.ResponseWriter, req *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:  "general",
@@ -38,7 +37,6 @@ func abundance(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(w, "COOKIES WRITTEN - CHECK YOUR BROWSER")
 	fmt.Fprintln(w, "in chrome go to: dev tools / application / cookies")
 }
-
 
 func read(w http.ResponseWriter, req *http.Request) {
 

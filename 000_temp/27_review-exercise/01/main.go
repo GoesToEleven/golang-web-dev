@@ -29,9 +29,9 @@ func bar(w http.ResponseWriter, req *http.Request) {
 
 func about(w http.ResponseWriter, req *http.Request) {
 
-	d := struct{
-		FName string
-		LName string
+	d := struct {
+		FName    string
+		LName    string
 		RawQuery string
 	}{
 		"James",

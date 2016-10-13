@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
 	"log"
+	"net/http"
 )
 
 func main() {
@@ -22,13 +22,11 @@ func set(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(w, "in chrome go to: dev tools / application / cookies")
 }
 
-
 func read(w http.ResponseWriter, req *http.Request) {
 
 	c, err := req.Cookie("my-cookie")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusNotFound)
-		log.Println(err)
 		return
 	}
 

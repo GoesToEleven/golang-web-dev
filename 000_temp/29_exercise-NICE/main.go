@@ -1,15 +1,14 @@
 package main
 
 import (
-	"net/http"
 	"log"
+	"net/http"
 )
 
 func main() {
 
 	http.ListenAndServe(":8080", nil)
 }
-
 
 func index(w http.ResponseWriter, req *http.Request) {
 	err := tpl.ExecuteTemplate(w, "index.gohtml", nil)
