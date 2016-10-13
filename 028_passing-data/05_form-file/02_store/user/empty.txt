@@ -1,0 +1,3 @@
+This file is here to keep the dir from being deleted.
+
+Some IDEs, like webstorm, delete dirs with no files when the last file is removed from the dir.

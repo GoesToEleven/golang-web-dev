@@ -17,7 +17,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 	var s string
 	fmt.Println(req.Method)
-	if req.Method == "POST" {
+	if req.Method == http.MethodPost {
 
 		// open
 		f, h, err := req.FormFile("q")

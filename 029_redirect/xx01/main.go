@@ -17,12 +17,12 @@ func bar(w http.ResponseWriter, req *http.Request) {
 }
 
 func foo(w http.ResponseWriter, req *http.Request) {
-	http.Redirect(w, req, "/", 303)
+	http.Redirect(w, req, "/", 307)
 
 	// or his way
-	// http.Redirect(w, req, "/", http.StatusSeeOther)
+	http.Redirect(w, req, "/", http.StatusTemporaryRedirect)
 
 	// or this way
 	//res.Header().Set("Location", "/")
-	//res.WriteHeader(http.StatusSeeOther)
+	//res.WriteHeader(http.StatusTemporaryRedirect)
 }
