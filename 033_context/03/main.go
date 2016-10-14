@@ -35,16 +35,28 @@ func dbAccess(ctx context.Context) (int, error) {
 	ctx, cancel := context.WithTimeout(ctx, 1 * time.Second)
 	defer cancel()
 
-	uid := ctx.Value("userID").(int)
+	ch := make(chan int)
 
-	// is this taking too long
-	time.Sleep(2 * time.Second)
-	if err := ctx.Err(); err != nil {
-		return 0, err
+	go func() {
+		// ridiculous long running task
+		uid := ctx.Value("userID").(int)
+		time.Sleep(20 * time.Second)
+
+		// check to make sure we're not running in vain
+		// if ctx.Done() has
+		if ctx.Err() != nil {
+			return
+		}
+
+		ch <- uid
+	}()
+
+	select {
+	case <- ctx.Done():
+		return 0, ctx.Err()
+	case i := <-ch:
+		return i, nil
 	}
-
-
-	return uid, nil
 }
 
 func bar(w http.ResponseWriter, req *http.Request) {
