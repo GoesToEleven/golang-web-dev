@@ -1,4 +1,17 @@
-# SECURE COOKIES & SESSIONS
+# Secure sessions
+
+We will now create state.
+
+We will give clients a unique ID.
+
+This unique ID is known as a univerally unique ID (UUID).
+
+[Wikipedia says this about UUIDs:](https://en.wikipedia.org/wiki/Universally_unique_identifier) " ... only after generating 1 billion UUIDs every second for the next 100 years, the probability of creating just one duplicate would be about 50%."
+
+The server will be able to recognize who a request is coming from.
+
+
+
 
 [StackOverflow #1](http://security.stackexchange.com/questions/30707/demystifying-web-authentication-stateless-session-cookies)
 
