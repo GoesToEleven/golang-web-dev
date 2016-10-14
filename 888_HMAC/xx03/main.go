@@ -1,9 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"github.com/nu7hatch/gouuid"
+	"io"
 	"net/http"
+	"strings"
+	"log"
 )
 
 func main() {
@@ -12,20 +14,41 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(w http.ResponseWriter, req *http.Request) {
+func foo(res http.ResponseWriter, req *http.Request) {
 
 	cookie, err := req.Cookie("session-id")
 	if err != nil {
-		id, _ := uuid.NewV4()
+		id, err := uuid.NewV4()
+		if err != nil {
+			log.Fatalln(err)
+		}
 		cookie = &http.Cookie{
 			Name:  "session-id",
-			Value: id.String() + " email=jon@email.com" + " JSON data" + " Whatever",
+			Value: id.String() + `|`,
 			// Secure: true,
 			HttpOnly: true,
 		}
-		http.SetCookie(w, cookie)
 	}
-	fmt.Println(cookie)
+
+	if req.Method == http.MethodPost {
+		id := strings.Split(cookie.Value, `|`)[0]
+		cookie.Value = id + `|email=` + req.FormValue("email")
+	}
+
+	http.SetCookie(res, cookie)
+
+	io.WriteString(res, `<!DOCTYPE html>
+	<html>
+	  <body>
+	    <form method="POST">
+	      <input type="text" name="fname">
+	      <input type="email" name="email">
+	      <input type="submit">
+	    </form>
+	    <br>
+	    `+cookie.Value+`
+	  </body>
+	</html>`)
 
 }
 

@@ -5,6 +5,7 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"log"
 )
 
 func main() {
@@ -17,7 +18,10 @@ func foo(res http.ResponseWriter, req *http.Request) {
 
 	cookie, err := req.Cookie("session-id")
 	if err != nil {
-		id, _ := uuid.NewV4()
+		id, err := uuid.NewV4()
+		if err != nil {
+			log.Fatalln(err)
+		}
 		cookie = &http.Cookie{
 			Name:  "session-id",
 			Value: id.String() + `|`,

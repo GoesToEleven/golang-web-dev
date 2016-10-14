@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Houston, We have state</title>
+</head>
+<body>
+
+{{if ne .Email ""}}
+<h1>Email: {{.Email}}</h1>
+<h1>First Name: {{.Fname}}</h1>
+<h1>Logged In: {{.Loggedin}}</h1>
+<p><a href="/logout">LOGOUT</a></p>
+{{else}}
+<h1>No data here yet</h1>
+{{end}}
+
+<h1><a href="/">GO TO FORM</a></h1>
+</body>
+</html>

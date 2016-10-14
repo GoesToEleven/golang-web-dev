@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Me Some Data!</title>
+</head>
+<body>
+
+<form method="POST" action="/">
+
+    <label for="eml">Email</label>
+    <input type="email" name="email" id="eml">
+    <br>
+
+    <label for="fn">First Name</label>
+    <input type="text" name="fname" id="fn">
+    <br>
+
+    <label for="li">Logged In</label>
+    <input type="checkbox" name="loggedin" id="li">
+    <br>
+
+    <input type="submit" value="submit">
+</form>
+
+{{if .}}
+<h1>Cookie Value: {{.}}</h1>
+<h1><a href="/user">GO TO USER PAGE</a></h1>
+{{end}}
+
+</body>
+</html>

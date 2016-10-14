@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/nu7hatch/gouuid"
 	"net/http"
+	"log"
 )
 
 func main() {
@@ -16,7 +17,10 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 	cookie, err := req.Cookie("session-id")
 	if err != nil {
-		id, _ := uuid.NewV4()
+		id, err := uuid.NewV4()
+		if err != nil {
+			log.Fatalln(err)
+		}
 		cookie = &http.Cookie{
 			Name:  "session-id",
 			Value: id.String(),
