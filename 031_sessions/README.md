@@ -1,14 +1,31 @@
-# Secure sessions
+# Session
 
-We will now create state.
+This is how we create state:
 
-We will give clients a unique ID.
+We will store a Universally unique identifier [(UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) in the cookie. 
 
-This unique ID is known as a univerally unique ID (UUID).
+We will associate each user with a UUID.
+
+This will allow us to identify every user visiting our website.
+
+## Security 
+
+There are three factors which contribute to the security of a session created using a cookie and a UUID:
+
+1. Uniqueness of the ID
+1. Encryption in transit with HTTPS
+1. Encryption in storage with HMAC
+
+A UUID is very unique.
 
 [Wikipedia says this about UUIDs:](https://en.wikipedia.org/wiki/Universally_unique_identifier) " ... only after generating 1 billion UUIDs every second for the next 100 years, the probability of creating just one duplicate would be about 50%."
 
-The server will be able to recognize who a request is coming from.
+A UUID cannot be intercepted in transit if we are using HTTPS.
+
+A UUID is secure in stoage if we encrypt the UUID with a Hash-based Message Authentication Code [(HMAC)](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code).
+
+We will look at HTTPS and HMAC in the next two sections.
+
 
 
 
