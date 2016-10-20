@@ -7,6 +7,9 @@ import (
 	"log"
 )
 
+// For this code to run, you will need this package:
+// go get github.com/nu7hatch/gouuid
+
 func main() {
 	http.HandleFunc("/", foo)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
@@ -32,9 +35,3 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	fmt.Println(cookie)
 
 }
-
-// go get uuid
-// https://github.com/nu7hatch/gouuid
-// NewV4
-
-// https://en.wikipedia.org/wiki/Universally_unique_identifier
