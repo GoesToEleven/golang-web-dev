@@ -1,8 +1,8 @@
 package main
 
 import (
-	"io"
 	"net/http"
+	"fmt"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 
 func foo(w http.ResponseWriter, req *http.Request) {
 	v := req.FormValue("q")
-	io.WriteString(w, "Do my search: "+v)
+	fmt.Fprintln(w, "Do my search: "+v)
 }
 
 // visit this page:
