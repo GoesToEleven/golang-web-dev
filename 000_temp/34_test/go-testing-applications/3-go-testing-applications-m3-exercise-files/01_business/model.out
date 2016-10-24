@@ -1,0 +1,27 @@
+mode: set
+poms\model\currency.go:8.34,15.2 2 1
+poms\model\purchaseOrder.go:35.47,37.27 1 0
+poms\model\purchaseOrder.go:43.2,43.52 1 0
+poms\model\purchaseOrder.go:37.27,38.17 1 0
+poms\model\purchaseOrder.go:38.17,40.4 1 0
+poms\model\purchaseOrder.go:46.53,50.33 3 0
+poms\model\purchaseOrder.go:55.2,57.14 2 0
+poms\model\purchaseOrder.go:50.33,53.3 2 0
+poms\model\purchaseOrder.go:60.27,63.2 2 1
+poms\model\purchaseOrder.go:65.28,68.2 2 1
+poms\model\purchaseOrder.go:70.13,74.25 4 1
+poms\model\purchaseOrder.go:79.2,80.23 2 1
+poms\model\purchaseOrder.go:86.2,119.3 1 1
+poms\model\purchaseOrder.go:74.25,76.3 1 0
+poms\model\purchaseOrder.go:76.3,78.3 1 1
+poms\model\purchaseOrder.go:80.23,82.3 1 0
+poms\model\purchaseOrder.go:82.3,84.3 1 1
+poms\model\receiver.go:20.33,25.16 3 1
+poms\model\receiver.go:28.2,34.15 6 0
+poms\model\receiver.go:25.16,27.3 1 1
+poms\model\receiver.go:37.66,40.33 2 0
+poms\model\receiver.go:46.2,46.15 1 0
+poms\model\receiver.go:40.33,44.3 1 0
+poms\model\vendor.go:19.29,24.16 3 1
+poms\model\vendor.go:28.2,33.15 4 0
+poms\model\vendor.go:24.16,26.3 1 1

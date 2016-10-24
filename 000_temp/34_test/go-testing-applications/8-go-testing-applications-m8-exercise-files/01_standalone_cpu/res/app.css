@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+h1,
+h2,
+h3 {
+  font-family: "Source Sans Pro";
+}
+html,
+body {
+  color: #555555;
+  font-size: 16px;
+  font-family: "Ubuntu";
+}
+label {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+hr {
+  border-color: #428bca;
+}
+.form-control {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.table-header label {
+  font-size: 1em;
+  font-weight: normal;
+}
+.landing-page a.btn {
+  padding-top: 5em;
+  background-color: #eeeeee;
+  color: #428bca;
+  margin-top: 6em;
+  width: 100%;
+  height: 350px;
+  border-radius: 2em;
+}
+.landing-page a.btn:hover {
+  color: #428bca;
+  background-color: #b9d4ec;
+}
+.landing-page a.btn span {
+  font-size: 10em !important;
+}

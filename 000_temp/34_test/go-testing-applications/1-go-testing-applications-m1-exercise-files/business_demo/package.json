@@ -1,0 +1,19 @@
+{
+  "name": "go_testing",
+  "version": "1.0.0",
+  "description": "Demo project for demonstrating how to create tests with Go",
+  "main": "main.go",
+  "scripts": {},
+  "keywords": [
+    "golang",
+    "pluralsight",
+    "testing"
+  ],
+  "author": "Michael Van Sickle",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-shell": "^0.4.2"
+  }
+}

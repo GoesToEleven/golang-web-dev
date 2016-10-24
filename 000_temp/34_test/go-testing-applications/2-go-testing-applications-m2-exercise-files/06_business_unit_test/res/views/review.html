@@ -1,0 +1,142 @@
+<div ng-controller="ReviewController as c">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Receiver</label>
+        </div>
+        <div class="col-md-8">
+          {{c.purchaseOrder.receiver.name}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Vendor</span>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              {{c.purchaseOrder.vendor.name}}
+            </div>
+          </div>
+          <div class="row text-left">
+            <div class="col-md-12">
+              <i>Id: {{c.purchaseOrder.vendor.id}}</i><br>
+              <br>
+              <i>Primary Contact:</i><br>
+              <i>{{c.purchaseOrder.vendor.contact.name}}</i><br>
+              <i>{{c.purchaseOrder.vendor.contact.phone}}</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="row">
+          <div class="col-md-4 text-right">
+            <label class="text-primary">Currency</label>
+          </div>
+          <div class="col-md-8">
+            {{c.purchaseOrder.currency.name}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Status</label>
+        </div>
+        <div class="col-md-6">
+          {{c.purchaseOrder.status}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Due Date</label>
+        </div>
+        <div class="col-md-8">
+          {{c.purchaseOrder.dueDate | date:'d MMM, yyyy'}}
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <div class="col-md-4 text-right">
+            <label class="text-primary">Purpose</label>
+          </div>
+          <div class="col-md-8">
+            {{c.purchaseOrder.purpose}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <label class="text-primary">Total Cost</label>
+      <span >{{c.totalCost | currency :"$"}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <hr>
+  </div>
+  <div class="row table-header">
+    <div class="col-md-2 text-center">
+      <div class="row">
+        <div class="col-md-2">
+          <label>Ln</label>
+        </div>
+        <div class="col-md-10">
+          <label>Part Number</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 text-center">
+      <label>Description</label>
+    </div>
+    <div class="col-md-2 text-center">
+          <label>Due Date</label>
+    </div>
+    <div class="col-md-2 text-center">
+      <label>Status</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Quantity</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>UoM</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Price Per</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Total</label>
+    </div>
+  </div>
+  <div class="row">
+    <hr>
+  </div>
+  <div ng-repeat="detail in c.purchaseOrder.details" class="row">
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-2">
+          {{detail.line}}
+        </div>
+        <div class="col-md-10">
+          {{detail.partNumber}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">{{detail.description}}</div>
+    <div class="col-md-2">
+          {{detail.dueDate | date:'d MMM, yyyy'}}
+    </div>
+    <div class="col-md-2">
+        {{detail.status}}
+    </div>
+    <div class="col-md-1">{{detail.quantity}}</div>
+    <div class="col-md-1">{{detail.unitOfMeasure}}</div>
+    <div class="col-md-1">{{detail.pricePer}}</div>
+    <div class="col-md-1">{{detail.quantity * detail.pricePer | currency:$}}</div>
+  </div>
+</div>

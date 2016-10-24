@@ -1,0 +1,153 @@
+<div class="create" ng-controller="CreateController as c">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <div class="form-group">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Receiver</label>
+        </div>
+        <div class="col-md-6">
+          <select ng-model="c.currentReceiver" class="form-control"
+            ng-options="receiver.name for receiver in c.receivers track by receiver.id"
+          ></select>
+        </div>
+      </div>
+      <div class="col-md-4 text-right">
+        <label class="text-primary">Vendor</span>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <select ng-model="c.currentVendor"
+              ng-options="vendor.name for vendor in c.vendors track by vendor.id"
+              class="form-control">
+            </select>
+          </div>
+        </div>
+        <div class="row text-left" ng-show="c.currentVendor">
+          <div class="col-md-12">
+            <i>Id: {{c.currentVendor.id}}</i><br>
+            <br>
+            <i>Primary Contact:</i><br>
+            <i>{{c.currentVendor.contact.name}}</i><br>
+            <i>{{c.currentVendor.contact.phone}}</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Currency</label>
+        </div>
+        <div class="col-md-8">
+          <select ng-model="c.currency" class="form-control"
+            ng-options="currency.name for currency in c.currencies track by currency.id"
+          ></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Purpose</label>
+        </div>
+        <div class="col-md-8">
+          <textarea rows="4" class="form-control" ng-value="c.purpose"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4 text-right">
+          <label class="text-primary">Due Date</label>
+        </div>
+        <div class="col-md-8">
+          <p class="input-group">
+             <input class="form-control"
+               datepicker-popup="d MMM, yyyy" ng-model="c.dueDate" is-open="c.isDatePickerOpen"
+               min-date="minDate" max-date="'2020-06-22'"
+               ng-required="true" close-text="Close" />
+             <span class="input-group-btn">
+               <button type="button" class="btn btn-default" ng-click="c.toggleDatePicker($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+             </span>
+           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <label class="text-primary">Total Cost</label>
+      <span >{{c.totalCost | currency :"$"}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <hr>
+  </div>
+  <div class="row table-header">
+    <div class="col-md-2 text-center">
+      <label>Part Number</label>
+    </div>
+    <div class="col-md-3 text-center">
+      <label>Description</label>
+    </div>
+    <div class="col-md-2 text-center">
+      <label>Due Date</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Quantity</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>UoM</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Price Per</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <label>Total</label>
+    </div>
+    <div class="col-md-1 text-center">
+      <button class="btn btn-primary btn-sm" ng-click="c.addDetail()">
+        <span class="fa fa-plus"></span>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <hr>
+  </div>
+  <div ng-repeat="detail in c.details" class="row">
+    <div class="col-md-2"><input type="text" class="form-control" ng-value="detail.partNumber"></div>
+    <div class="col-md-3"><input type="text" class="form-control" ng-value="detail.description"></div>
+    <div class="col-md-2">
+      <p class="input-group">
+         <input class="form-control"
+           datepicker-popup="d MMM, yyyy" ng-model="detail.dueDate" is-open="detail.isDatePickerOpen"
+           min-date="minDate" max-date="'2020-06-22'" />
+         <span class="input-group-btn">
+           <button type="button" class="btn btn-default" ng-click="detail.isDatePickerOpen = true"><i class="glyphicon glyphicon-calendar"></i></button>
+         </span>
+       </p>
+    </div>
+    <div class="col-md-1"><input class="form-control" ng-model="detail.quantity"></div>
+    <div class="col-md-1">
+      <select ng-model="detail.unitOfMeasure" class="form-control" style="font-size: 1em;padding: 6px;">
+        <option value="ea">EA</option>
+        <option value="l">L</option>
+        <option value="kg">KG</option>
+      </select>
+    </div>
+    <div class="col-md-1"><input class="form-control"  ng-model="detail.pricePer" style="padding:6px;"></div>
+    <div class="col-md-1">{{detail.quantity * detail.pricePer | currency:$}}</div>
+    <div class="col-md-1">
+      <button class="btn btn-primary btn-sm" ng-click="c.removeDetail(detail)">
+        <span class="fa fa-minus"></span>
+      </button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-1 col-md-offset-11">
+      <button class="btn btn-primary btn-lg" ng-click="c.createOrder()">
+        Save
+      </button>
+    </div>
+  </div>
+</div>

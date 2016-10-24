@@ -1,0 +1,6 @@
+mode: set
+pack\math.go:3.27,6.20 2 1
+pack\math.go:11.2,11.25 1 1
+pack\math.go:15.2,15.15 1 1
+pack\math.go:6.20,9.3 2 0
+pack\math.go:11.25,13.3 1 1

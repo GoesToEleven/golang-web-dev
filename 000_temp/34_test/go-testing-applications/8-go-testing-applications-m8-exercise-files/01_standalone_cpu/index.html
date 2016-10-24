@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>POMS - Purchase Order Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/res/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js" charset="utf-8"></script>
+    <script src="/res/js/ui-bootstrap-tpls-0.13.3.min.js" charset="utf-8"></script>
+    <script src="/res/js/models/PurchaseOrder.js"></script>
+    <script src="/res/js/models/PODetail.js"></script>
+    <script src="/res/js/app.js" charset="utf-8"></script>
+    <script src="/res/js/services/PurchaseOrderService.js"></script>
+    <script src="/res/js/services/ShippingService.js"></script>
+    <script src="/res/js/services/CurrencyService.js"></script>
+    <script src="/res/js/controllers/CreateController.js"></script>
+    <script src="/res/js/controllers/ManageController.js"></script>
+    <script src="/res/js/controllers/ReviewController.js"></script>
+  </head>
+  <body class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <a href="#/"><h1 class="text-primary">POMS</h1></a>
+        <h3 class="text-primary">Purchase Order Management System</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" ui-view>
+      </div>
+    </div>
+  </body>
+</html>

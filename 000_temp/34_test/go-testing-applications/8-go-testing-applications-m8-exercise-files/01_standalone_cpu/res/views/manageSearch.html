@@ -1,0 +1,11 @@
+<div ng-controller="ManageController as c">
+  <br>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <label>Enter Purchase Order Number</label>
+    </div>
+    <div class="col-md-2 col-md-offset-5 text-center">
+      <input type="text" ng-model="c.poNumber" class="form-control" ng-keyup="c.doSearch($event)">
+    </div>
+  </div>
+</div>
