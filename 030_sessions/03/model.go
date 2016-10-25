@@ -1,9 +1,7 @@
 package main
 
-type client struct {
-	Email string
-	Fname string
+type User struct {
+	First string
+	Last  string
 	Loggedin bool
 }
-
-var db = make(map[string]client)

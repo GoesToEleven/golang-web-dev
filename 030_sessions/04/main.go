@@ -13,7 +13,8 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", index)
-	http.HandleFunc("/user", user)
+	// ADDED chaining: protected(user)
+	http.HandleFunc("/user", protected(user))
 	http.HandleFunc("/logout", logOut)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
@@ -41,19 +42,26 @@ func index(w http.ResponseWriter, req *http.Request) {
 func user(w http.ResponseWriter, req *http.Request) {
 	c := GetSession(req)
 	u := db[c.Value]
-	// ADDED:
-	if !u.Loggedin {
-		http.Redirect(w, req, "/", http.StatusSeeOther)
-		return
-	}
 	tpl.ExecuteTemplate(w, "user.gohtml", u)
 }
 
-// ADDED:
 func logOut(w http.ResponseWriter, req *http.Request) {
 	c := GetSession(req)
 	u := db[c.Value]
 	u.Loggedin = false
 	db[c.Value] = u
 	http.Redirect(w, req, "/", http.StatusSeeOther)
+}
+
+// ADDED:
+func protected(h http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request){
+		c := GetSession(req)
+		u := db[c.Value]
+		if !u.Loggedin {
+			http.Redirect(w, req, "/", http.StatusSeeOther)
+			return
+		}
+		h(w, req)
+	}
 }

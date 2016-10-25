@@ -6,11 +6,10 @@
 </head>
 <body>
 
-{{if ne .Email ""}}
-<h1>Email: {{.Email}}</h1>
-<h1>First Name: {{.Fname}}</h1>
+{{if ne .First ""}}
+<h1>First Name: {{.First}}</h1>
+<h1>Last Name: {{.Last}}</h1>
 <h1>Logged In: {{.Loggedin}}</h1>
-<p><a href="/logout">LOGOUT</a></p>
 {{else}}
 <h1>No data here yet</h1>
 {{end}}
