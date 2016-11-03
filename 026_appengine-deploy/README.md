@@ -11,8 +11,21 @@ https://domains.google/#/
   - create a project
   - get the project ID
 - update the app.yaml file with your project ID
+
+```
+application: temp-145415
+version: 1
+runtime: go
+api_version: go1
+
+handlers:
+- url: /.*
+  script: _go_app
+```
 - deploy to that project
-  - appcfg.py -A YOUR_PROJECT_ID -V v1 update .
+```
+appcfg.py -A YOUR_PROJECT_ID -V v1 update .
+```
 - view your project
   - http://YOUR_PROJECT_ID.appspot.com/
 
