@@ -1,0 +1,1 @@
+I said that "in the next video, we were going to look at predefined gloabl functions", but I realized I want to show you something more, first, on functions which aren't predefined global functions
