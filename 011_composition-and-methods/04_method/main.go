@@ -35,11 +35,11 @@ func main() {
 }
 
 // Generally speaking, best practice:
-// a functions called in a template is formatting only; not processing or data access.
+// call functions in templates for formatting only; not processing or data access.
 
-// The main reason you don't want to do any data processing in your template:
-// If you're using a function more than once in a template,
+// The main reasons you don't want to do any data processing in your template:
+// (1) separation of concerns
+// (2) if you're using a function more than once in a template,
 // the server needs to do the processing more than once.
-// (though the standard library might be cachine processing -
-// I've yet to dig into the internals for this -
-// if you find the answer, let me know)
+// (though the standard library might cache processing -
+// I've yet to dig into this - if you find the answer, let me know)
