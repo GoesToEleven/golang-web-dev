@@ -15,6 +15,15 @@ func (p person) SomeProcessing() int {
 	return 7
 }
 
+func (p person) AgeDbl() int {
+	return p.Age * 2
+}
+
+
+func (p person) TakesArg(x int) int {
+	return x * 2
+}
+
 var tpl *template.Template
 
 func init() {
