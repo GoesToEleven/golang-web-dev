@@ -1,13 +1,13 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", indx)
-	http.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir("./assets")) ))
+	http.Handle("/assets/", http.StripPrefix("/assets", http.FileServer(http.Dir("./assets"))))
 	http.ListenAndServe(":8080", nil)
 }
 

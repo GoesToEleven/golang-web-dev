@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/nu7hatch/gouuid"
 	"io"
+	"log"
 	"net/http"
 	"strings"
-	"log"
 )
 
 func main() {

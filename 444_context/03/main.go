@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
+	"context"
 	"fmt"
 	"log"
-	"context"
+	"net/http"
 	"time"
 )
 
@@ -32,7 +32,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 func dbAccess(ctx context.Context) (int, error) {
 
-	ctx, cancel := context.WithTimeout(ctx, 1 * time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 1*time.Second)
 	defer cancel()
 
 	ch := make(chan int)
@@ -52,7 +52,7 @@ func dbAccess(ctx context.Context) (int, error) {
 	}()
 
 	select {
-	case <- ctx.Done():
+	case <-ctx.Done():
 		return 0, ctx.Err()
 	case i := <-ch:
 		return i, nil

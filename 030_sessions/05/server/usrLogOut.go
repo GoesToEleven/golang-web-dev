@@ -1,9 +1,9 @@
 package server
 
 import (
-	"net/http"
-	"github.com/GoesToEleven/golang-web-dev/030_sessions/05/session"
 	"github.com/GoesToEleven/golang-web-dev/030_sessions/05/db"
+	"github.com/GoesToEleven/golang-web-dev/030_sessions/05/session"
+	"net/http"
 )
 
 func logOut(w http.ResponseWriter, req *http.Request) {

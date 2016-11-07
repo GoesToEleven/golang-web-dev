@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/032_sample-project/route"
+	"net/http"
 )
 
 func main() {

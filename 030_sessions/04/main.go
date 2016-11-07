@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -26,8 +26,8 @@ func index(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodPost {
 		id := c.Value
 		db[id] = &User{
-			First: req.FormValue("fname"),
-			Last: req.FormValue("lname"),
+			First:    req.FormValue("fname"),
+			Last:     req.FormValue("lname"),
 			Loggedin: req.FormValue("loggedin") == "on",
 		}
 		http.Redirect(w, req, "/user", http.StatusSeeOther)
@@ -55,7 +55,7 @@ func logOut(w http.ResponseWriter, req *http.Request) {
 
 // ADDED:
 func protected(h http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request){
+	return func(w http.ResponseWriter, req *http.Request) {
 		c := GetSession(req)
 		u := db[c.Value]
 		if !u.Loggedin {

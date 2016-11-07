@@ -2,13 +2,12 @@ package main
 
 import (
 	"log"
+	"math"
 	"os"
 	"text/template"
-	"math"
 )
 
 var tpl *template.Template
-
 
 func init() {
 	tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))
@@ -27,8 +26,8 @@ func sqRoot(x float64) float64 {
 }
 
 var fm = template.FuncMap{
-	"fdbl": double,
-	"fsq": square,
+	"fdbl":  double,
+	"fsq":   square,
 	"fsqrt": sqRoot,
 }
 

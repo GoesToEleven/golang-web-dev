@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
 	"html/template"
 	"log"
+	"net/http"
 )
 
 var tpl *template.Template

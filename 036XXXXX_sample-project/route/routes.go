@@ -1,8 +1,8 @@
 package route
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/032_sample-project/user"
+	"net/http"
 )
 
 func Requests(mux *http.ServeMux) {
@@ -12,5 +12,3 @@ func Requests(mux *http.ServeMux) {
 	mux.HandleFunc("/user/", user)
 	mux.Handle("/favicon.ico", http.NotFoundHandler())
 }
-
-

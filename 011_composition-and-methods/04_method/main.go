@@ -19,7 +19,6 @@ func (p person) AgeDbl() int {
 	return p.Age * 2
 }
 
-
 func (p person) TakesArg(x int) int {
 	return x * 2
 }
@@ -33,8 +32,8 @@ func init() {
 func main() {
 
 	p := person{
-			Name: "Ian Fleming",
-			Age:  56,
+		Name: "Ian Fleming",
+		Age:  56,
 	}
 
 	err := tpl.Execute(os.Stdout, p)

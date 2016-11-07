@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/nu7hatch/gouuid"
-	"net/http"
 	"log"
+	"net/http"
 )
 
 // For this code to run, you will need this package:

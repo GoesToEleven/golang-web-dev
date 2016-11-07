@@ -2,14 +2,14 @@ package main
 
 import (
 	"github.com/nu7hatch/gouuid"
-	"net/http"
-	"log"
 	"html/template"
+	"log"
+	"net/http"
 )
 
 type user struct {
-	Email string
-	Fname string
+	Email    string
+	Fname    string
 	Loggedin bool
 }
 
@@ -35,8 +35,8 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodPost {
 		id := c.Value
 		db[id] = user{
-			Email: req.FormValue("email"),
-			Fname: req.FormValue("fname"),
+			Email:    req.FormValue("email"),
+			Fname:    req.FormValue("fname"),
 			Loggedin: req.FormValue("loggedin") == "on",
 		}
 		http.Redirect(w, req, "/user", http.StatusSeeOther)
@@ -74,9 +74,9 @@ func getCookie(req *http.Request) *http.Cookie {
 }
 
 func logOut(w http.ResponseWriter, req *http.Request) {
-		c := getCookie(req)
-		u := db[c.Value]
-		u.Loggedin = false
-		db[c.Value] = u
-		http.Redirect(w, req, "/", http.StatusSeeOther)
+	c := getCookie(req)
+	u := db[c.Value]
+	u.Loggedin = false
+	db[c.Value] = u
+	http.Redirect(w, req, "/", http.StatusSeeOther)
 }

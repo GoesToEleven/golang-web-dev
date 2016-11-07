@@ -1,9 +1,9 @@
 package logic
 
 import (
-	"net/http"
 	"github.com/nu7hatch/gouuid"
 	"log"
+	"net/http"
 )
 
 func Get(w http.ResponseWriter, req *http.Request) *http.Cookie {

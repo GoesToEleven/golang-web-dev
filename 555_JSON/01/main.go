@@ -1,12 +1,12 @@
 package main
 
 import (
-	"net/http"
 	"encoding/json"
 	"log"
+	"net/http"
 )
 
-type person struct{
+type person struct {
 	Fname string
 	Lname string
 	Items []string

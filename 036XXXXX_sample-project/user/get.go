@@ -1,8 +1,8 @@
 package user
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/032_sample-project/cookie"
+	"net/http"
 )
 
 func Get(w http.ResponseWriter, req *http.Request) User {

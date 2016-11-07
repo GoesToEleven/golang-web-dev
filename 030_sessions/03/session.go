@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"github.com/nu7hatch/gouuid"
 	"log"
+	"net/http"
 )
 
 // GetSession will either (1) retrieve a cookie if it exists, then return it or (2) create a cookie if it doesn't exist, then return it.
@@ -21,7 +21,7 @@ func GetSession(req *http.Request) *http.Cookie {
 			HttpOnly: true,
 		}
 		// ADDED: prevents nil pointer dereference
-		 db[id.String()] = &User{}
+		db[id.String()] = &User{}
 	}
 	return cookie
 }

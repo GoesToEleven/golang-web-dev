@@ -10,4 +10,3 @@ func Show(res http.ResponseWriter, req *http.Request) {
 	userID, isValid := Get(ctx)
 	fmt.Fprintf(res, "User is: %+v, the ID is valid: %t\n", userID, isValid)
 }
-

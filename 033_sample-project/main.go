@@ -1,14 +1,15 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))}
+	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+}
 
 func main() {
 	http.HandleFunc("/", Index)
