@@ -22,4 +22,6 @@ func main() {
 }
 
 // this is similar to this:
+// https://play.golang.org/p/X2dlgVSIrd
+// ---and this---
 // https://play.golang.org/p/YaUYR63b7L
