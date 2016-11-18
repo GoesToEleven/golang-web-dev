@@ -2,15 +2,8 @@ package main
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
 )
-
-var tpl *template.Template
-
-func init() {
-	tpl = template.Must(template.ParseGlob("templates/*"))
-}
 
 func main() {
 	http.HandleFunc("/", foo)
@@ -27,12 +20,13 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 func bar(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Your request method at bar:", req.Method)
-	//http.Redirect(w, req, "/", http.StatusSeeOther)
-	w.Header().Set("Location", "/")
-	w.WriteHeader(http.StatusSeeOther)
+	http.Redirect(w, req, "/", http.StatusTemporaryRedirect)
 }
 
+// 307
+// Status Temporary Redirect
+// Keeps the same method
 func barred(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Your request method at barred:", req.Method)
-	tpl.ExecuteTemplate(w, "index.gohtml", nil)
+	http.Redirect(w, req, "/bar", http.StatusTemporaryRedirect)
 }

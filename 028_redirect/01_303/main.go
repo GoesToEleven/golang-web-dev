@@ -22,13 +22,19 @@ func main() {
 
 func foo(w http.ResponseWriter, req *http.Request) {
 	fmt.Print("Your request method at foo: ", req.Method, "\n\n")
-	fmt.Fprintln(w, "Hello, welcome to bar. What can I get you?")
+	fmt.Fprintln(w, "Hello, welcome to foo. What can I get you?")
 }
 
+// 303
+// Statue See Other
+// changes the method to GET
 func bar(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Your request method at bar:", req.Method)
 	http.Redirect(w, req, "/", http.StatusSeeOther)
-	//http.Redirect(w, req, "/", 303)
+
+	// you could also redirect this way:
+	//w.Header().Set("Location", "/")
+	//w.WriteHeader(http.StatusSeeOther)
 }
 
 func barred(w http.ResponseWriter, req *http.Request) {

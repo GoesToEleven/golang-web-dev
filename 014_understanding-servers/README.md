@@ -36,7 +36,7 @@ Request-Line
 - Method SP Request-URI SP HTTP-Version CRLF
 
 example request line:
-- GET /path/to/file/index.html HTTP/1.0
+- GET /path/to/file/index.html HTTP/1.1
 
 ***
 
@@ -51,7 +51,7 @@ Status-Line
 - HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 
 example status line:
-- HTTP/1.0 200 OK
+- HTTP/1.1 200 OK
 
 ***
 
