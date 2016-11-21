@@ -1,13 +1,13 @@
 {{template "header"}}
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="text/plain">
     <label for="firstName">First Name</label>
     <input type="text" id="firstName" name="first">
     <br>
     <label for="lastName">Last Name</label>
     <input type="text" id="lastName" name="last">
     <br>
-    <label for="sub">Last Name</label>
+    <label for="sub">Subscribed</label>
     <input type="checkbox" id="sub" name="subscribe">
     <br>
     <input type="submit">
@@ -15,8 +15,8 @@
 
 <br>
 
-<h1>First: {{.FirstName}}</h1>
-<h1>Last: {{.LastName}}</h1>
-<h1>Subscribed: {{.Subscribed}}</h1>
+{{if .}}
+<h1>BODY: {{.}}</h1>
+{{end}}
 
 {{template "footer"}}

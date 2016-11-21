@@ -27,20 +27,12 @@ func main() {
 
 func foo(w http.ResponseWriter, req *http.Request) {
 
-	// method
-	fmt.Println("\nMETHOD:", req.Method)
-	// URL
-	fmt.Println("URI:", req.URL.Path)
 	// body
 	bs := make([]byte, req.ContentLength)
 	req.Body.Read(bs)
-	fmt.Println("BODY:", string(bs))
+	body := string(bs)
 
-	f := req.FormValue("first")
-	l := req.FormValue("last")
-	s := req.FormValue("subscribe") == "on"
-
-	err := tpl.ExecuteTemplate(w, "index.gohtml", person{f, l, s})
+	err := tpl.ExecuteTemplate(w, "index.gohtml", body)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
 		log.Fatalln(err)
