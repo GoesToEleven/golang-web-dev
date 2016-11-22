@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/satori/go.uuid"
-	"log"
 	"net/http"
 )
 
