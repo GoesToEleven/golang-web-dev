@@ -1,32 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Give Me Some Data!</title>
+    <title>Index</title>
 </head>
 <body>
 
-<form method="POST" action="/">
-
-    <label for="fn">First Name</label>
-    <input type="text" name="fname" id="fn">
+<form method="post">
+    <label for="fname">first name:</label>
+    <input type="text" id="fname" name="first">
     <br>
-
-    <label for="ln">Last Name</label>
-    <input type="text" name="lname" id="ln">
+    <label for="lin">logged in</label>
+    <input type="checkbox" id="lin" name="loggedin">
     <br>
-
-    <label for="li">Logged In</label>
-    <input type="checkbox" name="loggedin" id="li">
-    <br>
-
-    <input type="submit" value="submit">
+    <input type="submit">
 </form>
 
-{{if .}}
-<h1>Cookie Value: {{.}}</h1>
-<h1><a href="/user">GO TO USER PAGE</a></h1>
-{{end}}
 
+{{if .First}}
+    <h1>First:      {{.First}}</h1>
+    <h1>LoggedIn:   {{.LoggedIn}}</h1>
+    {{if .LoggedIn}}
+    <a href="/usr">You are logged in - Go To usr Page</a>
+    {{end}}
+{{end}}
 </body>
 </html>

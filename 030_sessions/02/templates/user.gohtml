@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Houston, We have state</title>
+    <title>User's Page</title>
 </head>
 <body>
 
-{{if ne .First ""}}
-<h1>First Name: {{.First}}</h1>
-<h1>Last Name: {{.Last}}</h1>
-<h1>Logged In: {{.Loggedin}}</h1>
-{{else}}
-<h1>No data here yet</h1>
-{{end}}
+<h1>You can only get here if you're logged in</h1>
+<h1>First: {{.First}}</h1>
+<h1>Logged in: {{.LoggedIn}}</h1>
 
-<h1><a href="/">GO TO FORM</a></h1>
+<a href="/logout">Logout and be redirected back to this page<br> which, in turn, will see you're not logged in<br>and redirect you to "/"</a>
+
+
 </body>
 </html>

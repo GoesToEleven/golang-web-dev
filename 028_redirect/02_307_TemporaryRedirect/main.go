@@ -24,7 +24,6 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	fmt.Print("Your request method at foo: ", req.Method, "\n\n")
 }
 
-
 func bar(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Your request method at bar:", req.Method)
 	// we could process form submission here

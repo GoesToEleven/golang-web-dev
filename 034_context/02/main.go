@@ -1,9 +1,9 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"time"
-	"context"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import (
 var tpl *template.Template
 
 type pageData struct {
-	Title string
+	Title     string
 	FirstName string
 }
 

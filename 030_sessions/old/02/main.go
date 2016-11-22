@@ -2,6 +2,7 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -13,9 +14,7 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", index)
-	// ADDED chaining: protected(user)
-	http.HandleFunc("/user", protected(user))
-	http.HandleFunc("/logout", logOut)
+	http.HandleFunc("/user", user)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
@@ -36,32 +35,14 @@ func index(w http.ResponseWriter, req *http.Request) {
 
 	http.SetCookie(w, c)
 
-	tpl.ExecuteTemplate(w, "index.gohtml", c.Value)
+	err := tpl.ExecuteTemplate(w, "index.gohtml", c.Value)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func user(w http.ResponseWriter, req *http.Request) {
 	c := GetSession(req)
-	u := db[c.Value]
-	tpl.ExecuteTemplate(w, "user.gohtml", u)
-}
-
-func logOut(w http.ResponseWriter, req *http.Request) {
-	c := GetSession(req)
-	u := db[c.Value]
-	u.Loggedin = false
-	db[c.Value] = u
-	http.Redirect(w, req, "/", http.StatusSeeOther)
-}
-
-// ADDED:
-func protected(h http.HandlerFunc) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-		c := GetSession(req)
-		u := db[c.Value]
-		if !u.Loggedin {
-			http.Redirect(w, req, "/", http.StatusSeeOther)
-			return
-		}
-		h(w, req)
-	}
+	usr := db[c.Value]
+	tpl.ExecuteTemplate(w, "user.gohtml", usr)
 }
