@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INDEX</title>
+</head>
+<body>
+
+<form method="post">
+    <label for="fn">First Name</label>
+    <input type="text" id="fn" name="firstname">
+    <br>
+    <input type="submit">
+</form>
+
+{{if .}}
+<h1>First Name: {{.}}</h1>
+{{end}}
+
+<h1><a href="/access">Get the cookie, get the session uuid, then use that to access the database</a></h1>
+
+</body>
+</html>
