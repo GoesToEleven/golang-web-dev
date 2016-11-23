@@ -31,12 +31,13 @@ func index(w http.ResponseWriter, req *http.Request) {
 	}
 	http.SetCookie(w, c)
 	measureCookieDuration()
-	log.Println("DB in index - ", db, "Time elapsed in seconds", time.Now().Sub(startTime).Seconds()) // fyi
+	log.Printf("DB in index - %v - Time elapsed in seconds %v\n\n", db, time.Now().Sub(startTime).Seconds()) // fyi
 	tpl.ExecuteTemplate(w, "index.gohtml", fname)
 }
 
 func getCookie(req *http.Request) *http.Cookie {
 	c, err := req.Cookie("session")
+	log.Printf("cookie received back from browser - %v", c) //fyi
 	if err != nil {
 		id := uuid.NewV4()
 		c = &http.Cookie{
@@ -44,16 +45,17 @@ func getCookie(req *http.Request) *http.Cookie {
 			Value: id.String(),
 			// Secure: true,
 			HttpOnly: true,
-			MaxAge: 15,
 		}
 	}
+	c.MaxAge = 30
+	log.Printf("cookie returned by getCookie - %v", c) // fyi
 	return c
 }
 
 func access(w http.ResponseWriter, req *http.Request) {
 	c := getCookie(req)
 	fname := db[c.Value]
-	log.Println("DB in access - ", db, "Time elapsed in seconds", time.Now().Sub(startTime).Seconds()) // fyi
+	log.Printf("DB in access - %v - Time elapsed in seconds %v\n\n", db, time.Now().Sub(startTime).Seconds()) // fyi
 	tpl.ExecuteTemplate(w, "access.gohtml", fname)
 }
 
