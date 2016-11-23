@@ -16,11 +16,11 @@ func main() {
 }
 
 func foo(w http.ResponseWriter, req *http.Request) {
-	cookie, err := req.Cookie("session-id")
+	cookie, err := req.Cookie("session")
 	if err != nil {
 		id := uuid.NewV4()
 		cookie = &http.Cookie{
-			Name:  "session-id",
+			Name:  "session",
 			Value: id.String(),
 			// Secure: true,
 			HttpOnly: true,
@@ -28,5 +28,4 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		http.SetCookie(w, cookie)
 	}
 	fmt.Println(cookie)
-
 }
