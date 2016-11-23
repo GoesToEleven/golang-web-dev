@@ -1,81 +1,147 @@
 package main
 
 import (
-	"fmt"
 	"github.com/satori/go.uuid"
 	"html/template"
 	"net/http"
+	"golang.org/x/crypto/bcrypt"
+	"log"
+	"github.com/pkg/errors"
 )
 
 type user struct {
-	First    string
-	LoggedIn bool
+	UserName    string
+	Password []byte
 }
 
-var db map[string]user
+var dbUser map[string]user
+var dbSession map[string]string
 var tpl *template.Template
 
 func init() {
-	db = make(map[string]user)
+	dbUser = make(map[string]user)
+	dbSession = make(map[string]string)
 	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func main() {
 	http.HandleFunc("/", index)
-	http.HandleFunc("/usr", usr)
+	http.HandleFunc("/signup", signup)
 	http.HandleFunc("/logout", logout)
+	http.HandleFunc("/login", login)
+	http.HandleFunc("/user", usr)
 	http.ListenAndServe(":8080", nil)
 }
 
 func index(w http.ResponseWriter, req *http.Request) {
-	c := getSession(req)
-	u := db[c.Value] // get user
 
-	if req.Method == http.MethodPost {
-		f := req.FormValue("first")
-		in := req.FormValue("loggedin") == "on"
-		u = user{f, in}
-	}
-
-	db[c.Value] = u // store user
-	http.SetCookie(w, c)
-	tpl.ExecuteTemplate(w, "index.gohtml", u)
 }
 
 func usr(w http.ResponseWriter, req *http.Request) {
-	c := getSession(req)
-	u := db[c.Value]
-
-	if !u.LoggedIn {
-		fmt.Println("Redirecting to /")
-		http.Redirect(w, req, "/", http.StatusSeeOther)
-		return
-	}
 
 	tpl.ExecuteTemplate(w, "user.gohtml", u)
 }
 
-func getSession(req *http.Request) *http.Cookie {
+func login(w http.ResponseWriter, req *http.Request) {
+
+	if req.Method == http.MethodPost {
+	un := req.FormValue("username")
+	p := req.FormValue("password")
+	u := dbUser[un]
+	err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
+	if err != nil {
+		http.Error(w, "Forbidden: passwords do not match", http.StatusForbidden)
+		return
+	}
+	c := createSession(un)
+	http.SetCookie(w, c)
+	http.Redirect(w, req, "/user", http.StatusSeeOther)
+		return
+	}
+
+	tpl.ExecuteTemplate(w, "login.gohtml", nil)
+}
+
+func getSession(req *http.Request) (string, error) {
 	c, err := req.Cookie("session")
 	if err != nil {
-		id := uuid.NewV4()
-		c = &http.Cookie{
-			Name:  "session",
-			Value: id.String(),
-			//Secure: true,
-			HttpOnly: true,
-		}
+		return "", err
 	}
+	userName, ok := dbSession[c.Value]
+	if !ok {
+		return "", errors.New("No such session")
+	}
+	return userName, nil
+}
+
+func createSession(userName string) *http.Cookie {
+	id := uuid.NewV4()
+	c := &http.Cookie{
+		Name:  "session",
+		Value: id.String(),
+		//Secure: true,
+		HttpOnly: true,
+	}
+	dbSession[id.String()] = userName
 	return c
 }
 
 func logout(w http.ResponseWriter, req *http.Request) {
-	c := getSession(req)
-	u := db[c.Value]   // retrieve user from db
-	u.LoggedIn = false // change user value
-	db[c.Value] = u    // store user in db
-	c.MaxAge = -1      // expire cookie
+	c, err := req.Cookie("session")
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "You were already logged out", http.StatusBadRequest)
+		return
+	}
+	delete(dbSession, c.Value)
+	c.MaxAge = -1
 	http.SetCookie(w, c)
-	fmt.Println("\n\n***Redirecting to /usr")
-	http.Redirect(w, req, "/usr", http.StatusSeeOther)
+	http.Redirect(w, req, "/login", http.StatusSeeOther)
 }
+
+func signup(w http.ResponseWriter, req *http.Request) {
+
+	if req.Method == http.MethodPost {
+	u := req.FormValue("username")
+	p := req.FormValue("password")
+	p2 := req.FormValue("password-confirm")
+	if p != p2 {
+		http.Error(w, "passwords do not match", http.StatusBadRequest)
+		return
+	}
+	if u == "" {
+		http.Error(w, "no username entered", http.StatusBadRequest)
+		return
+	}
+	if p == "" {
+		http.Error(w, "no password entered", http.StatusBadRequest)
+		return
+	}
+	bs, err := bcrypt.GenerateFromPassword([]byte(p), bcrypt.DefaultCost)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+	dbUser[u] = user{u,bs}
+	cookie := createSession(u)
+	http.SetCookie(w, cookie)
+		return
+	}
+	http.Redirect(w, req, "/user", http.StatusSeeOther)
+}
+
+// 1.
+// signup
+// username, password, confirm password
+// check password on server
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// s
+//
