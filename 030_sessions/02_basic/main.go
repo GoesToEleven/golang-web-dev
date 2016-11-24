@@ -129,17 +129,8 @@ func getSession(w http.ResponseWriter, req *http.Request) string {
 		http.Redirect(w, req, "/login", http.StatusSeeOther)
 		return
 	}
-	timeLimitedSession(w, c)
 	log.Printf("cookie returned to browser - %v", c) //fyi
 	return c.Value
-}
-
-func timeLimitedSession(w http.ResponseWriter, c *http.Cookie) {
-	// c.Secure = true
-	c.HttpOnly = true
-	c.MaxAge = 30
-	http.SetCookie(w, c)
-	startSessionTimer() //fyi
 }
 
 
