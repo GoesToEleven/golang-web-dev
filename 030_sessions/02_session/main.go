@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
-	"fmt"
 )
 
 type user struct {

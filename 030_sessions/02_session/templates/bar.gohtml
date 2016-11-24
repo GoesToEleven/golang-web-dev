@@ -8,9 +8,11 @@
 
 <h1>Welcome to the bar. What can I get you to drink?</h1>
 
-USER NAME {{.UserName}}<br>
-FIRST {{.First}}<br>
-LAST {{.Last}}<br>
+{{if .First}}
+    USER NAME {{.UserName}}<br>
+    FIRST {{.First}}<br>
+    LAST {{.Last}}<br>
+{{end}}
 
 </body>
 </html>
