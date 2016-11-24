@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<form method="post">
+
+    <input type="text" name="firstname" placeholder="first name"><br>
+    <input type="text" name="lastname" placeholder="last name"><br>
+    <label for="li">Logged In</label>
+    <input type="checkbox" id="li" name="loggedin"><br>
+    <input type="submit">
+
+</form>
+
+
+{{if .First}}
+FIRST {{.First}}<br>
+LAST {{.Last}}<br>
+{{end}}
+
+</body>
+</html>

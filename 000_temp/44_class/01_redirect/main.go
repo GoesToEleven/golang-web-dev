@@ -14,19 +14,22 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", foo)
-	http.HandleFunc("/", bar)
-	http.HandleFunc("/", barred)
+	http.HandleFunc("/bar", bar)
+	http.HandleFunc("/barred", barred)
 	http.ListenAndServe(":8080", nil)
 }
 
 func foo(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "You are at foo - the request method was: %v", req.Method)
+	fmt.Println("You are at foo - the request method was:", req.Method)
 }
 
 func bar(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "You are at bar - the request method was: %v", req.Method)
+	fmt.Println("You are at bar - the request method was:", req.Method)
+	w.Header().Set("Location", "/")
+	w.WriteHeader(http.StatusSeeOther)
 }
 
 func barred(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "You are at barred - the request method was: %v", req.Method)
+	fmt.Println("You are at barred - the request method was:", req.Method)
+	tpl.ExecuteTemplate(w, "barred.gohtml", nil)
 }
