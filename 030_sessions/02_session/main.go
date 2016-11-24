@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
+	"fmt"
 )
 
 type user struct {
@@ -39,8 +40,13 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		http.SetCookie(w, c)
 	}
 
-	// process form submission
+	// if the user exists already, get user
 	var u user
+	if un, ok := dbSessions[c.Value]; ok {
+		u = dbUsers[un]
+	}
+
+	// process form submission
 	if req.Method == http.MethodPost {
 		un := req.FormValue("username")
 		f := req.FormValue("firstname")
@@ -70,4 +76,5 @@ func bar(w http.ResponseWriter, req *http.Request) {
 	tpl.ExecuteTemplate(w, "bar.gohtml", u)
 }
 
+// https://play.golang.org/p/OKGL6phY_x
 // https://play.golang.org/p/yORyGUZviV
