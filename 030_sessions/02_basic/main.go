@@ -5,8 +5,6 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"time"
-	"fmt"
 	"golang.org/x/crypto/bcrypt"
 	"os"
 	"encoding/json"
@@ -33,9 +31,18 @@ func main() {
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/logout", logout)
 	http.HandleFunc("/loggedin", loggedin)
-	http.HandleFunc("/elapsed", timer) //fyi
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
+}
+
+func index(w http.ResponseWriter, req *http.Request) {
+	u := user{}
+	c, err := req.Cookie("session")
+	if err == nil {
+		un := dbSession[c.Value]
+		u = dbUsers[un]
+	}
+	tpl.ExecuteTemplate(w, "index.gohtml", u)
 }
 
 func signup(w http.ResponseWriter, req *http.Request) {
@@ -46,7 +53,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		u := req.FormValue("username")
 		p1 := req.FormValue("password1")
 		p2 := req.FormValue("password2")
-		if dbUsers[u] {
+		if _, ok := dbUsers[u]; ok {
 			http.Error(w, "Username taken", http.StatusUnprocessableEntity)
 			return
 		}
@@ -119,7 +126,13 @@ func login(w http.ResponseWriter, req *http.Request) {
 func logout(w http.ResponseWriter, req *http.Request) {
 	sID := getSession(w, req)
 	delete(dbSession, sID)
-
+	c := &http.Cookie{
+		Name: "session",
+		Value: "",
+		MaxAge: -1,
+	}
+	http.SetCookie(w, c)
+	http.Redirect(w, req, "/login", http.StatusSeeOther)
 }
 
 func getSession(w http.ResponseWriter, req *http.Request) string {
@@ -127,45 +140,16 @@ func getSession(w http.ResponseWriter, req *http.Request) string {
 	log.Printf("cookie received from browser - %v", c) //fyi
 	if err != nil {
 		http.Redirect(w, req, "/login", http.StatusSeeOther)
-		return
+		return ""
 	}
 	log.Printf("cookie returned to browser - %v", c) //fyi
 	return c.Value
 }
 
-
-func index(w http.ResponseWriter, req *http.Request) {
+func loggedin(w http.ResponseWriter, req *http.Request) {
 	sID := getSession(w, req)
-	fname := db[sID]
-	if req.Method == http.MethodPost {
-		fname = req.FormValue("firstname")
-		db[sID] = fname
-	}
-	log.Printf("DB in index - %v\n\n", db) //fyi
-	tpl.ExecuteTemplate(w, "index.gohtml", fname)
-}
-
-
-
-func access(w http.ResponseWriter, req *http.Request) {
-	sID := getSession(w, req)
-	fname := db[sID]                        // *** accessing session data based upon session ID !!!***
-	log.Printf("DB in access - %v\n\n", db) //fyi
-	tpl.ExecuteTemplate(w, "access.gohtml", fname)
-}
-
-
-//fyi - time the life of the cookie
-var sessionStartTime time.Time
-
-//fyi
-func startSessionTimer() {
-	sessionStartTime = time.Now()
-}
-
-//fyi - this does not call getSession therefore the session's MaxAge is not reset
-func timer(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(w, "Session time elapsed in seconds %v", time.Now().Sub(sessionStartTime).Seconds()) //fyi
+	u := dbUsers[sID] // *** accessing user data based upon session ID !!!***
+	tpl.ExecuteTemplate(w, "loggedin.gohtml", u)
 }
 
 func dbUsersLoad() {
@@ -177,7 +161,7 @@ func dbUsersLoad() {
 
 	err = json.NewDecoder(f).Decode(&dbUsers)
 	if err != nil {
-		log.Fatalln("error decoding json", err)
+		log.Println("error decoding json", err)
 	}
 }
 

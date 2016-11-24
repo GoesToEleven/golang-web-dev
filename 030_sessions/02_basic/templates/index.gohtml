@@ -4,26 +4,11 @@
     <meta charset="UTF-8">
     <title>INDEX</title>
 </head>
+{{template "header-nav-css"}}
 <body>
+{{template "header-nav"}}
 
-<h1>Navigation</h1>
-<a href="/login">login</a>
-
-<br>
-<br>
-
-<form method="post">
-    <label for="fn">First Name</label>
-    <input type="text" id="fn" name="firstname">
-    <br>
-    <input type="submit">
-</form>
-
-{{if .}}
-<h1>First Name: {{.}}</h1>
-{{end}}
-
-<h1><a href="/access">Get the cookie, get the session uuid, then use that to access the database</a></h1>
+{{template "main"}}
 
 </body>
 </html>
