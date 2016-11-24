@@ -76,12 +76,16 @@ func createSession(w http.ResponseWriter, req *http.Request, u string) {
 		HttpOnly: true,
 	}
 	http.SetCookie(w, c)
+
+	// dbSession is a map
+	// the key is the session ID
+	// the session ID is stored in the cookie (it's the cookie's value)
+	// the value of dbSession is the username
+	// the username is the key for dbUsers
+	// dbUsers is a map
+	// the value in dbUsers is a user
+	// with a session ID, we can access user information
 	dbSession[c.Value] = u
-	// u is username, the key for dbUsers
-	// with the session ID which is stored as the cookie's value
-	// we can get the username
-	// which is the key for dbUsers
-	// and we can now access all of the user information
 }
 
 func login(w http.ResponseWriter, req *http.Request) {
@@ -112,24 +116,10 @@ func login(w http.ResponseWriter, req *http.Request) {
 	tpl.ExecuteTemplate(w, "login.gohtml", nil)
 }
 
-func index(w http.ResponseWriter, req *http.Request) {
+func logout(w http.ResponseWriter, req *http.Request) {
 	sID := getSession(w, req)
-	fname := db[sID]
-	if req.Method == http.MethodPost {
-		fname = req.FormValue("firstname")
-		db[sID] = fname
-	}
-	log.Printf("DB in index - %v\n\n", db) //fyi
-	tpl.ExecuteTemplate(w, "index.gohtml", fname)
-}
+	delete(dbSession, sID)
 
-
-
-func access(w http.ResponseWriter, req *http.Request) {
-	sID := getSession(w, req)
-	fname := db[sID]                        // *** accessing session data based upon session ID !!!***
-	log.Printf("DB in access - %v\n\n", db) //fyi
-	tpl.ExecuteTemplate(w, "access.gohtml", fname)
 }
 
 func getSession(w http.ResponseWriter, req *http.Request) string {
@@ -151,6 +141,28 @@ func timeLimitedSession(w http.ResponseWriter, c *http.Cookie) {
 	http.SetCookie(w, c)
 	startSessionTimer() //fyi
 }
+
+
+func index(w http.ResponseWriter, req *http.Request) {
+	sID := getSession(w, req)
+	fname := db[sID]
+	if req.Method == http.MethodPost {
+		fname = req.FormValue("firstname")
+		db[sID] = fname
+	}
+	log.Printf("DB in index - %v\n\n", db) //fyi
+	tpl.ExecuteTemplate(w, "index.gohtml", fname)
+}
+
+
+
+func access(w http.ResponseWriter, req *http.Request) {
+	sID := getSession(w, req)
+	fname := db[sID]                        // *** accessing session data based upon session ID !!!***
+	log.Printf("DB in access - %v\n\n", db) //fyi
+	tpl.ExecuteTemplate(w, "access.gohtml", fname)
+}
+
 
 //fyi - time the life of the cookie
 var sessionStartTime time.Time
