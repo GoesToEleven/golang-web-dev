@@ -26,7 +26,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 func bar(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Your request method at bar:", req.Method)
-	// we could process form submission here
+	// process form submission here
 	http.Redirect(w, req, "/", http.StatusTemporaryRedirect)
 }
 
