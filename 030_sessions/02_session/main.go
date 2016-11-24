@@ -45,8 +45,9 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		un := req.FormValue("username")
 		f := req.FormValue("firstname")
 		l := req.FormValue("lastname")
+		u = user{un, f, l}
 		dbSessions[c.Value] = un
-		dbUsers[un] = user{un, f, l}
+		dbUsers[un] = u
 	}
 
 	tpl.ExecuteTemplate(w, "index.gohtml", u)
