@@ -2,13 +2,15 @@ package main
 
 import (
 	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 	"html/template"
+	"log"
 	"net/http"
 )
 
 type user struct {
 	UserName string
-	Password string
+	Password []byte
 	First    string
 	Last     string
 }
@@ -19,7 +21,7 @@ var dbSessions = map[string]string{} // session ID, user ID
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*"))
-	dbUsers["james@bond.com"] = user{"james@bond.com", "notstirred", "James", "Bond"} // populate our db
+	dbUsers["james@bond.com"] = user{"james@bond.com", []byte("notstirred"), "James", "Bond"} // populate our db
 }
 
 func main() {
@@ -55,20 +57,26 @@ func foo(w http.ResponseWriter, req *http.Request) {
 }
 
 func bar(w http.ResponseWriter, req *http.Request) {
+	_, u, err := protected(req)
+	if err != nil {
+		http.Redirect(w, req, "/login", http.StatusSeeOther)
+		return
+	}
+	tpl.ExecuteTemplate(w, "bar.gohtml", u)
+}
 
-	// get cookie
+func protected(req *http.Request) (*http.Cookie, user, error) {
+	var u user
 	c, err := req.Cookie("session")
 	if err != nil {
-		http.Redirect(w, req, "/", http.StatusSeeOther)
-		return
+		return c, u, err
 	}
 	un, ok := dbSessions[c.Value]
 	if !ok {
-		http.Redirect(w, req, "/", http.StatusSeeOther)
-		return
+		return c, u, err
 	}
-	u := dbUsers[un]
-	tpl.ExecuteTemplate(w, "bar.gohtml", u)
+	u = dbUsers[un]
+	return c, u, nil
 }
 
 func login(w http.ResponseWriter, req *http.Request) {
@@ -89,7 +97,8 @@ func login(w http.ResponseWriter, req *http.Request) {
 		un := req.FormValue("username")
 		p := req.FormValue("password")
 		u = dbUsers[un]
-		if u.Password != p {
+		err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
+		if err != nil {
 			http.Error(w, "Username and/or password do not match", http.StatusForbidden)
 			return
 		}
@@ -144,7 +153,13 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		f := req.FormValue("firstname")
 		l := req.FormValue("lastname")
 		// store user in dbUsers
-		u = user{un, p, f, l}
+		bs, err := bcrypt.GenerateFromPassword([]byte(p), bcrypt.MinCost)
+		if err != nil {
+			log.Println(err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+		u = user{un, bs, f, l}
 		dbUsers[un] = u
 		// create session
 		sID := uuid.NewV4()

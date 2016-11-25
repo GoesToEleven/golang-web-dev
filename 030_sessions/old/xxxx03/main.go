@@ -1,16 +1,16 @@
 package main
 
 import (
-	"github.com/satori/go.uuid"
-	"html/template"
-	"net/http"
-	"golang.org/x/crypto/bcrypt"
-	"log"
 	"github.com/pkg/errors"
+	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
+	"html/template"
+	"log"
+	"net/http"
 )
 
 type user struct {
-	UserName    string
+	UserName string
 	Password []byte
 }
 
@@ -45,17 +45,17 @@ func usr(w http.ResponseWriter, req *http.Request) {
 func login(w http.ResponseWriter, req *http.Request) {
 
 	if req.Method == http.MethodPost {
-	un := req.FormValue("username")
-	p := req.FormValue("password")
-	u := dbUser[un]
-	err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
-	if err != nil {
-		http.Error(w, "Forbidden: passwords do not match", http.StatusForbidden)
-		return
-	}
-	c := createSession(un)
-	http.SetCookie(w, c)
-	http.Redirect(w, req, "/user", http.StatusSeeOther)
+		un := req.FormValue("username")
+		p := req.FormValue("password")
+		u := dbUser[un]
+		err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
+		if err != nil {
+			http.Error(w, "Forbidden: passwords do not match", http.StatusForbidden)
+			return
+		}
+		c := createSession(un)
+		http.SetCookie(w, c)
+		http.Redirect(w, req, "/user", http.StatusSeeOther)
 		return
 	}
 
@@ -102,29 +102,29 @@ func logout(w http.ResponseWriter, req *http.Request) {
 func signup(w http.ResponseWriter, req *http.Request) {
 
 	if req.Method == http.MethodPost {
-	u := req.FormValue("username")
-	p := req.FormValue("password")
-	p2 := req.FormValue("password-confirm")
-	if p != p2 {
-		http.Error(w, "passwords do not match", http.StatusBadRequest)
-		return
-	}
-	if u == "" {
-		http.Error(w, "no username entered", http.StatusBadRequest)
-		return
-	}
-	if p == "" {
-		http.Error(w, "no password entered", http.StatusBadRequest)
-		return
-	}
-	bs, err := bcrypt.GenerateFromPassword([]byte(p), bcrypt.DefaultCost)
-	if err != nil {
-		log.Println(err)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-	}
-	dbUser[u] = user{u,bs}
-	cookie := createSession(u)
-	http.SetCookie(w, cookie)
+		u := req.FormValue("username")
+		p := req.FormValue("password")
+		p2 := req.FormValue("password-confirm")
+		if p != p2 {
+			http.Error(w, "passwords do not match", http.StatusBadRequest)
+			return
+		}
+		if u == "" {
+			http.Error(w, "no username entered", http.StatusBadRequest)
+			return
+		}
+		if p == "" {
+			http.Error(w, "no password entered", http.StatusBadRequest)
+			return
+		}
+		bs, err := bcrypt.GenerateFromPassword([]byte(p), bcrypt.DefaultCost)
+		if err != nil {
+			log.Println(err)
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
+		dbUser[u] = user{u, bs}
+		cookie := createSession(u)
+		http.SetCookie(w, cookie)
 		return
 	}
 	http.Redirect(w, req, "/user", http.StatusSeeOther)

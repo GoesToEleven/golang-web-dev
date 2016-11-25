@@ -1,20 +1,20 @@
 package main
 
 import (
-	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
+	"net/http"
 )
 
 type user struct {
 	UserName string
 	Password string
-	First string
-	Last string
+	First    string
+	Last     string
 }
 
 var tpl *template.Template
-var dbUsers = map[string]user{} // user ID, user
+var dbUsers = map[string]user{}      // user ID, user
 var dbSessions = map[string]string{} // session ID, user ID
 
 func init() {
@@ -27,6 +27,7 @@ func main() {
 	http.HandleFunc("/bar", bar)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/logout", logout)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -37,7 +38,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)
@@ -82,15 +83,17 @@ func bar(w http.ResponseWriter, req *http.Request) {
 
 func login(w http.ResponseWriter, req *http.Request) {
 
-	var u user
-
 	// is the user already logged in?
-	c, err := req.Cookie("session")
-	if err == nil {
+	c, _ := req.Cookie("session")
+	if c != nil {
 		un := dbSessions[c.Value]
-		u = dbUsers[un]
+		if _, ok := dbUsers[un]; ok {
+			http.Redirect(w, req, "/", http.StatusSeeOther)
+			return
+		}
 	}
 
+	var u user
 	// process form submission
 	if req.Method == http.MethodPost {
 		un := req.FormValue("username")
@@ -103,7 +106,7 @@ func login(w http.ResponseWriter, req *http.Request) {
 		// create session
 		sID := uuid.NewV4()
 		c := &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)

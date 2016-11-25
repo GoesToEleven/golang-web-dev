@@ -1,20 +1,20 @@
 package main
 
 import (
-	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
+	"net/http"
 )
 
 type user struct {
 	UserName string
 	Password string
-	First string
-	Last string
+	First    string
+	Last     string
 }
 
 var tpl *template.Template
-var dbUsers = map[string]user{} // user ID, user
+var dbUsers = map[string]user{}      // user ID, user
 var dbSessions = map[string]string{} // session ID, user ID
 
 func init() {
@@ -26,6 +26,7 @@ func main() {
 	http.HandleFunc("/", foo)
 	http.HandleFunc("/bar", bar)
 	http.HandleFunc("/login", login)
+	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -36,7 +37,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)

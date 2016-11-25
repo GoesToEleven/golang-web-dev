@@ -1,18 +1,18 @@
 package main
 
 import (
+	"encoding/json"
 	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"log"
 	"net/http"
-	"golang.org/x/crypto/bcrypt"
 	"os"
-	"encoding/json"
 )
 
 type user struct {
 	First, Last, UserName string
-	Password []byte
+	Password              []byte
 }
 
 var tpl *template.Template
@@ -66,7 +66,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 			log.Fatalln("bcrypt didn't work,", err)
 			return
 		}
-		dbUsers[u] = user{f,l,u,bs}
+		dbUsers[u] = user{f, l, u, bs}
 		createSession(w, req, u)
 		http.Redirect(w, req, "/", http.StatusSeeOther)
 		return
@@ -77,7 +77,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 func createSession(w http.ResponseWriter, req *http.Request, u string) {
 	sID := uuid.NewV4()
 	c := &http.Cookie{
-		Name: "session",
+		Name:  "session",
 		Value: sID.String(),
 		//Secure: true,
 		HttpOnly: true,
@@ -127,8 +127,8 @@ func logout(w http.ResponseWriter, req *http.Request) {
 	sID := getSession(w, req)
 	delete(dbSession, sID)
 	c := &http.Cookie{
-		Name: "session",
-		Value: "",
+		Name:   "session",
+		Value:  "",
 		MaxAge: -1,
 	}
 	http.SetCookie(w, c)
