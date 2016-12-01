@@ -76,5 +76,6 @@ func bar(w http.ResponseWriter, req *http.Request) {
 	tpl.ExecuteTemplate(w, "bar.gohtml", u)
 }
 
+// map examples with the comma, ok idiom
 // https://play.golang.org/p/OKGL6phY_x
 // https://play.golang.org/p/yORyGUZviV
