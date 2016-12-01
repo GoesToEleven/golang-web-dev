@@ -1,5 +1,5 @@
 # Step 1: 
-Ceated type session which is a struct with a lastActivity field. This will allow us to know the last time a session was used.
+Created type session which is a struct with a lastActivity field. This will allow us to know the last time a session was used.
 
 # Step 2:
 Updated dbSessions to be of type map[string]session

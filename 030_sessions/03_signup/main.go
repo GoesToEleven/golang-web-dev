@@ -49,8 +49,6 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	var u user
-
 	// process form submission
 	if req.Method == http.MethodPost {
 
@@ -76,7 +74,7 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		dbSessions[c.Value] = un
 
 		// store user in dbUsers
-		u = user{un, p, f, l}
+		u := user{un, p, f, l}
 		dbUsers[un] = u
 
 		// redirect
@@ -84,5 +82,5 @@ func signup(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	tpl.ExecuteTemplate(w, "signup.gohtml", u)
+	tpl.ExecuteTemplate(w, "signup.gohtml", nil)
 }

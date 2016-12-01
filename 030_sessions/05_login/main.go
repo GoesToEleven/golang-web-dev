@@ -93,7 +93,7 @@ func login(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusSeeOther)
 		return
 	}
-	var u user
+
 	// process form submission
 	if req.Method == http.MethodPost {
 		un := req.FormValue("username")
@@ -122,5 +122,5 @@ func login(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	tpl.ExecuteTemplate(w, "login.gohtml", u)
+	tpl.ExecuteTemplate(w, "login.gohtml", nil)
 }

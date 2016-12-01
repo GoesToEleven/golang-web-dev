@@ -1,9 +1,7 @@
-# Step 1: 
-
+# Step 1:
 Added a field "Role" to the user struct
 
 # Step 2:
-
 Added a select drop-down to signup.gohtml
 
 # Step 3: 

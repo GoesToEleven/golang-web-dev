@@ -36,10 +36,12 @@ func alreadyLoggedIn(w http.ResponseWriter, req *http.Request) bool {
 	if err != nil {
 		return false
 	}
-	s := dbSessions[c.Value]
-	s.lastActivity = time.Now()
-	dbSessions[c.Value] = s
-	_, ok := dbUsers[s.un]
+	s, ok := dbSessions[c.Value]
+	if ok {
+		s.lastActivity = time.Now()
+		dbSessions[c.Value] = s
+	}
+	_, ok = dbUsers[s.un]
 	// refresh session
 	c.MaxAge = sessionLength
 	http.SetCookie(w, c)
