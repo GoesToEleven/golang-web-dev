@@ -10,12 +10,12 @@ import (
 // go get github.com/satori/go.uuid
 
 func main() {
-	http.HandleFunc("/", foo)
+	http.HandleFunc("/", index)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(w http.ResponseWriter, req *http.Request) {
+func index(w http.ResponseWriter, req *http.Request) {
 	cookie, err := req.Cookie("session")
 	if err != nil {
 		id := uuid.NewV4()

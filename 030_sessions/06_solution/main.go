@@ -23,7 +23,7 @@ func init() {
 }
 
 func main() {
-	http.HandleFunc("/", foo)
+	http.HandleFunc("/", index)
 	http.HandleFunc("/bar", bar)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/logout", logout)
@@ -31,7 +31,7 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func foo(w http.ResponseWriter, req *http.Request) {
+func index(w http.ResponseWriter, req *http.Request) {
 
 	// get cookie
 	c, err := req.Cookie("session")
