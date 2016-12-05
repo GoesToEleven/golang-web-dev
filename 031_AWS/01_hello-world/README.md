@@ -98,4 +98,3 @@ WantedBy=multi-user.target
 
 # Exit SSH
 exit
-ctrl+a, ctrl+d
