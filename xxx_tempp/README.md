@@ -80,6 +80,7 @@ Description=Go Server
 
 [Service]
 ExecStart=/home/<username>/<path-to-exe>/<exe>
+WorkingDirectory=/home/<username>/<exefolderpath>
 User=<username>
 Group=<username>
 Restart=always
