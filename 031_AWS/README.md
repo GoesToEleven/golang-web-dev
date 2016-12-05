@@ -61,3 +61,6 @@ Supported software include:
 - Ruby
 - Docker
 - Go
+
+## Route 53
+You can use Amazon Route 53 to register new domains, transfer existing domains, route traffic for your domains to your AWS and external resources, and monitor the health of your resources.

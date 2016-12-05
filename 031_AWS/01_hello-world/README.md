@@ -15,22 +15,22 @@
   - add tags / webserver
   - security / ssh / http / https / custom tcp 8080
   - launch
-  - create new key pair / download / mv src dst / chmod 400 your.pem
+  - create new key pair / download / mv [src] [dst] / chmod 400 your.pem
   - launch instance
 
 1. Create hello world
   - GOOS=linux GOARCH=amd64 go build
 
 1. Copy you binary to the server
-  - scp -i /path/to/your.pem ./main ubuntu@public-IP:
+  - scp -i /path/to/[your].pem ./main ubuntu@[public-IP]:
   - say "yes" to The authenticity of host ... can't be established.
 
 1. SSH into your server
-  - ssh -i /path/to/your.pem ubuntu@public-IP:
+  - ssh -i /path/to/[your].pem ubuntu@[public-IP]:
 
 1. Run your code
   - sudo ./main
-  - check it in a browser at public-IP:8080
+  - check it in a browser at [public-IP]:8080
 
 # Troubleshooting
 
