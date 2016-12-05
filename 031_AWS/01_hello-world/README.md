@@ -15,18 +15,22 @@
   - add tags / webserver
   - security / ssh / http / https / custom tcp 8080
   - launch
-  - create new key pair
+  - create new key pair / download / mv <src> <dst> / chmod 400 your.pem
   - launch instance
 
 1. Create hello world
   - GOOS=linux GOARCH=amd64 go build
 
 1. Copy you binary to the server
-  - scp -i /Users/tm002/.ssh/fresnoRadon.pem ./main ubuntu@54.67.10.63:
+  - scp -i /path/to/<your>.pem ./main ubuntu@<public-IP>:
+  - say "yes" to The authenticity of host ... can't be established.
+
+1. SSH into your server
+  - ssh -i /path/to/<your>.pem ubuntu@<public-IP>:
 
 1. Run your code
   - sudo ./main
-  - check it in a browser
+  - check it in a browser at <public-IP>:8080
 
 # Troubleshooting
 
@@ -60,5 +64,5 @@ export PATH=$PATH:/home/ubuntu/go/bin
 
 # Troubleshooting
 
-Sometimes students miss setting port openings in security. If you are having issues, check to make sure these settings are correct.
+Sometimes students miss setting port openings in security. If you are having issues, check to make sure these settings are correct - and please note, you IP address for SSH will either be 0.0.0.0/0 or something different than mine.
 ![](security.png)
