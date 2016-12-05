@@ -71,22 +71,30 @@ Sometimes students miss setting port openings in security. If you are having iss
 
 To run our application after the terminal session has ended, we must do the following:
 
-1. create a new file in the /etc/init/ folder called project-name.conf then place these contents into that file:
+1. Create a configuration file
+  - sudo nano /etc/systemd/system/<filename>.servicecreate
 
 ```
-description "start and stop the go program 'my-project'"
+[Unit]
+Description=Go Server
 
-start on filesystem or runlevel [2345]
-stop on runlevel [!2345]
+[Service]
+ExecStart=/home/<username>/<path-to-exe>/<exe>
+WorkingDirectory=/home/<username>/<exefolderpath>
+User=<username>
+Group=<username>
+Restart=always
 
-env USER='ubuntu'
-env APP_DIR='/home/ubuntu/go/src/github.com/your-username/your-project-name/'
-env APP_EXEC='your-project-name'
-
-exec start-stop-daemon --start --chuid ${USER} --chdir ${APP_DIR} --exec ${APP_DIR}${APP_EXEC}
+[Install]
+WantedBy=multi-user.target
 ```
 
-1. run sudo start your-project-name to get your program up and running
+1. Add the service to systemd.
+  - sudo systemctl enable <filename>.service
+1. Activate the service.
+  - sudo systemctl start <filename>.service
+1. Check if systemd started it.
+  - sudo systemctl status <filename>.service
 
 # Exit SSH
 exit
