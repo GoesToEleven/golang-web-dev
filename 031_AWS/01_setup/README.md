@@ -11,24 +11,99 @@ Create an AWS Account
 ![successful account creation](acct-creation.png)
 
 ## Step #3
+make sure python is installed
+python -V
+python --version
+
+## Step #4
+sudo pip install awsebcli
+
+## Step #5
+Create credentials:
+- access key ID
+- secret access key
+You create these in the "identity access management" (IAM) service in the AWS console
+
+### (a)
+Create a user for "elastic beanstalk" (EB) to use
+- From the AWS consolse, navigate to "identity access management" (IAM)
+- select "users"
+- click "add user"
+- check "Programmatic access"
+  - Enables an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools.
+
+### (b)
+Set permissions for demoUser
+- Add user to group / create group
+  - you could call it "demoGroup"
+- Add permissions
+  - "AWSElasticBeanstalkFullAccess"
+- click "Create Group"
+- click "Next: Review" (which might be offscreen, so scroll down)
+
+### (c)
+Create User
+- Review that you've 
+  - created a user
+  - created a group
+  - given the group permissions
+  - added the user to the group
+Click "Create User"
+
+
+### (d)
+Get your credentials
+- access key ID
+- secret access key
+
+## Step #6
+Enter your credentials for a project
+- in terminal, navigate to your projects directory
+- enter: eb init
+  - choose region
+  - enter credentials: 
+    - eb-access-id
+    - eb-secret-key
+  - enter application name or accept default
+  - select a platform - you will want to select Go
+  - select a platform version - for example, maybe, Go 1.5
+  - SSH - not necessary, but good idea, so choose "yes"
+    - key-pair name: default "aws-eb" is fine
+    - passphrase
+- just FYI, in terminal enter: ls -la
+  - you should see this file now: .elasticbeanstalk
+    
+## Step #7
+Create a new application in Elastic Beanstalk
+- Go to services / elsatic beanstalk
+- click "create new application"
+  - enter an "application name" like goDemo
+  - create an "environment" by clicking "create one now"
+    - choose "web server environment"
+    - click "select"
+  - click cancel when it asks you for platform and other info
+  
+## Step #8
+Deploy
+
+
+     
+     
+     
+in Elastic Beanstalk Command Line Interface (EBCLI)
+- go to terminal
+- enter: eb
+- 
+
+
+
+## Step #3
 [Create an Application with AWS Elastic Beanstalk](https://aws.amazon.com/getting-started/tutorials/launch-an-app/)
 
 ![Create An Application](beanstalk-01.png)
 
 ![Create An Application](beanstalk-02.png)
 
-
-## Documentation
-- [Go on AWS](http://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/welcome.html)
-- [API Reference](http://docs.aws.amazon.com/sdk-for-go/api/)
-
-## Step #
-go get -u github.com/aws/aws-sdk-go/...
-
-## Step #
-Credentials
-
-[best practices](http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html)
 
 # Understanding AWS
 
@@ -76,3 +151,10 @@ Supported software include:
 - Ruby
 - Docker
 - Go
+
+[Learn how to build, deploy and manage your own applications using AWS Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html)
+[AWS Elastic Beanstalk concepts](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html)
+[Learn how to create new application versions](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-versions.html)
+[Learn how to manage your application environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.html)
+
+# [Nice Official AWS "AWS Elastic Beanstalk Deployment Walkthrough" Video](https://www.youtube.com/watch?v=xhc1boyBkJw)
