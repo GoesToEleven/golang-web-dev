@@ -12,3 +12,34 @@
 1. Run your code
   - sudo ./[some-name]
   - check it in a browser at [public-IP]:8080
+
+  # Persisting your application
+
+  To run our application after the terminal session has ended, we must do the following:
+
+  1. Create a configuration file
+    - sudo nano /etc/systemd/system/```<filename>```.service
+
+  ```
+  [Unit]
+  Description=Go Server
+
+  [Service]
+  ExecStart=/home/<username>/<path-to-exe>/<exe>
+  WorkingDirectory=/home/<username>/<exefolderpath>
+  User=<username>
+  Group=<username>
+  Restart=always
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+
+  1. Add the service to systemd.
+    - sudo systemctl enable ```<filename>```.service
+  1. Activate the service.
+    - sudo systemctl start ```<filename>```.service
+  1. Check if systemd started it.
+    - sudo systemctl status ```<filename>```.service
+  1. Stop systemd if so desired.
+    - sudo systemctl stop ```<filename>```.service
