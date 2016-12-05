@@ -87,3 +87,7 @@ exec start-stop-daemon --start --chuid ${USER} --chdir ${APP_DIR} --exec ${APP_D
 ```
 
 1. run sudo start your-project-name to get your program up and running
+
+# Exit SSH
+exit
+ctrl+a, ctrl+d
