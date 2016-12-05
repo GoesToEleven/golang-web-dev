@@ -21,7 +21,7 @@
 1. Create hello world
   - GOOS=linux GOARCH=amd64 go build
 
-1. Copy you binary to the server
+1. Copy your binary to the server
   - scp -i /path/to/[your].pem ./main ubuntu@[public-IP]:
   - say "yes" to The authenticity of host ... can't be established.
 
@@ -66,3 +66,24 @@ export PATH=$PATH:/home/ubuntu/go/bin
 
 Sometimes students miss setting port openings in security. If you are having issues, check to make sure these settings are correct - and please note, you IP address for SSH will either be 0.0.0.0/0 or something different than mine.
 ![](security.png)
+
+# [Persisting your application](https://medium.com/@nathanborror/deploying-a-go-project-on-ec2-15ce381cf7a1#.fcl8ak92w)
+
+To run our application after the terminal session has ended, we must do the following:
+
+1. create a new file in the /etc/init/ folder called project-name.conf then place these contents into that file:
+
+```
+description "start and stop the go program 'my-project'"
+
+start on filesystem or runlevel [2345]
+stop on runlevel [!2345]
+
+env USER='ubuntu'
+env APP_DIR='/home/ubuntu/go/src/github.com/your-username/your-project-name/'
+env APP_EXEC='your-project-name'
+
+exec start-stop-daemon —start —chuid ${USER} —chdir ${APP_DIR} —exec ${APP_DIR}${APP_EXEC}
+```
+
+1. run sudo start your-project-name to get your program up and running
