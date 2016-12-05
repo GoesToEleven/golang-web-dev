@@ -67,7 +67,7 @@ export PATH=$PATH:/home/ubuntu/go/bin
 Sometimes students miss setting port openings in security. If you are having issues, check to make sure these settings are correct - and please note, you IP address for SSH will either be 0.0.0.0/0 or something different than mine.
 ![](security.png)
 
-# [Persisting your application](https://medium.com/@nathanborror/deploying-a-go-project-on-ec2-15ce381cf7a1#.fcl8ak92w)
+# Persisting your application
 
 To run our application after the terminal session has ended, we must do the following:
 
