@@ -72,8 +72,28 @@ Enter your credentials for a project
     - passphrase
 - just FYI, in terminal enter: ls -la
   - you should see this file now: .elasticbeanstalk
-    
+
 ## Step #7
+1. write code
+  - [refer to this as a code sample](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html#GettingStarted.Walkthrough.DeployApp)
+  - inside func main, you must have this:
+  
+```
+    port := os.Getenv("PORT")
+        if port == "" {
+            port = "5000"
+        }
+
+        http.ListenAndServe(":"+port, nil)
+```
+
+1. build your code with ```go build```
+  - go build -o application
+1. zip your code
+  - **application.go** is required
+
+
+## Step #8
 Create a new application in Elastic Beanstalk
 - Go to services / elsatic beanstalk
 - click "create new application"
@@ -81,28 +101,9 @@ Create a new application in Elastic Beanstalk
   - create an "environment" by clicking "create one now"
     - choose "web server environment"
     - click "select"
-  - click cancel when it asks you for platform and other info
-  
-## Step #8
-Deploy
-
-
-     
-     
-     
-in Elastic Beanstalk Command Line Interface (EBCLI)
-- go to terminal
-- enter: eb
-- 
-
-
-
-## Step #3
-[Create an Application with AWS Elastic Beanstalk](https://aws.amazon.com/getting-started/tutorials/launch-an-app/)
-
-![Create An Application](beanstalk-01.png)
-
-![Create An Application](beanstalk-02.png)
+  - platform and other info
+  		- Go
+  		- upload a zipped file of your code
 
 
 # Understanding AWS
@@ -156,5 +157,3 @@ Supported software include:
 [AWS Elastic Beanstalk concepts](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html)
 [Learn how to create new application versions](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-versions.html)
 [Learn how to manage your application environments](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.html)
-
-# [Nice Official AWS "AWS Elastic Beanstalk Deployment Walkthrough" Video](https://www.youtube.com/watch?v=xhc1boyBkJw)
