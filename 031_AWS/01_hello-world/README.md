@@ -83,7 +83,7 @@ env USER='ubuntu'
 env APP_DIR='/home/ubuntu/go/src/github.com/your-username/your-project-name/'
 env APP_EXEC='your-project-name'
 
-exec start-stop-daemon —start —chuid ${USER} —chdir ${APP_DIR} —exec ${APP_DIR}${APP_EXEC}
+exec start-stop-daemon --start --chuid ${USER} --chdir ${APP_DIR} --exec ${APP_DIR}${APP_EXEC}
 ```
 
 1. run sudo start your-project-name to get your program up and running
