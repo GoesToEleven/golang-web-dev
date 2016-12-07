@@ -56,7 +56,20 @@ There are a few different ways to do this, but we're going to use Identity Acces
  
  https://your_account_alias.signin.aws.amazon.com/console/
  To verify the sign-in link for IAM users for your account, open the IAM console and check under AWS Account Alias on the dashboard.
- 
+
+## VPC & DB
+
+1. Your DB instance is most likely in a **virtual private cloud (VPC)**; some legacy instances are not in a VPC. The security group rules you need to connect to a DB instance depend on whether your DB instance is in a **default VPC**, in a **user-defined VPC**, or **outside of a VPC**. The follow list describes the rules for each VPC option:
+  - **Default VPC** — If you specify the default VPC when you create the DB instance:
+    - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group.
+    - You must specify the default DB subnet group. If this is the first DB instance you have created in the region, Amazon RDS will create the default DB subnet group when it creates the DB instance.
+  - **User-defined VPC** — If specify a user-defined VPC when you create a DB instance:
+    - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group..
+     - The VPC must meet certain requirements in order to host DB instances, such as having at least two subnets, each in a separate availability zone. For information, see Amazon RDS and Amazon Virtual Private Cloud (VPC).
+     - You must specify a DB subnet group that defines which subnets in that VPC can be used by the DB instance. For information, see the DB Subnet Group section in Working with a DB Instance in a VPC.
+   - **No VPC** — if your AWS account does not have a default VPC, and you do not specify a user-defined VPC:
+     - You must create a DB security group that authorizes connections from the devices and Amazon RDS instances running the applications or utilities that will access the databases in the DB instance. For more information, see Working with DB Security Groups.
+     
 ## Determine DB requirements
  
  The basic building block of Amazon RDS is the **DB instance.** 
@@ -70,21 +83,16 @@ There are a few different ways to do this, but we're going to use Identity Acces
  Know your DB instance and network needs before creating a security group and before you create a DB instance. For example, you must know the following:
  
 1. What are the memory and processor requirements for your application or service?
-1. Your DB instance is most likely in a **virtual private cloud (VPC)**; some legacy instances are not in a VPC. The security group rules you need to connect to a DB instance depend on whether your DB instance is in a **default VPC**, in a **user-defined VPC**, or **outside of a VPC**. The follow list describes the rules for each VPC option:
-  - **Default VPC** — If you specify the default VPC when you create the DB instance:
-    - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group.
-    - You must specify the default DB subnet group. If this is the first DB instance you have created in the region, Amazon RDS will create the default DB subnet group when it creates the DB instance.
-  - **User-defined VPC** — If specify a user-defined VPC when you create a DB instance:
-    - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group..
-     - The VPC must meet certain requirements in order to host DB instances, such as having at least two subnets, each in a separate availability zone. For information, see Amazon RDS and Amazon Virtual Private Cloud (VPC).
-     - You must specify a DB subnet group that defines which subnets in that VPC can be used by the DB instance. For information, see the DB Subnet Group section in Working with a DB Instance in a VPC.
-   - **No VPC** — if your AWS account does not have a default VPC, and you do not specify a user-defined VPC:
-     - You must create a DB security group that authorizes connections from the devices and Amazon RDS instances running the applications or utilities that will access the databases in the DB instance. For more information, see Working with DB Security Groups.
- 1. Do you need failover support? On Amazon RDS, a standby replica of your DB instance that can be used in the event of a failover is called a Multi-AZ deployment. If you have production workloads, you should use a Multi-AZ deployment. For test purposes, you can usually get by with a single instance, non-Multi-AZ deployment.
- 1. Does your AWS account have policies that grant the permissions needed to perform Amazon RDS operations? **If you are connecting to AWS using IAM credentials, your IAM account must have IAM policies that grant the permissions required to perform Amazon RDS operations.** For more information, see Authentication and Access Control for Amazon RDS.
- 1. What TCP/IP port will your database be listening on? The firewall at some companies may block connections to the default port for your database engine. If your company firewall blocks the default port, choose another port for the new DB instance. Note that once you create a DB instance that listens on a port you specify, you can change the port by modifying the DB instance.
- 1. What **region** do you want your database in? **Having the database close in proximity to the application or web service could reduce network latency.**
- 1. What are your storage requirements? Do you need to use Provisioned IOPS? Amazon RDS provides three storage types: magnetic, General Purpose (SSD), and Provisioned IOPS (input/output operations per second) . Magnetic storage, also called standard storage, offers cost-effective storage that is ideal for applications with light or burst I/O requirements. General purpose, SSD-backed storage, also called gp2, can provide faster access than disk-based storage. Provisioned IOPS storage is designed to meet the needs of I/O-intensive workloads, particularly database workloads, that are sensitive to storage performance and consistency in random access I/O throughput. For more information on Amazon RDS storage, see Storage for Amazon RDS.
+
+1. Do you need failover support? On Amazon RDS, a standby replica of your DB instance that can be used in the event of a failover is called a Multi-AZ deployment. If you have production workloads, you should use a Multi-AZ deployment. For test purposes, you can usually get by with a single instance, non-Multi-AZ deployment.
+
+1. Does your AWS account have policies that grant the permissions needed to perform Amazon RDS operations? **If you are connecting to AWS using IAM credentials, your IAM account must have IAM policies that grant the permissions required to perform Amazon RDS operations.** For more information, see Authentication and Access Control for Amazon RDS.
+
+1. What TCP/IP port will your database be listening on? The firewall at some companies may block connections to the default port for your database engine. If your company firewall blocks the default port, choose another port for the new DB instance. Note that once you create a DB instance that listens on a port you specify, you can change the port by modifying the DB instance.
+
+1. What **region** do you want your database in? **Having the database close in proximity to the application or web service could reduce network latency.**
+
+1. What are your storage requirements? Do you need to use Provisioned IOPS? Amazon RDS provides three storage types: magnetic, General Purpose (SSD), and Provisioned IOPS (input/output operations per second) . Magnetic storage, also called standard storage, offers cost-effective storage that is ideal for applications with light or burst I/O requirements. General purpose, SSD-backed storage, also called gp2, can provide faster access than disk-based storage. Provisioned IOPS storage is designed to meet the needs of I/O-intensive workloads, particularly database workloads, that are sensitive to storage performance and consistency in random access I/O throughput. For more information on Amazon RDS storage, see Storage for Amazon RDS.
  
  Once you have the information you need to create the security group and the DB instance, continue to the next step.
  
