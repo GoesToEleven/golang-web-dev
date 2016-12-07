@@ -9,13 +9,9 @@
 
 # Create an IAM User
 
-Services in AWS, such as Amazon RDS, require that you provide credentials when you access them, so that the service can determine whether you have permission to access its resources. 
+Services in AWS, such as Amazon RDS, require credentials to access them. 
 
-We recommend that you use AWS Identity and Access Management (IAM). 
-
-Create an IAM user, and then add the user to an IAM group with administrative permissions. 
-
-If you signed up for AWS but have not created an IAM user for yourself, you can create one using the IAM console.
+There are a few different ways to do this, but we're going to use Identity Access Management (IAM). 
 
 ## Create an IAM user for yourself and add the user to an Administrators group
    
