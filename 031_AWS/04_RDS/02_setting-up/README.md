@@ -64,6 +64,7 @@ There are a few different ways to do this, but we're going to use Identity Acces
   - **user-defined VPC**
   - **outside a VPC**
   
+  
  1. **Default VPC**
  If you specify the default VPC when you create the DB instance:
     - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group.
