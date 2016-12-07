@@ -15,7 +15,7 @@ There are a few different ways to do this, but we're going to use Identity Acces
 
 ## Create an IAM user for yourself and add the user to an Administrators group
    
- 1. [Sign in to the Identity and Access Management (IAM)](console at https://console.aws.amazon.com/iam/)
+ 1. [Sign in to Identity Access Management (IAM)](https://console.aws.amazon.com/iam/)
    
  1. In the navigation pane, choose **Users**, and then choose **Add user**.
    
