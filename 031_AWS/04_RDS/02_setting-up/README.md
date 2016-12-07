@@ -59,15 +59,24 @@ There are a few different ways to do this, but we're going to use Identity Acces
 
 ## VPC & DB
 
-1. Your DB instance is most likely in a **virtual private cloud (VPC)**; some legacy instances are not in a VPC. The security group rules you need to connect to a DB instance depend on whether your DB instance is in a **default VPC**, in a **user-defined VPC**, or **outside of a VPC**. The follow list describes the rules for each VPC option:
-  - **Default VPC** — If you specify the default VPC when you create the DB instance:
+1. Your DB instance is most likely in a **virtual private cloud (VPC)** (some legacy instances are not in a VPC). The security group rules you need to connect to a DB instance depend on whether your DB instance is in a 
+  - **default VPC**
+  - **user-defined VPC**
+  - **outside a VPC**
+  
+ 1. **Default VPC**
+ If you specify the default VPC when you create the DB instance:
     - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group.
     - You must specify the default DB subnet group. If this is the first DB instance you have created in the region, Amazon RDS will create the default DB subnet group when it creates the DB instance.
-  - **User-defined VPC** — If specify a user-defined VPC when you create a DB instance:
+ 
+ 1. **User-defined VPC**
+ If specify a user-defined VPC when you create a DB instance:
     - You must create a VPC security group that authorizes connections from the application or service to the Amazon RDS DB instance with the database. Note that you must use the Amazon EC2 API or the Security Group option on the VPC Console to create VPC security groups. For information, see below: Create a VPC Security Group..
      - The VPC must meet certain requirements in order to host DB instances, such as having at least two subnets, each in a separate availability zone. For information, see Amazon RDS and Amazon Virtual Private Cloud (VPC).
      - You must specify a DB subnet group that defines which subnets in that VPC can be used by the DB instance. For information, see the DB Subnet Group section in Working with a DB Instance in a VPC.
-   - **No VPC** — if your AWS account does not have a default VPC, and you do not specify a user-defined VPC:
+ 
+ 1. **No VPC**
+ If your AWS account does not have a default VPC, and you do not specify a user-defined VPC:
      - You must create a DB security group that authorizes connections from the devices and Amazon RDS instances running the applications or utilities that will access the databases in the DB instance. For more information, see Working with DB Security Groups.
      
 ## Determine DB requirements
