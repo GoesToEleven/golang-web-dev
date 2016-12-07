@@ -42,7 +42,7 @@ You can run your DB instance in several Availability Zones, an option called a M
 
 A security group **controls the access to a DB instance.** 
 
-Amazon RDS uses DB **security groups**, VPC **security groups**, and EC2 **security group**s. 
+Amazon RDS uses **DB security groups**, **VPC security groups**, and **EC2 security groups**. 
 
 In simple terms, a **DB security group** controls access to a DB instance that is not in a VPC, a **VPC security group** controls access to a DB instance inside a VPC, and an Amazon **EC2 security group** controls access to an EC2 instance and can be used with a DB instance. 
 

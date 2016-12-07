@@ -21,7 +21,7 @@ There are a few different ways to do this, but we're going to use Identity Acces
    
  1. For **User name**, type a user name, such as **Administrator**
    
- 1. Select the check box next to **AWS Management Console access**, select **Custom password**, and then type the new user's password in the text box. You can optionally select Require password reset to force the user to select a new password the next time the user signs in.
+ 1. Select the check box next to **AWS Management Console access**, select **Custom password**, and then type the new user's password in the text box. You can optionally select ```Require password reset``` to force the user to select a new password the next time the user signs in.
    
  1. Choose **Next: Permissions**.
    
@@ -41,8 +41,9 @@ There are a few different ways to do this, but we're going to use Identity Acces
  
  1. **Download user credentials**. This will be the last time the credentials can be downloaded. Store them in a safe place which you will remember.
  
- You can use this same process to create more groups and users, and to give your users access to your AWS account resources. 
- 
+
+## Sign in
+
  To sign in as this new IAM user, sign out of the AWS console, then use the following URL, where your_aws_account_id is your AWS account number without the hyphens (for example, if your AWS account number is 1234-5678-9012, your AWS account ID is 123456789012):
  
  https://your_aws_account_id.signin.aws.amazon.com/console/
