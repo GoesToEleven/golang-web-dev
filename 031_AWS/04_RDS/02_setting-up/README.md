@@ -11,13 +11,13 @@
  
  The basic building block of Amazon RDS is the **DB instance.** 
  
- The DB instance is where you create your databases. 
+ The **DB instance** is where you create your **databases**. 
  
- A DB instance provides a network address called the **Endpoint**. 
+ A **DB instance** provides a network address called the **Endpoint**. 
  
- Your applications connect to the **endpoint** exposed by the DB instance whenever they need to access the databases created in that DB instance. 
+ Your applications connect to the **endpoint** exposed by the **DB instance** whenever they need to access the **databases** created in that **DB instance**. 
   
- Know your DB instance and network needs before creating a security group and before you create a DB instance. For example, you must know the following:
+ Know your **DB instance** and network needs before creating a security group, DB instance, and DB. Questions to consider:
  
 1. What are the memory and processor requirements for your application or service?
 
