@@ -57,7 +57,7 @@ There are a few different ways to do this, but we're going to use Identity Acces
  https://your_account_alias.signin.aws.amazon.com/console/
  To verify the sign-in link for IAM users for your account, open the IAM console and check under AWS Account Alias on the dashboard.
  
- ## Determine Requirements
+## Determine DB requirements
  
  The basic building block of Amazon RDS is the **DB instance.** 
  
