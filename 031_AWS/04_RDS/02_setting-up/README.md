@@ -17,9 +17,9 @@ There are a few different ways to do this, but we're going to use Identity Acces
    
  1. [Sign in to Identity Access Management (IAM)](https://console.aws.amazon.com/iam/)
    
- 1. In the navigation pane, choose **Users**, and then choose **Add user**.
+ 1. Choose **Users** / **Add user**
    
- 1. For **User name**, type a user name, such as **Administrator**. The name can consist of letters, digits, and the following characters: plus (+), equal (=), comma (,), period (.), at (@), underscore (_), and hyphen (-). The name is not case sensitive and can be a maximum of 64 characters in length.
+ 1. For **User name**, type a user name, such as **Administrator**
    
  1. Select the check box next to **AWS Management Console access**, select **Custom password**, and then type the new user's password in the text box. You can optionally select Require password reset to force the user to select a new password the next time the user signs in.
    
@@ -29,11 +29,11 @@ There are a few different ways to do this, but we're going to use Identity Acces
    
  1. Choose **Create group**.
    
- 1. In the **Create group** dialog box, type the name for the new group such as **dbAdmins**. The name can consist of letters, digits, and the following characters: plus (+), equal (=), comma (,), period (.), at (@), underscore (_), and hyphen (-). The name is not case sensitive and can be a maximum of 128 characters in length.
+ 1. In the **Create group** dialog box, type the name for the new group such as **dbAdmins**.
    
  1. For **Filter**, choose **Job function**.
    
- 1. In the **policy type list**, select the check box for **DatabaseAdministrator**. Then choose Create group.
+ 1. In the **policy type list**, select the check box for **DatabaseAdministrator**. Choose **create group**.
    
  1. Back in the list of groups, select the check box for your new group. Choose **Refresh** if necessary to see the group in the list.
  
@@ -41,12 +41,15 @@ There are a few different ways to do this, but we're going to use Identity Acces
  
  1. **Download user credentials**. This will be the last time the credentials can be downloaded. Store them in a safe place which you will remember.
  
- You can use this same process to create more groups and users, and to give your users access to your AWS account resources. To learn about using policies to restrict users' permissions to specific AWS resources, go to Access Management and Example Policies for Administering AWS Resources.
+ You can use this same process to create more groups and users, and to give your users access to your AWS account resources. 
  
  To sign in as this new IAM user, sign out of the AWS console, then use the following URL, where your_aws_account_id is your AWS account number without the hyphens (for example, if your AWS account number is 1234-5678-9012, your AWS account ID is 123456789012):
  
  https://your_aws_account_id.signin.aws.amazon.com/console/
- Enter the IAM user name and password that you just created. When you're signed in, the navigation bar displays "your_user_name @ your_aws_account_id".
+ 
+ Enter the IAM user name and password that you just created. 
+ 
+ When you're signed in, the navigation bar displays "your_user_name @ your_aws_account_id".
  
  If you don't want the URL for your sign-in page to contain your AWS account ID, you can create an account alias. From the IAM dashboard, click Customize and enter an alias, such as your company name. To sign in after you create an account alias, use the following URL:
  
@@ -55,17 +58,15 @@ There are a few different ways to do this, but we're going to use Identity Acces
  
  ## Determine Requirements
  
- The basic building block of Amazon RDS is the DB instance. 
+ The basic building block of Amazon RDS is the **DB instance.** 
  
  The DB instance is where you create your databases. 
  
  A DB instance provides a network address called the **Endpoint**. 
  
  Your applications connect to the **endpoint** exposed by the DB instance whenever they need to access the databases created in that DB instance. 
- 
- The information you specify when you create the DB instance controls configuration elements such as storage, memory, database engine and version, network configuration, security, and maintenance periods.
- 
- You must know your DB instance and network needs before you create a security group and before you create a DB instance. For example, you must know the following:
+  
+ Know your DB instance and network needs before creating a security group and before you create a DB instance. For example, you must know the following:
  
 1. What are the memory and processor requirements for your application or service?
 1. Your DB instance is most likely in a **virtual private cloud (VPC)**; some legacy instances are not in a VPC. The security group rules you need to connect to a DB instance depend on whether your DB instance is in a **default VPC**, in a **user-defined VPC**, or **outside of a VPC**. The follow list describes the rules for each VPC option:
