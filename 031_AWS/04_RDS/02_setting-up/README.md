@@ -2,6 +2,7 @@
 
 [Setting Up for Amazon RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html)
 
+1. Determine DB requirements
 1. [Sign Up for AWS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.SignUp)
 1. [Create an IAM User](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.IAM)
 1. [Determine Requirements](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.Requirements)
@@ -83,7 +84,7 @@ There are a few different ways to do this, but we're going to use Identity Acces
  https://your_account_alias.signin.aws.amazon.com/console/
  To verify the sign-in link for IAM users for your account, open the IAM console and check under AWS Account Alias on the dashboard.
 
-## VPC & DB
+# VPC & DB
 
 Your DB instance is most likely in a **virtual private cloud (VPC)** (some legacy instances are not in a VPC). The security group rules you need to connect to a DB instance depend on whether your DB instance is in a 
   - **default VPC**
