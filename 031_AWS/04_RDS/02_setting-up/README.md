@@ -17,7 +17,7 @@
  
  Your applications connect to the **endpoint** exposed by the **DB instance** whenever they need to access the **databases** created in that **DB instance**. 
   
- Know your **DB instance** and network needs before creating a security group, DB instance, and DB. Questions to consider:
+ Know your **DB instance** and network needs before creating a **security group**, **DB instance**, and **DB**. Questions to consider:
  
 1. What are the memory and processor requirements for your application or service?
 
