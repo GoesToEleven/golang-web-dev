@@ -88,6 +88,7 @@ You can modify the rules for a security group at any time; the new rules are aut
   - create
 1. copy **Group ID** from the "load-balancer-sg" security group we just created
   - we will need it to define that the web servers should only accept traffic from the load-balancer
+    - group id:
   
 ## Web server security group
   - allow HTTP port 80 accessible from ELB (load balancer)
@@ -106,7 +107,8 @@ You can modify the rules for a security group at any time; the new rules are aut
   - MySql TCP 3306 Custom IP ```<web-servers-sg Group ID>```
 1. **Add rule**
   - SSH TCP 22 My IP
-1. any service belonging to the load-balancer-sg security group can accept traffic from:
+
+Any service belonging to the load-balancer-sg security group can accept traffic from:
   - the load-balancer **OR** 
   - TCP port 3306 traffic from services belonging to "web-servers-sg" security group **OR**
   - an EC2 instance (web server) belonging to the "web-servers-sg" security group **OR**
@@ -114,24 +116,20 @@ You can modify the rules for a security group at any time; the new rules are aut
 
 # Load balancer
 1. EC2 / Load balancers / Create load balancer
+  - application or classic
   - name: web-elb
+  - http & https
   - default VPC
-  - internal load balancer: unchecked because we want it available to public
-  - enable advanced: unchecked
-  - load balancer protocol & port / instance protocol & port
-    - how traffic comes in / how traffic goes out
-    - you can have https --> http and manager certificates on load balancer
-1. continue
-1. health check
+  - add two subnets
+1. configure security groups
+  - choose "load-balancer-sg" security group which we just setup
+1. configure routing
+  - target group: web-servers-tg1
+  - ping path: /ping
   - allows us to define a "healthy" web server
   - load balancer will only forward to healthy web servers
-    - ping path: /ping
-1. assign security groups
-  - choose "load-balancer-sg" security group which we just setup
-1. add EC2 instances
+1. register targets
   - we don't have any yet; we'll add them after we create them
-  - cross-zone: checked 
-  - connection draining: checked
 1. create
 
 # Create EC2 instance
