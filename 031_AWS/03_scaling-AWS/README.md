@@ -45,6 +45,7 @@ A user needs to use a specific URL to sign-in. You can find this URL on the dash
   
 1. Log out from the master account
 1. Go to your specific user sign-in URL
+    - example in video: https://starwars007.signin.aws.amazon.com/console
 1. enter the username and password for the user
 1. Try going to billing information for the account
   - you won't be able to access it because you're not the master account user
@@ -52,7 +53,7 @@ A user needs to use a specific URL to sign-in. You can find this URL on the dash
 
 # Create a key pair
 
-This will allow us to SSH into our instances. 
+We will create a “key pair” to allow a user to SSH into our virtual machines.
 
 Public key cryptography is any cryptographic system that uses pairs of keys: **public keys** which may be disseminated widely, and **private keys** which are known only to the owner. 
 
@@ -64,7 +65,7 @@ This accomplishes two functions:
 1. EC2
 1. key pair
 1. create
-  - give it a name that is descriptive, for example: spring
+  - give it a name that is descriptive, for example: devs-spring19
 
 # Create security groups
 
@@ -152,8 +153,8 @@ A security group acts as a virtual firewall that controls the traffic for one or
 
 ## SSH
 1. either way:
-  - ssh -i ~/Downloads/spring.pem ec2-usr@```<web server's public IP address>```
-  - ssh -i ~/Downloads/spring.pem ```<web server's public IP address>``` -l ec2-user
+  - ssh -i ~/Downloads/devs-spring19.pem ec2-usr@```<web server's public IP address>```
+  - ssh -i ~/Downloads/devs-spring19.pem ```<web server's public IP address>``` -l ec2-user
 
 ## HTTP
 1. helloworld app
