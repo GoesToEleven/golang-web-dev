@@ -138,12 +138,6 @@ Any service belonging to the load-balancer-sg security group can accept traffic 
   - amazon linux AMI (this includes PostgreSQL)
 1. choose instance size / configure instance details
   - stick with defaults
-  - fyi: advanced details / user data
-    - you can add scripts here to run when an instance spins up
-    ```
-    #! /bin/bash -ex
-    <your code here>
-    ```
 1. storage
 1. tag
   - value: web-server-0001
