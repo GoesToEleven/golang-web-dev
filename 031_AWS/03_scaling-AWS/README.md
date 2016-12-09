@@ -153,18 +153,15 @@ Any service belonging to the load-balancer-sg security group can accept traffic 
 ## SSH
 1. either way:
   - ssh -i ~/Downloads/devs-spring19.pem ec2-usr@```<web server's public IP address>```
-  - ssh -i ~/Downloads/devs-spring19.pem ```<web server's public IP address>``` -l ec2-user
+  - example: ssh -i ~/Downloads/devs-spring19.pem ec2-usr@35.165.13.57
 
 ## HTTP
 1. helloworld app
   - access denined until: add rule to the "web-servers-sg" security group
     - HTTP TCP 80 My IP
 1. endpoints app
-  - ping endpoint: have the route "/ping" return "42"
+  - ping endpoint: have the route "/ping" return "OK"
   - instance endpoint: have the route "/instance" return the EC2 instance
-  ```
-  instance-id := http://169.24.169.254/latest/meta-data/instance-id
-  ```
 
 # Add EC2 instance to load balancer
 1. EC2/ load balancers / instances / edit instances
