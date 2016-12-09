@@ -4,10 +4,6 @@ We are going to add a database to our application.
 
 To do this well, we need to configure AWS in a certain way.
 
-## Here is what we are going to build
-
-![]()
-
 ## Here are the steps
 
 1. create an IAM user
@@ -38,43 +34,21 @@ We should create an account for everyone else, including ourselves.
 1. IAM (identity access management)
   - users / add user / enter user name(s) for example: **ob1**
   - AWS Management Console access / custom password for example: **theforce**
-  - unchecked: require password reset
-1. you do not need to generate an access key; you can do this later if needed
-
-## Give user privileges
-
-A user is created without any privileges. We have to explicitly give a user privileges.
-
-1. Choose the user you want
-1. permissions tab
-1. attach user policy
-  - apply a policy to the user
-  - you must explicitly give permissions
-  
-## Give user login credentials
-
-1. Choose the user you want
-1. security credentials tab
-1. manage password
-  - give a password
+  - uncheck: require password reset
+1. permissions
+  - attach existing policies directly / AdministratorAccess
 
 ## Logging in: IAM User Sign-in URL
 
-A user needs to use a specific URL to sign-in.
-
-You can find this URL on the dashboard for IAM.
-
+A user needs to use a specific URL to sign-in. You can find this URL on the dashboard for IAM.
   - you can create an alias for the account which makes it easier to remember and use
   
-## Test
-
-Test logging-in as the user
-
 1. Log out from the master account
 1. Go to your specific user sign-in URL
 1. enter the username and password for the user
 1. Try going to billing information for the account
   - you won't be able to access it because you're not the master account user
+
 
 # Create a key pair
 
