@@ -136,12 +136,13 @@ Any service belonging to the load-balancer-sg security group can accept traffic 
 1. EC2 / instances / launch instance
 1. choose an AMI (Amazon Machine Instance)
   - amazon linux AMI (this includes PostgreSQL)
-1. choose instance size / configure instance details
+1. choose instance size
+1. configure instance
   - stick with defaults
 1. storage
 1. tag
   - value: web-server-0001
-1. security group
+1. configure security group
   - choose the "web-servers-sg" security group we created
 1. launch
   - specify "key pair" we want the instance to use
