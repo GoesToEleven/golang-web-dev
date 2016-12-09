@@ -2,7 +2,7 @@
 
 [Setting Up for Amazon RDS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html)
 
-1. Determine DB requirements
+1. [Determine DB requirements](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.Requirements)
 1. [Sign Up for AWS](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.SignUp)
 1. [Create an IAM User](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.IAM)
 1. [Determine Requirements](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SettingUp.html#CHAP_SettingUp.Requirements)
@@ -111,13 +111,13 @@ Your DB instance is most likely in a **virtual private cloud (VPC)** (some legac
  
  1. [Sign in to the AWS Management Console and open the Amazon VPC console at](https://console.aws.amazon.com/vpc)
  
- 1. In the top right corner of the AWS Management Console, select the region in which you want to create the VPC security group and the DB instance. In the list of Amazon VPC resources for that region, it should show that you have at least one VPC and several Subnets. If it does not, you do not have a default VPC in that region.
+ 1. In the top right corner of the AWS Management Console, **select the region** in which you want to create the VPC security group and the DB instance. In the list of Amazon VPC resources for that region, it should show that you have at least one VPC and several Subnets. If it does not, you do not have a default VPC in that region.
  
- 1. In the navigation pane, click Security Groups.
+ 1. In the navigation pane, click **Security Groups**.
  
- 1. Click Create Security Group.
+ 1. Click **Create Security Group**.
  
- 1. In the Create Security Group window, type the Name tag, Group name, and Description of your security group. Select the VPC that you want to create your DB instance in. Click Yes, Create.
+ 1. In the Create Security Group window, type the **Name tag**, **Group name**, and **Description** of your security group. **Select the VPC that you want to create your DB instance in.** Click Yes, Create.
  
  1. The VPC security group you created should still be selected. The details pane at the bottom of the console window displays the details for the security group, and tabs for working with inbound and outbound rules. Click the Inbound Rules tab.
  

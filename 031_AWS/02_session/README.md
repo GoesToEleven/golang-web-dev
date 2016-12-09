@@ -13,7 +13,7 @@
   - sudo ./[some-name]
   - check it in a browser at [public-IP]:8080
 
-  # Persisting your application
+# Persisting your application
 
   To run our application after the terminal session has ended, we must do the following:
 
