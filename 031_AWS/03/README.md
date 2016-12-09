@@ -36,8 +36,10 @@ The master account should only be used to manage our payment information for AWS
 We should create an account for everyone else, including ourselves.
 
 1. IAM (identity access management)
-  - enter user name(s)
-  - you do not need to generate an access key; you can do this later if needed
+  - users / add user / enter user name(s) for example: **ob1**
+  - AWS Management Console access / custom password for example: **theforce**
+  - unchecked: require password reset
+1. you do not need to generate an access key; you can do this later if needed
 
 ## Give user privileges
 
@@ -76,6 +78,8 @@ Test logging-in as the user
 
 # Create a key pair
 
+This will allow us to SSH into our instances. 
+
 Public key cryptography is any cryptographic system that uses pairs of keys: **public keys** which may be disseminated widely, and **private keys** which are known only to the owner. 
 
 This accomplishes two functions: 
@@ -95,32 +99,37 @@ A security group acts as a virtual firewall that controls the traffic for one or
 ## ELB (load balancer) security group
   - allow HTTP port 80 accessible from anywhere
 1. EC2 / security groups / create security group
-  - name: load-balancer
+  - name: load-balancer-sg
   - description: allows access from anywhere on HTTP port 80
   - VPC: default
 1. **Add rule**
   - HTTP TCP 80 Anywhere
   - create
-1. copy **Group ID** from the "load-balancer" security group we just created
-  - we will need it to define that the web-tier should only accept traffic from the load-balancer
+1. copy **Group ID** from the "load-balancer-sg" security group we just created
+  - we will need it to define that the web servers should only accept traffic from the load-balancer
   
 ## Web server security group
   - allow HTTP port 80 accessible from ELB (load balancer)
   - allow MySQL/TCP port 3306 only from web servers
 1. EC2 / security groups / create security group
-  - name: web-servers
+  - name: web-servers-sg
   - description: allows access from ELB load-balancer
   - VPC: default
 1. **Add rule**
-  - HTTP TCP 80 Custom IP ```<load-balancer Group ID>```
+  - HTTP TCP 80 Custom IP ```<load-balancer-sg Group ID>```
   - create
-1. copy **Group ID** from the "web-servers" security group we just created
-  - we will need it to define that the web-servers should only accept traffic from the load-balancer **AND** MySql
+1. copy **Group ID** from the "web-servers-sg" security group we just created
+  - we will need it to define another rule
 1. Inbound
 1. **Add rule**
-  - MySql TCP 3306 Custom IP ```<web-servers Group ID>```
+  - MySql TCP 3306 Custom IP ```<web-servers-sg Group ID>```
 1. **Add rule**
   - SSH TCP 22 My IP
+1. any service belonging to the load-balancer-sg security group can accept traffic from:
+  - the load-balancer **OR** 
+  - TCP port 3306 traffic from services belonging to "web-servers-sg" security group **OR**
+  - an EC2 instance (web server) belonging to the "web-servers-sg" security group **OR**
+  - SSH from a specific IP
 
 # Load balancer
 1. EC2 / Load balancers / Create load balancer
@@ -137,7 +146,7 @@ A security group acts as a virtual firewall that controls the traffic for one or
   - load balancer will only forward to healthy web servers
     - ping path: /ping
 1. assign security groups
-  - choose "load-balancer" security group which we just setup
+  - choose "load-balancer-sg" security group which we just setup
 1. add EC2 instances
   - we don't have any yet; we'll add them after we create them
   - cross-zone: checked 
@@ -160,7 +169,7 @@ A security group acts as a virtual firewall that controls the traffic for one or
 1. tag
   - value: web-server-0001
 1. security group
-  - choose the "web-servers" security group we created
+  - choose the "web-servers-sg" security group we created
 1. launch
   - specify "key pair" we want the instance to use
 1. launch instance
@@ -174,7 +183,7 @@ A security group acts as a virtual firewall that controls the traffic for one or
 
 ## HTTP
 1. helloworld app
-  - access denined until: add rule to the "web-servers" security group
+  - access denined until: add rule to the "web-servers-sg" security group
     - HTTP TCP 80 My IP
 1. endpoints app
   - ping endpoint: have the route "/ping" return "42"
@@ -231,7 +240,7 @@ A security group acts as a virtual firewall that controls the traffic for one or
 1. tag
   - value: web-server-0002
 1. security group
-  - choose the "web-servers" security group we created
+  - choose the "web-servers-sg" security group we created
 1. launch
   - specify "key pair" we want the instance to use
 1. launch instance
@@ -246,8 +255,42 @@ A security group acts as a virtual firewall that controls the traffic for one or
 1. add the web server we have created / save
   - it takes a moment before it's "in service"; try hitting refresh
 1. description / DNS name / enter this into a browser to see your load balancer in action
-  - refresh your browser to see the switching between web-servers
+  - refresh your browser to see the switching between web-servers-sg
   
 # Create auto scaling
 
+Auto Scaling helps you maintain application availability and allows you to scale your Amazon EC2 capacity up or down automatically according to conditions you define. You can use Auto Scaling to help ensure that you are running your desired number of Amazon EC2 instances. Auto Scaling can also automatically increase the number of Amazon EC2 instances during demand spikes to maintain performance and decrease capacity during lulls to reduce costs. Auto Scaling is well suited both to applications that have stable demand patterns or that experience hourly, daily, or weekly variability in usage. 
 
+## Configure auto scaling
+
+1. EC2 / autoscaling / launch configuration
+1. create auto scaling group / create launch configuration
+1. My AMIs / choose your AMI
+  - my image name was "web-architecture-2019-10-31"
+  - next / next
+1. configure details
+  - name: **auto-scale-config-2019-10-31**
+  - next / next
+1. configure security group
+  - select an existing security group / select the "web-servers-sg" security group
+  - next / next / create launch configuration
+  - choose an existing key pair / create launch configuration
+  
+## Create auto scaling group
+
+1. Configure auto scaling group
+  - name: **auto-scale-group-2019-10-31**
+  - group size: this is the minimum number of instances we'll always be running
+  - network: default vpc
+  - subnet: choose the availability zones (AZs) into which you've launched instances
+  - advanced details
+    - load balancing: check "receive traffic from elastic load balancer"
+    - select your load balancer
+    - health check: ELB (this is what we set up)
+1. configure scaling policies
+  - keep group at initial size
+1. configure tags
+    - value: web-server-auto-scaled
+1. create auto scaling group
+1. Scaling policies
+  - this is where we'd add policies to say when we scale up / scale down 
