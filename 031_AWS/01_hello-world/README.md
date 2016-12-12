@@ -21,7 +21,7 @@
 1. Create hello world
   - GOOS=linux GOARCH=amd64 go build
 
-1. Copy your binary to the server
+1. Copy your binary to the sever
   - scp -i /path/to/[your].pem ./main ubuntu@[public-IP]:
   - say "yes" to The authenticity of host ... can't be established.
 
@@ -69,8 +69,27 @@ Sometimes students miss setting port openings in security. If you are having iss
 
 # Persisting your application
 
-To run our application after the terminal session has ended, we must do the following:
+To run our application after the terminal session has ended, we must do one of the following:
 
+## Option
+1. cd /etc/
+1. cat inittab
+1. cd init.d
+1. 
+
+## Option #1
+Use screen.
+
+1. find out if you have screen
+  - cd /usr/bin/ 
+  - ls -la | more
+1. install screen if you don't have it
+  - yum install screen
+1. 
+
+sudo screen ./```<your program executable>``` & ctrl-a ctrl-d
+
+## Option #2
 1. Create a configuration file
   - sudo nano /etc/systemd/system/```<filename>```.service
 

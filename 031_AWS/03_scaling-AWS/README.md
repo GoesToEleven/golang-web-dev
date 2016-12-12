@@ -23,7 +23,7 @@ The account we have been using is our AWS master account.
 
 A better security practice is to 
   - set up a new **user**
-  - give that user **permissinos and priveleges**
+  - give that user **permissions and priveleges**
   
 We don't want to use the master account because that account has access to everything, including billing information. It is good to get into the practice of setting up users with permissions.
 
@@ -152,8 +152,11 @@ Any service belonging to the load-balancer-sg security group can accept traffic 
 
 ## SSH
 1. either way:
+  // TODO  updated ssh to this
+  - ssh -i "devs-spring19.pem" ec2-user@ec2-52-53-172-37.us-west-1.compute.amazonaws.com
+  // from this
   - ssh -i ~/Downloads/devs-spring19.pem ec2-usr@```<web server's public IP address>```
-  - example: ssh -i ~/Downloads/devs-spring19.pem ec2-usr@35.165.13.57
+  - example: ssh -i ~/Downloads/devs-spring19.pem ec2-usr@52.53.172.37
 
 ## HTTP
 1. helloworld app
