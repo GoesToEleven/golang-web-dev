@@ -12,7 +12,7 @@
   - configure
   ```
   #!/bin/bash
-  /
+  /User/ec2-user/your-binary
   ```
   - add storage / 30GB free
   - add tags / webserver
