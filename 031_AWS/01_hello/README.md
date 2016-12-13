@@ -10,7 +10,10 @@
   - launch instance
   - choose your instance
   - configure
-  - create new IAM role / AmazonEC2FullAccess / ... / close window / refresh
+  ```
+  #!/bin/bash
+  /
+  ```
   - add storage / 30GB free
   - add tags / webserver
   - security / ssh / http / https / custom tcp 8080
