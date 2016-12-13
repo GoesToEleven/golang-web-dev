@@ -1,4 +1,4 @@
-# AWS EC2
+# Create an instance
 
 1. Create an AWS Account
   - enter credit card info
@@ -9,29 +9,35 @@
   - services / EC2
   - launch instance
   - choose your instance
-  - configure
+  - configure (the below path should be the path to your binary)
   ```
   #!/bin/bash
-  /User/ec2-user/your-binary
+  /home/ec2-user/mybinary
   ```
   - add storage / 30GB free
   - add tags / webserver
-  - security / ssh / http / https / custom tcp 8080
+  - security / ssh / http
   - launch
-  - create new key pair / download / mv [src] [dst] / chmod 400 your.pem
-  - launch instance
+  - create new key pair / download
 
-1. Create hello world
+# Deploy your binary
+
+1.
+  - mv [src] [dst] / sudo chmod 400 your.pem
+
+1. Build hello world
   - GOOS=linux GOARCH=amd64 go build
 
 1. Copy your binary to the sever
-  - scp -i /path/to/[your].pem ./main ubuntu@[public-IP]:
+  - scp -i /path/to/[your].pem ./main ec2-user@[public-DNS]:
   - say "yes" to The authenticity of host ... can't be established.
 
 1. SSH into your server
-  - ssh -i /path/to/[your].pem ubuntu@[public-IP]:
+  - ssh -i /path/to/[your].pem ec2-user@[public-DNS]:
 
 1. Run your code
+  - sudo yum update
+  - sudo chmod 400 your binary
   - sudo ./main
   - check it in a browser at [public-IP]:8080
 
@@ -75,6 +81,7 @@ Sometimes students miss setting port openings in security. If you are having iss
 To run our application after the terminal session has ended, we must do one of the following:
 
 ## Options
+1. screen
 1. init.d
 1. upstart
 1. system.d
