@@ -25,16 +25,16 @@
 
 1. Copy your binary to the sever
   - scp -i /path/to/[your].pem ./main ec2-user@[public-DNS]:
+    - "ec2-user" might be "ubuntu" depending upon your machine
   - say "yes" to The authenticity of host ... can't be established.
 
 1. SSH into your server
-  - ssh -i /path/to/[your].pem ec2-user@[public-DNS]:
+  - ssh -i /path/to/[your].pem ec2-user@[public-DNS]
 
 1. Run your code
-  - sudo yum update
-  - sudo chmod 400 your binary
+  - sudo chmod 700 mybinary
   - sudo ./mybinary
-  - check it in a browser at [public-IP]:8080
+  - check it in a browser at [public-IP]
 
 1. Exit
   - ctrl + c
@@ -49,20 +49,20 @@ To run our application after the terminal session has ended, we must do one of t
 1. init.d
 1. upstart
 1. system.d
-1. EC2 instance user data
 
 ## System.d
 1. Create a configuration file
-  - sudo nano /etc/systemd/system/```<filename>```.service
+  - cd /etc/systemd/system/
+  - sudo nano ```<filename>```.service
 
 ```
 [Unit]
 Description=Go Server
 
 [Service]
-ExecStart=/home/<username>/<path-to-exe>/<exe>
-User=<username>
-Group=<username>
+ExecStart=/home/<username>/<exepath>
+User=root
+Group=root
 Restart=always
 
 [Install]
