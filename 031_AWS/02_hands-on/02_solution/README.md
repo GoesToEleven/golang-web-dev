@@ -4,14 +4,14 @@
   - GOOS=linux GOARCH=amd64 go build -o [some-name] *.go
 
 1. Copy you "templates" folder to the server
-  - scp -i /path/to/[your].pem templates/* ubuntu@[public-IP]:/home/ubuntu/templates
+  - scp -i /path/to/[your].pem templates/* ubuntu@[public-DNS]:/home/ubuntu/templates
 
 1. If necessary, SSH into your server
-  - ssh -i /path/to/[your].pem ubuntu@[public-IP]:
+  - ssh -i /path/to/[your].pem ubuntu@[public-DNS]:
 
 1. Run your code
   - sudo ./[some-name]
-  - check it in a browser at [public-IP]:8080
+  - check it in a browser at [public-IP]
 
 # Persisting your application
 
@@ -26,7 +26,7 @@
 
   [Service]
   ExecStart=/home/<username>/<path-to-exe>/<exe>
-  WorkingDirectory=/home/<username>/<exefolderpath>
+  WorkingDirectory=/home/<username>/<exe-working-dir>
   User=<username>
   Group=<username>
   Restart=always
