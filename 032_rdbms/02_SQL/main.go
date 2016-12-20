@@ -25,7 +25,7 @@ func main() {
 	http.HandleFunc("/insert", insert)
 	http.HandleFunc("/read", read)
 	http.HandleFunc("/update", update)
-	http.HandleFunc("/delete", delete)
+	http.HandleFunc("/delete", del)
 	http.HandleFunc("/drop", drop)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	err := http.ListenAndServe(":8080", nil)
@@ -39,7 +39,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 
 
 func amigos(w http.ResponseWriter, req *http.Request) {
-	rows, err := db.Query(`SELECT aName FROM amigos`)
+	rows, err := db.Query(`SELECT aName FROM amigos;`)
 	check(err)
 
 	// data to be used in query
@@ -84,21 +84,19 @@ func insert(w http.ResponseWriter, req *http.Request) {
 }
 
 func read(w http.ResponseWriter, req *http.Request) {
-	rows, err := db.Query(`SELECT * FROM customer`)
+	rows, err := db.Query(`SELECT * FROM customer;`)
 	check(err)
 
 	var name string
 	for rows.Next() {
 		err = rows.Scan(&name)
 		check(err)
-		fmt.Println(name)
-
 		fmt.Fprintln(w, "RETREIVED RECORD:", name)
 	}
 }
 
 func update(w http.ResponseWriter, req *http.Request) {
-	stmt, err := db.Prepare(`UPDATE customer SET name=Jimmy WHERE name=James;`)
+	stmt, err := db.Prepare(`UPDATE customer SET name="Jimmy" WHERE name="James";`)
 	check(err)
 
 	r, err := stmt.Exec()
@@ -110,8 +108,8 @@ func update(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(w, "UPDATED RECORD", n)
 }
 
-func delete(w http.ResponseWriter, req *http.Request) {
-	stmt, err := db.Prepare(`DELETE FROM customer WHERE name=Jimmy;`)
+func del(w http.ResponseWriter, req *http.Request) {
+	stmt, err := db.Prepare(`DELETE FROM customer WHERE name="Jimmy";`)
 	check(err)
 
 	r, err := stmt.Exec()
