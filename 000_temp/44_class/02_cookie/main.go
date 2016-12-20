@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	c, err := req.Cookie("session")
 	if err != nil {
 		c = &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: "mcleods go class",
 		}
 		http.SetCookie(w, c)

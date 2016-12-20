@@ -37,7 +37,6 @@ func index(w http.ResponseWriter, req *http.Request) {
 	check(err)
 }
 
-
 func amigos(w http.ResponseWriter, req *http.Request) {
 	rows, err := db.Query(`SELECT aName FROM amigos;`)
 	check(err)
@@ -120,7 +119,6 @@ func del(w http.ResponseWriter, req *http.Request) {
 
 	fmt.Fprintln(w, "DELETED RECORD", n)
 }
-
 
 func drop(w http.ResponseWriter, req *http.Request) {
 	stmt, err := db.Prepare(`DROP TABLE customer;`)

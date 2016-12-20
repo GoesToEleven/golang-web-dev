@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"net/http"
-	"golang.org/x/crypto/bcrypt"
 )
 
 type user struct {

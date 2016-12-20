@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
-	"github.com/satori/go.uuid"
-	"time"
 	"fmt"
+	"github.com/satori/go.uuid"
+	"net/http"
+	"time"
 )
 
 func getUser(w http.ResponseWriter, req *http.Request) user {
@@ -50,7 +50,7 @@ func alreadyLoggedIn(w http.ResponseWriter, req *http.Request) bool {
 
 func cleanSessions() {
 	fmt.Println("BEFORE CLEAN") // for demonstration purposes
-	showSessions() // for demonstration purposes
+	showSessions()              // for demonstration purposes
 	for k, v := range dbSessions {
 		if time.Now().Sub(v.lastActivity) > (time.Second * 30) {
 			delete(dbSessions, k)
@@ -58,7 +58,7 @@ func cleanSessions() {
 	}
 	dbSessionsCleaned = time.Now()
 	fmt.Println("AFTER CLEAN") // for demonstration purposes
-	showSessions() // for demonstration purposes
+	showSessions()             // for demonstration purposes
 }
 
 // for demonstration purposes

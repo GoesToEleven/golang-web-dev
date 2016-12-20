@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"net/http"
-	"golang.org/x/crypto/bcrypt"
 	"time"
 )
 
@@ -13,18 +13,19 @@ type user struct {
 	Password []byte
 	First    string
 	Last     string
-	Role 	string
+	Role     string
 }
 
 type session struct {
-	un string
+	un           string
 	lastActivity time.Time
 }
 
 var tpl *template.Template
-var dbUsers = map[string]user{}      // user ID, user
+var dbUsers = map[string]user{}       // user ID, user
 var dbSessions = map[string]session{} // session ID, session
 var dbSessionsCleaned time.Time
+
 const sessionLength int = 30
 
 func init() {
@@ -167,4 +168,3 @@ func logout(w http.ResponseWriter, req *http.Request) {
 
 	http.Redirect(w, req, "/login", http.StatusSeeOther)
 }
-

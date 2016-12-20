@@ -1,14 +1,14 @@
 package main
 
 import (
-	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
+	"net/http"
 )
 
 type user struct {
 	First string
-	Last string
+	Last  string
 }
 
 var tpl *template.Template
@@ -31,7 +31,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)

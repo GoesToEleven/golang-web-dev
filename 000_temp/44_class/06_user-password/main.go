@@ -4,7 +4,7 @@ import "fmt"
 
 type user struct {
 	Password []byte
-	First string
+	First    string
 }
 
 var dbUser = map[string]user{}

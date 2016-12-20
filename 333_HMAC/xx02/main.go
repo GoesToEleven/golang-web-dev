@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"github.com/satori/go.uuid"
 )
 
 func main() {

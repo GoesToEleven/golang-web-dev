@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 
 func index(w http.ResponseWriter, req *http.Request) {
 	c := &http.Cookie{
-		Name: "something",
+		Name:  "something",
 		Value: "mcleod example",
 	}
 	http.SetCookie(w, c)

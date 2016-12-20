@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/satori/go.uuid"
+	"golang.org/x/crypto/bcrypt"
 	"html/template"
 	"net/http"
-	"golang.org/x/crypto/bcrypt"
 )
 
 type user struct {
@@ -12,7 +12,7 @@ type user struct {
 	Password []byte
 	First    string
 	Last     string
-	Role 	string
+	Role     string
 }
 
 var tpl *template.Template
@@ -148,4 +148,3 @@ func logout(w http.ResponseWriter, req *http.Request) {
 
 	http.Redirect(w, req, "/login", http.StatusSeeOther)
 }
-

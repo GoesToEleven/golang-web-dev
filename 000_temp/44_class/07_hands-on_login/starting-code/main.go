@@ -99,7 +99,7 @@ func login(w http.ResponseWriter, req *http.Request) {
 		// create a session
 		sID := uuid.NewV4()
 		c := &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)
