@@ -66,8 +66,7 @@ func create(w http.ResponseWriter, req *http.Request) {
 	n, err := r.RowsAffected()
 	check(err)
 
-	_, err = fmt.Fprintln(w, "CREATED TABLE customer", n)
-	check(err)
+	fmt.Fprintln(w, "CREATED TABLE customer", n)
 }
 
 func insert(w http.ResponseWriter, req *http.Request) {
@@ -81,8 +80,7 @@ func insert(w http.ResponseWriter, req *http.Request) {
 	n, err := r.RowsAffected()
 	check(err)
 
-	_, err = fmt.Fprintln(w, "INSERTED RECORD", n)
-	check(err)
+	fmt.Fprintln(w, "INSERTED RECORD", n)
 }
 
 func read(w http.ResponseWriter, req *http.Request) {
@@ -95,55 +93,46 @@ func read(w http.ResponseWriter, req *http.Request) {
 		check(err)
 		fmt.Println(name)
 
-		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
-		check(err)
+		fmt.Fprintln(w, "RETREIVED RECORD:", name)
 	}
 }
 
 func update(w http.ResponseWriter, req *http.Request) {
-	rows, err := db.Query(`UPDATE customer SET name=Jimmy WHERE name=James;`)
+	stmt, err := db.Prepare(`UPDATE customer SET name=Jimmy WHERE name=James;`)
 	check(err)
 
-	var name string
-	for rows.Next() {
-		err = rows.Scan(&name)
-		check(err)
-		fmt.Println(name)
+	r, err := stmt.Exec()
+	check(err)
 
-		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
-		check(err)
-	}
+	n, err := r.RowsAffected()
+	check(err)
+
+	fmt.Fprintln(w, "UPDATED RECORD", n)
 }
 
 func delete(w http.ResponseWriter, req *http.Request) {
-	rows, err := db.Query(`DELETE FROM customer WHERE name=Jimmy;`)
+	stmt, err := db.Prepare(`DELETE FROM customer WHERE name=Jimmy;`)
 	check(err)
 
-	var name string
-	for rows.Next() {
-		err = rows.Scan(&name)
-		check(err)
-		fmt.Println(name)
+	r, err := stmt.Exec()
+	check(err)
 
-		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
-		check(err)
-	}
+	n, err := r.RowsAffected()
+	check(err)
+
+	fmt.Fprintln(w, "DELETED RECORD", n)
 }
 
 
 func drop(w http.ResponseWriter, req *http.Request) {
-	rows, err := db.Query(`DROP TABLE customer;`)
+	stmt, err := db.Prepare(`DROP TABLE customer;`)
 	check(err)
 
-	var name string
-	for rows.Next() {
-		err = rows.Scan(&name)
-		check(err)
-		fmt.Println(name)
+	_, err = stmt.Exec()
+	check(err)
 
-		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
-		check(err)
-	}
+	fmt.Fprintln(w, "DROPPED TABLE customer")
+
 }
 
 func check(err error) {
