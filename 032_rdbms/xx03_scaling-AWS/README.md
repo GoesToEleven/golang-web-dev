@@ -72,7 +72,7 @@ You can modify the rules for a security group at any time; the new rules are aut
   - we will need it to define that the web servers should only accept traffic from the load-balancer
     - group id:
   
-## Web server security group
+## Web tier security group
   - allow HTTP port 80 accessible from ELB (load balancer)
   - allow MySQL/TCP port 3306 only from web servers
 1. EC2 / security groups / create security group

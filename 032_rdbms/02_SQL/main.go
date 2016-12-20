@@ -12,8 +12,7 @@ var db *sql.DB
 var err error
 
 func main() {
-	// user:password@tcp(localhost:5555)/dbname?charset=utf8
-	db, err = sql.Open("mysql", "awsuser:mypassword@tcp(mydbinstance03.cakwl95bxza0.us-west-1.rds.amazonaws.com:3306)/mydb03?charset=utf8")
+	db, err = sql.Open("mysql", "awsuser:mypassword@tcp(mydbinstance.cakwl95bxza0.us-west-1.rds.amazonaws.com:3306)/test02?charset=utf8")
 	check(err)
 	defer db.Close()
 
@@ -21,6 +20,7 @@ func main() {
 	check(err)
 
 	http.HandleFunc("/", index)
+	http.HandleFunc("/amigos", amigos)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/insert", insert)
 	http.HandleFunc("/retrieve", retrieve)
@@ -32,6 +32,24 @@ func main() {
 func index(w http.ResponseWriter, req *http.Request) {
 	_, err := io.WriteString(w, "at index")
 	check(err)
+}
+
+
+func amigos(w http.ResponseWriter, req *http.Request) {
+	rows, err := db.Query(`SELECT aName FROM amigos`)
+	check(err)
+
+	// data to be used in query
+	var s, name string
+	s = "RETRIEVED RECORDS:\n"
+
+	// query
+	for rows.Next() {
+		err = rows.Scan(&name)
+		check(err)
+		s += name + "\n"
+	}
+	fmt.Fprintln(w, s)
 }
 
 func create(w http.ResponseWriter, req *http.Request) {

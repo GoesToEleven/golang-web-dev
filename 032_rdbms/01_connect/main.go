@@ -13,7 +13,7 @@ var err error
 
 func main() {
 	// user:password@tcp(localhost:5555)/dbname?charset=utf8
-	db, err = sql.Open("mysql", "awsuser:mypassword@tcp(mydbinstance03.cakwl95bxza0.us-west-1.rds.amazonaws.com:3306)/mydb03?charset=utf8")
+	db, err = sql.Open("mysql", "awsuser:mypassword@tcp(mydbinstance.cakwl95bxza0.us-west-1.rds.amazonaws.com:3306)/test02?charset=utf8")
 	check(err)
 	defer db.Close()
 
@@ -22,7 +22,7 @@ func main() {
 
 	http.HandleFunc("/", index)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
-	err := http.ListenAndServe(":80", nil)
+	err := http.ListenAndServe(":8080", nil)
 	check(err)
 }
 

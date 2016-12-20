@@ -1,6 +1,6 @@
 # Deploying our session example
 
-1. chane your port number from 8080 to 80
+1. change your port number from 8080 to 80
 
 1. create your binary
   - GOOS=linux GOARCH=amd64 go build -o [some-name]
