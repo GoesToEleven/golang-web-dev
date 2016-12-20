@@ -23,7 +23,10 @@ func main() {
 	http.HandleFunc("/amigos", amigos)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/insert", insert)
-	http.HandleFunc("/retrieve", retrieve)
+	http.HandleFunc("/read", read)
+	http.HandleFunc("/update", update)
+	http.HandleFunc("/delete", delete)
+	http.HandleFunc("/drop", drop)
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	err := http.ListenAndServe(":8080", nil)
 	check(err)
@@ -63,7 +66,7 @@ func create(w http.ResponseWriter, req *http.Request) {
 	n, err := r.RowsAffected()
 	check(err)
 
-	_, err = fmt.Fprintln(w, "CREATED TABLE CUSTOMER", n)
+	_, err = fmt.Fprintln(w, "CREATED TABLE customer", n)
 	check(err)
 }
 
@@ -82,8 +85,54 @@ func insert(w http.ResponseWriter, req *http.Request) {
 	check(err)
 }
 
-func retrieve(w http.ResponseWriter, req *http.Request) {
+func read(w http.ResponseWriter, req *http.Request) {
 	rows, err := db.Query(`SELECT * FROM customer`)
+	check(err)
+
+	var name string
+	for rows.Next() {
+		err = rows.Scan(&name)
+		check(err)
+		fmt.Println(name)
+
+		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
+		check(err)
+	}
+}
+
+func update(w http.ResponseWriter, req *http.Request) {
+	rows, err := db.Query(`UPDATE customer SET name=Jimmy WHERE name=James;`)
+	check(err)
+
+	var name string
+	for rows.Next() {
+		err = rows.Scan(&name)
+		check(err)
+		fmt.Println(name)
+
+		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
+		check(err)
+	}
+}
+
+func delete(w http.ResponseWriter, req *http.Request) {
+	rows, err := db.Query(`DELETE FROM customer WHERE name=Jimmy;`)
+	check(err)
+
+	var name string
+	for rows.Next() {
+		err = rows.Scan(&name)
+		check(err)
+		fmt.Println(name)
+
+		_, err = fmt.Fprintln(w, "RETREIVED RECORD:", name)
+		check(err)
+	}
+}
+
+
+func drop(w http.ResponseWriter, req *http.Request) {
+	rows, err := db.Query(`DROP TABLE customer;`)
 	check(err)
 
 	var name string
