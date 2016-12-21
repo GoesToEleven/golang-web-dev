@@ -6,9 +6,9 @@ import (
 )
 
 func init() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", index)
 }
 
-func handler(res http.ResponseWriter, req *http.Request) {
+func index(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprint(res, "Hello, World!")
 }

@@ -9,10 +9,10 @@ import (
 )
 
 func init() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", index)
 }
 
-func handler(res http.ResponseWriter, req *http.Request) {
+func index(res http.ResponseWriter, req *http.Request) {
 	ctx := appengine.NewContext(req)
 	u := user.Current(ctx)
 	if u == nil {
