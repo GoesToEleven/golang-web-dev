@@ -52,3 +52,34 @@
     - sudo systemctl status ```<filename>```.service
   1. Stop systemd if so desired.
     - sudo systemctl stop ```<filename>```.service
+
+
+
+
+
+
+
+
+# FOR EXAMPLE
+  ```
+  [Unit]
+  Description=Go Server
+
+  [Service]
+  ExecStart=/home/ubuntu/cowboy
+  WorkingDirectory=/home/ubuntu
+  User=root
+  Group=root
+  Restart=always
+
+  [Install]
+  WantedBy=multi-user.target
+```
+
+
+
+
+
+
+
+
