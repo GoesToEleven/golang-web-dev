@@ -40,7 +40,7 @@ func dbAccess(ctx context.Context) (int, error) {
 	go func() {
 		// ridiculous long running task
 		uid := ctx.Value("userID").(int)
-		time.Sleep(20 * time.Second)
+		time.Sleep(10 * time.Second)
 
 		// check to make sure we're not running in vain
 		// if ctx.Done() has
