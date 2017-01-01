@@ -22,7 +22,7 @@ func main() {
 func index(w http.ResponseWriter, req *http.Request) {
 	c := getCookie(w, req)
 	c = appendValue(w, c)
-	xs := strings.Split(c.String(), "|")
+	xs := strings.Split(c.Value, "|")
 	tpl.ExecuteTemplate(w, "index.gohtml", xs)
 }
 
@@ -46,13 +46,13 @@ func appendValue(w http.ResponseWriter, c *http.Cookie) *http.Cookie {
 	p3 := "hollywood.jpg"
 	// append
 	s := c.Value
-	if !strings.Contains(c.String(), p1) {
+	if !strings.Contains(s, p1) {
 		s += "|" + p1
 	}
-	if !strings.Contains(c.String(), p2) {
+	if !strings.Contains(s, p2) {
 		s += "|" + p2
 	}
-	if !strings.Contains(c.String(), p3) {
+	if !strings.Contains(s, p3) {
 		s += "|" + p3
 	}
 	c.Value = s
