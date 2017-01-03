@@ -1,22 +1,22 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"github.com/GoesToEleven/golang-web-dev/040_mongodb/02_json/models"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
-	"encoding/json"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/02_json/models"
 )
 
 func main() {
 	r := httprouter.New()
 	// added route plus parameter
-	r.GET("/user/:id", userGet)
+	r.GET("/user/:id", getUser)
 	http.ListenAndServe("localhost:8080", r)
 }
 
 // changed func name
-func userGet(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+func getUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	u := models.User{
 		Name:   "James Bond",
 		Gender: "male",
@@ -29,6 +29,6 @@ func userGet(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 
 	// Write content-type, statuscode, payload
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusOK) // 200
 	fmt.Fprintf(w, "%s\n", uj)
 }

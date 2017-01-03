@@ -10,7 +10,7 @@ go run main.go
 curl http://localhost:8080
 ```
 
-This code comes from these excellent articles:
+This code forked from Steven White and his excellent articles:
 https://stevenwhite.com/building-a-rest-service-with-golang-1/
 https://stevenwhite.com/building-a-rest-service-with-golang-2/
 https://stevenwhite.com/building-a-rest-service-with-golang-3/
