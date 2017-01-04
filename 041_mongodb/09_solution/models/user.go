@@ -2,16 +2,16 @@ package models
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
+	"os"
 )
 
 // changed Id type to string
 type User struct {
-	Id     string 	`json:"id"`
-	Name   string        `json:"name" `
-	Gender string        `json:"gender"`
-	Age    int           `json:"age"`
+	Id     string `json:"id"`
+	Name   string `json:"name" `
+	Gender string `json:"gender"`
+	Age    int    `json:"age"`
 }
 
 func StoreUsers(m map[string]User) {
@@ -33,7 +33,6 @@ func LoadUsers() map[string]User {
 		return m
 	}
 	defer f.Close()
-
 
 	err = json.NewDecoder(f).Decode(&m)
 	if err != nil {

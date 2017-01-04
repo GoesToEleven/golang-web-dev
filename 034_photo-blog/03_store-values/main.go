@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/satori/go.uuid"
 	"html/template"
 	"net/http"
-	"github.com/satori/go.uuid"
 	"strings"
 )
 

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/julienschmidt/httprouter"
-	"net/http"
-	"gopkg.in/mgo.v2"
 	"github.com/GoesToEleven/golang-web-dev/040_mongodb/05_mongodb/03_update-user-controllers-post/controllers"
+	"github.com/julienschmidt/httprouter"
+	"gopkg.in/mgo.v2"
+	"net/http"
 )
 
 func main() {

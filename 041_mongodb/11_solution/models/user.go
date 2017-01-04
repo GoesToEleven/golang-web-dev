@@ -13,6 +13,6 @@ type User struct {
 
 // capitalize to export from package
 type Session struct {
-	UserName           string
+	UserName     string
 	LastActivity time.Time
 }

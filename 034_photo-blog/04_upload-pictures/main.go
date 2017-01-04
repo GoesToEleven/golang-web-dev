@@ -1,15 +1,15 @@
 package main
 
 import (
-	"html/template"
-	"net/http"
-	"github.com/satori/go.uuid"
-	"strings"
-	"fmt"
-	"io"
 	"crypto/sha1"
+	"fmt"
+	"github.com/satori/go.uuid"
+	"html/template"
+	"io"
+	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 var tpl *template.Template
@@ -75,7 +75,7 @@ func getCookie(w http.ResponseWriter, req *http.Request) *http.Cookie {
 // takes in a file name now also
 func appendValue(w http.ResponseWriter, c *http.Cookie, fname string) *http.Cookie {
 	s := c.Value
-	if !strings.Contains(s , fname) {
+	if !strings.Contains(s, fname) {
 		s += "|" + fname
 	}
 	c.Value = s

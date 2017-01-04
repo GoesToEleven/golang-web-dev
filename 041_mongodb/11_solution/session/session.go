@@ -2,17 +2,17 @@ package session
 
 import (
 	"fmt"
+	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/models"
 	"github.com/satori/go.uuid"
 	"net/http"
 	"time"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/models"
 )
 
 const Length int = 30
+
 var Users = map[string]models.User{}       // user ID, user
 var Sessions = map[string]models.Session{} // session ID, session
 var LastCleaned time.Time = time.Now()
-
 
 func GetUser(w http.ResponseWriter, req *http.Request) models.User {
 	// get cookie
@@ -57,7 +57,7 @@ func AlreadyLoggedIn(w http.ResponseWriter, req *http.Request) bool {
 
 func Clean() {
 	fmt.Println("BEFORE CLEAN") // for demonstration purposes
-	Show()              // for demonstration purposes
+	Show()                      // for demonstration purposes
 	for k, v := range Sessions {
 		if time.Now().Sub(v.LastActivity) > (time.Second * 30) {
 			delete(Sessions, k)
@@ -65,7 +65,7 @@ func Clean() {
 	}
 	LastCleaned = time.Now()
 	fmt.Println("AFTER CLEAN") // for demonstration purposes
-	Show()             // for demonstration purposes
+	Show()                     // for demonstration purposes
 }
 
 // for demonstration purposes

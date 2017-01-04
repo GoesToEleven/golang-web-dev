@@ -3,10 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/julienschmidt/httprouter"
-	"net/http"
-	"gopkg.in/mgo.v2"
 	"github.com/GoesToEleven/golang-web-dev/040_mongodb/05_mongodb/01_update-user-controller/models"
+	"github.com/julienschmidt/httprouter"
+	"gopkg.in/mgo.v2"
+	"net/http"
 )
 
 // added session to our userController

@@ -1,12 +1,12 @@
 package controllers
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/session"
 	"html/template"
+	"net/http"
 )
 
-type Controller struct{
+type Controller struct {
 	tpl *template.Template
 }
 
@@ -33,4 +33,3 @@ func (c Controller) Bar(w http.ResponseWriter, req *http.Request) {
 	session.Show() // for demonstration purposes
 	c.tpl.ExecuteTemplate(w, "bar.gohtml", u)
 }
-

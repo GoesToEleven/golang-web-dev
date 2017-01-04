@@ -1,12 +1,12 @@
 package controllers
 
 import (
-	"net/http"
-	"time"
 	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/models"
 	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/session"
 	"github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
+	"net/http"
+	"time"
 )
 
 func (c Controller) SignUp(w http.ResponseWriter, req *http.Request) {
@@ -114,4 +114,3 @@ func (c Controller) Logout(w http.ResponseWriter, req *http.Request) {
 
 	http.Redirect(w, req, "/login", http.StatusSeeOther)
 }
-
