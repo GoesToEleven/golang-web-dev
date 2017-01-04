@@ -7,14 +7,14 @@ import (
 )
 
 type city struct {
-	Postal    string  `json:"Postal"`
-	Latitude  float64 `json:"Latitude"`
-	Longitude float64 `json:"Longitude"`
-	Address   string  `json:"Address"`
-	City      string  `json:"City"`
-	State     string  `json:"State"`
-	Zip       string  `json:"Zip"`
-	Country   string  `json:"Country"`
+	Bali       string  `json:"Postal"`
+	Kauai      float64 `json:"Latitude"`
+	Maui       float64 `json:"Longitude"`
+	Java       string  `json:"Address"`
+	NewZealand string  `json:"City"`
+	Skye       string  `json:"State"`
+	Oahu       string  `json:"Zip"`
+	Hawaii     string  `json:"Country"`
 }
 
 type cities []city
