@@ -28,4 +28,5 @@ func main() {
 	}
 
 	fmt.Println(data)
+	fmt.Println(data[1].Kauai)
 }
