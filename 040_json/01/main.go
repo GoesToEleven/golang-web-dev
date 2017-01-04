@@ -48,6 +48,7 @@ func mshl(w http.ResponseWriter, req *http.Request) {
 }
 
 func encd(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	p1 := person{
 		"James",
 		"Bond",
