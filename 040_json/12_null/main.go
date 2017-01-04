@@ -7,13 +7,12 @@ import (
 )
 
 func main() {
-	var data []int
-	fmt.Println(data)
+	var a string
 
 	rcvd := `null`
-	err := json.Unmarshal([]byte(rcvd), &data)
+	err := json.Unmarshal([]byte(rcvd), &a)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Println(data)
+	fmt.Println(a)
 }
