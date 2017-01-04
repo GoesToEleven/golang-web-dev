@@ -31,7 +31,6 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		</body>
 		</html>`
 	w.Write([]byte(s))
-
 }
 
 func mshl(w http.ResponseWriter, req *http.Request) {
@@ -41,7 +40,7 @@ func mshl(w http.ResponseWriter, req *http.Request) {
 		"Bond",
 		[]string{"Suit", "Gun", "Wry sense of humor"},
 	}
-	json, err := json.Marshal(&p1)
+	json, err := json.Marshal(p1)
 	if err != nil {
 		log.Println(err)
 	}
@@ -54,7 +53,7 @@ func encd(w http.ResponseWriter, req *http.Request) {
 		"Bond",
 		[]string{"Suit", "Gun", "Wry sense of humor"},
 	}
-	err := json.NewEncoder(w).Encode(&p1)
+	err := json.NewEncoder(w).Encode(p1)
 	if err != nil {
 		log.Println(err)
 	}
