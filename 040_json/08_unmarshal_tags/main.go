@@ -6,19 +6,15 @@ import (
 	"log"
 )
 
-// precision receives value
-//type city struct {
-//	Precision                          string `json:"Postal"`
-//	Latitude, Longitude                float64
-//	Address, City, State, Zip, Country string
-//}
-
-
-// precision doesn't receive value
 type city struct {
-	Precision string
-	Latitude, Longitude float64
-	Address, City, State, Zip, Country string
+	Postal    string  `json:"Postal"`
+	Latitude  float64 `json:"Latitude"`
+	Longitude float64 `json:"Longitude"`
+	Address   string  `json:"Address"`
+	City      string  `json:"City"`
+	State     string  `json:"State"`
+	Zip       string  `json:"Zip"`
+	Country   string  `json:"Country"`
 }
 
 type cities []city
