@@ -37,10 +37,9 @@
     username.addEventListener('input', function(){
         console.log(username.value);
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/checkUserName');
-        xhr.send(username.value);
+        xhr.open('POST', '/checkUserName', true);
         xhr.addEventListener('readystatechange', function(){
-            if (xhr.readyState === 4 && xhr.status === 200) {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
                 var item = xhr.responseText;
                 console.log(item);
                 if (item == 'true') {
@@ -52,6 +51,7 @@
                 }
             }
         });
+        xhr.send(username.value);
     });
 
     //    Validate passwords

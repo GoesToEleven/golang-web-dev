@@ -1,0 +1,25 @@
+{{template "header"}}
+
+<form action="/" method="post">
+
+    <label for="fname">FIRST:</label>
+    <input type="text" id="fname" name="first">
+
+    <label for="lname">LAST:</label>
+    <input type="text" id="lname" name="last">
+
+    <label for="subber">SUBSCRIBE:</label>
+    <input type="checkbox" id="subber" name="subscribed">
+
+    <input type="submit">
+
+</form>
+
+{{if .First}}
+FIRST: {{.First}}
+LAST: {{.Last}}
+SUBSCRIBED: {{.Subscribed}}
+{{end}}
+
+{{template "footer"}}
+

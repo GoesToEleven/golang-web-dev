@@ -7,6 +7,7 @@
         body {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -23,34 +24,22 @@
 <h1>Make Something Happen</h1>
 
 <script>
-    document.querySelector('span').onclick = function () {
-        makeRequest('/foo');
-    };
+    document.querySelector('h1').onclick = makeRequest;
 
-    // STEP ONE - create a new XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-
-    function makeRequest(url) {
-        // make the request
-        xhr.open('GET', url);
-        xhr.send();
-        // listen for the response
-        // call receiveResponse function after we receive server response
-        xhr.onreadystatechange = receiveResponse;
-    }
-
-    function receiveResponse() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
+    function makeRequest() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/foo', true);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
                 var b = document.querySelector('body');
                 var myHeadingOne = document.createElement('h1');
                 var myHeadingOneText = document.createTextNode(xhr.responseText);
                 myHeadingOne.appendChild(myHeadingOneText);
                 b.appendChild(myHeadingOne);
-            } else {
-                alert('There was a problem with the request.');
             }
-        }
+        };
+
+        xhr.send();
     }
 
 </script>

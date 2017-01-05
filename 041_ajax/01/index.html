@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        span {
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 5vw;
             cursor: pointer;
             text-decoration: underline;
         }
@@ -12,34 +19,31 @@
 </head>
 <body>
 
-<span>Make a request</span>
+<h1>Make a request</h1>
 
 <script>
-    document.querySelector('span').onclick = function () {
-        makeRequest('/test.html');
-    };
+    document.querySelector('h1').onclick = makeRequest;
 
-    // STEP ONE - create a new XMLHttpRequest
-    var xhr = new XMLHttpRequest();
 
-    function makeRequest(url) {
-        // make the request
-        xhr.open('GET', url);
-        xhr.send();
-        // listen for the response
-        // call receiveResponse function after we receive server response
-        xhr.onreadystatechange = receiveResponse;
-    }
+    function makeRequest() {
 
-    function receiveResponse() {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
+        // create a  XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // open the request
+        xhr.open('GET', 'test.html', true);
+
+        // handles the response
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
                 alert(xhr.responseText);
-            } else {
-                alert('There was a problem with the request.');
             }
-        }
+        };
+
+        // send the request
+        xhr.send();
     }
+
 
 </script>
 </body>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BAR</title>
+</head>
+<body>
+
+<h1>Welcome to the bar. What can I get you to drink?</h1>
+
+{{if .First}}
+    USER NAME {{.UserName}}<br>
+    FIRST {{.First}}<br>
+    LAST {{.Last}}<br>
+{{end}}
+
+</body>
+</html>

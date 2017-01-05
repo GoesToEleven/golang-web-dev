@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Type Submit</title>
+</head>
+<body>
+
+<header>
+    {{if .Method}}<p>The request method: {{.Method}}</p>{{end}}
+
+    {{if .URL}}
+    <ol>
+        <li>scheme:{{.URL.Scheme}}</li>
+        <li>opaque:{{.URL.Opaque}}</li>
+        <li>host:{{.URL.Host}}</li>
+        <li>path:{{.URL.Path}}</li>
+        <li>rawpath:{{.URL.RawPath}}</li>
+        <li>forcequery:{{.URL.ForceQuery}}</li>
+        <li>rawquery:{{.URL.RawQuery}}</li>
+        <li>fragment:{{.URL.Fragment}}</li>
+    </ol>
+    {{end}}
+
+    {{if .Submissions}}<p><strong>variable names</strong> (identifiers) and <em>values</em>:</p>
+        {{range $key, $value := .Submissions}}
+                <p><strong>{{$key}}</strong></p>
+                <ul>{{range $value}}<li><em>{{.}}</em></li>{{end}}</ul>
+        {{end}}
+    {{end}}
+</header>
+
+<form action="/" method="POST">
+        <input type="text" name="fname" placeholder="first name" autofocus autocomplete="off">
+        <input type="submit" name="submit-btn" value="onda button">
+</form>
+
+</body>
+</html>

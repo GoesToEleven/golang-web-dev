@@ -1,0 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
+
+@header-font: "Source Sans Pro";
+@body-font: "Ubuntu";
+
+@primary: #428bca;
+@gray-base: #000;
+@gray-darker: lighten(@gray-base, 13.5%);
+@gray-dark: lighten(@gray-base, 20%);
+@gray: lighten(@gray-base, 33.5%);
+@gray-light: lighten(@gray-base, 46.7%);
+@gray-lighter: lighten(@gray-base, 93.5%);
+
+h1, h2, h3 {
+  font-family: @header-font;
+}
+
+html, body {
+  color: @gray;
+  font-size: 16px;
+  font-family: @body-font;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+
+hr {
+  border-color: @primary;
+}
+
+.form-control {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.table-header label {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+@import "_landing-page.less";

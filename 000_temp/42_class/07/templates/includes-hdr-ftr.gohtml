@@ -1,0 +1,19 @@
+{{define "header"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{if .FirstName}}
+    <title>{{.FirstName}}</title>
+    {{else}}
+    <title>{{.Title}}</title>
+    {{end}}
+    <link rel="stylesheet" href="/public/css/main.css">
+</head>
+<body>
+{{end}}
+
+{{define "footer"}}
+</body>
+</html>
+{{end}}

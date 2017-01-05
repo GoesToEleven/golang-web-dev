@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- IMPORTANT -->
+<!-- this is Javascript, not Go code -->
+<script>
+    var cities = [
+        {
+            "precision": "zip",
+            "Latitude":  37.7668,
+            "Longitude": -122.3959,
+            "Address":   "",
+            "City":      "SAN FRANCISCO",
+            "State":     "CA",
+            "Zip":       "94107",
+            "Country":   "US"
+        },
+        {
+            "precision": "zip",
+            "Latitude":  37.371991,
+            "Longitude": -122.026020,
+            "Address":   "",
+            "City":      "SUNNYVALE",
+            "State":     "CA",
+            "Zip":       "94085",
+            "Country":   "US"
+        }
+    ];
+
+    var transmit = JSON.stringify(cities);
+    document.write(transmit);
+</script>
+</body>
+</html>
