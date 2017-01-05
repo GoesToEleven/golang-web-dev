@@ -8,5 +8,3 @@ type User struct {
 	Gender string        `json:"gender" bson:"gender"`
 	Age    int           `json:"age" bson:"age"`
 }
-
-// Id was of type string before

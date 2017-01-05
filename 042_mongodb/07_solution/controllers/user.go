@@ -3,10 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/07_solution/models"
 	"github.com/julienschmidt/httprouter"
 	"github.com/satori/go.uuid"
 	"net/http"
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/07_solution/models"
 )
 
 type UserController struct {
@@ -38,7 +38,7 @@ func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ ht
 	json.NewDecoder(r.Body).Decode(&u)
 
 	// create ID
-	u.Id = uuid.NewV4()
+	u.Id = uuid.NewV4().String()
 
 	// store the user
 	uc.session[u.Id] = u

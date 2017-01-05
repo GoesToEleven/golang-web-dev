@@ -4,9 +4,6 @@ We will delete a user from mongodb.
 
 This is identical to what we did in the last step to GET a user.
 
-IMPORTANT:
-Make sure you update your import statements to import packages from the correct location!
-
 First we will get the user id from the URL
 
 ```

@@ -9,7 +9,7 @@ curl http://localhost:8080/user/1
 ```
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"Name":"James Bond","Gender":"male","Age":32,"Id":"007"}' http://localhost:8080/user
+curl -X POST -H "Content-Type: application/json" -d '{"Name":"James Bond","Gender":"male","Age":32,"Id":"777"}' http://localhost:8080/user
 ```
 
 ```

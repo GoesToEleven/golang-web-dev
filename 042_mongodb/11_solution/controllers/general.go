@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/09_solution/session"
 	"html/template"
 	"net/http"
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/11_solution/session"
 )
 
 type Controller struct {

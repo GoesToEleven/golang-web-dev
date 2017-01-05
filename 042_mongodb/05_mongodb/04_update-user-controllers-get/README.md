@@ -2,9 +2,6 @@
 
 We will get a user from mongodb
 
-IMPORTANT:
-Make sure you update your import statements to import packages from the correct location!
-
 First we will get the user id from the URL
 
 ```

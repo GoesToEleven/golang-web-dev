@@ -2,9 +2,6 @@
 
 We create an ObjectId using the bson package. 
 
-IMPORTANT:
-Make sure you update your import statements to import packages from the correct location!
-
 We do this in controllers/user.go in func CreateUser
 
 ```

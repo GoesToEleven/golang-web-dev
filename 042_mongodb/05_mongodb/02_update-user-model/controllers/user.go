@@ -3,18 +3,16 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/05_mongodb/02_update-user-model/models"
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/mgo.v2"
 	"net/http"
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/05_mongodb/02_update-user-model/models"
 )
 
-// added session to our userController
 type UserController struct {
 	session *mgo.Session
 }
 
-// added session to our userController
 func NewUserController(s *mgo.Session) *UserController {
 	return &UserController{s}
 }

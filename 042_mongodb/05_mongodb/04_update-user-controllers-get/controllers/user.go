@@ -3,11 +3,11 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/05_mongodb/04_update-user-controllers-get/models"
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"net/http"
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/05_mongodb/04_update-user-controllers-get/models"
 )
 
 type UserController struct {
@@ -53,10 +53,8 @@ func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ ht
 
 	json.NewDecoder(r.Body).Decode(&u)
 
-	// create bson ID
 	u.Id = bson.NewObjectId()
 
-	// store the user in mongodb
 	uc.session.DB("go-web-dev-db").C("users").Insert(u)
 
 	uj, _ := json.Marshal(u)
