@@ -1,0 +1,1 @@
+Refactored "034_photo-blog / 05_display-pictures" to use Julien Schmidt's router.

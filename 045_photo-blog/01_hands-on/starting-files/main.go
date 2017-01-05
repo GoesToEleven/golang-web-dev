@@ -10,11 +10,9 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"github.com/GoesToEleven/golang-web-dev/999_old-code/043_photo-blog_cookie_memcache/05_display-pictures/controller"
 )
 
 var tpl *template.Template
-var ctrl controller.UserController
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*"))
@@ -27,7 +25,6 @@ func main() {
 	http.Handle("/favicon.ico", http.NotFoundHandler())
 	http.ListenAndServe(":8080", nil)
 }
-
 
 func index(w http.ResponseWriter, req *http.Request) {
 	c := getCookie(w, req)

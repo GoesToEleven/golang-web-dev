@@ -24,8 +24,10 @@ func (uc UserController) GetUser(w http.ResponseWriter, r *http.Request, p httpr
 	// Retrieve user
 	u := uc.session[id]
 
-	// Marshal provided interface into JSON structure
-	uj, _ := json.Marshal(u)
+	uj, err := json.Marshal(u)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK) // 200
@@ -43,7 +45,10 @@ func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ ht
 	// store the user
 	uc.session[u.Id] = u
 
-	uj, _ := json.Marshal(u)
+	uj, err := json.Marshal(u)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated) // 201

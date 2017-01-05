@@ -43,7 +43,10 @@ func getUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	}
 
 	// Marshal into JSON
-	uj, _ := json.Marshal(u)
+	uj, err := json.Marshal(u)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	// Write content-type, statuscode, payload
 	w.Header().Set("Content-Type", "application/json")

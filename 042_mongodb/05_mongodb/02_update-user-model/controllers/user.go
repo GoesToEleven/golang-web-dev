@@ -25,7 +25,10 @@ func (uc UserController) GetUser(w http.ResponseWriter, r *http.Request, p httpr
 		Id:     p.ByName("id"),
 	}
 
-	uj, _ := json.Marshal(u)
+	uj, err := json.Marshal(u)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK) // 200
@@ -39,7 +42,10 @@ func (uc UserController) CreateUser(w http.ResponseWriter, r *http.Request, _ ht
 
 	u.Id = "007"
 
-	uj, _ := json.Marshal(u)
+	uj, err := json.Marshal(u)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated) // 201
