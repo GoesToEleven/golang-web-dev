@@ -73,7 +73,7 @@ func createUser(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func deleteUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	// TODO: only write code to delete user
+	// TODO: write code to delete user
 	w.WriteHeader(http.StatusOK) // 200
 	fmt.Fprint(w, "Write code to delete user\n")
 }
