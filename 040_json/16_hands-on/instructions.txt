@@ -2,7 +2,7 @@ IN AN HTML FILE
 
 Create an array to hold objects in javascript.
 
-Each object should store a "Code" as in a number and "Descrip" as a string.
+Each object should store a "Code" as a number and "Descrip" as a string.
 
 The array should hold all of the objects. Create objects for the following HTTP status codes:
 

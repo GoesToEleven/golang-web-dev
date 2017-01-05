@@ -15,4 +15,6 @@ func main() {
 		log.Fatalln(err)
 	}
 	fmt.Println(a)
+	fmt.Println(len(a))
+	fmt.Println(cap(a))
 }
