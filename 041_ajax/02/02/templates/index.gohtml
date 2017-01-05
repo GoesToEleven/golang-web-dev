@@ -1,10 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Index</title>
     <style>
-        span {
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 5vw;
             cursor: pointer;
             text-decoration: underline;
         }
@@ -12,11 +19,12 @@
 </head>
 <body>
 
-<span>Make a request</span>
+
+<h1>Make Something Happen</h1>
 
 <script>
     document.querySelector('span').onclick = function () {
-        makeRequest('/test.html');
+        makeRequest('/foo');
     };
 
     // STEP ONE - create a new XMLHttpRequest
@@ -34,7 +42,11 @@
     function receiveResponse() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                alert(xhr.responseText);
+                var b = document.querySelector('body');
+                var myHeadingOne = document.createElement('h1');
+                var myHeadingOneText = document.createTextNode(xhr.responseText);
+                myHeadingOne.appendChild(myHeadingOneText);
+                b.appendChild(myHeadingOne);
             } else {
                 alert('There was a problem with the request.');
             }
