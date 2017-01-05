@@ -45,12 +45,6 @@ if err := uc.session.DB("go-web-dev-db").C("users").FindId(oid).One(&u); err != 
 # Run this code
 
 1. Start your server
-You must use "go build" as you need to build a binary that includes a dependency (models package).
-
-```
-go build -o cowboy
-./cowboy
-```
 
 ## POST a user to mongodb
 

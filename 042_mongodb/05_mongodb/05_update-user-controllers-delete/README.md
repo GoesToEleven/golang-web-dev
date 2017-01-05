@@ -40,12 +40,6 @@ if err := uc.session.DB("go_rest_tutorial").C("users").RemoveId(oid); err != nil
 # Run this code
 
 1. Start your server
-You must use "go build" as you need to build a binary that includes a dependency (models package).
-
-```
-go build -o cowgirl
-./cowgirl
-```
 
 ## DELETE a user from mongodb
 

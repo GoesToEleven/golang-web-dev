@@ -3,16 +3,34 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/GoesToEleven/golang-web-dev/040_mongodb/02_json/models"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/02_json/models"
 )
 
 func main() {
 	r := httprouter.New()
+	r.GET("/", index)
 	// added route plus parameter
 	r.GET("/user/:id", getUser)
 	http.ListenAndServe("localhost:8080", r)
+}
+
+func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	s := `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+<a href="/user/9872309847">GO TO: http://localhost:8080/user/9872309847</a>
+</body>
+</html>
+	`
+	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(s))
 }
 
 // changed func name
