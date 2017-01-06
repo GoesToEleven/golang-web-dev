@@ -1,17 +1,17 @@
 Generally speaking:
 
 SQL DATABASES
--does not scale well
+-does not scale
 -strongly consistent
--durable
+-persistent / durable
 
 NOSQL DATABASES
--scales well
+-scales
 -eventually consistent
--durable
+-persistent / durable
 
 MEMCACHE
--scales well
+-scales
 -strongly consistent
 -volatile
 
