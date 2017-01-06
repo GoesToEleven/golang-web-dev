@@ -12,8 +12,8 @@ func init() {
 	http.HandleFunc("/", index)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
-	ctx := appengine.NewContext(req)
+func index(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
 
 	item1 := memcache.Item{
 		Key:   "foo",
@@ -22,8 +22,10 @@ func index(res http.ResponseWriter, req *http.Request) {
 
 	memcache.Set(ctx, &item1)
 
-	item, _ := memcache.Get(ctx, "foo")
-	if item != nil {
-		fmt.Fprintln(res, string(item.Value))
+	item, err := memcache.Get(ctx, "foo")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
+	fmt.Fprintln(w, string(item.Value))
 }

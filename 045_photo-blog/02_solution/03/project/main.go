@@ -4,8 +4,8 @@ import (
 	"html/template"
 	"net/http"
 	"github.com/julienschmidt/httprouter"
-	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/02/controllers"
 	"google.golang.org/appengine"
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/controllers"
 )
 
 var tpl *template.Template

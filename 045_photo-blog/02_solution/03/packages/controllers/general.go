@@ -11,6 +11,11 @@ import (
 	"path/filepath"
 	"html/template"
 	"mime/multipart"
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/memcache"
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/errors"
+	"google.golang.org/appengine/log"
+	"google.golang.org/appengine"
+	"encoding/json"
 )
 
 type Controller struct{
@@ -22,38 +27,45 @@ func NewController(tpl *template.Template) *Controller {
 }
 
 func(ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	c := getCookie(w, r)
-	xs := strings.Split(c.Value, "|")
-	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs[1:]) //only send over images
+	ctx := appengine.NewContext(r)
+	log.Infof(ctx, "IN INDEX") // fyi
+	c := GetCookie(w, r)
+	xs, err := memcache.GetPictures(r, c)
+	errors.Handle(err)
+
+	bs, err := json.Marshal(xs)
+	if err != nil {
+		log.Infof(ctx, "%v", err)
+	}
+	log.Infof(ctx, "%s", string(bs)) // fyi
+	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs)
 }
 
 func(ctl Controller) IndexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	c := getCookie(w, r)
+
+	c := GetCookie(w, r)
 
 	mf, fh, err := r.FormFile("nf")
-	if err != nil {
-		fmt.Println(err)
-	}
+	errors.Handle(err)
 	defer mf.Close()
 
-	// create a new file
+	// new file
 	fname := createSHA(mf, fh)
-	nf, err := createNewFile(fname)
-	if err != nil {
-		fmt.Println(err)
-	}
+	nf, err := createNewFile(r, fname)
+	errors.Handle(err)
 	defer nf.Close()
 
 	// copy
 	mf.Seek(0, 0)
 	io.Copy(nf, mf)
 
-	// add filename to this user's cookie
-	c = appendValue(w, c, fname)
+	// store filename
+	xs, err := memcache.GetPictures(r, c)
+	errors.Handle(err)
+	xs = append(xs, fname)
+	memcache.SetPictures(r, c, xs)
 
-	//only send over images
-	xs := strings.Split(c.Value, "|")
-	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs[1:])
+	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs)
 }
 
 func createSHA(mf multipart.File, fh *multipart.FileHeader) string {
@@ -63,16 +75,17 @@ func createSHA(mf multipart.File, fh *multipart.FileHeader) string {
 	return fmt.Sprintf("%x", h.Sum(nil)) + "." + ext
 }
 
-func createNewFile(name string) (*os.File, error)  {
+func createNewFile(r *http.Request, name string) (*os.File, error)  {
+	ctx := appengine.NewContext(r)
 	wd, err := os.Getwd()
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 	path := filepath.Join(wd, "public", "pics", name)
 	nf, err := os.Create(path)
+	log.Infof(ctx, "%s", path) // fyi
 	if err != nil {
-		fmt.Println(err)
+		return nil, err
 	}
 	return nf, nil
 }

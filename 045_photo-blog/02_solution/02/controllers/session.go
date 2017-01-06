@@ -6,8 +6,8 @@ import (
 	"strings"
 )
 
-func getCookie(w http.ResponseWriter, req *http.Request) *http.Cookie {
-	c, err := req.Cookie("session")
+func getCookie(w http.ResponseWriter, r *http.Request) *http.Cookie {
+	c, err := r.Cookie("session")
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{

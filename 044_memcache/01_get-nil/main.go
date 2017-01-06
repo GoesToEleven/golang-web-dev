@@ -13,8 +13,12 @@ func init() {
 	http.HandleFunc("/", index)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
-	ctx := appengine.NewContext(req)
-	item, _ := memcache.Get(ctx, "some-key")
-	fmt.Fprintln(res, item)
+func index(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
+	item, err := memcache.Get(ctx, "some-key")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	fmt.Fprintln(w, item)
 }

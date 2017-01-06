@@ -28,16 +28,16 @@ func main() {
 	http.ListenAndServe(":8080", r)
 }
 
-func index(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	c := getCookie(w, req)
+func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	c := getCookie(w, r)
 	xs := strings.Split(c.Value, "|")
 	tpl.ExecuteTemplate(w, "index.gohtml", xs[1:]) //only send over images
 }
 
-func indexSubmission(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	c := getCookie(w, req)
+func indexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	c := getCookie(w, r)
 
-	mf, fh, err := req.FormFile("nf")
+	mf, fh, err := r.FormFile("nf")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -68,8 +68,8 @@ func indexSubmission(w http.ResponseWriter, req *http.Request, _ httprouter.Para
 	tpl.ExecuteTemplate(w, "index.gohtml", xs[1:]) //only send over images
 }
 
-func getCookie(w http.ResponseWriter, req *http.Request) *http.Cookie {
-	c, err := req.Cookie("session")
+func getCookie(w http.ResponseWriter, r *http.Request) *http.Cookie {
+	c, err := r.Cookie("session")
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{

@@ -13,20 +13,22 @@ func init() {
 	http.HandleFunc("/admin/", admin)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
-	ctx := appengine.NewContext(req)
+func index(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
 	u := user.Current(ctx)
-	url, _ := user.LogoutURL(ctx, "/")
-	res.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(res, `Welcome, %s! (<a href="%s">sign out</a>)`, u, url)
-
+	url, err := user.LogoutURL(ctx, "/")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+	fmt.Fprintf(w, `Welcome, %s! (<a href="%s">sign out</a>)`, u, url)
 }
 
-func admin(res http.ResponseWriter, req *http.Request) {
-	ctx := appengine.NewContext(req)
+func admin(w http.ResponseWriter, r *http.Request) {
+	ctx := appengine.NewContext(r)
 	u := user.Current(ctx)
 	url, _ := user.LogoutURL(ctx, "/")
-	res.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(res, `Welcome ADMIN, %s! (<a href="%s">sign out</a>)`, u, url)
-
+	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+	fmt.Fprintf(w, `Welcome ADMIN, %s! (<a href="%s">sign out</a>)`, u, url)
 }

@@ -26,10 +26,10 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, req *http.Request) {
-	c := getCookie(w, req)
-	if req.Method == http.MethodPost {
-		mf, fh, err := req.FormFile("nf")
+func index(w http.ResponseWriter, r *http.Request) {
+	c := getCookie(w, r)
+	if r.Method == http.MethodPost {
+		mf, fh, err := r.FormFile("nf")
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -61,8 +61,8 @@ func index(w http.ResponseWriter, req *http.Request) {
 	tpl.ExecuteTemplate(w, "index.gohtml", xs[1:])
 }
 
-func getCookie(w http.ResponseWriter, req *http.Request) *http.Cookie {
-	c, err := req.Cookie("session")
+func getCookie(w http.ResponseWriter, r *http.Request) *http.Cookie {
+	c, err := r.Cookie("session")
 	if err != nil {
 		sID := uuid.NewV4()
 		c = &http.Cookie{

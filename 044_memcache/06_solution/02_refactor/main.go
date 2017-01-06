@@ -13,10 +13,10 @@ func init() {
 	http.HandleFunc("/retrieve", noConfusion)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
+func index(w http.ResponseWriter, r *http.Request) {
 
-	if req.URL.Path != "/" {
-		http.NotFound(res, req)
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
 		return
 	}
 
@@ -28,26 +28,30 @@ func index(res http.ResponseWriter, req *http.Request) {
 		// Secure: true,
 		HttpOnly: true,
 	}
-	http.SetCookie(res, cookie)
+	http.SetCookie(w, cookie)
 
 	// set memcache
-	ctx := appengine.NewContext(req)
+	ctx := appengine.NewContext(r)
 	item1 := memcache.Item{
 		Key:   id.String(),
 		Value: []byte("McLeod"),
 	}
 	memcache.Set(ctx, &item1)
 
-	fmt.Fprint(res, "EVERYTHING SET ID:"+id.String())
+	fmt.Fprint(w, "EVERYTHING SET ID:"+id.String())
 }
 
-func noConfusion(res http.ResponseWriter, req *http.Request) {
+func noConfusion(w http.ResponseWriter, r *http.Request) {
 
 	var html string
 
 	// get cookie value
 	var id string
-	cookie, _ := req.Cookie("session-id")
+	cookie, err := r.Cookie("session-id")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 	if cookie != nil {
 		id = cookie.Value
 		html += `
@@ -57,7 +61,7 @@ func noConfusion(res http.ResponseWriter, req *http.Request) {
 	}
 
 	// get memcache value
-	ctx := appengine.NewContext(req)
+	ctx := appengine.NewContext(r)
 	item, _ := memcache.Get(ctx, id)
 	if item != nil {
 		html += `
@@ -68,6 +72,6 @@ func noConfusion(res http.ResponseWriter, req *http.Request) {
 		`
 	}
 
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(res, html)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, html)
 }

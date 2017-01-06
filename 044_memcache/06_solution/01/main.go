@@ -13,10 +13,10 @@ func init() {
 	http.HandleFunc("/retrieve", noConfusion)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
+func index(w http.ResponseWriter, r *http.Request) {
 
-	if req.URL.Path != "/" {
-		http.NotFound(res, req)
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
 		return
 	}
 
@@ -25,23 +25,25 @@ func index(res http.ResponseWriter, req *http.Request) {
 	cookie := &http.Cookie{
 		Name:  "session-id",
 		Value: id.String(),
-		// Secure: true,
-		HttpOnly: true,
 	}
-	http.SetCookie(res, cookie)
+	http.SetCookie(w, cookie)
 
 	// set memcache
-	ctx := appengine.NewContext(req)
+	ctx := appengine.NewContext(r)
 	item1 := memcache.Item{
 		Key:   id.String(),
 		Value: []byte("McLeod"),
 	}
-	memcache.Set(ctx, &item1)
+	err := memcache.Set(ctx, &item1)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-	fmt.Fprint(res, "EVERYTHING SET ID:"+id.String())
+	fmt.Fprint(w, "EVERYTHING SET ID:"+id.String())
 }
 
-func noConfusion(res http.ResponseWriter, req *http.Request) {
+func noConfusion(w http.ResponseWriter, r *http.Request) {
 
 	html := `
 	<form method="POST">
@@ -50,11 +52,15 @@ func noConfusion(res http.ResponseWriter, req *http.Request) {
 	</form>
 	`
 
-	if req.Method == "POST" {
-		id := req.FormValue("koala")
+	if r.Method == "POST" {
+		id := r.FormValue("koala")
 
 		// get cookie value
-		cookie, _ := req.Cookie("session-id")
+		cookie, err := r.Cookie("session-id")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		if cookie != nil {
 			html += `
 			<br>
@@ -63,8 +69,12 @@ func noConfusion(res http.ResponseWriter, req *http.Request) {
 		}
 
 		// get memcache value
-		ctx := appengine.NewContext(req)
-		item, _ := memcache.Get(ctx, id)
+		ctx := appengine.NewContext(r)
+		item, err := memcache.Get(ctx, id)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 		if item != nil {
 			html += `
 			<br>
@@ -74,6 +84,6 @@ func noConfusion(res http.ResponseWriter, req *http.Request) {
 		`
 		}
 	}
-	res.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(res, html)
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	fmt.Fprint(w, html)
 }

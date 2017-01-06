@@ -13,25 +13,27 @@ func init() {
 	http.HandleFunc("/", index)
 }
 
-func index(res http.ResponseWriter, req *http.Request) {
+func index(w http.ResponseWriter, r *http.Request) {
 
-	if req.URL.Path != "/" {
-		http.NotFound(res, req)
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
 		return
 	}
 
-	ctx := appengine.NewContext(req)
+	ctx := appengine.NewContext(r)
 	u := user.Current(ctx)
 
 	globalCount, err := memcache.Increment(ctx, "GLOBAL", 1, 0)
 	if err != nil {
-		fmt.Println("1", err)
-	}
-	userCount, err := memcache.Increment(ctx, u.Email+".COUNTER", 1, 0)
-	if err != nil {
-		fmt.Println("2", err)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
-	fmt.Fprintln(res, "Global", globalCount)
-	fmt.Fprintln(res, "User", userCount)
+	userCount, err := memcache.Increment(ctx, u.Email+".COUNTER", 1, 0)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Fprintln(w, "Global %v - User %v", globalCount, userCount)
 }
