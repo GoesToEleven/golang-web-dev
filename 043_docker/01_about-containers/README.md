@@ -18,7 +18,7 @@ Each virtual machine appeared just like a real machine to its user.
 
 Here is an image from [docker's website](https://www.docker.com/what-docker) that shows the architecture of virtual machines:
 
-[Virtual Machines](vm.png)
+![Virtual Machines](vm.png)
 
 There was a downside to this, though: each virtual machine had its own operating system. This created license and maintenance costs, as well as using up resources on the physical machine.
 
@@ -40,7 +40,7 @@ To the user, each container appears just like a real machine to its user.
 
 Here is an image from [docker's website](https://www.docker.com/what-docker) that shows a comparison between virtual machines and containers:
 
-[Virtual Machines vs Containers](vm-containers.png)
+![Virtual Machines vs Containers](vm-containers.png)
 
 # Docker
 
