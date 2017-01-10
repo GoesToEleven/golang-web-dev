@@ -10,6 +10,14 @@ When you run an image in a container, Docker downloads the image to your compute
 
 Locate the **docker/whalesay** image on [Docker Hub](https://hub.docker.com/)
 
+You can also do this to search docker hub:
+
+```
+docker search <search term>
+```
+
+Caveat: This is code. When you grab someone else's code to use with your code, make sure you know what's in it.
+
 # Run the program
 
 ```

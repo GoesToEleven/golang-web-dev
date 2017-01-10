@@ -37,7 +37,7 @@ docker images
 # Remove all "docker-whale" images
 
 ```
-docker rmi - f <image ID or image name>
+docker rmi -f <image ID or image name>
 ```
 
 -f is "with force"
