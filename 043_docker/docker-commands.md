@@ -12,6 +12,8 @@ docker ps
 docker search
 docker run docker/whalesay cowsay boo
 docker images
+docker ps -a
+docker ps
 
 ## 04_build-image
 

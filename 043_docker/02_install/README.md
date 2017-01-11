@@ -38,7 +38,7 @@ An **image** is stored in a docker image **repository**.
 
 **Docker hub** is one docker image repository you can use.
 
-See all containers on you machine
+See all containers (processes) on your machine
 ```
 docker ps -a
 ```

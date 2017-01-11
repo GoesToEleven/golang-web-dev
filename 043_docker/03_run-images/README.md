@@ -30,6 +30,16 @@ docker run docker/whalesay cowsay boo
 docker images
 ```
 
+# See all containers (processes) on your machine
+
+```
+docker ps -a
+```
+
+```
+docker ps
+```
+
 # Reflection
 
 You searched for an image on Docker Hub. 

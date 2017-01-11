@@ -82,17 +82,16 @@ source ~/.profile
 
 ```
 go version
+```
+
+## Get the OS & architecture of your container
+
+```
 go env
 ```
 
 # Build a go application
 
-Build a go application.
+See "08_hello-docker" for the binary I created: cowgirl
 
-See "08_hello-docker" for the binary I created
-
-
-
-
-# go get that go application
 
