@@ -90,7 +90,7 @@ func read(w http.ResponseWriter, req *http.Request) {
 	for rows.Next() {
 		err = rows.Scan(&name)
 		check(err)
-		fmt.Fprintln(w, "RETREIVED RECORD:", name)
+		fmt.Fprintln(w, "RETRIEVED RECORD:", name)
 	}
 }
 
