@@ -43,7 +43,9 @@ tar -xvf <file name of the tar.gz file that was downloaded with curl>
 
 # Move go
 
-I'm putting Go at root
+I'm putting Go at "/". 
+
+Move it there if it's not already there.
 
 ```
 mv go /
@@ -64,6 +66,7 @@ mkdir bin pkg src
 # Set environment variables 
 
 ```
+cd
 nano ~/.profile
 ```
 
@@ -75,7 +78,7 @@ nano ~/.profile
 ```
 export GOROOT=/go
 export GOPATH=$HOME/goworkspace
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 ```
 
 ## Reload environment variables
@@ -100,6 +103,8 @@ Launch a new tab in your terminal window. Alternatively, you can detach from you
 
 At the terminal, find out the running docker containers:
 
+Mac: command + t
+
 ```
 docker ps
 ```
@@ -115,8 +120,10 @@ docker commit <ID of running container> <create a new name for your new image>
 Switch back to your original container.
 
 ```
-go get github.com/GoesToEleven/go-hello-world 
+go get -d github.com/GoesToEleven/go-hello-world 
 ```
+
+-d flag = just download
 
 # go install your project
 
@@ -124,6 +131,13 @@ Navigate to the directory with the go code:
 
 ```
 go install
+```
+
+# Change permissions
+
+```
+cd ~/goworkspace/bin
+chmod 777 go-hello-world
 ```
 
 # Commit your container to an image
@@ -156,8 +170,32 @@ docker push <docker hub username>/<image name>
 
 # Run a container from your image
 
+docker run -d -p <host port>:<container port> <username>/<image name>  <commands to run in the container>
+
 ```
-docker run -d --name hello -p 80:8080 user/image-name ~/goworkspace/bin/go-hello-world
+docker run -d -p 80:8080 toddmcleod/helloworld  /root/goworkspace/bin/helloworld
 ```
 
--p maps network ports; docker host port : container port
+The -d flag runs the container in the background (as a so-called daemon).
+
+The -p flag maps any required network ports inside the container to your host. This lets you view the web application. <host port>:<container port>
+
+The toddmcleod/helloworld image is a pre-built image that contains a simple Go web application.
+
+The remaining arguments make up the command that is run inside the container.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

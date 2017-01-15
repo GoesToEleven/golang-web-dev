@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAGINATION</title>
+</head>
+<body>
+
+<h1>RECORDS {{.From}} - {{.To}}</h1>
+{{range .Data}}
+    {{.}}
+{{end}}
+<h1><a href="/?next={{.BackwardStart}}">Previous {{.Amount}}</a> - <a href="/?next={{.ForwardStart}}">Next {{.Amount}}</a></h1>
+</body>
+</html>
