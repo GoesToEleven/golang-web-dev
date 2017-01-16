@@ -13,6 +13,8 @@ docker tag <image ID>  <docker hub username>/<image name>:<version label or tag>
 
 # Give terminal your docker hub credentials
 
+Create a docker hub account, if necessary
+
 ```
 docker login
 ```
@@ -49,10 +51,10 @@ docker <COMMAND> --help
 docker rmi --help
 ```
 
-# Pull docker-whale from your repo
+# Pull from your repo
 
 ```
-docker run <yourusername>/docker-whale
+docker run <yourusername>/<app-name>
 ```
 
 # Look at what you've done
@@ -62,6 +64,8 @@ docker run <yourusername>/docker-whale
 1. located an interesting image on Docker Hub
 1. run the image on your own machine
 1. modified an image to create your own and run it
+1. built a docker image with a Go web app
+1. run a docker container with a Go web app
 1. create a Docker Hub account and repository
 1. pushed your image to Docker Hub for others to share
 
