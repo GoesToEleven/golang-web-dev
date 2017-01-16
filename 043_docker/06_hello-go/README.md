@@ -1,4 +1,4 @@
-# Create Go code
+# Create Go app
 
 Create a directory
 
