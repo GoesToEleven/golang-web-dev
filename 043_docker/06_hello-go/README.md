@@ -1,9 +1,63 @@
-# Build an image
+# Create Go code
 
-1. Create a Dockerfile
-1. Build an image from the Dockerfile
+Create a directory
+
+Create main.go
+
+Create code for a "hello world" web app
+
+# Create .dockerignore file
+
+If you want to ignore any files or directories in your build, add a .dockerignore file
 
 # Create Dockerfile
+
+The Dockerfile must be named Dockerfile.
+
+The Dockerfile will include EVERYTHING in the current directory, and descendent directories, in the image which is built (unless told to ignore something by the .dockerignore file)
+
+The Dockerfile may start with a comment
+
+# Yo, this is my Dockerfile, Yo
+
+The Dockerfile must have FROM as the first instruction
+
+The FROM says what image your are building this image from.
+
+In most cases, you will start with an image to build your image.
+
+You then later new images on top of your starting FROM image, and that all finally becomes your finished image.
+
+Images are made out of images layered on top of images.
+
+You can add in a MAINTAINER instruction if you'd like and say who built this image
+
+We are going to build our image FROM a golang image so ...
+
+Go to docker hub
+
+Search for golang
+
+Find the golang image you want
+
+We will use: golang:1.8-onbuild
+
+So our Dockerfile will be
+
+```
+# Some comment
+FROM golang:1.8-onbuild
+MAINTAINER youremail@gmail.com
+```
+
+# Now build our image
+
+```
+
+```
+
+
+Create Dockerfile
 
 ## Create a directory
 
