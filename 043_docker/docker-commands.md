@@ -68,7 +68,26 @@ docker rmi -f <image ID or image name>
 docker --help
 docker <COMMAND> --help
 docker rmi --help
-docker run <yourusername>/<app-name>
+docker search <yourusername>
+## run it this way if it's our go web app from previous step
+docker run -d -p 80:80 <yourusername>/<app-name>
+docker ps
+docker stop <container id>
+docker ps
+docker images
+
+# 08_aws-docker
+
+sudo chmod 400 your.pem
+ssh -i /path/to/[your].pem ec2-user@[public-DNS]
+sudo yum update -y
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+docker info
+docker run -d -p 80:80 toddmcleod/golang-hello-world
+docker ps
+Use the IP address of your instance
 
 
 

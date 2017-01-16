@@ -53,12 +53,26 @@ docker rmi --help
 
 # Pull from your repo
 
+## run it this way if it's our go web app from previous step
+```
+docker run -d -p 80:80 <yourusername>/<app-name>
+```
+
+## for some other image you might use this
 ```
 docker run <yourusername>/<app-name>
 ```
 
+# Stop your container from running
+docker ps
+docker stop <container id>
+docker ps
+docker images
+
 # Look at what you've done
 
+1. gained an understanding of containers & Docker
+1. gained an understanding of Docker, images, containers, image repositories
 1. installed Docker
 1. run a software image in a container
 1. located an interesting image on Docker Hub
@@ -68,4 +82,3 @@ docker run <yourusername>/<app-name>
 1. run a docker container with a Go web app
 1. create a Docker Hub account and repository
 1. pushed your image to Docker Hub for others to share
-
