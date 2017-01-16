@@ -1,7 +1,7 @@
 # See what images you currently have
 
 ```
-docker image
+docker images
 ```
 
 # Add a docker tag
@@ -31,7 +31,6 @@ Your image should be there.
 
 ```
 docker images
-
 ```
 
 # Remove all "docker-whale" images

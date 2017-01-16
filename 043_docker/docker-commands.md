@@ -9,7 +9,7 @@ docker ps
 
 ## 03_run-images
 
-docker search
+docker search <search term>
 docker run docker/whalesay cowsay boo
 docker images
 docker ps -a
@@ -29,7 +29,7 @@ docker build -t docker-whale .
 docker images
 docker run docker-whale
 
-## 05_push-pull
+## xx05_push-pull
 
 docker images
 docker tag <image ID>  <docker hub username>/<image name>:<version label or tag>
@@ -42,7 +42,7 @@ docker --help
 docker rmi --help
 docker run <yourusername>/docker-whale
 
-# 06_daemon
+# xx06_daemon
 
 docker run
 docker run ubuntu /bin/echo 'Hello world'
@@ -55,7 +55,7 @@ docker stop <container name>
 docker ps
 docker ps -a
 
-# 07_custom-image
+# xx07_custom-image
 
 docker run -t -i ubuntu /bin/bash
 apt-get update
@@ -67,7 +67,7 @@ docker commit <ID of running container> <create a new name for your new image>
 docker run -t -i <name of your new container> /bin/bash
 curl --head www.google.com
 
-#08_add-binary
+# xx08_add-golang
 docker run -t -i ubuntu /bin/bash
 apt-get update
 apt-get -y upgrade
@@ -96,6 +96,11 @@ go version
 Mac: command + t
 docker ps
 docker commit <ID of running container> <create a new name for your new image>
+docker tag <image ID>  <docker hub username>/<image name>:<version label or tag>
+docker login
+docker push <docker hub username>/<image name>
+
+# xx09_add-binary
 go get -d github.com/GoesToEleven/go-hello-world 
 go install
 cd ~/goworkspace/bin

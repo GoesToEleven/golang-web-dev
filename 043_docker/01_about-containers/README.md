@@ -1,6 +1,6 @@
 # Applications & machines
 
-Back in the day, an application would be created and run on a machine. There was a ratio of 1:1. Each application ran on its own machine.
+Back in the day, an application would be created and run on a machine. There was a ratio of 1:1. One application, one machine.
  
 When wondering what type of a machine to purchase for their application, developers always purchased the most powerful machine possible. There was no certainty as to how much an application might be in demand. To cover their asses, they errored on the side of too much power instead of not enough.
 
@@ -22,11 +22,13 @@ Here is an image from [docker's website](https://www.docker.com/what-docker) tha
 
 There was a downside to this, though: each virtual machine had its own operating system. This created license and maintenance costs, as well as using up resources on the physical machine.
 
-The question arose: Is there a way to divide up a physical machine, but only have one operating system on that machine?
+The question arose: **Is there a way to divide up a physical machine, but only have one operating system on that machine?**
 
 # Containers
 
-Linux is built in such a way that this is possible: you can create separate user spaces. Each user space has its own file system and processes. The user spaces are all segregated and separate from each other.
+Linux is built in such a way that you can create separate user spaces. 
+
+Each user space is in a separate isolated "sandbox" area. Each user space has its own file system and processes. These user spaces are all segregated and separate from each other.
 
 Containers leverage this technology of the Linux operating system.
 
@@ -36,7 +38,7 @@ Each PHYSICAL MACHINE has ONE LINUX OPERATING SYSTEM.
 
 Containers use the Linux OS of the physical machine. 
 
-To the user, each container appears just like a real machine to its user.
+To the user, each container appears just like a real machine.
 
 Here is an image from [docker's website](https://www.docker.com/what-docker) that shows a comparison between virtual machines and containers:
 

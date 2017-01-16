@@ -1,9 +1,9 @@
 # Build an image
 
-1. Create a dockerfile
-1. Build an image from the dockerfile
+1. Create a Dockerfile
+1. Build an image from the Dockerfile
 
-# Create dockerfile
+# Create Dockerfile
 
 ## Create a directory
 
@@ -34,10 +34,6 @@ CMD /usr/games/fortune -a | cowsay
 ### FROM
 The FROM keyword tells Docker which image your image is based on. 
 
-```
-FROM docker/whalesay:latest
-```
-
 ### RUN
 The RUN statement will install the fortunes program into the image. 
 
@@ -47,21 +43,13 @@ These two commands refresh the list of packages available to the image and insta
 
 The fortunes program prints out wise sayings for our whale to say.
 
-
-```
-RUN apt-get -y update && apt-get install -y fortunes
-```
-
 ### CMD
 The CMD statement tells the image the final command to run after its environment is set up. 
 
 This command runs fortune -a and pipes its output to the cowsay command.
 
-```
-CMD /usr/games/fortune -a | cowsay
-```
 
-# Build an image from the dockerfile
+# Build an image from the Dockerfile
 
 ## Docker build
 Build the image using the docker build command. 
