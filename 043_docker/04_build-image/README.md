@@ -1,3 +1,23 @@
+# Main points
+
+## Dockerfile --> Docker image --> Docker containers
+
+A Dockerfile builds a docker image. From a docker image, you can run an unlimited number of containers.
+
+## Your Dockerfile must be named Dockerfile
+
+## Include stuff in your image
+
+Everything in the folder with your Dockerfile, and all subsequent folders down the directory structure, are included in your image.
+
+## Dockerfile always start with "FROM"
+
+Specify some image unless you're creating from scratch.
+
+You can also have a comment on the first line. Dockerfile comments are ```#``` hash symbols
+
+##
+
 # Build an image
 
 1. Create a Dockerfile
