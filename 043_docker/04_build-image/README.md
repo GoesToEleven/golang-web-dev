@@ -10,7 +10,7 @@ A Dockerfile builds a docker image. From a docker image, you can run an unlimite
 
 Everything in the folder with your Dockerfile, and all subsequent folders down the directory structure, are included in your image.
 
-## Dockerfile always start with "FROM"
+## Dockerfile always starts with "FROM"
 
 Specify some image unless you're creating from scratch.
 
