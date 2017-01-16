@@ -18,7 +18,9 @@ The Dockerfile will include EVERYTHING in the current directory, and descendent 
 
 The Dockerfile may start with a comment
 
+```
 # Yo, this is my Dockerfile, Yo
+```
 
 The Dockerfile must have FROM as the first instruction
 
