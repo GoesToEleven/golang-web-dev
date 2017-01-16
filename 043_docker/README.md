@@ -2,21 +2,26 @@
 
 ## 02_install
 
+```
 docker version
 docker run hello-world 
 docker ps -a
 docker ps
+```
 
 ## 03_run-images
 
+```
 docker search <search term>
 docker run docker/whalesay cowsay boo
 docker images
 docker ps -a
 docker ps
+```
 
 ## 04_build-image
 
+```
 mkdir mydockerbuild
 cd mydockerbuild
 nano Dockerfile
@@ -28,23 +33,26 @@ CMD /usr/games/fortune -a | cowsay
 docker build -t docker-whale .
 docker images
 docker run docker-whale
+```
 
 # 05_curl
 
+```
 mkdir mydockerbuild2
 cd mydockerbuild2
 nano Dockerfile
 
-```
+
 # Creates an ubuntu image with curl installed
 FROM ubuntu:latest
 RUN apt-get -y update && apt-get install -y curl
-```
+
 
 docker build -t curler .
 docker images
 docker run -it curler /bin/bash
 curl --head www.google.com
+```
 
 # 06_hello-go
 
@@ -52,13 +60,15 @@ curl --head www.google.com
 # Some comment
 FROM golang:1.8-onbuild
 MAINTAINER youremail@gmail.com
-```
+
 
 docker build -t my-app .
 docker run -d -p 80:80 my-app
- 
+```
+
 # 07_push-pull
 
+```
 docker images
 docker tag <image ID>  <docker hub username>/<image name>:<version label or tag>
 docker login
@@ -75,9 +85,11 @@ docker ps
 docker stop <container id>
 docker ps
 docker images
+```
 
 # 08_aws-docker
 
+```
 sudo chmod 400 your.pem
 ssh -i /path/to/[your].pem ec2-user@[public-DNS]
 sudo yum update -y
@@ -88,26 +100,4 @@ docker info
 docker run -d -p 80:80 toddmcleod/golang-hello-world
 docker ps
 Use the IP address of your instance
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
