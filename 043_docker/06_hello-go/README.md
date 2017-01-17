@@ -74,7 +74,7 @@ Make sure you are in the correct directory when you run this
  
 -d means run this detached, as a daemon, eg, not dependent on the terminal session
 
--p means map ports; mapping <host machine port>:<to docker container port>
+-p means map ports; mapping ```<host machine port>:<to docker container port>```
  
  
 # Verify it's running

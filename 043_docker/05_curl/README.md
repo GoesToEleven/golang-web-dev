@@ -58,13 +58,13 @@ docker images
 
 ### Mac / Linux / maybe Windows
 ```
-docker run -it <image name> /bin/bash
+MAC / LINUX: docker run -it <image name> /bin/bash
 ```
 
 ### Windows: if you get this error ```the input device is not a TTY. If you are using mintty, try prefixing the command with "winpty" ``` use the below code
 
 ```
-winpty docker run -it <image name> bash
+WINDOWS: winpty docker run -it <image name> bash
 ```
 
 ## run a curl command

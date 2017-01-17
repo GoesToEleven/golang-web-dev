@@ -49,8 +49,8 @@ RUN apt-get -y update && apt-get install -y curl
 docker build -t <give it an image name> .
 docker images
 
-docker run -it <image name> /bin/bash
-winpty docker run -it <image name> bash
+MAC / LINUX: docker run -it <image name> /bin/bash
+WINDOWS: winpty docker run -it <image name> bash
 
 curl --head www.google.com
 exit
