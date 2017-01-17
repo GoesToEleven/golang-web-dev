@@ -35,7 +35,7 @@ docker images
 docker run docker-whale
 ```
 
-# 05_curl
+## 05_curl
 
 ```
 mkdir mydockerbuild2
@@ -56,7 +56,7 @@ curl --head www.google.com
 exit
 ```
 
-# 06_hello-go
+## 06_hello-go
 
 ```
 # Some comment
@@ -68,7 +68,7 @@ docker build -t my-app .
 docker run -d -p 80:80 my-app
 ```
 
-# 07_push-pull
+## 07_push-pull
 
 ```
 docker images
@@ -89,7 +89,7 @@ docker ps
 docker images
 ```
 
-# 08_aws-docker
+## 08_aws-docker
 
 ```
 sudo chmod 400 your.pem

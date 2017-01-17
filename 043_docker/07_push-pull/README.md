@@ -64,10 +64,12 @@ docker run <yourusername>/<app-name>
 ```
 
 # Stop your container from running
+```
 docker ps
 docker stop <container id>
 docker ps
 docker images
+```
 
 # Look at what you've done
 

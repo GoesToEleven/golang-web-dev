@@ -126,7 +126,7 @@ When Docker runs a container, it runs an image inside it. This image is usually 
 All three instructions (RUN, CMD and ENTRYPOINT) can be specified in shell form or exec form. Let's get familiar with these forms first, because the forms usually cause more confusion than instructions themselves.
 
 ## Shell form
-<instruction> <command>
+```<instruction> <command>```
 
 Examples:
 
@@ -136,7 +136,7 @@ CMD echo "Hello world"
 ENTRYPOINT echo "Hello world"
 ```
 
-When instruction is executed in shell form it calls /bin/sh -c <command> under the hood and normal shell processing happens. For example, the following snippet in Dockerfile
+When instruction is executed in shell form it calls /bin/sh -c ```<command>``` under the hood and normal shell processing happens. For example, the following snippet in Dockerfile
 
 ```
 ENV name John Dow
@@ -157,7 +157,7 @@ Note that variable name is replaced with its value.
 
 This is the preferred form for CMD and ENTRYPOINT instructions.
 
-<instruction> ["executable", "param1", "param2", ...]
+```<instruction> ["executable", "param1", "param2", ...]```
 
 Examples:
 
@@ -209,8 +209,10 @@ RUN allows you to install your application and packages. It executes any command
 
 RUN has two forms:
 
+```
 RUN <command> (shell form)
 RUN ["executable", "param1", "param2"] (exec form)
+```
 
 (The forms are described in detail in Shell and Exec forms section above.)
 
