@@ -42,16 +42,18 @@ mkdir mydockerbuild2
 cd mydockerbuild2
 nano Dockerfile
 
-
 # Creates an ubuntu image with curl installed
 FROM ubuntu:latest
 RUN apt-get -y update && apt-get install -y curl
 
-
-docker build -t curler .
+docker build -t <give it an image name> .
 docker images
-docker run -it curler /bin/bash
+
+docker run -it <image name> /bin/bash
+winpty docker run -it <image name> bash
+
 curl --head www.google.com
+exit
 ```
 
 # 06_hello-go
