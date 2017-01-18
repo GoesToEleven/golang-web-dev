@@ -1,24 +1,25 @@
-# Go & postgres
-
-driver
-```
-go get github.com/lib/pq
-```
-
-## create database
+# our pathway
 
 We will be following the example created in [this article by Alex Edwards](http://www.alexedwards.net/blog/practical-persistence-sql) and licensed under a [MIT license](https://opensource.org/licenses/MIT)
 
-```
-CREATE DATABASE bookstore;
-```
+You should already have a ```bookstore``` database:
 
 list databases
 ```
 \l
 ```
 
-## create table
+switch into that database
+```
+\c bookstore
+```
+
+directory of tables, if any
+```
+\d
+```
+
+# create table
 ```
 CREATE TABLE books (
   isbn    char(14)     PRIMARY KEY NOT NULL,
@@ -28,17 +29,17 @@ CREATE TABLE books (
 );
 ```
 
-list tabls
+directory of tables
 ```
 \d
 ```
 
-list table details
+details of table ```books```
 ```
 \d books
 ```
 
-## insert records
+# insert records
 ```
 INSERT INTO books (isbn, title, author, price) VALUES
 ('978-1503261969', 'Emma', 'Jayne Austen', 9.44),
@@ -49,164 +50,4 @@ INSERT INTO books (isbn, title, author, price) VALUES
 view records
 ```
 SELECT * FROM books;
-```
-
-
-/////////////
-
-# Organizing code
-
-
-
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
-```
-
-##
-```
 ```

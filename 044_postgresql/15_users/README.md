@@ -12,20 +12,20 @@ SELECT current_user;
 
 ## create user
 ```
-CREATE USER bond WITH PASSWORD 'password';
+CREATE USER james WITH PASSWORD 'password';
 ```
 
 ## grant privileges
 ```
-GRANT ALL PRIVILEGES ON DATABASE employees to bond;
+GRANT ALL PRIVILEGES ON DATABASE employees to james;
 ```
 
 ## alter
 ```
-ALTER USER bond WITH SUPERUSER;
+ALTER USER james WITH SUPERUSER;
 ```
 
 ## remove
 ```
-DROP USER bond;
+DROP USER james;
 ```
