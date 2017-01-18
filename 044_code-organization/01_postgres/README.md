@@ -299,6 +299,8 @@ A full outer join is like running both a left outer join and a right outer join 
   SELECT person.NAME, sport.NAME FROM person FULL OUTER JOIN sport ON person.ID = sport.P_ID;
 ```
 
+https://www.tutorialspoint.com/postgresql/postgresql_operators.htm
+
 /////////////
 
 # Organizing code
