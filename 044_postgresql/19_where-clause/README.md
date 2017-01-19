@@ -1,72 +1,22 @@
-# init
+# query a single book
 
-Add a package level scope variable
-```
-var db *sql.DB
-```
+add these lines of code:
 
-# Initialize your database
-Note: ```defer.db.Close()``` has been removed
+## func main()
 ```
-func init() {
-	var err error
-	db, err = sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
-	if err != nil {
-		panic(err)
-	}
-
-	if err = db.Ping(); err != nil {
-		panic(err)
-	}
-	fmt.Println("You connected to your database.")
-}
+  http.HandleFunc("/books/show", booksShow)
 ```
 
-# add routes & server
-```
-func main() {
-	http.HandleFunc("/", index)
-	http.ListenAndServe(":8080", nil)
-}
-```
+## func bookShow added
+Arguments to the SQL function are referenced in the function body using the syntax $n: $1 refers to the first argument, $2 to the second, and so on. If an argument is of a composite type, then the dot notation, e.g., $1.name, can be used to access attributes of the argument. The arguments can only be used as data values, not as identifiers.[source: postgres docs](https://www.postgresql.org/docs/9.1/static/xfunc-sql.html)
 
-# add a index func
-```
-func index(w http.ResponseWriter, r *http.Request){
-	if r.Method != "GET" {
-		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
-		return
-	}
-
-	rows, err := db.Query("SELECT * FROM books")
-	if err != nil {
-		http.Error(w, http.StatusText(500), 500)
-		return
-	}
-	defer rows.Close()
-
-	bks := make([]Book, 0)
-	for rows.Next() {
-		bk := Book{}
-		err := rows.Scan(&bk.isbn, &bk.title, &bk.author, &bk.price) // order matters
-		if err != nil {
-			http.Error(w, http.StatusText(500), 500)
-			return
-		}
-		bks = append(bks, bk)
-	}
-	if err = rows.Err(); err != nil {
-		http.Error(w, http.StatusText(500), 500)
-		return
-	}
-
-	for _, bk := range bks {
-		fmt.Fprintf(w, "%s, %s, %s, $%.2f\n", bk.isbn, bk.title, bk.author, bk.price)
-	}
-}
-```
+"Behind the scenes, **db.QueryRow (and also db.Query() and db.Exec()) work by creating a new prepared statement** on the database, and subsequently execute that prepared statement using the placeholder parameters provided. This means that **all three methods are safe from SQL injection** when used correctly . From Wikipedia:
+ 
+ Prepared statements are resilient against SQL injection, because parameter values, which are transmitted later using a different protocol, need not be correctly escaped. If the original statement template is not derived from external input, injection cannot occur.
+ 
+The placeholder parameter syntax differs depending on your database. Postgres uses the $N notation, but MySQL, SQL Server and others use the ? character as a placeholder." - Alex Edwards
 
 # run the application and make a request
 ```
-curl -i localhost:8080/books
+curl -i localhost:8080/books/show?isbn=978-1505255607
 ```

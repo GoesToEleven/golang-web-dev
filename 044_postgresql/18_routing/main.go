@@ -10,14 +10,13 @@ import (
 var db *sql.DB
 
 func init() {
-	db, err := sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
+	var err error
+	db, err = sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
 
-	err = db.Ping()
-	if err != nil {
+	if err = db.Ping(); err != nil {
 		panic(err)
 	}
 	fmt.Println("You connected to your database.")
@@ -32,11 +31,11 @@ type Book struct {
 
 
 func main() {
-	http.HandleFunc("/", index)
+	http.HandleFunc("/books", booksIndex)
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func booksIndex(w http.ResponseWriter, r *http.Request){
 	if r.Method != "GET" {
 		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 		return

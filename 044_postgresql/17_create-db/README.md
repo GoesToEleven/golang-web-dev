@@ -82,6 +82,14 @@ db, err := sql.Open("postgres", "postgres://bond:password@localhost/bookstore?ss
 ```
 "In the main() function we initialise a new sql.DB by calling sql.Open(). We pass in the name of our driver (in this case "postgres") and the connection string (you'll need to check your driver documentation for the correct format). It's worth emphasizing that **sql.DB is not a database connection – it's an abstraction representing a pool of underlying connections.** You can change the maximum number of open and idle connections in the pool with the db.SetMaxOpenConns() and db.SetMaxIdleConns() methods respectively. A final thing to note is that **sql.DB is safe for concurrent access,** which is very convenient if you're using it in a web application (like we will shortly)." - Alex Edwards
 
+## ping the db
+```
+	if err = db.Ping(); err != nil {
+		panic(err)
+	}
+```
+"Because  sql.Open() doesn't actually check a connection, we also call DB.Ping() to make sure that everything works OK on startup." - Alex Edwards
+
 ## query the db
 ```
 rows, err := db.Query("SELECT * FROM books")

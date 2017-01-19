@@ -20,13 +20,12 @@ func main() {
 	}
 	defer db.Close()
 
-	err = db.Ping()
-	if err != nil {
+	if err = db.Ping(); err != nil {
 		panic(err)
 	}
 	fmt.Println("You connected to your database.")
 
-	rows, err := db.Query("SELECT * FROM books")
+	rows, err := db.Query("SELECT * FROM books;")
 	if err != nil {
 		panic(err)
 	}

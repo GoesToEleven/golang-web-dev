@@ -6,16 +6,16 @@ var db *sql.DB
 ```
 
 # Initialize your database
+Note: ```defer.db.Close()``` has been removed
 ```
 func init() {
-	db, err := sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
+	var err error
+	db, err = sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
 
-	err = db.Ping()
-	if err != nil {
+	if err = db.Ping(); err != nil {
 		panic(err)
 	}
 	fmt.Println("You connected to your database.")
@@ -64,4 +64,9 @@ func index(w http.ResponseWriter, r *http.Request){
 		fmt.Fprintf(w, "%s, %s, %s, $%.2f\n", bk.isbn, bk.title, bk.author, bk.price)
 	}
 }
+```
+
+# run the application and make a request
+```
+curl -i localhost:8080/books
 ```

@@ -33,6 +33,7 @@ type Book struct {
 func main() {
 	http.HandleFunc("/books", booksIndex)
 	http.HandleFunc("/books/show", booksShow)
+	http.HandleFunc("/books/create", booksCreate)
 	http.ListenAndServe(":8080", nil)
 }
 
