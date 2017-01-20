@@ -32,7 +32,7 @@ A schema is like a folder.
 
 Into this folder, you can put tables, views, indexes, sequences, data types, operators, and functions. 
 
-Unlike olders, however, schemas can't be nested.
+Unlike folders, however, schemas can't be nested.
 
 Schemas provide namespacing.
 
