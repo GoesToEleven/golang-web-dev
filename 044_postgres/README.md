@@ -322,12 +322,13 @@ inner join TableC c
 ```
 
 # outer join
- 
+
+#### left outer join
   ```
   SELECT person.NAME, sport.NAME FROM person LEFT OUTER JOIN sport ON person.ID = sport.P_ID;
   ```
  
-## right outer join
+#### right outer join
 A right outer join is like a left outer join, but for the table on the right.
 
 ```
@@ -338,7 +339,7 @@ INSERT INTO sport (NAME) VALUES ('Squirrel Suit Flying');
   SELECT person.NAME, sport.NAME FROM person RIGHT OUTER JOIN sport ON person.ID = sport.P_ID;
 ```
 
-## full outer join
+#### full outer join
 A full outer join is like running both a left outer join and a right outer join at the same time. It gives you everything from all tables, and matches what matches.
 
 ```
