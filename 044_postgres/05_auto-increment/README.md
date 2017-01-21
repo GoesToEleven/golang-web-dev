@@ -19,3 +19,7 @@ INSERT INTO phonenumbers (PHONE) VALUES ( '234-432-5234'), ('543-534-6543'), ('3
 ```
 \d phonenumbers
 ```
+
+```
+SELECT * FROM phonenumbers;
+```

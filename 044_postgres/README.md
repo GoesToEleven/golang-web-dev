@@ -116,6 +116,10 @@ INSERT INTO phonenumbers (PHONE) VALUES ( '234-432-5234'), ('543-534-6543'), ('3
 \d phonenumbers
 ```
 
+```
+SELECT * FROM phonenumbers;
+```
+
 # hands-on exercise
 1. delete all of your current tables.
 1. READ ALL OF THIS: create a new table called employees with these fields ```id, name, score, salary``` AND give ```score``` a default value of 10 AND have the ```id``` field automatically increment.
