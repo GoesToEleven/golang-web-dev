@@ -1,7 +1,9 @@
 # general syntax
 
 ## select
+```
 SELECT <fields> FROM <table>;
+```
 
 ```
 SELECT * FROM employees;
@@ -12,14 +14,19 @@ SELECT name, score FROM employees;
 ```
 
 ## cross join
+```
 SELECT <fields> FROM <table> CROSS JOIN <table>;
+```
+
 ```
 SELECT person.NAME, sport.NAME FROM person CROSS JOIN sport;
 ```
 
 ## inner join
+```
 SELECT <fields> FROM <table> INNER JOIN <table>
 ON <pkey> = <fkey>;
+```
 
 ```
 SELECT person.NAME, sport.NAME FROM person INNER JOIN sport
