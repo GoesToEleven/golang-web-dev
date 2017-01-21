@@ -212,7 +212,7 @@ SELECT person.NAME, sport.NAME FROM person CROSS JOIN sport;
 
 ## two tables
 
-### review
+### review basic select
 
 ```
 SELECT <fields> FROM <table>;
@@ -226,7 +226,7 @@ SELECT * FROM employees;
 SELECT name, score FROM employees;
 ```
 
-#### cross join
+#### review cross join
 ```
 SELECT <fields> FROM <table1> CROSS JOIN <table2>;
 ```
