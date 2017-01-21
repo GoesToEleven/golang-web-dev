@@ -15,7 +15,7 @@ SELECT name, score FROM employees;
 
 ## cross join
 ```
-SELECT <fields> FROM <table> CROSS JOIN <table>;
+SELECT <fields> FROM <table1> CROSS JOIN <table2>;
 ```
 
 ```
