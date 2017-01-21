@@ -210,6 +210,42 @@ SELECT person.NAME, sport.NAME FROM person CROSS JOIN sport;
 
 # inner join
 
+## two tables
+
+### review
+
+```
+SELECT <fields> FROM <table>;
+```
+
+```
+SELECT * FROM employees;
+```
+
+```
+SELECT name, score FROM employees;
+```
+
+#### cross join
+```
+SELECT <fields> FROM <table1> CROSS JOIN <table2>;
+```
+
+```
+SELECT person.NAME, sport.NAME FROM person CROSS JOIN sport;
+```
+
+### inner join
+```
+SELECT <fields> FROM <table> INNER JOIN <table>
+ON <pkey> = <fkey>;
+```
+
+```
+SELECT person.NAME, sport.NAME FROM person INNER JOIN sport
+ON person.ID = sport.P_ID;
+```
+
 ```
 SELECT employees.NAME, phonenumbers.PHONE FROM employees INNER JOIN phonenumbers ON employees.ID = phonenumbers.EMP_ID;
 ```
@@ -220,7 +256,72 @@ We can use one with our ```people``` and ```sports``` table too, if we wanted, a
 SELECT person.NAME, sport.NAME FROM person INNER JOIN sport ON person.ID = sport.P_ID;
 ```
 
-## outer join
+## three tables - video rental database
+
+### create a database
+```
+create database blockbuster;
+```
+
+### switch into the database
+```
+\c blockbuster
+```
+
+### create three tables
+
+```
+create table customers (cid serial primary key not null, cfirst char(50) not null);
+```
+
+```
+create table movies (mid serial primary key not null, mmovie char(50) not null);
+```
+
+```
+create table rentals (rid serial primary key not null, cid int references customers(cid), mid int references movies(mid));
+```
+
+### populate tables
+```
+insert into customers (cfirst) values ('James Bond'), ('Miss Moneypenny'), ('Q'), ('M'), ('Fleming');
+```
+
+```
+insert into movies (mmovie) values ('Jaws'), ('Alien'), ('Never Say Never'), ('Skyfall'), ('Highlander');
+```
+
+```
+insert into rentals (cid, mid) values (1,3), (2,5), (4,1), (3,2), (5,4), (3,2), (1,3), (2,4), (5,4), (2,1), (2,3), (4,5), (5,2), (2,1), (3,2), (3,3), (2,3), (1,4), (3,2), (2,3), (3,3), (2,4), (2,3), (1,2), (3,5), (3,4), (1,5);
+```
+
+### inner join query
+```
+select customers.cfirst, movies.mmovie from customers inner join rentals on customers.cid = rentals.cid inner join movies on rentals.mid = movies.mid;
+```
+
+
+### How this works
+
+```
+select * from
+tableA inner join tableB
+    on tableA.common = tableB.common
+inner join TableC
+    on tableB.common = TableC.common
+```
+
+### you might also see alias use
+
+```
+select * from
+tableA a inner join tableB b
+        on a.common = b.common
+inner join TableC c
+        on b.common = c.common
+```
+
+# outer join
  
   ```
   SELECT person.NAME, sport.NAME FROM person LEFT OUTER JOIN sport ON person.ID = sport.P_ID;
