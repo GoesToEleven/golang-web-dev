@@ -1,47 +1,43 @@
+# create a database
+```
+create database blockbuster;
+```
+
+# switch into the database
+```
+\c blockbuster
+```
+
 # create three tables
 
 ```
-CREATE TABLE people (
-   ID  SERIAL PRIMARY KEY NOT NULL,
-   NAME           CHAR(50) NOT NULL
-);
+create table customers (cid serial primary key not null, cfirst char(50) not null);
 ```
 
 ```
-CREATE TABLE videos (
-   ID  SERIAL PRIMARY KEY NOT NULL,
-   NAME           CHAR(50) NOT NULL
-);
+create table movies (mid serial primary key not null, mmovie char(50) not null);
 ```
 
 ```
-CREATE TABLE rentals (
-   ID  SERIAL PRIMARY KEY NOT NULL,
-   V_ID         INT      references people(ID),
-   P_ID         INT      references videos(ID)
-);
+create table rentals (rid serial primary key not null, cid int references customers(cid), mid int references movies(mid));
 ```
 
 # populate tables
 ```
-INSERT INTO people (NAME) VALUES ('Shen'), ('Daniel'), ('Juan'), ('Arin'), ('McLeod');
+insert into customers (cfirst) values ('James Bond'), ('Miss Moneypenny'), ('Q'), ('M'), ('Fleming');
 ```
 
 ```
-INSERT INTO videos (NAME) VALUES ('Jaws'), ('Alien'), ('Never Say Never'), ('Skyfall'), ('Highlander');
+insert into movies (mmovie) values ('Jaws'), ('Alien'), ('Never Say Never'), ('Skyfall'), ('Highlander');
 ```
 
 ```
-INSERT INTO rentals (V_ID, P_ID) VALUES (1,3), (2,5), (4,1), (3,2), (5,4), (3,2), (1,3), (2,4), (5,4), (2,1), (2,3), (4,5), (5,2), (2,1), (3,2), (3,3), (2,3), (1,4), (3,2), (2,3), (3,3), (2,4), (2,3), (1,2), (3,5), (3,4), (1,5);
+insert into rentals (cid, mid) values (1,3), (2,5), (4,1), (3,2), (5,4), (3,2), (1,3), (2,4), (5,4), (2,1), (2,3), (4,5), (5,2), (2,1), (3,2), (3,3), (2,3), (1,4), (3,2), (2,3), (3,3), (2,4), (2,3), (1,2), (3,5), (3,4), (1,5);
 ```
 
 # inner join query
 ```
-SELECT people.NAME, videos.NAME FROM
-people INNER JOIN rentals
-    ON people.ID = rentals.P_ID
-INNER JOIN videos
-    ON rentals.V_ID = videos.ID;
+select customers.cfirst, movies.mmovie from customers inner join rentals on customers.cid = rentals.cid inner join movies on rentals.mid = movies.mid;
 ```
 
 
