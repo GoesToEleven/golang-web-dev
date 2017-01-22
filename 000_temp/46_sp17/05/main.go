@@ -5,9 +5,9 @@ import "fmt"
 func main() {
 	x := 42
 	fmt.Println(x)
-	foo()
+	foo(x)
 }
 
-func foo() {
-	fmt.Println("hello")
+func foo(x int) {
+	fmt.Println("hello", x)
 }
