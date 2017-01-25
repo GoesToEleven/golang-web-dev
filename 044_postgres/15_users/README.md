@@ -29,6 +29,11 @@ REVOKE ALL PRIVILEGES ON DATABASE company to james;
 ## alter
 ```
 ALTER USER james WITH SUPERUSER;
+``
+
+## alter
+```
+ALTER USER james WITH NOSUPERUSER;
 ```
 
 ## remove
