@@ -2,6 +2,14 @@
 
 We will be following the example created in [this article by Alex Edwards](http://www.alexedwards.net/blog/practical-persistence-sql) and licensed under a [MIT license](https://opensource.org/licenses/MIT)
 
+In order to successfully pull records from a table in a database as our user ```bond```, we will need to [ALTER](https://www.postgresql.org/docs/9.6/static/sql-alteruser.html) bond to have a different role.
+
+# alter bond's role
+```
+alter user bond with superuser;
+```
+
+# switch to your bookstore database
 You should already have a ```bookstore``` database:
 
 list databases
