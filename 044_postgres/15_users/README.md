@@ -16,8 +16,14 @@ CREATE USER james WITH PASSWORD 'password';
 ```
 
 ## grant privileges
+privileges: SELECT, INSERT, UPDATE, DELETE, RULE, ALL
 ```
-GRANT ALL PRIVILEGES ON DATABASE employees to james;
+GRANT ALL PRIVILEGES ON DATABASE company to james;
+```
+
+## revoke privileges
+```
+REVOKE ALL PRIVILEGES ON DATABASE company to james;
 ```
 
 ## alter
