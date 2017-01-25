@@ -42,7 +42,7 @@ func booksIndex(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	rows, err := db.Query("SELECT * FROM books")
+	rows, err := db.Query("SELECT * FROM books;")
 	if err != nil {
 		http.Error(w, http.StatusText(500), 500)
 		return
