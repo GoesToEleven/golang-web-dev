@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Book</title>
+    <style>
+        html, body {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 5rem;
+            color: powderblue;
+        }
+        h2 {
+            font-size: 3rem;
+            color: blue;
+          }
+    </style>
+</head>
+<body>
+
+<h1>Created A New Book</h1>
+<h2>LastInsertID{{.LastInsertId}}</h2>
+<h2>RowsAffected{{.RowsAffected}}</h2>
+
+</body>
+</html>

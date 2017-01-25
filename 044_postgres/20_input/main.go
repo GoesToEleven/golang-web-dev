@@ -5,9 +5,12 @@ import (
 	"fmt"
 	_ "github.com/lib/pq"
 	"net/http"
+	"html/template"
+	"strconv"
 )
 
 var db *sql.DB
+var tpl *template.Template
 
 func init() {
 	var err error
@@ -20,6 +23,8 @@ func init() {
 		panic(err)
 	}
 	fmt.Println("You connected to your database.")
+
+	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
 
 type Book struct {
@@ -72,13 +77,13 @@ func booksIndex(w http.ResponseWriter, r *http.Request){
 
 func booksShow(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
-		http.Error(w, http.StatusText(405), 405)
+		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 		return
 	}
 
 	isbn := r.FormValue("isbn")
 	if isbn == "" {
-		http.Error(w, http.StatusText(400), 400)
+		http.Error(w, http.StatusText(400), http.StatusBadRequest)
 		return
 	}
 
@@ -91,9 +96,35 @@ func booksShow(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	case err != nil:
-		http.Error(w, http.StatusText(500), 500)
+		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
 	}
 
 	fmt.Fprintf(w, "%s, %s, %s, $%.2f\n", bk.isbn, bk.title, bk.author, bk.price)
+}
+
+func booksCreate(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		i := r.FormValue("isbn")
+		t := r.FormValue("title")
+		a := r.FormValue("author")
+		p := r.FormValue("price")
+		if i == "" || t == "" || a == "" || p == ""{
+			http.Error(w, http.StatusText(400), http.StatusBadRequest)
+			return
+		}
+
+		pi, err := strconv.Atoi(p)
+		if err != nil {
+			http.Error(w, http.StatusText(406) + "Please hit back and enter a number for the price", http.StatusNotAcceptable)
+			return
+		}
+		pif := float32(pi)
+
+		// todo SQL INSERT STATEMENT
+		result, err := db.Exec("SELECT * FROM books WHERE isbn = $1", i, t, a, pif)
+		tpl.ExecuteTemplate(w, "created.gohtml", result)
+		return
+	}
+	tpl.ExecuteTemplate(w, "create.gohtml", nil)
 }
