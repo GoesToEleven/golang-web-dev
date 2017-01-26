@@ -29,13 +29,12 @@ type Book struct {
 	price  float32
 }
 
-
 func main() {
 	http.HandleFunc("/books", booksIndex)
 	http.ListenAndServe(":8080", nil)
 }
 
-func booksIndex(w http.ResponseWriter, r *http.Request){
+func booksIndex(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
 		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 		return

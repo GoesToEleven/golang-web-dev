@@ -20,17 +20,17 @@
             margin-left: 4rem;
             font-size: 2rem;
             color: black;
-        }
+          }
         .link {
             font-size: 1rem;
         }
     </style>
 </head>
 <body>
+{{range .}}
+<p><a href="/books/show?isbn={{.Isbn}}">{{.Isbn}}</a> - {{.Title}} - {{.Author}} - {{.Price}}</p>
+{{end}}
 
-<p>Created A New Book</p>
-
-<p><a href="/books/show?isbn={{.Isbn}}">{{.Isbn}} - {{.Title}} - {{.Author}} {{.Price}}</a></p>
-<p class="link"><a href="/books">All Books</a></p>
+<p class="link"><a href="/books/create">Insert A Book</a></p>
 </body>
 </html>

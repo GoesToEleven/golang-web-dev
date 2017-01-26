@@ -27,8 +27,8 @@
 <body>
 
 <h1>Create A New Book</h1>
-<form method="post">
-    <input type="text" name="isbn" placeholder="isbn" required>
+<form method="post" action="/books/create/process">
+    <input type="text" name="isbn" placeholder="isbn" required autofocus>
     <input type="text" name="title" placeholder="title" required>
     <input type="text" name="author" placeholder="author" required>
     <input type="text" name="price" placeholder="price" required>

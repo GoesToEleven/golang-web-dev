@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
-	"net/http"
 	"html/template"
+	"net/http"
 	"strconv"
 )
 
@@ -27,22 +27,29 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
 }
 
+// export fields to templates
+// fields changed to uppercase
 type Book struct {
-	isbn   string
-	title  string
-	author string
-	price  float32
+	Isbn   string
+	Title  string
+	Author string
+	Price  float32
 }
 
-
 func main() {
+	http.HandleFunc("/", index)
 	http.HandleFunc("/books", booksIndex)
 	http.HandleFunc("/books/show", booksShow)
-	http.HandleFunc("/books/create", booksCreate)
+	http.HandleFunc("/books/create", booksCreateForm)
+	http.HandleFunc("/books/create/process", booksCreateProcess)
 	http.ListenAndServe(":8080", nil)
 }
 
-func booksIndex(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/books", http.StatusSeeOther)
+}
+
+func booksIndex(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
 		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 		return
@@ -58,7 +65,7 @@ func booksIndex(w http.ResponseWriter, r *http.Request){
 	bks := make([]Book, 0)
 	for rows.Next() {
 		bk := Book{}
-		err := rows.Scan(&bk.isbn, &bk.title, &bk.author, &bk.price) // order matters
+		err := rows.Scan(&bk.Isbn, &bk.Title, &bk.Author, &bk.Price) // order matters
 		if err != nil {
 			http.Error(w, http.StatusText(500), 500)
 			return
@@ -70,9 +77,7 @@ func booksIndex(w http.ResponseWriter, r *http.Request){
 		return
 	}
 
-	for _, bk := range bks {
-		fmt.Fprintf(w, "%s, %s, %s, $%.2f\n", bk.isbn, bk.title, bk.author, bk.price)
-	}
+	tpl.ExecuteTemplate(w, "books.gohtml", bks)
 }
 
 func booksShow(w http.ResponseWriter, r *http.Request) {
@@ -90,7 +95,7 @@ func booksShow(w http.ResponseWriter, r *http.Request) {
 	row := db.QueryRow("SELECT * FROM books WHERE isbn = $1", isbn)
 
 	bk := Book{}
-	err := row.Scan(&bk.isbn, &bk.title, &bk.author, &bk.price)
+	err := row.Scan(&bk.Isbn, &bk.Title, &bk.Author, &bk.Price)
 	switch {
 	case err == sql.ErrNoRows:
 		http.NotFound(w, r)
@@ -100,31 +105,47 @@ func booksShow(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintf(w, "%s, %s, %s, $%.2f\n", bk.isbn, bk.title, bk.author, bk.price)
+	tpl.ExecuteTemplate(w, "show.gohtml", bk)
 }
 
-func booksCreate(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "POST" {
-		i := r.FormValue("isbn")
-		t := r.FormValue("title")
-		a := r.FormValue("author")
-		p := r.FormValue("price")
-		if i == "" || t == "" || a == "" || p == ""{
-			http.Error(w, http.StatusText(400), http.StatusBadRequest)
-			return
-		}
+func booksCreateForm(w http.ResponseWriter, r *http.Request) {
+	tpl.ExecuteTemplate(w, "create.gohtml", nil)
+}
 
-		pi, err := strconv.Atoi(p)
-		if err != nil {
-			http.Error(w, http.StatusText(406) + "Please hit back and enter a number for the price", http.StatusNotAcceptable)
-			return
-		}
-		pif := float32(pi)
-
-		// todo SQL INSERT STATEMENT
-		result, err := db.Exec("SELECT * FROM books WHERE isbn = $1", i, t, a, pif)
-		tpl.ExecuteTemplate(w, "created.gohtml", result)
+func booksCreateProcess(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, http.StatusText(405), http.StatusMethodNotAllowed)
 		return
 	}
-	tpl.ExecuteTemplate(w, "create.gohtml", nil)
+
+	// get form values
+	bk := Book{}
+	bk.Isbn = r.FormValue("isbn")
+	bk.Title = r.FormValue("title")
+	bk.Author = r.FormValue("author")
+	p := r.FormValue("price")
+
+	// validate form values
+	if bk.Isbn == "" || bk.Title == "" || bk.Author == "" || p == "" {
+		http.Error(w, http.StatusText(400), http.StatusBadRequest)
+		return
+	}
+
+	// convert form values
+	f64, err := strconv.ParseFloat(p, 32)
+	if err != nil {
+		http.Error(w, http.StatusText(406)+"Please hit back and enter a number for the price", http.StatusNotAcceptable)
+		return
+	}
+	bk.Price = float32(f64)
+
+	// insert values
+	_, err = db.Exec("INSERT INTO books (isbn, title, author, price) VALUES ($1, $2, $3, $4)", bk.Isbn, bk.Title, bk.Author, bk.Price)
+	if err != nil {
+		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
+		return
+	}
+
+	// confirm insertion
+	tpl.ExecuteTemplate(w, "created.gohtml", bk)
 }
