@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Book</title>
+    <style>
+        html, body, p {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: left;
+            height: 100vh;
+        }
+        p {
+            margin-left: 4rem;
+            font-size: 2rem;
+            color: black;
+          }
+        .link {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+{{range .}}
+<p><a href="/books/show?isbn={{.Isbn}}">{{.Isbn}}</a> - {{.Title}} - {{.Author}} - {{.Price}} - <a href="/books/update?isbn={{.Isbn}}">update</a> </p>
+{{end}}
+
+<p class="link"><a href="/books/create">Insert A Book</a></p>
+</body>
+</html>
