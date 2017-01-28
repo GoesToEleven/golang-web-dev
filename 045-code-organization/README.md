@@ -12,12 +12,21 @@ Your goal should be to write code which is maintainable. This means that an inte
 
 # Different Approaches
 
-## One package (main) with package scope variables
+## One package
 
-## Two packages with package imports
+When needed we can put variables in the package scope
 
-## Three+ packages with package for global variables like DB
+## Two packages 
 
-![Scope in Go](scope.png)
+We will import the code from the second package when needed
+
+## Three+ packages with package for config variables
+
+We will import the code from the config package when needed. The config package will hold variables like DB and TPL
+
+FYI: there is no global scope in Go
+![Scope in Go (credit: Caleb Doxsey)](scope.png)
+
+## Dependency injection
 
 

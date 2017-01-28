@@ -1,9 +1,10 @@
-package models
+package books
 
 import (
 	"errors"
 	"net/http"
 	"strconv"
+	"github.com/GoesToEleven/golang-web-dev/045-code-organization/03_multiple-packages/config"
 )
 
 type Book struct {
@@ -14,7 +15,7 @@ type Book struct {
 }
 
 func AllBooks() ([]Book, error) {
-	rows, err := db.Query("SELECT * FROM books")
+	rows, err := config.DB.Query("SELECT * FROM books")
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +43,7 @@ func OneBook(r *http.Request) (Book, error) {
 		return bk, errors.New("400. Bad Request.")
 	}
 
-	row := db.QueryRow("SELECT * FROM books WHERE isbn = $1", isbn)
+	row := config.DB.QueryRow("SELECT * FROM books WHERE isbn = $1", isbn)
 
 	err := row.Scan(&bk.Isbn, &bk.Title, &bk.Author, &bk.Price)
 	if err != nil {
@@ -73,7 +74,7 @@ func PutBook(r *http.Request) (Book, error) {
 	bk.Price = float32(f64)
 
 	// insert values
-	_, err = db.Exec("INSERT INTO books (isbn, title, author, price) VALUES ($1, $2, $3, $4)", bk.Isbn, bk.Title, bk.Author, bk.Price)
+	_, err = config.DB.Exec("INSERT INTO books (isbn, title, author, price) VALUES ($1, $2, $3, $4)", bk.Isbn, bk.Title, bk.Author, bk.Price)
 	if err != nil {
 		return bk, errors.New("500. Internal Server Error." + err.Error())
 	}
@@ -100,7 +101,7 @@ func UpdateBook(r *http.Request) (Book, error) {
 	bk.Price = float32(f64)
 
 	// insert values
-	_, err = db.Exec("UPDATE books SET isbn = $1, title=$2, author=$3, price=$4 WHERE isbn=$1;", bk.Isbn, bk.Title, bk.Author, bk.Price)
+	_, err = config.DB.Exec("UPDATE books SET isbn = $1, title=$2, author=$3, price=$4 WHERE isbn=$1;", bk.Isbn, bk.Title, bk.Author, bk.Price)
 	if err != nil {
 		return bk, err
 	}
@@ -113,7 +114,7 @@ func DeleteBook(r *http.Request) error {
 		return errors.New("400. Bad Request.")
 	}
 
-	_, err := db.Exec("DELETE FROM books WHERE isbn=$1;", isbn)
+	_, err := config.DB.Exec("DELETE FROM books WHERE isbn=$1;", isbn)
 	if err != nil {
 		return errors.New("500. Internal Server Error")
 	}

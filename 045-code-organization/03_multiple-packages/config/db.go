@@ -1,4 +1,4 @@
-package models
+package config
 
 import (
 	"database/sql"
@@ -6,16 +6,16 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var db *sql.DB
+var DB *sql.DB
 
 func init() {
 	var err error
-	db, err = sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
+	DB, err = sql.Open("postgres", "postgres://bond:password@localhost/bookstore?sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
 
-	if err = db.Ping(); err != nil {
+	if err = DB.Ping(); err != nil {
 		panic(err)
 	}
 	fmt.Println("You connected to your database.")
