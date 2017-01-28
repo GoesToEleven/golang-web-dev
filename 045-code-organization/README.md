@@ -27,6 +27,4 @@ We will import the code from the config package when needed. The config package 
 FYI: there is no global scope in Go
 ![Scope in Go (credit: Caleb Doxsey)](scope.png)
 
-## Dependency injection
-
 
