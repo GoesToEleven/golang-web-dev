@@ -11,4 +11,4 @@ and writes to the response "<h1>This is from dog</h1>"
 and also shows a picture of a dog when the template is executed.
 
 Use "http.ServeFile"
-to serve the file "dog.jpeg"
+to serve the file "dog.jpg"
