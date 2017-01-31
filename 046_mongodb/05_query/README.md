@@ -26,12 +26,12 @@ pass in an array of documents
 
 | operator | syntax | example |
 | --- | --- | --- |
-| equality | {<key>:<value>} | db.customers.find({"name":"McLeod"}).pretty() | 
-| less than | {<key>:{$lt:<value>}} | db.customers.find({"score":{$lt:20}}).pretty() | 
-| less than equals | {<key>:{$lte:<value>}} | db.customers.find({"score":{$lte:20}}).pretty() | 
-| greater than | {<key>:{$gt:<value>}} | db.customers.find({"score":{$gt:20}}).pretty() | 
-| greater than equals | {<key>:{$gte:<value>}} | db.customers.find({"score":{$gte:20}}).pretty() | 
-| not equals | {<key>:{$ne:<value>}} | db.customers.find({"score":{$ne:20}}).pretty() | 
+| equality | {key:value} | db.customers.find({"name":"McLeod"}).pretty() | 
+| less than | {key:{$lt:value}} | db.customers.find({"score":{$lt:20}}).pretty() | 
+| less than equals | {key:{$lte:value}} | db.customers.find({"score":{$lte:20}}).pretty() | 
+| greater than | {key:{$gt:value}} | db.customers.find({"score":{$gt:20}}).pretty() | 
+| greater than equals | {key:{$gte:value}} | db.customers.find({"score":{$gte:20}}).pretty() | 
+| not equals | {key:{$ne:value}} | db.customers.find({"score":{$ne:20}}).pretty() | 
 
 ###
 ```
