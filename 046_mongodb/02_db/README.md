@@ -38,11 +38,17 @@ example
 db.dogs.insert({"name":"toby"})
 ```
 
-### view collections
+### view documents
 ```
-db
+db.<collection name>.find()
 ```
 
+example
+```
+db.cats.find().pretty()
+```
+
+### view collections
 ```
 show collections
 ```

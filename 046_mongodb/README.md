@@ -28,6 +28,16 @@ db.<collection name>.insert({"name":"McLeod"})
 ```
 If the collection doesn't exist, it is created
 
+### view collections
+```
+show collections
+```
+
+### view documents
+```
+db.<collection name>.find()
+```
+
 ### drop db
 ```
 db.dropDatabase()
@@ -64,6 +74,11 @@ db.createCollection("customers",{autoindex:true})
 
 ```
 db.createCollection("customers",{autoindex:true, capped:true,size:65536,max:1000000})
+```
+
+### view collections
+```
+show collections
 ```
 
 ### drop
