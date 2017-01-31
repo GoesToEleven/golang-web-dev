@@ -28,7 +28,7 @@ db.customers.find({name:"Bond"})
 ```
 You can use "name" or name.
 JSON: specification is to enclose name (object name-value pair) in double qoutes
-[JSON specification](json-spec.html)
+![JSON specification](json-spec.html)
 
 ### and
 ```
