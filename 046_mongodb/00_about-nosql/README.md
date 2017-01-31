@@ -91,15 +91,6 @@ A collection of key-value pairs.
 
 The value is a dynamic schema - it can change from document to document. Documents can have different fields and structure; fields with the same name in different documents can hold different types of data.
 
-| RDBMS       | MongoDB                           |
-|-------------|-----------------------------------|
-| database    | database                          |
-| table       | collection                        |
-| row         | document                          |
-| column      | field                             |
-| join        | embed                             |
-| primary key | default key _id provided by mongo |
-
 | RDBMS | MongoDB |
 |--- | --- |
 | database | database |
