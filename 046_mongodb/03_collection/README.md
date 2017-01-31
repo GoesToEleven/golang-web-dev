@@ -36,5 +36,4 @@ show collections
 ### drop
 ```
 db.<collection name>.drop()
-
 ```
