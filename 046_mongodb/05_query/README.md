@@ -24,7 +24,6 @@ pass in an array of documents
 
 ### operators
 
-```
 | operator | syntax | example |
 | --- | --- | --- |
 | equality | {<key>:<value>} | db.customers.find({"name":"McLeod"}).pretty() | 
@@ -33,7 +32,6 @@ pass in an array of documents
 | greater than | {<key>:{$gt:<value>}} | db.customers.find({"score":{$gt:20}}).pretty() | 
 | greater than equals | {<key>:{$gte:<value>}} | db.customers.find({"score":{$gte:20}}).pretty() | 
 | not equals | {<key>:{$ne:<value>}} | db.customers.find({"score":{$ne:20}}).pretty() | 
-```
 
 ###
 ```
