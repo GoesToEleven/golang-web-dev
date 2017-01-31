@@ -1,0 +1,21 @@
+# installing mongodb
+
+[installing mongodb](https://www.mongodb.com/download-center#community)
+
+## mac
+
+[i am on a mac](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition-manually)
+
+## windows
+[i am on windows]()
+
+## linux
+[i am on linux]()
+
+# run mongo
+
+```
+mongod
+```
+
+[troubleshooting](https://www.tutorialspoint.com/mongodb/mongodb_environment.htm)

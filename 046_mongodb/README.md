@@ -100,6 +100,17 @@ The value is a dynamic schema - it can change from document to document. Documen
 | join        | embed                             |
 | primary key | default key _id provided by mongo |
 
+## advantages over RDBMS
 
+1. documents can vary
+1. store objects as they are in your program
+1. you don't have to do join queries
+1. scalability performance
+
+## data modeling
+
+Denormalize your data (combine data that will be used together). Sometimes you hear this referred to as "join on write, not read."
+
+Having duplicates of stored data can be fine!
 
 
