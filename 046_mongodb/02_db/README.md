@@ -30,7 +30,21 @@ You need to have at least one document in a db for it to be seen.
 ### insert document
 
 ```
-db.<db name>.insert({"name":"McLeod"})
+db.<collection name>.insert({"name":"McLeod"})
+```
+
+example
+```
+db.dogs.insert({"name":"toby"})
+```
+
+### view collections
+```
+db
+```
+
+```
+show collections
 ```
 
 ## drop db

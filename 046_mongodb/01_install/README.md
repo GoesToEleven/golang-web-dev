@@ -1,4 +1,4 @@
-# installing mongodb
+# install mongo
 
 [installing mongodb](https://www.mongodb.com/download-center#community)
 
@@ -13,9 +13,17 @@
 [i am on linux]()
 
 # run mongo
-
 ```
 mongod
 ```
 
+# use terminal with mongo
+```
+mongo
+```
+
+# learn more about mongo
+
 [troubleshooting](https://www.tutorialspoint.com/mongodb/mongodb_environment.htm)
+
+[mongo university](https://university.mongodb.com/)
