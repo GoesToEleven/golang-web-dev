@@ -1,4 +1,6 @@
-# 02_db
+# Mongo Commands
+
+## 02_db
 
 ### create
 ```
@@ -31,7 +33,7 @@ If the collection doesn't exist, it is created
 db.dropDatabase()
 ```
 
-# 03_collection
+## 03_collection
 
 ### create implicitly
 ```
@@ -70,7 +72,7 @@ db.<collection name>.drop()
 
 ```
 
-# 04_document
+## 04_document
 
 ### insert
 ```
@@ -83,5 +85,5 @@ db.<collection name>.insert(< [{document}, {document}, ..., {document}] >)
 ```
 pass in an array of documents
 
-# 05_query
+## 05_query
 
