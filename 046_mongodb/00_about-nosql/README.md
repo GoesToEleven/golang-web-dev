@@ -12,7 +12,7 @@ SQL doesn't scale well.
 
 Scales well, however, it is eventual consistent.
 
-FYI: NoSQL can also be thought of a schemaless. You do not define any schema. There is no defining that a table is this way or that way. There is no defining that tables are connected in different ways. With SQL, the schema is imposed by the RDBMS. With schemaless nosql, the schema needs to be imposed by the developer; the developer needs to make it all work.
+FYI: NoSQL can also be thought of a **schemaless**. You do not define any schema. There is no defining that a table is this way or that way. There is no defining that tables are connected in different ways. With SQL, the schema is imposed by the RDBMS. With schemaless nosql, the schema needs to be imposed by the developer; the developer needs to make it all work.
 
 ## Types
 
@@ -27,25 +27,23 @@ You can use KV dbs for memcache, tracking transient data, large object storage.
 ![key value](images/dbtype-kv.png)
 [source: www.3pillarglobal.com](http://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases)
 
-Examples:
-1. Redis
-1. Riak
+Examples: Redis, Riak
 
 ### Document
 
 Like a key-value store but the value has greater structure, such as JSON or BSON (binary encoding of JSON).
 
-Denormalizing data is common with document dbs: data this is frequently queried together should be stored together. Example: a blog post would have the blog post, comments, and likes all stored together.
+**Denormalizing data is common with document dbs**: data that is frequently queried together should be stored together.
+
+Example: a blog post would have the blog post, comments, and likes all stored together.
 
 Document dbs have indexing and querying capability (you can look data up by more than just the key).
 
 You can use document dbs for web apps, data with variable schema, JSON, denormalized data (structures embedded in structures).
 
-![document store](dbtype-doc.png)
+![document store](images/dbtype-doc.png)
 
-Examples:
-1. Mongodb
-1. couchdb
+Examples: Mongodb, couchdb
 
 ### Column
 
@@ -61,10 +59,7 @@ With column nosql, data is stored in columns. This has performance gains.
 
 "Relational databases store all the data in a particular table’s rows together on-disk, making retrieval of a particular row fast.  Column-family databases generally serialize all the values of a particular column together on-disk, which makes retrieval of a large amount of a specific attribute fast.  This approach lends itself well to aggregate queries and analytics scenarios where you might run range queries over a specific field." [source](http://www.jamesserra.com/archive/2015/04/types-of-nosql-databases/)
 
-Examples:
-1. Big Table (google)
-1. Cassandra (facebook)
-1. HBase
+Examples: Big Table (google), Cassandra (facebook), HBase
 
 Use this if you are creating the next facebook social network, the next google search engine, big science, stock market analysis, writing vast amounts of data quickly and being able to query it.
 
@@ -78,7 +73,7 @@ Stores information about networks such as social relations.
 
 The [world's leading NoSQL database](http://db-engines.com/en/ranking).
 
-![Ranking of DBs](00_images/dbranks.png)
+![Ranking of DBs](images/dbranks.png)
 
 ## Database --> Collection --> Document
 
