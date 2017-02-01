@@ -9,6 +9,7 @@ Aggregations operations process data records and return computed results. Aggreg
 [documenation about single purpose aggregation](https://docs.mongodb.com/manual/aggregation/#single-purpose-agg-operations)
 
 There are two functions you can use:
+
 1. [db.collection.count()](https://docs.mongodb.com/manual/reference/method/db.collection.count/#db.collection.count)
 1. db.collection.distinct()
 
