@@ -75,7 +75,7 @@ The [world's leading NoSQL database](http://db-engines.com/en/ranking).
 
 ![Ranking of DBs](images/dbranks.png)
 
-## Database --> Collection --> Document
+## Mongo --> Database --> Collection --> Document
 
 A nosql database has collections which have documents.
 A rdbms database has tables      which have records.
@@ -91,7 +91,7 @@ The value is a dynamic schema - it can change from document to document. Documen
 | database | database |
 | table | collection |
 | row | document |
-| column | field |
+| field | field |
 | join | embed |
 | primary key | default key _id provided by mongo |
 
