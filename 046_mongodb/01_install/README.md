@@ -22,6 +22,12 @@ mongod
 mongo
 ```
 
+# stop
+mac
+```
+ctrl+c
+```
+
 # learn more about mongo
 
 [troubleshooting](https://www.tutorialspoint.com/mongodb/mongodb_environment.htm)
