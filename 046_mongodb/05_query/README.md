@@ -58,6 +58,11 @@ db.customers.find({$or:[
 ]})
 ```
 
+### regex
+```
+db.crayons.find({name: {$regex: '^A'}})
+```
+
 ### pretty
 ```
 db.<collection name>.find().pretty()
