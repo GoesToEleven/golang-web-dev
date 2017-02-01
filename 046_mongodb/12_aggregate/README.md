@@ -17,7 +17,6 @@ syntax
 db.collection.count(query, options)
 ```
 
-
 | Parameter | Description |
 | --- | --- | 
 | query | The query selection criteria.
