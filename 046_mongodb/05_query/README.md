@@ -26,8 +26,7 @@ db.customers.findOne()
 db.customers.find({"name":"Bond"})
 db.customers.find({name:"Bond"})
 ```
-You can do it either way: ```"name" or name```
-JSON: specification is to enclose name (object name-value pair) in double qoutes
+You can do it either way: ```"name" or name```. JSON specification is to enclose name (object name-value pair) in double qoutes
 
 ### and
 ```
