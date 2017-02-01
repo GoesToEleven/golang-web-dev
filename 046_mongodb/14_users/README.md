@@ -76,7 +76,7 @@ mongo -u "bond" -p "moneypenny007" --authenticationDatabase "store"
 #### test
 
 ```
-user store
+use store
 ```
 
 ```
