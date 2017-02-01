@@ -10,9 +10,33 @@ Aggregations operations process data records and return computed results. Aggreg
 
 There are two functions you can use:
 
-[db.collection.count()](https://docs.mongodb.com/manual/reference/method/db.collection.count/#db.collection.count)
+#### [db.collection.count()](https://docs.mongodb.com/manual/reference/method/db.collection.count/#db.collection.count)
 
-[db.collection.distinct()](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/#db.collection.distinct)
+syntax
+```
+db.collection.count(query, options)
+```
+
+
+| Parameter | Description |
+| --- | --- | 
+| query | The query selection criteria.
+| options | Optional. Extra options for modifying the count.
+
+
+#### [db.collection.distinct()](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/#db.collection.distinct)
+
+syntax
+```
+db.collection.distinct(field, query, options)
+```
+
+
+| Parameter | Description |
+| --- | --- | 
+| field | The field for which to return distinct values.
+| query | A query that specifies the documents from which to retrieve the distinct values.
+| options | Optional. A document that specifies the options. See Options.
 
 ### examples - count()
 ```
@@ -44,18 +68,6 @@ db.inventory.insert([
 ```
 
 ### examples - distinct()
-
-syntax
-```
-db.collection.distinct(field, query, options)
-```
-
-
-| Parameter | Description |
-| --- | --- | 
-| field | The field for which to return distinct values.
-| query | A query that specifies the documents from which to retrieve the distinct values.
-| options | Optional. A document that specifies the options. See Options.
 
 ```
 db.inventory.distinct( "dept" )
