@@ -90,3 +90,16 @@ db.customers.find()
 ```
 db.customers.insert({"role" : "double-zero", "name" : "Elon Musk", "age" : 47 })
 ```
+
+#### test
+
+launch a new terminal window
+
+```
+mongo
+```
+
+should be unauthorized:
+```
+show collections
+```
