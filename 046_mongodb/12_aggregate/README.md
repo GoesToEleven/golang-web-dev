@@ -4,7 +4,7 @@ Aggregations operations process data records and return computed results. Aggreg
 
 [documenation about aggregation](https://docs.mongodb.com/manual/aggregation/)
 
-### single purpose aggregation
+## single purpose aggregation
 
 [documenation about single purpose aggregation](https://docs.mongodb.com/manual/aggregation/#single-purpose-agg-operations)
 
@@ -12,24 +12,11 @@ There are two functions you can use:
 
 #### [db.collection.count()](https://docs.mongodb.com/manual/reference/method/db.collection.count/#db.collection.count)
 
-syntax
-```
-db.collection.count(query, options)
-```
-
-| Parameter | Description |
-| --- | --- | 
-| query | The query selection criteria.
-| options | Optional. Extra options for modifying the count.
-
-
 #### [db.collection.distinct()](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/#db.collection.distinct)
 
-syntax
 ```
 db.collection.distinct(field, query, options)
 ```
-
 
 | Parameter | Description |
 | --- | --- | 
@@ -37,12 +24,10 @@ db.collection.distinct(field, query, options)
 | query | A query that specifies the documents from which to retrieve the distinct values.
 | options | Optional. A document that specifies the options. See Options.
 
-### examples - count()
+#### examples - count()
 ```
 db.oscars.count()
 ```
-
-The above is equivalent to
 
 ```
 db.oscars.find().count()
@@ -56,7 +41,7 @@ db.customers.find({role:"citizen"}).count()
 db.customers.find({$or: [{name:"Bond"}, {age:{$gt:32}}]}).count()
 ```
 
-### examples - distinct() - setup
+#### examples - distinct() - setup
 ```
 db.inventory.insert([
 { "_id": 1, "dept": "A", "item": { "sku": "111", "color": "red" }, "sizes": [ "S", "M" ] },
@@ -66,13 +51,11 @@ db.inventory.insert([
 ])
 ```
 
-### examples - distinct()
+#### examples - distinct()
 
 ```
 db.inventory.distinct( "dept" )
 ```
-
-embedded field:
 
 ```
 db.inventory.distinct( "item.sku" )
@@ -82,8 +65,7 @@ db.inventory.distinct( "item.sku" )
 db.inventory.distinct( "sizes" )
 ```
 
-
-You use different **expressions** (listed below) in aggregate group operations.
+## aggregation pipeline
 
 ![aggregate pipeline](aggregate.png)
 
@@ -91,10 +73,17 @@ You use different **expressions** (listed below) in aggregate group operations.
 db.<collection name>.aggregate([{<match, sort, geoNear>},{<group>}])
 ```
 
-[documenation](https://docs.mongodb.com/manual/aggregation/)
-[match, sort, geonear](https://docs.mongodb.com/manual/core/aggregation-pipeline/#aggregation-pipeline-operators-and-performance)
+MongoDB’s aggregation framework is modeled on the concept of data processing pipelines. Documents enter a multi-stage pipeline that transforms the documents into an aggregated result.
 
-### examples - setup
+The most basic pipeline stages provide filters that operate like queries and document transformations that modify the form of the output document.
+
+Other pipeline operations provide tools for grouping and sorting documents by specific field or fields as well as tools for aggregating the contents of arrays, including arrays of documents. In addition, pipeline stages can use operators for tasks such as calculating the average or concatenating a string.
+
+The pipeline provides efficient data aggregation using native operations within MongoDB, and is the preferred method for data aggregation in MongoDB.
+
+[source](https://docs.mongodb.com/manual/aggregation/)
+
+#### example - setup
 ```
 db.orders.insert([
 {"cust_id":"A123","amount":500,"status":"A"},
@@ -104,22 +93,10 @@ db.orders.insert([
 ])
 ```
 
-### examples
+#### example
 ```
 db.orders.aggregate([
 {$match:{status:"A"}},
 {$group:{_id: "$cust_id",total: {$sum:"$amount"}}}
 ])
 ```
-
-
-### expressions
-
-| expression | description |
-
-```
-db.oscars.createIndex({title:1})
-db.oscars.createIndex({releaseYear:1, releaseDay:1})
-```
-
-[learn to create a unique index and more](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#db.collection.createIndex)
