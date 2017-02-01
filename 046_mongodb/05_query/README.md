@@ -39,7 +39,7 @@ db.customers.find({$and: [{name:"Bond"}, {age:{$gt:20}}]})
 ```
 db.customers.find({$or: [{name:"Bond"}, {age:67}]})
 db.customers.find({$or: [{name:"Bond"}, {age:{$lt:20}}]})
-db.customers.find({$or: [{name:"Bond"}, {age:{$gt:20}}]})
+db.customers.find({$or: [{name:"Bond"}, {age:{$gt:32}}]})
 ```
 
 ### and or
