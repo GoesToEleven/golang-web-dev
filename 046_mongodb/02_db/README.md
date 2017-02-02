@@ -51,6 +51,10 @@ db.<collection name>.find()
 
 example
 ```
+db.cats.insert({"firstname":"coco"})
+```
+
+```
 db.cats.find().pretty()
 ```
 

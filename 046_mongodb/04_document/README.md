@@ -63,7 +63,7 @@ db.crayonColors.insert([
                     }
                 ])
 ```
-[source](https://gist.githubusercontent.com/jjdelc/1868136/raw/c9160b1e60bd8c10c03dbd1a61b704a8e977c46b/crayola.json)
+[source of crayon json](https://gist.githubusercontent.com/jjdelc/1868136/raw/c9160b1e60bd8c10c03dbd1a61b704a8e977c46b/crayola.json)
 
 ```
 show collections
