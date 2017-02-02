@@ -1,4 +1,4 @@
-# query
+# find (aka, query)
 
 ### setup
 

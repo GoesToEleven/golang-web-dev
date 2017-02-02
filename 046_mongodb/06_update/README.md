@@ -54,7 +54,7 @@ db.customers.update({},{$set:{role:"citizen"}}, {multi:true})
 
 ### save
 ```
-db.customers.save({"role":"villain","name":"Goldfinger","age":77})
+db.customers.save({"role":"villain","name":"Jaws","age":43})
 ```
 
 ```
