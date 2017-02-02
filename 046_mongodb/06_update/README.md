@@ -50,9 +50,17 @@ db.customers.update({},{$set:{role:"citizen"}}, {multi:true})
 ```
 [see query documentation](https://docs.mongodb.com/manual/tutorial/query-documents/)
 
-
+("5893888012acb8ada532a8e4"
 
 ### save
 ```
+db.customers.save({"role":"villain","name":"Goldfinger","age":77})
+```
+
+```
 db.customers.save({"_id":ObjectId("5891221756867ebff44cc889"),"role":"villain","name":"Goldfinger","age":77})
+```
+
+```
+db.customers.save({"_id":ObjectId("5893888012acb8ada532a8e4"),"role":"villain","name":"PussyGalore","age":31})
 ```
