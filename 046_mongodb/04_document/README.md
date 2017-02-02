@@ -25,7 +25,7 @@ show dbs
 ```
 
 ```
-db.crayonColors.insert([
+db.crayons.insert([
                     {
                         "hex": "#EFDECD", 
                         "name": "Almond", 
@@ -70,11 +70,11 @@ show collections
 ```
 
 ```
-db.crayonColors.find()
+db.crayons.find()
 ```
 
 ```
-db.crayonColors.drop()
+db.crayons.drop()
 ```
 
 ```

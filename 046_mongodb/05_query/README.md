@@ -60,8 +60,10 @@ db.customers.find({$or:[
 
 ### regex
 ```
-db.crayons.find({name: {$regex: '^A'}})
+db.crayons.find({name: {$regex: '^M'}})
 ```
+
+![regex cheatsheet](regex.pdf)
 
 ### pretty
 ```
