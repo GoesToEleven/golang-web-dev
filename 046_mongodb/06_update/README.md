@@ -6,7 +6,7 @@ save will overwrite a record
 
 ### update
 ```
-db.<collection mame>.update(<selection criteria>, <update data>)
+db.<collection mame>.update(<selection criteria>, <update data>, <optional options>)
 ```
 
 example
@@ -30,6 +30,10 @@ db.customers.update({_id:ObjectId("5891221756867ebff44cc886")},{$set:{role:"doub
 
 ```
 db.customers.update({name:"Moneypenny"},{$set:{role:"citizen"}})
+```
+
+```
+db.customers.update({name:"Moneypenny"},{$set:{role:"double-zero", name: "Miss Moneypenny"}})
 ```
 
 ```
