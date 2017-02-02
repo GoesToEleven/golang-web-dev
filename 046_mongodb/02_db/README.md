@@ -12,6 +12,12 @@ The above will use the database of the provided name if it exists, and create it
 ```
 use <db name>
 ```
+
+#### example
+```
+use temp
+```
+
 The above will use the database of the provided name if it exists, and create it if it doesn't
 
 ## see current db
