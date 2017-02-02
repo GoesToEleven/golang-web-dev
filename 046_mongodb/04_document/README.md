@@ -1,4 +1,4 @@
-# collection commands
+# document commands
 
 ### insert
 ```
