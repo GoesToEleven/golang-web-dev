@@ -103,3 +103,8 @@ should be unauthorized:
 ```
 show collections
 ```
+
+#### drop user
+```
+db.dropUser("<user name>")
+```
