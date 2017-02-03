@@ -1499,7 +1499,7 @@ db.createUser(
 
 #### exit mongo & then start again
 ```
-mongod
+mongod --auth
 ```
 
 ```
@@ -1527,7 +1527,7 @@ db.createUser(
 
 #### exit mongo & then start again
 ```
-mongod
+mongod --auth
 ```
 
 ```
