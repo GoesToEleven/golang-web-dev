@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"github.com/GoesToEleven/golang-web-dev/046_mongodb/15_postgres/config"
 	"fmt"
-	"html/template"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -128,7 +127,6 @@ func ShowJSON(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
 	}
-	fmt.Println(string(bs))
 
-	config.TPL.ExecuteTemplate(w, "json.gohtml", template.HTML(string(bs)))
+	config.TPL.ExecuteTemplate(w, "json.gohtml", string(bs))
 }
