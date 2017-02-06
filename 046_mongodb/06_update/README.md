@@ -6,7 +6,7 @@ save will overwrite a record
 
 ### update
 ```
-db.<collection mame>.update(<selection criteria>, <update data>, <optional options>)
+db.<collection name>.update(<selection criteria>, <update data>, <optional options>)
 ```
 
 example
