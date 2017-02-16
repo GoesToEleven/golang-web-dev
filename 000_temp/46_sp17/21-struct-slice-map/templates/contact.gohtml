@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<body>
+
+<h1>You are at contact</h1>
+
+<h1>CURRENT DATA: {{.}}</h1>
+{{range $name, $age := .}}
+<h1>IN LOOP DATA: {{$name}} {{$age}}</h1>
+{{end}}
+
+</body>
+</html>
