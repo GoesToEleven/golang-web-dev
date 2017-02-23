@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+{{if .}}
+    <h1>Welcome to our website!</h1>
+    {{range $k, $v := .}}
+    <h1>{{$k}} - {{$v}}</h1>
+    {{end}}
+{{end}}
+
+</body>
+</html>

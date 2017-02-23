@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<h1>Welcome to our website!</h1>
+{{if .}}
+    {{range .}}
+        <h1>{{.Name}}</h1>
+            <ol>
+        {{range .Prefs}}
+            <li>{{.}}</li>
+        {{end}}
+            </ol>
+    {{end}}
+{{end}}
+
+</body>
+</html>
