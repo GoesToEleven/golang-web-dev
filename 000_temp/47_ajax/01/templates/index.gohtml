@@ -9,28 +9,36 @@
 <form>
 
     <label for="sub">subscribe</label>
-    <input type="checkbox" id="sub" name="subscribe" value="true">
+    <input type="checkbox" id="sub" name="subscribe" value="true" class="i">
 
     <label for="des1">ice cream</label>
-    <input type="radio" id="des1" name="dessert" value="ice cream">
+    <input type="radio" id="des1" name="dessert" value="ice cream" class="i">
 
     <label for="des2">brownie</label>
-    <input type="radio" id="des2" name="dessert" value="brownie">
+    <input type="radio" id="des2" name="dessert" value="brownie" class="i">
 
     <label for="des3">cake</label>
-    <input type="radio" id="des3" name="dessert" value="cake">
+    <input type="radio" id="des3" name="dessert" value="cake" class="i">
+
+    <label for="tx">day of week</label>
+    <input type="text" id="tx" name="dow">
 </form>
 
 <script>
-    var inputs = document.querySelectorAll('input');
+    var tx = document.querySelector('#tx');
+    var inputs = document.querySelectorAll('.i');
     var form = document.querySelector('form');
 
+    console.log(tx);
     console.log(inputs);
     console.log(form);
 
     for (i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('input', submitForm);
+        console.log(i);
+        inputs[i].addEventListener('click', submitForm);
     }
+
+    tx.addEventListener('input', submitForm);
 
     function submitForm(){
         var data = new FormData(form);
@@ -39,25 +47,6 @@
         xhr.send(data);
     }
 
-    username.addEventListener('input', function() {
-        console.log(username.value);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/checkUserName', true);
-        xhr.addEventListener('readystatechange', function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                var item = xhr.responseText;
-                console.log(item);
-                if (item == 'true') {
-                    nameErr.textContent = 'Username taken - Try another name!';
-                    document.querySelector('#submitbutton').disabled = true;
-                } else {
-                    nameErr.textContent = '';
-                    document.querySelector('#submitbutton').disabled = false;
-                }
-            }
-        });
-        xhr.send(username.value);
-    }
 </script>
 
 

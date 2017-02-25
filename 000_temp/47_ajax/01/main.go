@@ -25,5 +25,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 func process(w http.ResponseWriter, r *http.Request) {
 	subscribe := r.FormValue("subscribe")
 	dessert := r.FormValue("dessert")
-	fmt.Println("RESULTS:", subscribe, " - ", dessert)
+	dow := r.FormValue("dow")
+	fmt.Println("RESULTS:", subscribe, " - ", dessert, " - ", dow)
 }
