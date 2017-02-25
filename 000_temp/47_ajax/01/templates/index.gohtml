@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<form>
+
+    <label for="sub">subscribe</label>
+    <input type="checkbox" id="sub" name="subscribe" value="true">
+
+    <label for="des1">ice cream</label>
+    <input type="radio" id="des1" name="dessert" value="ice cream">
+
+    <label for="des2">brownie</label>
+    <input type="radio" id="des2" name="dessert" value="brownie">
+
+    <label for="des3">cake</label>
+    <input type="radio" id="des3" name="dessert" value="cake">
+</form>
+
+<script>
+    var inputs = document.querySelectorAll('input');
+    var form = document.querySelector('form');
+
+    console.log(inputs);
+    console.log(form);
+
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('input', submitForm);
+    }
+
+    function submitForm(){
+        var data = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/process', true);
+        xhr.send(data);
+    }
+
+    username.addEventListener('input', function() {
+        console.log(username.value);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/checkUserName', true);
+        xhr.addEventListener('readystatechange', function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                var item = xhr.responseText;
+                console.log(item);
+                if (item == 'true') {
+                    nameErr.textContent = 'Username taken - Try another name!';
+                    document.querySelector('#submitbutton').disabled = true;
+                } else {
+                    nameErr.textContent = '';
+                    document.querySelector('#submitbutton').disabled = false;
+                }
+            }
+        });
+        xhr.send(username.value);
+    }
+</script>
+
+
+
+
+</body>
+</html>
