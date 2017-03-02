@@ -2,8 +2,14 @@ package main
 
 import (
 	"net/http"
-	"io"
+	"html/template"
 )
+
+var tpl *template.Template
+
+func init() {
+	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+}
 
 func main() {
 	http.HandleFunc("/", index)
@@ -13,20 +19,7 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	io.WriteString(w, `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="public/css/main.css">
-</head>
-<body>
-
-<h1>HELLO WORLD!</h1>
-
-</body>
-</html>`)
+	tpl.ExecuteTemplate(w, "index.gohtml", nil)
 }
 
 func css(w http.ResponseWriter, r *http.Request) {
