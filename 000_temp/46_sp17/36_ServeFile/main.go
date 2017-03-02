@@ -7,6 +7,8 @@ import (
 
 func main() {
 	http.HandleFunc("/", index)
+	http.HandleFunc("/main.css", css)
+	http.HandleFunc("/bali.jpg", bali)
 	http.ListenAndServe(":8080", nil)
 }
 
@@ -25,4 +27,12 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 </body>
 </html>`)
+}
+
+func css(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "main.css")
+}
+
+func bali(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "bali.jpg")
 }
