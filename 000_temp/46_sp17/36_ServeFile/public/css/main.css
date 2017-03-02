@@ -10,7 +10,7 @@ body {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    background-image: url("bali.jpg");
+    background-image: url("../img/bali.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
