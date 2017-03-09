@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+{{range .}}
+<h1>{{.}}</h1>
+{{end}}
+
+{{range $index, $value := .}}
+<h1>{{$index}} {{$value}}</h1>
+{{end}}
+
+</body>
+</html>
