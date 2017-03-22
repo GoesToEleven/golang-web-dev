@@ -63,11 +63,12 @@
     - declare a func with a parameter of the interface’s type
     - call that func in main and pass in a value of type person
     - call that func in main and pass in a value of type secretAgent
-    - [SOLUTION](https://play.golang.org/p/-Ux0gHf4SF) 
+    [SOLUTION](https://play.golang.org/p/dAP73m_elq)
+    Thank you to @BenCarter78 for that cool solution.
    
 ## ADDITIONAL INFO
     - solution & optional additional info not necessary to know: assertions
-    - [SOLUTION](https://play.golang.org/p/0TX4o-u-_B)
+    [SOLUTION](https://play.golang.org/p/0TX4o-u-_B)
     
 ## ADDITIONAL EXERCISES
      - [Complete these exercises](https://docs.google.com/document/d/1AqD-5yfAw8P1aUwH6-07UTHc0FSSAnW9b44sXJEVoag/edit?usp=sharing)
