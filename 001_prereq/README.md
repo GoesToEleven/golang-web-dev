@@ -42,7 +42,8 @@
     - create a value of type circle
     - use func info to print the area of square
     - use func info to print the area of circle
-    - [SOLUTION](https://play.golang.org/p/1enChb7Kg5) 
+   
+   [SOLUTION](https://play.golang.org/p/1enChb7Kg5) 
     
 ## HANDS ON 2
     - create a struct that holds person fields
@@ -56,20 +57,24 @@
     - print a field from secret agent
     - run saSpeak attached to the variable of type secret agent
     - run pSpeak attached to the variable of type secret agent
-    - [SOLUTION](https://play.golang.org/p/RxrkCJw9Cd) 
+  
+  [SOLUTION](https://play.golang.org/p/RxrkCJw9Cd) 
     
 ## HANDS ON 3
     - create an interface type that both person and secretAgent implement
     - declare a func with a parameter of the interface’s type
     - call that func in main and pass in a value of type person
     - call that func in main and pass in a value of type secretAgent
-    [SOLUTION](https://play.golang.org/p/dAP73m_elq)
-    Thank you to @BenCarter78 for that cool solution.
+    
+  [SOLUTION](https://play.golang.org/p/dAP73m_elq)
+  
+  Thank you to @BenCarter78 for that cool solution.
    
 ## ADDITIONAL INFO
     - solution & optional additional info not necessary to know: assertions
-    [SOLUTION](https://play.golang.org/p/0TX4o-u-_B)
+    
+  [SOLUTION](https://play.golang.org/p/0TX4o-u-_B)
     
 ## ADDITIONAL EXERCISES
-     - [Complete these exercises](https://docs.google.com/document/d/1AqD-5yfAw8P1aUwH6-07UTHc0FSSAnW9b44sXJEVoag/edit?usp=sharing)
+  [Complete these exercises](https://docs.google.com/document/d/1AqD-5yfAw8P1aUwH6-07UTHc0FSSAnW9b44sXJEVoag/edit?usp=sharing)
   
