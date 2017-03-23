@@ -24,6 +24,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 			Value: id.String(),
 			// Secure: true,
 			HttpOnly: true,
+			Path: "/",
 		}
 		http.SetCookie(w, cookie)
 	}
