@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bowzer Pics</title>
+</head>
+<body>
+
+<h1>Bowzer Pics</h1>
+
+{{if .}}
+<h1>Here is the cookie</h1>
+<h2>Name: {{.Name}}</h2>
+<h2>Value: {{.Value}}</h2>
+<h2>Path: {{.Path}}</h2>
+{{else}}
+<h1>There is no cookie</h1>
+{{end}}
+
+</body>
+</html>
