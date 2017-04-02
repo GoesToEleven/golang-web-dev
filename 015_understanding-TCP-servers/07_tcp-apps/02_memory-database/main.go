@@ -32,12 +32,12 @@ func handle(conn net.Conn) {
 	// instructions
 	io.WriteString(conn, "\r\nIN-MEMORY DATABASE\r\n\r\n"+
 		"USE:\r\n"+
-		"SET key value \r\n"+
-		"GET key \r\n"+
-		"DEL key \r\n\r\n"+
+		"\tSET key value \r\n"+
+		"\tGET key \r\n"+
+		"\tDEL key \r\n\r\n"+
 		"EXAMPLE:\r\n"+
-		"SET fav chocolate \r\n"+
-		"GET fav \r\n\r\n\r\n")
+		"\tSET fav chocolate \r\n"+
+		"\tGET fav \r\n\r\n\r\n")
 
 	// read & write
 	data := make(map[string]string)
