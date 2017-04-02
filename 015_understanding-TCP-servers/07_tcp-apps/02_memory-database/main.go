@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+var crlf string = "\r\n"
+
 func main() {
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
@@ -30,14 +32,23 @@ func handle(conn net.Conn) {
 	defer conn.Close()
 
 	// instructions
-	io.WriteString(conn, "\nIN-MEMORY DATABASE\n\n"+
-		"USE:\n"+
-		"SET key value \n"+
-		"GET key \n"+
-		"DEL key \n\n"+
-		"EXAMPLE:\n"+
-		"SET fav chocolate \n"+
-		"GET fav \n\n\n")
+	io.WriteString(conn, crlf +
+		"IN-MEMORY DATABASE" +
+		crlf + crlf +
+		"USE:" +
+		crlf +
+		"\tSET key value" +
+		crlf +
+		"\tGET key" +
+		crlf +
+		"\tDEL key" +
+		crlf +
+		"EXAMPLE:" +
+		crlf +
+		"\tSET fav chocolate" +
+		crlf +
+		"\tGET fav" +
+		crlf + crlf + crlf)
 
 	// read & write
 	data := make(map[string]string)
@@ -45,15 +56,16 @@ func handle(conn net.Conn) {
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
+		if (len(ln) < 1) { continue }
 		// logic
 		switch fs[0] {
 		case "GET":
 			k := fs[1]
 			v := data[k]
-			fmt.Fprintf(conn, "%s\n", v)
+			fmt.Fprintf(conn, "%s"+crlf, v)
 		case "SET":
 			if len(fs) != 3 {
-				fmt.Fprintln(conn, "EXPECTED VALUE")
+				fmt.Fprintln(conn, "EXPECTED VALUE" + crlf)
 				continue
 			}
 			k := fs[1]
@@ -63,7 +75,7 @@ func handle(conn net.Conn) {
 			k := fs[1]
 			delete(data, k)
 		default:
-			fmt.Fprintln(conn, "INVALID COMMAND "+fs[0])
+			fmt.Fprintln(conn, "INVALID COMMAND " + fs[0] + crlf)
 			continue
 		}
 	}
