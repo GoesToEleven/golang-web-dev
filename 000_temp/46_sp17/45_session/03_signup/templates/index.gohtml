@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INDEX PAGE</title>
+</head>
+<body>
+
+{{if .First}}
+Username {{.UserName}}<br>
+First {{.First}}<br>
+Last {{.Last}}<br>
+{{end}}
+
+<a href="/signup">go to signup</a>
+<a href="/bar">go to bar</a>
+
+</body>
+</html>

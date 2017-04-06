@@ -57,13 +57,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 func other(w http.ResponseWriter, r *http.Request) {
 	c, err := r.Cookie("mysess")
 	if err != nil {
-		u := uuid.NewV4()
-		c = &http.Cookie{
-			Name: "mysess",
-			Value: u.String(),
-			Path: "/",
-			HttpOnly: true,
-		}
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
 	}
 	uid := msession[c.Value]
 	usr := muser[uid]
