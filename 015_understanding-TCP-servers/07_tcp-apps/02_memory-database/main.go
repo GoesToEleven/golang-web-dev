@@ -30,14 +30,14 @@ func handle(conn net.Conn) {
 	defer conn.Close()
 
 	// instructions
-	io.WriteString(conn, "\nIN-MEMORY DATABASE\n\n"+
-		"USE:\n"+
-		"SET key value \n"+
-		"GET key \n"+
-		"DEL key \n\n"+
-		"EXAMPLE:\n"+
-		"SET fav chocolate \n"+
-		"GET fav \n\n\n")
+	io.WriteString(conn, "\r\nIN-MEMORY DATABASE\r\n\r\n"+
+		"USE:\r\n"+
+		"\tSET key value \r\n"+
+		"\tGET key \r\n"+
+		"\tDEL key \r\n\r\n"+
+		"EXAMPLE:\r\n"+
+		"\tSET fav chocolate \r\n"+
+		"\tGET fav \r\n\r\n\r\n")
 
 	// read & write
 	data := make(map[string]string)
@@ -46,14 +46,15 @@ func handle(conn net.Conn) {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
 		// logic
+		if (len(fs) < 1) { continue }
 		switch fs[0] {
 		case "GET":
 			k := fs[1]
 			v := data[k]
-			fmt.Fprintf(conn, "%s\n", v)
+			fmt.Fprintf(conn, "%s\r\n", v)
 		case "SET":
 			if len(fs) != 3 {
-				fmt.Fprintln(conn, "EXPECTED VALUE")
+				fmt.Fprintln(conn, "EXPECTED VALUE\r\n")
 				continue
 			}
 			k := fs[1]
@@ -63,7 +64,7 @@ func handle(conn net.Conn) {
 			k := fs[1]
 			delete(data, k)
 		default:
-			fmt.Fprintln(conn, "INVALID COMMAND "+fs[0])
+			fmt.Fprintln(conn, "INVALID COMMAND "+fs[0]+"\r\n")
 			continue
 		}
 	}
