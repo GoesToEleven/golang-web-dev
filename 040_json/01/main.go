@@ -36,23 +36,23 @@ func foo(w http.ResponseWriter, req *http.Request) {
 func mshl(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	p1 := person{
-		"James",
-		"Bond",
-		[]string{"Suit", "Gun", "Wry sense of humor"},
+		Fname: "James",
+		Lname: "Bond",
+		Items: []string{"Suit", "Gun", "Wry sense of humor"},
 	}
-	json, err := json.Marshal(p1)
+	j, err := json.Marshal(p1)
 	if err != nil {
 		log.Println(err)
 	}
-	w.Write(json)
+	w.Write(j)
 }
 
 func encd(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	p1 := person{
-		"James",
-		"Bond",
-		[]string{"Suit", "Gun", "Wry sense of humor"},
+		Fname: "James",
+		Lname: "Bond",
+		Items: []string{"Suit", "Gun", "Wry sense of humor"},
 	}
 	err := json.NewEncoder(w).Encode(p1)
 	if err != nil {
