@@ -40,6 +40,7 @@ func index(w http.ResponseWriter, req *http.Request) {
 func amigos(w http.ResponseWriter, req *http.Request) {
 	rows, err := db.Query(`SELECT aName FROM amigos;`)
 	check(err)
+	defer rows.Close()
 
 	// data to be used in query
 	var s, name string
@@ -58,6 +59,7 @@ func create(w http.ResponseWriter, req *http.Request) {
 
 	stmt, err := db.Prepare(`CREATE TABLE customer (name VARCHAR(20));`)
 	check(err)
+	defer stmt.Close()
 
 	r, err := stmt.Exec()
 	check(err)
@@ -72,6 +74,7 @@ func insert(w http.ResponseWriter, req *http.Request) {
 
 	stmt, err := db.Prepare(`INSERT INTO customer VALUES ("James");`)
 	check(err)
+	defer stmt.Close()
 
 	r, err := stmt.Exec()
 	check(err)
@@ -85,6 +88,7 @@ func insert(w http.ResponseWriter, req *http.Request) {
 func read(w http.ResponseWriter, req *http.Request) {
 	rows, err := db.Query(`SELECT * FROM customer;`)
 	check(err)
+	defer rows.Close()
 
 	var name string
 	for rows.Next() {
@@ -97,6 +101,7 @@ func read(w http.ResponseWriter, req *http.Request) {
 func update(w http.ResponseWriter, req *http.Request) {
 	stmt, err := db.Prepare(`UPDATE customer SET name="Jimmy" WHERE name="James";`)
 	check(err)
+	defer stmt.Close()
 
 	r, err := stmt.Exec()
 	check(err)
@@ -110,6 +115,7 @@ func update(w http.ResponseWriter, req *http.Request) {
 func del(w http.ResponseWriter, req *http.Request) {
 	stmt, err := db.Prepare(`DELETE FROM customer WHERE name="Jimmy";`)
 	check(err)
+	defer stmt.Close()
 
 	r, err := stmt.Exec()
 	check(err)
@@ -123,6 +129,7 @@ func del(w http.ResponseWriter, req *http.Request) {
 func drop(w http.ResponseWriter, req *http.Request) {
 	stmt, err := db.Prepare(`DROP TABLE customer;`)
 	check(err)
+	defer stmt.Close()
 
 	_, err = stmt.Exec()
 	check(err)
