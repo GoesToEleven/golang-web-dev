@@ -23,6 +23,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func process(w http.ResponseWriter, r *http.Request) {
+
+
 	subscribe := r.FormValue("subscribe")
 	dessert := r.FormValue("dessert")
 	dow := r.FormValue("dow")

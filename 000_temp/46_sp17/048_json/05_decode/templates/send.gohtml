@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body, h1 {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("http://www.dogeatdoginc.com/Volkswagon%20Conversions,%20VW%20Van%20Conversions,%20Vw%20Van%20Cocktail%20Bar,%20Vw%20Cocktail%20Van,%20Vw%20Conversions%20Ireland%20UK%20England%20and%20Europe%20(38).jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 8rem;
+            color: white;
+            max-width: 75vw;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>We are now going to send data to the /catch path</h1>
+
+<script>
+    data = '[{"First":"James","Last":"Bond"},{"First":"Miss","Last":"Moneypenny"}]';
+    console.log(data);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/catch', true);
+    xhr.send(data);
+</script>
+
+</body>
+</html>
