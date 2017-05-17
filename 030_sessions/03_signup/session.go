@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/satori/go.uuid"
 	"net/http"
+
+	"github.com/satori/go.uuid"
 )
 
 func getUser(w http.ResponseWriter, req *http.Request) user {
@@ -16,7 +17,8 @@ func getUser(w http.ResponseWriter, req *http.Request) user {
 		}
 
 	}
-	http.SetCookie(w, c)
+	//Next line may not be required, commenting it
+	// http.SetCookie(w, c)
 
 	// if the user exists already, get user
 	var u user
