@@ -1,5 +1,25 @@
-html, body, h1
+html, body, h1 {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 h1 {
-    color: red;
+    color: blue;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw;
+    background-image: url("/assets/img/neu.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
 }
