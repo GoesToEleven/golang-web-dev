@@ -1,13 +1,13 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 type person struct {
-	First string
-	Last string
+	First  string
+	Last   string
 	Saying string
 }
 
@@ -24,14 +24,14 @@ func main() {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	p1 := person{
-		First: "James",
-		Last: "Bond",
+		First:  "James",
+		Last:   "Bond",
 		Saying: "Shaken, not stirred.",
 	}
-	
+
 	p2 := person{
-		First: "Miss",
-		Last: "Moneypenny",
+		First:  "Miss",
+		Last:   "Moneypenny",
 		Saying: "Hello, James. It is sooooooooo good to see you.",
 	}
 

@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/02/controllers"
+	"github.com/julienschmidt/httprouter"
 	"html/template"
 	"net/http"
-	"github.com/julienschmidt/httprouter"
-	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/02/controllers"
 )
 
 var tpl *template.Template

@@ -1,17 +1,17 @@
 package main
 
 import (
-	"net/http"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"html/template"
 	"io/ioutil"
-	"encoding/base64"
+	"net/http"
 )
 
 type person struct {
 	First string
-	Last string
+	Last  string
 }
 
 var tpl *template.Template
@@ -39,7 +39,6 @@ func send(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "send.gohtml", xp)
 }
 
-
 func catch(w http.ResponseWriter, r *http.Request) {
 	xp := getUsers(r)
 
@@ -59,10 +58,10 @@ func catch(w http.ResponseWriter, r *http.Request) {
 		s := base64.StdEncoding.EncodeToString(bs)
 		fmt.Println(s)
 
-		c := &http.Cookie {
-			Name: "userdata",
-			Value: s,
-			Path: "/",
+		c := &http.Cookie{
+			Name:     "userdata",
+			Value:    s,
+			Path:     "/",
 			HttpOnly: true,
 		}
 		http.SetCookie(w, c)

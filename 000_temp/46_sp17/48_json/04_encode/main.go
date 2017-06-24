@@ -1,14 +1,14 @@
 package main
 
 import (
-	"net/http"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type person struct {
 	First string
-	Last string
+	Last  string
 }
 
 func main() {
@@ -19,15 +19,15 @@ func main() {
 func index(w http.ResponseWriter, r *http.Request) {
 	p1 := person{
 		First: "James",
-		Last: "Bond",
+		Last:  "Bond",
 	}
 
-	p2 := person {
+	p2 := person{
 		First: "Miss",
-		Last: "Moneypenny",
+		Last:  "Moneypenny",
 	}
 
-	xp := []person{p1,p2}
+	xp := []person{p1, p2}
 
 	err := json.NewEncoder(w).Encode(xp)
 	if err != nil {

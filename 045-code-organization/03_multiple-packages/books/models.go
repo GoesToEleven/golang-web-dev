@@ -2,9 +2,9 @@ package books
 
 import (
 	"errors"
+	"github.com/GoesToEleven/golang-web-dev/045-code-organization/03_multiple-packages/config"
 	"net/http"
 	"strconv"
-	"github.com/GoesToEleven/golang-web-dev/045-code-organization/03_multiple-packages/config"
 )
 
 type Book struct {

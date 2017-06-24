@@ -1,20 +1,20 @@
 package main
 
 import (
-	"net/http"
 	"github.com/satori/go.uuid"
 	"html/template"
+	"net/http"
 )
 
 type user struct {
 	UserName string
 	Password string
-	First string
-	Last string
+	First    string
+	Last     string
 }
 
 var tpl *template.Template
-var dbUsers = map[string]user{} // user ID, user
+var dbUsers = map[string]user{}      // user ID, user
 var dbSessions = map[string]string{} // session ID, user ID (email)
 
 func init() {
@@ -55,11 +55,11 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 		// create session
 		id := uuid.NewV4()
-		c := &http.Cookie {
-			Name: "session",
-			Value: id.String(),
+		c := &http.Cookie{
+			Name:     "session",
+			Value:    id.String(),
 			HttpOnly: true,
-			Path: "/",
+			Path:     "/",
 		}
 		http.SetCookie(w, c)
 		dbSessions[c.Value] = e

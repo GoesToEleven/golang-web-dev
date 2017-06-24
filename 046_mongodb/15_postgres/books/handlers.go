@@ -2,10 +2,10 @@ package books
 
 import (
 	"database/sql"
-	"net/http"
 	"encoding/json"
-	"github.com/GoesToEleven/golang-web-dev/046_mongodb/15_postgres/config"
 	"fmt"
+	"github.com/GoesToEleven/golang-web-dev/046_mongodb/15_postgres/config"
+	"net/http"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {

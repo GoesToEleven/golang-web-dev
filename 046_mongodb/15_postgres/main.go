@@ -1,11 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/046_mongodb/15_postgres/books"
+	"net/http"
 )
-
-
 
 func main() {
 	http.HandleFunc("/", index)

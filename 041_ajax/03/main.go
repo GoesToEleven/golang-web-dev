@@ -1,13 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/satori/go.uuid"
 	"golang.org/x/crypto/bcrypt"
 	"html/template"
+	"io/ioutil"
 	"net/http"
 	"time"
-	"fmt"
-	"io/ioutil"
 )
 
 type user struct {
@@ -176,8 +176,8 @@ func logout(w http.ResponseWriter, req *http.Request) {
 func checkUserName(w http.ResponseWriter, req *http.Request) {
 	sampleUsers := map[string]bool{
 		"test@example.com": true,
-		"jame@bond.com": true,
-		"moneyp@uk.gov": true,
+		"jame@bond.com":    true,
+		"moneyp@uk.gov":    true,
 	}
 
 	bs, err := ioutil.ReadAll(req.Body)

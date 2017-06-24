@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
 	"fmt"
+	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -32,9 +32,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 func bowzer(w http.ResponseWriter, r *http.Request) {
 	c := &http.Cookie{
-		Name: "user-cookie",
+		Name:  "user-cookie",
 		Value: "this would be the value",
-		Path: "/dog/bowzer",
+		Path:  "/dog/bowzer",
 	}
 	http.SetCookie(w, c)
 	tpl.ExecuteTemplate(w, "bowzer.gohtml", c)

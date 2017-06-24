@@ -1,24 +1,24 @@
 package controllers
 
 import (
-	"strings"
-	"io"
-	"fmt"
 	"crypto/sha1"
+	"encoding/json"
+	"fmt"
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/errors"
+	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/memcache"
 	"github.com/julienschmidt/httprouter"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/log"
+	"html/template"
+	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
-	"html/template"
-	"mime/multipart"
-	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/memcache"
-	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/errors"
-	"google.golang.org/appengine/log"
-	"google.golang.org/appengine"
-	"encoding/json"
+	"strings"
 )
 
-type Controller struct{
+type Controller struct {
 	tpl *template.Template
 }
 
@@ -26,7 +26,7 @@ func NewController(tpl *template.Template) *Controller {
 	return &Controller{tpl}
 }
 
-func(ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func (ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	ctx := appengine.NewContext(r)
 	log.Infof(ctx, "IN INDEX") // fyi
 	c := GetCookie(w, r)
@@ -41,7 +41,7 @@ func(ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.
 	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs)
 }
 
-func(ctl Controller) IndexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func (ctl Controller) IndexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	c := GetCookie(w, r)
 
@@ -75,7 +75,7 @@ func createSHA(mf multipart.File, fh *multipart.FileHeader) string {
 	return fmt.Sprintf("%x", h.Sum(nil)) + "." + ext
 }
 
-func createNewFile(r *http.Request, name string) (*os.File, error)  {
+func createNewFile(r *http.Request, name string) (*os.File, error) {
 	ctx := appengine.NewContext(r)
 	wd, err := os.Getwd()
 	if err != nil {

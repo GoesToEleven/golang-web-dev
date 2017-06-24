@@ -1,9 +1,9 @@
 package main
 
 import (
-	_ "github.com/GoesToEleven/golang-web-dev/000_temp/49_interfaces/species"
 	"fmt"
 	"github.com/GoesToEleven/golang-web-dev/000_temp/49_interfaces/species"
+	_ "github.com/GoesToEleven/golang-web-dev/000_temp/49_interfaces/species"
 )
 
 type person struct {

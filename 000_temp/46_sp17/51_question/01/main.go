@@ -37,8 +37,8 @@ func incrementor(s string) {
 	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < 20; i++ {
 		x := counter
-		fmt.Println("1----",counter)
-		fmt.Println("2----",x)
+		fmt.Println("1----", counter)
+		fmt.Println("2----", x)
 		x.Add()
 		counter = x
 		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)

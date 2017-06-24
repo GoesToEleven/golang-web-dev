@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
 	"fmt"
+	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -23,7 +23,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func process(w http.ResponseWriter, r *http.Request) {
-
 
 	subscribe := r.FormValue("subscribe")
 	dessert := r.FormValue("dessert")

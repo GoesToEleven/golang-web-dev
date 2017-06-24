@@ -1,15 +1,15 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
 
 type person struct {
 	First string
-	Age int
+	Age   int
 }
 
 func init() {

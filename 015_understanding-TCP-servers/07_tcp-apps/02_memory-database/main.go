@@ -46,7 +46,9 @@ func handle(conn net.Conn) {
 		ln := scanner.Text()
 		fs := strings.Fields(ln)
 		// logic
-		if (len(fs) < 1) { continue }
+		if len(fs) < 1 {
+			continue
+		}
 		switch fs[0] {
 		case "GET":
 			k := fs[1]

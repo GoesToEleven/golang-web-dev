@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/GoesToEleven/golang-web-dev/042_mongodb/11_solution/controllers"
 	"html/template"
 	"net/http"
-	"github.com/GoesToEleven/golang-web-dev/042_mongodb/11_solution/controllers"
 )
 
 var tpl *template.Template

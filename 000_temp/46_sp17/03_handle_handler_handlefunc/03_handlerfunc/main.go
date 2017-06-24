@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -13,4 +13,3 @@ func main() {
 func foo(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Holy diggity dogger")
 }
-

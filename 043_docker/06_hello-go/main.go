@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -10,6 +10,6 @@ func main() {
 	http.ListenAndServe(":80", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "hello from a docker container")
 }

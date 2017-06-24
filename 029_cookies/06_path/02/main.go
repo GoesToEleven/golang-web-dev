@@ -27,7 +27,7 @@ func set(w http.ResponseWriter, req *http.Request) {
 	c := &http.Cookie{
 		Name:  "my-cookie",
 		Value: "some value",
-		Path: "/",
+		Path:  "/",
 	}
 	http.SetCookie(w, c)
 	fmt.Println(c)

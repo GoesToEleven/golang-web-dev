@@ -1,13 +1,13 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 type hotdog int
 
-func(hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Hello from hotdogger")
 }
 

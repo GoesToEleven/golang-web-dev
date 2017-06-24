@@ -1,9 +1,9 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
 	"github.com/satori/go.uuid"
+	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -22,9 +22,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		u := uuid.NewV4()
 		c = &http.Cookie{
-			Name: "session",
-			Value: u.String(),
-			Path: "/",
+			Name:     "session",
+			Value:    u.String(),
+			Path:     "/",
 			HttpOnly: true,
 		}
 	}

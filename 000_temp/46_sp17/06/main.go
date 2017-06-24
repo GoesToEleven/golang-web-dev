@@ -11,5 +11,5 @@ func main() {
 }
 
 func foo() {
-	fmt.Println(z,z,z,z,z)
+	fmt.Println(z, z, z, z, z)
 }

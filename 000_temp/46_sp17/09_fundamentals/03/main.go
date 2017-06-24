@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type human interface{
+type human interface {
 	speak()
 }
 

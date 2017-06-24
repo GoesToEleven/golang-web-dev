@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
+	"net/http"
 )
 
 func main() {
@@ -34,7 +34,6 @@ Hello from index
 </html>`)
 }
 
-
 func about(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, `<!DOCTYPE html>
 <html lang="en">
@@ -56,7 +55,6 @@ Hello from about
 </body>
 </html>`)
 }
-
 
 func contact(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, `<!DOCTYPE html>

@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
-	"gopkg.in/mgo.v2"
 	"fmt"
+	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"html/template"
+	"net/http"
 )
 
 type customer struct {
@@ -35,7 +35,6 @@ func init() {
 
 	fmt.Println("You connected to your mongo database.")
 }
-
 
 func main() {
 	http.HandleFunc("/", index)

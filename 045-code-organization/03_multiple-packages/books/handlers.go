@@ -2,8 +2,8 @@ package books
 
 import (
 	"database/sql"
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/045-code-organization/03_multiple-packages/config"
+	"net/http"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {

@@ -6,7 +6,7 @@ import (
 
 type person struct {
 	first string
-	last string
+	last  string
 }
 
 type secretAgent struct {

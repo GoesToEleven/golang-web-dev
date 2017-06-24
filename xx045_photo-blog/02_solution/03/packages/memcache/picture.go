@@ -1,11 +1,11 @@
 package memcache
 
 import (
-	"net/http"
-	"google.golang.org/appengine"
-	"google.golang.org/appengine/memcache"
 	"encoding/json"
 	"github.com/GoesToEleven/golang-web-dev/045_photo-blog/02_solution/03/packages/errors"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/memcache"
+	"net/http"
 )
 
 func SetPictures(r *http.Request, c *http.Cookie, xs []string) error {
@@ -20,7 +20,7 @@ func SetPictures(r *http.Request, c *http.Cookie, xs []string) error {
 	return err
 }
 
-func GetPictures(r *http.Request,  c *http.Cookie) ([]string, error) {
+func GetPictures(r *http.Request, c *http.Cookie) ([]string, error) {
 	ctx := appengine.NewContext(r)
 
 	item, err := memcache.Get(ctx, c.Value)

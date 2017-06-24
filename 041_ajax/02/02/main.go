@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
-	"fmt"
 )
 
 var tpl *template.Template

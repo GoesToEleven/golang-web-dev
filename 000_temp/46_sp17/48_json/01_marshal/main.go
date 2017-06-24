@@ -1,27 +1,27 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 )
 
 type person struct {
 	First string
-	Last string
+	Last  string
 }
 
 func main() {
 	p1 := person{
 		First: "James",
-		Last: "Bond",
+		Last:  "Bond",
 	}
 
-	p2 := person {
+	p2 := person{
 		First: "Miss",
-		Last: "Moneypenny",
+		Last:  "Moneypenny",
 	}
 
-	xp := []person{p1,p2}
+	xp := []person{p1, p2}
 
 	fmt.Printf("go data: %+v\n", xp)
 

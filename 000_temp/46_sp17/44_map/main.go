@@ -1,23 +1,23 @@
 package main
 
 import (
-	"net/http"
-	"html/template"
-	"github.com/satori/go.uuid"
 	"fmt"
+	"github.com/satori/go.uuid"
+	"html/template"
+	"net/http"
 )
 
 type user struct {
-	Id string
-	First string
-	Last string
-	Email string
+	Id       string
+	First    string
+	Last     string
+	Email    string
 	Password string
 }
 
 var tpl *template.Template
 
-var muser = map[string]user{} // key is userid, value is user
+var muser = map[string]user{}      // key is userid, value is user
 var msession = map[string]string{} // key is sessionid, value is userid
 
 func init() {
@@ -39,9 +39,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		u := uuid.NewV4()
 		c = &http.Cookie{
-			Name: "mysess",
-			Value: u.String(),
-			Path: "/",
+			Name:     "mysess",
+			Value:    u.String(),
+			Path:     "/",
 			HttpOnly: true,
 		}
 	}
@@ -138,10 +138,10 @@ func signup(w http.ResponseWriter, r *http.Request) {
 		pw := r.FormValue("password")
 		u := uuid.NewV4()
 		usr = user{
-			Id: u.String(),
-			First: fn,
-			Last: ln,
-			Email: em,
+			Id:       u.String(),
+			First:    fn,
+			Last:     ln,
+			Email:    em,
 			Password: pw,
 		}
 		muser[usr.Id] = usr

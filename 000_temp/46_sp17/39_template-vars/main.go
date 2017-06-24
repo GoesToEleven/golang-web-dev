@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -24,6 +24,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func vars(w http.ResponseWriter, r *http.Request) {
-	xs := []string{"James", "Moneypenny", "Q", "M",}
+	xs := []string{"James", "Moneypenny", "Q", "M"}
 	tpl.ExecuteTemplate(w, "vars.gohtml", xs)
 }

@@ -1,24 +1,23 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
-	"fmt"
 	"strconv"
 )
 
 type Env struct {
-	Data []int
-	From int
-	To int
-	Amount int
-	ForwardStart int
+	Data          []int
+	From          int
+	To            int
+	Amount        int
+	ForwardStart  int
 	BackwardStart int
 }
 
 var tpl *template.Template
 var xi []int
-
 
 func init() {
 	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
@@ -62,7 +61,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 	// then the next group of records would start at "to"
 	// but only if there are such records
 	var fs int
-	if to + recordsPerPageToShow <= len(xi) {
+	if to+recordsPerPageToShow <= len(xi) {
 		fs = to
 	} else {
 		fs = len(xi) - recordsPerPageToShow
@@ -73,18 +72,18 @@ func index(w http.ResponseWriter, r *http.Request) {
 	// then the previous group of records would start at "from" minus ten (records shown)
 	// but only if there are such records
 	var bs int
-	if from - recordsPerPageToShow >= 0 {
+	if from-recordsPerPageToShow >= 0 {
 		bs = from - recordsPerPageToShow
 	} else {
 		bs = 0
 	}
 
 	data := Env{
-		Data: xx,
-		From: from,
-		To: to - 1,
-		Amount: recordsPerPageToShow,
-		ForwardStart: fs,
+		Data:          xx,
+		From:          from,
+		To:            to - 1,
+		Amount:        recordsPerPageToShow,
+		ForwardStart:  fs,
 		BackwardStart: bs,
 	}
 	err = tpl.ExecuteTemplate(w, "index.gohtml", data)

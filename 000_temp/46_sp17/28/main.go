@@ -6,7 +6,7 @@ import (
 )
 
 type person struct {
-	Name string
+	Name  string
 	Prefs []string
 }
 
@@ -23,10 +23,10 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	p1 := person{"bond", []string{"martinis", "shaken not stirred", "fast cars", "intelligence",},}
-	p2 := person{"moneypenny", []string{"bond",},}
-	p3 := person{"Q", []string{"gadgets", "bond",},}
-	xp := []person{p1,p2,p3}
+	p1 := person{"bond", []string{"martinis", "shaken not stirred", "fast cars", "intelligence"}}
+	p2 := person{"moneypenny", []string{"bond"}}
+	p3 := person{"Q", []string{"gadgets", "bond"}}
+	xp := []person{p1, p2, p3}
 
 	tpl.ExecuteTemplate(w, "index.gohtml", xp)
 }

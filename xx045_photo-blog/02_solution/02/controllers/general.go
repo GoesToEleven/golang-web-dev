@@ -1,19 +1,19 @@
 package controllers
 
 import (
-	"strings"
-	"io"
-	"fmt"
 	"crypto/sha1"
+	"fmt"
 	"github.com/julienschmidt/httprouter"
+	"html/template"
+	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
-	"html/template"
-	"mime/multipart"
+	"strings"
 )
 
-type Controller struct{
+type Controller struct {
 	tpl *template.Template
 }
 
@@ -21,13 +21,13 @@ func NewController(tpl *template.Template) *Controller {
 	return &Controller{tpl}
 }
 
-func(ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func (ctl Controller) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	c := getCookie(w, r)
 	xs := strings.Split(c.Value, "|")
 	ctl.tpl.ExecuteTemplate(w, "index.gohtml", xs[1:]) //only send over images
 }
 
-func(ctl Controller) IndexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func (ctl Controller) IndexSubmission(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	c := getCookie(w, r)
 
 	mf, fh, err := r.FormFile("nf")
@@ -63,7 +63,7 @@ func createSHA(mf multipart.File, fh *multipart.FileHeader) string {
 	return fmt.Sprintf("%x", h.Sum(nil)) + "." + ext
 }
 
-func createNewFile(name string) (*os.File, error)  {
+func createNewFile(name string) (*os.File, error) {
 	wd, err := os.Getwd()
 	if err != nil {
 		fmt.Println(err)

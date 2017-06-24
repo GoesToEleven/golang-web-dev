@@ -29,7 +29,6 @@ func foo(h human) {
 	fmt.Println("hello from foo")
 }
 
-
 func main() {
 	p1 := person{"Nina", "Simone", 25}
 	sa1 := secretAgent{person{"Ian", "Fleming", 42}, false}

@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/sha1"
 	"fmt"
+	"github.com/julienschmidt/httprouter"
 	"github.com/satori/go.uuid"
 	"html/template"
 	"io"
@@ -10,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"github.com/julienschmidt/httprouter"
 )
 
 var tpl *template.Template

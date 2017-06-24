@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"net/http"
 	"github.com/satori/go.uuid"
+	"net/http"
 )
 
 func GetCookie(w http.ResponseWriter, r *http.Request) *http.Cookie {

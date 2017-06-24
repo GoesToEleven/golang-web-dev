@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/GoesToEleven/golang-web-dev/000_temp/44_class/13_interface/memcache"
 	"github.com/GoesToEleven/golang-web-dev/000_temp/44_class/13_interface/cmd"
+	"github.com/GoesToEleven/golang-web-dev/000_temp/44_class/13_interface/memcache"
 )
 
 func main() {

@@ -7,16 +7,16 @@ import (
 
 type person struct {
 	First string
-	Last string
-	Ltk bool
+	Last  string
+	Ltk   bool
 	Items []string
 }
 
 func main() {
 	p1 := person{
 		First: "James",
-		Last: "Bond",
-		Ltk: true,
+		Last:  "Bond",
+		Ltk:   true,
 		Items: []string{
 			"Martini",
 			"Walther PPK",

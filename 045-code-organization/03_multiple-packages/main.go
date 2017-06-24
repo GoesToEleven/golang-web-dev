@@ -1,11 +1,9 @@
 package main
 
 import (
-	"net/http"
 	"github.com/GoesToEleven/golang-web-dev/045-code-organization/03_multiple-packages/books"
+	"net/http"
 )
-
-
 
 func main() {
 	http.HandleFunc("/", index)

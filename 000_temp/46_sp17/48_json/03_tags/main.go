@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 )
 
 type person struct {
 	First string `json:"fname"`
-	Last string
+	Last  string
 }
 
 func main() {
