@@ -1,8 +1,8 @@
 package main
 
 import (
-	"golang.org/x/crypto/bcrypt"
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func main() {

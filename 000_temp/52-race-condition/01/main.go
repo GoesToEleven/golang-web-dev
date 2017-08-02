@@ -2,15 +2,14 @@ package _1
 
 import (
 	"fmt"
-	"sync"
 	"runtime"
+	"sync"
 )
 
 var counter = 0
 var mu sync.Mutex
 
 func main() {
-
 
 	const gs = 4
 	var wg sync.WaitGroup
