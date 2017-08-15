@@ -17,7 +17,6 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Add(gs)
 
-
 	for i := 0; i < gs; i++ {
 		go func() {
 			atomic.AddInt64(&counter, 1)
