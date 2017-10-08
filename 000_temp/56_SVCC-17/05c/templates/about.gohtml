@@ -1,0 +1,10 @@
+{{template "header" .Title}}
+</head>
+<body>
+
+<h1>ABOUT US</h1>
+{{range .Members}}
+{{.}}<br>
+{{end}}
+
+{{template "footer"}}

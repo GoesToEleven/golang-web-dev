@@ -1,0 +1,9 @@
+{{template "header" .Title}}
+
+<h1>ABOUT OUR TEAM</h1>
+
+{{range .Members}}
+{{.}}<br>
+{{end}}
+
+{{template "footer"}}
