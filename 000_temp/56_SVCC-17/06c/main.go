@@ -19,7 +19,7 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request){
-	tpl.ExecuteTemplate(w, "index.gohtml", "ACME INC")
+	tpl.ExecuteTemplate(w, "index.gohtml", "Snowykite")
 }
 
 
@@ -29,9 +29,9 @@ func about(w http.ResponseWriter, r *http.Request){
 		Members []string
 	}
 
-	cd := customData{
-		Title: "ABOUT OUR TEAM",
-		Members: []string{"Moneypenny", "Bond", "Q", "M",},
+	cd := customData {
+		Title: "What I learned at SVCC:",
+		Members: []string{"How to build a go server","How to serve files on go server", "How to use template", "Go is awesome!",},
 	}
 
 	tpl.ExecuteTemplate(w, "about.gohtml", cd)
