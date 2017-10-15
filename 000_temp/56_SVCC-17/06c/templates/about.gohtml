@@ -2,9 +2,11 @@
 </head>
 <body>
 
-<h1>ABOUT US</h1>
+<h1>{{.Title}}</h1>
+<lh>
 {{range .Members}}
-{{.}}<br>
+<li>{{.}}</li>
 {{end}}
+</lh>
 
 {{template "footer"}}
