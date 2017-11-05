@@ -23,7 +23,7 @@ GRANT ALL PRIVILEGES ON DATABASE company to james;
 
 ## revoke privileges
 ```
-REVOKE ALL PRIVILEGES ON DATABASE company to james;
+REVOKE ALL PRIVILEGES ON DATABASE company from james;
 ```
 
 ## alter
