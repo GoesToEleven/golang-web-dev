@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/form.css">
+</head>
+<body>
+
+{{template "header"}}
+
+<main>
+    <h1>{{.Title}}</h1>
+</main>
+
+<form action="/process" method="POST">
+
+    <label for="fn">FIRST NAME:</label>
+    <input type="text" name="first" id="fn" placeholder="first name">
+
+    <label for="ln">LAST NAME:</label>
+    <input type="text" name="last" id="ln" placeholder="last name">
+
+    <button>
+        <h1>SUBMIT</h1>
+    </button>
+
+</form>
+
+
+
+
+
+</body>
+</html>

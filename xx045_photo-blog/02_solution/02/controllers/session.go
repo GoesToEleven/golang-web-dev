@@ -9,7 +9,7 @@ import (
 func getCookie(w http.ResponseWriter, r *http.Request) *http.Cookie {
 	c, err := r.Cookie("session")
 	if err != nil {
-		sID := uuid.NewV4()
+		sID, _ := uuid.NewV4()
 		c = &http.Cookie{
 			Name:  "session",
 			Value: sID.String(),

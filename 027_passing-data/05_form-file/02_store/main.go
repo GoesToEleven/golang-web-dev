@@ -56,6 +56,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 		_, err = dst.Write(bs)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
 		}
 	}
 

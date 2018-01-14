@@ -1,0 +1,58 @@
+html, body, main, header, div, a {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    background-image: url("/assets/paradise.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4vh;
+    background-color: rgba(121, 200, 255, 0.39);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+header > div {
+    height: 100%;
+    font-size: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+header > div > a {
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+header > div > a:hover {
+    color: blue;
+}
+
+footer {
+    font-size: 12rem;
+    color: black;
+}
