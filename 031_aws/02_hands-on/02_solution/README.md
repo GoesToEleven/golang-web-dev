@@ -13,7 +13,7 @@
 
 1. copy binary to the server
 
-1. copy you "templates" to the server
+1. copy your "templates" to the server
   - scp -i /path/to/[your].pem templates/* ubuntu@[public-DNS]:/home/ubuntu/templates
 
 1. chmod permissions on your binary
