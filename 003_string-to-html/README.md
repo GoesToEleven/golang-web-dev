@@ -30,7 +30,7 @@ NewReader returns a new Reader reading from s.
 func NewReader(s string) *Reader
 ```
 
-##[os.Args](https://godoc.org/os#pkg-variables)
+## [os.Args](https://godoc.org/os#pkg-variables)
 Args is a variable from package os. Args hold the command-line arguments, starting with the program name.
 ``` Go
 var Args []string
