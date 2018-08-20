@@ -4,7 +4,6 @@ import "fmt"
 
 // https://play.golang.org/p/gLdpEzVm54U
 
-
 type person struct {
 	first string
 	last  string
