@@ -1,0 +1,1 @@
+INSERT INTO customers VALUES (12, 'Jamesx', 8000, 'CA'), (13, 'Jennyx', 11000, 'WA'), (14, 'Toddx', 9950, 'OR'), (15, 'Rickx', 10500, 'WA'), (16, 'Stevex', 10250, 'CA'), (17, 'Andrewx', 7750, 'OR'), (18, 'Josephinex', 13000, 'WA'), (19, 'Maxx', 12000, 'CA'), (20, 'Stephaniex', 8000, 'OR'), (21, 'Agnesx', 9999, 'WA');
