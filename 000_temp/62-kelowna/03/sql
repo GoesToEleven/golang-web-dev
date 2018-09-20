@@ -1,0 +1,80 @@
+INSERT INTO recipeclasses VALUES (1, 'italian'), (2,'french'), (3,'indian'), (4,'mexican'), (5,'thai'), (6,'chinese'), (7,'swiss'), (8,'german'), (9,'american'), (10,'japanese'), (11,'hungarian'), (12,'english');
+
+INSERT INTO recipes VALUES (1,'hamburger',9,'bbq','include pickles'), (2,'bratwurst',8,'grill','drink beer while eating'), (3,'chow meain',6,'wok it','not so good as leftovers'), (4,'canoli',1,'lots of cream','wonderful dessert'), (5,'chai',3,'milk and spices baby','delicious to drink'), (6,'red wine',2,'enjoy za life','not so much for me'), (7,'burrito',4,'beans please','add hot sauce'), (8,'pad thai',5,'no fish sauce','put a fried egg on top'), (9,'swiss cheese',7,'put in the holes','melt it on crackers'), (10,'sushi',10,'do not cook the fish','add miso soup on the side');
+
+SELECT recipeclassdescription, recipetitle FROM recipeclasses LEFT OUTER JOIN recipes ON recipeclasses.recipeclassid = recipes.recipeclassid;
+
+SELECT recipeclassdescription, recipetitle FROM recipeclasses LEFT JOIN recipes ON recipeclasses.recipeclassid = recipes.recipeclassid;
+
+SELECT rc.recipeclassdescription, r.recipetitle FROM recipeclasses AS rc LEFT JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid;
+
+SELECT rc.recipeclassdescription FROM recipeclasses AS rc LEFT JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid WHERE r.recipeid IS NULL;
+
+SELECT f.recipeclassdescription, r.recipetitle FROM (SELECT recipeclassid, recipeclassdescription FROM recipeclasses AS rc where rc.recipeclassdescription = 'german' OR rc.recipeclassdescription = 'italian' OR rc.recipeclassdescription = 'french') AS f LEFT JOIN recipes AS r ON f.recipeclassid = r.recipeclassid;
+
+SELECT f.recipetitle, rc.recipeclassdescription FROM (SELECT recipetitle, recipeclassid FROM recipes WHERE recipetitle LIKE '%a%') AS f RIGHT JOIN recipeclasses AS rc ON f.recipeclassid = rc.recipeclassid;
+
+
+
+CREATE DATABASE humanity;
+
+\c humanity
+
+CREATE TABLE humans (hid INT PRIMARY KEY NOT NULL, hname TEXT, hage INT);
+
+INSERT INTO humans VALUES (1,'',18), (2,'',22), (3,'jenny',27), (4,'james',32), (5,'ian',36), (6,'stephen',42), (7,'stephanie',47), (8,'agnes',49), (9,'portia',50), (10,'fidel',55), (11,'rich',62), (12,'al',78);
+
+SELECT f.hname FROM (SELECT hname FROM humans WHERE hname LIKE '%a%') AS f;
+
+SELECT f.hname, f.hage FROM (SELECT hname, hage FROM humans WHERE hage  > 40) AS f;
+
+
+SELECT f1.recipeclassdescription, f2.recipetitle FROM (SELECT recipeclasses.recipeclassid, recipeclassdescription FROM recipeclasses WHERE recipeclassdescription = 'german' OR recipeclassdescription = 'italian' OR recipeclassdescription = 'french' OR recipeclassdescription = 'hungarian') AS f1 LEFT JOIN (SELECT recipes.recipeclassid, recipetitle FROM recipes WHERE recipetitle LIKE '%o%') AS f2 on f1.recipeclassid = f2.recipeclassid;
+
+CREATE TABLE ingredients (ingredientid INT PRIMARY KEY NOT NULL,  ingredientname TEXT);
+
+CREATE TABLE measurements (measurementsid INT PRIMARY KEY NOT NULL, measurementdescription TEXT);
+
+CREATE TABLE recipeingredients (riid INT PRIMARY KEY NOT NULL, recipeid INT NOT NULL REFERENCES recipes(recipeid), recipeseqno INT, ingredientid INT NOT NULL REFERENCES ingredients(ingredientid), measurementsid INT NOT NULL REFERENCES measurements(measurementsid));
+
+INSERT INTO ingredients VALUES (1,'chocolate'), (2,'chipotle'), (3,'chicken'), (4,'beef'), (5,'flower'), (6,'butter'), (7,'milk'), (8,'broth'), (9,'salt'), (10,'baking soda');
+
+INSERT INTO measurements VALUES (1,'some'), (2,'a little'), (3,'a lot'), (4,'a pinch'), (5,'until it tastes good'), (6,'not too much'), (7,'not too little'), (8,'just a pinch'), (9,'a smidge'), (10,'a generous scoop'), (11,'more than you think'), (12,'less than youd imagine');
+
+INSERT INTO recipeingredients VALUES (1,6,1,7,10),(2,3,2,5,5),(3,8,3,9,7),(4,7,4,6,1),(5,4,5,3,2),(6,9,6,1,6),(7,3,7,6,9),(8,1,8,6,11),(9,1,9,8,6),(10,2,10,7,10),(11,5,11,7,6),(12,6,12,4,1),(13,7,13,8,2),(14,1,14,8,7),(15,2,15,1,3),(16,1,16,8,1),(17,2,17,4,5),(18,8,18,1,6),(19,5,19,8,3),(20,4,20,8,2),(21,9,21,7,6),(22,4,22,2,1),(23,9,23,9,1),(24,3,24,2,3),(25,9,25,6,2),(26,1,26,2,10),(27,8,27,9,6),(28,1,28,8,5),(29,3,29,8,5),(30,6,30,9,10),(31,3,31,5,10),(32,2,32,1,11),(33,4,33,1,9),(34,3,34,4,4),(35,4,35,9,8),(36,3,36,2,5),(37,4,37,2,10),(38,2,38,5,4),(39,1,39,5,6),(40,5,40,4,10),(41,3,41,2,8),(42,4,42,5,9),(43,6,43,5,2),(44,1,44,1,3),(45,8,45,9,11),(46,8,46,9,5),(47,1,47,7,3),(48,9,48,5,2),(49,9,49,6,5),(50,3,50,9,8),(51,5,51,8,5),(52,2,52,3,2),(53,4,53,4,8),(54,3,54,5,4),(55,5,55,7,1),(56,1,56,7,3),(57,7,57,8,3),(58,1,58,9,10),(59,9,59,5,11),(60,1,60,4,3),(61,2,61,1,7),(62,4,62,6,10),(63,4,63,4,9),(64,8,64,6,6),(65,6,65,7,6),(66,2,66,9,11),(67,6,67,3,11),(68,4,68,6,6),(69,6,69,3,6),(70,1,70,8,3),(71,2,71,7,4),(72,4,72,2,8),(73,8,73,3,5),(74,4,74,4,7),(75,6,75,8,9),(76,7,76,2,1),(77,8,77,3,2),(78,6,78,8,9),(79,3,79,5,10),(80,3,80,4,9),(81,7,81,7,4),(82,6,82,7,6),(83,3,83,2,10),(84,7,84,2,7),(85,9,85,2,10),(86,3,86,1,5),(87,8,87,4,2),(88,5,88,3,5),(89,6,89,4,9),(90,5,90,6,4),(91,9,91,2,9),(92,7,92,4,1),(93,7,93,4,2),(94,6,94,4,8),(95,4,95,2,5),(96,2,96,3,8),(97,5,97,3,9),(98,4,98,9,2),(99,7,99,5,2),(100,4,100,7,10);
+
+
+SELECT recipetitle, recipeclassdescription, recipeseqno, ingredientname, measurementdescription FROM recipes AS r INNER JOIN recipeclasses AS rc ON r.recipeclassid = rc.recipeclassid INNER JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid INNER JOIN ingredients AS i ON ri.ingredientid = i.ingredientid INNER JOIN measurements AS m ON ri.measurementsid = m.measurementsid ORDER BY r.recipeid, ri.recipeseqno;
+
+INSERT INTO recipeclasses VALUES (13, 'cambodian'), (14, 'nepalese'), (15, 'tazmanian');
+
+SELECT recipeclassdescription, recipetitle FROM (recipeclasses AS rc LEFT JOIN recipes AS r ON r.recipeclassid = rc.recipeclassid);
+
+
+--- does not work ---
+SELECT recipeclassdescription, recipetitle, recipeseqno, ingredientname, measurementdescription FROM (((recipeclasses AS rc LEFT JOIN recipes AS r ON r.recipeclassid = rc.recipeclassid) INNER JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) INNER JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) INNER JOIN measurements AS m ON ri.measurementsid = m.measurementsid;
+
+--- does work ---
+SELECT recipeclassdescription, recipetitle, recipeseqno, ingredientname, measurementdescription FROM recipes AS r INNER JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid INNER JOIN ingredients AS i ON ri.ingredientid = i.ingredientid INNER JOIN measurements AS m ON ri.measurementsid = m.measurementsid RIGHT JOIN recipeclasses AS rc ON r.recipeclassid = rc.recipeclassid;
+
+SELECT recipeclassdescription, recipetitle, recipeseqno, ingredientname, measurementdescription FROM recipes AS r INNER JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid INNER JOIN ingredients AS i ON ri.ingredientid = i.ingredientid INNER JOIN measurements AS m ON ri.measurementsid = m.measurementsid RIGHT JOIN recipeclasses AS rc ON r.recipeclassid = rc.recipeclassid ORDER BY r.recipeid, ri.recipeseqno;
+
+SELECT recipeclassdescription, recipetitle, recipeseqno, ingredientname, measurementdescription FROM (((recipeclasses AS rc LEFT JOIN recipes AS r ON r.recipeclassid = rc.recipeclassid) LEFT JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) LEFT JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) LEFT JOIN measurements AS m ON ri.measurementsid = m.measurementsid;
+
+SELECT recipeclassdescription, recipetitle, recipeseqno, ingredientname, measurementdescription FROM (((recipeclasses AS rc LEFT JOIN recipes AS r ON r.recipeclassid = rc.recipeclassid) LEFT JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) LEFT JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) LEFT JOIN measurements AS m ON ri.measurementsid = m.measurementsid ORDER BY r.recipeid, ri.recipeseqno;
+
+
+INSERT INTO recipes VALUES (11, 'reuben sandwich', NULL ,'put pastrami on rye and grill', 'butter your bread'), (12, 'thai chicken soup', NULL, 'use lemongrass', 'so delicious');
+
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) JOIN measurements AS m ON ri.measurementsid = m.measurementsid);
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) JOIN measurements AS m ON ri.measurementsid = m.measurementsid) ORDER BY r.recipetitle, ri.recipeseqno;
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc LEFT JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) LEFT JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) LEFT JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) LEFT JOIN measurements AS m ON ri.measurementsid = m.measurementsid);
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) RIGHT JOIN measurements AS m ON ri.measurementsid = m.measurementsid);
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) RIGHT JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) LEFT JOIN measurements AS m ON ri.measurementsid = m.measurementsid);
+
+SELECT rc.recipeclassdescription, r.recipetitle, ri.recipeseqno, i.ingredientname, m.measurementdescription FROM ((((recipeclasses AS rc JOIN recipes AS r ON rc.recipeclassid = r.recipeclassid) JOIN recipeingredients AS ri ON r.recipeid = ri.recipeid) RIGHT JOIN ingredients AS i ON ri.ingredientid = i.ingredientid) FULL JOIN measurements AS m ON ri.measurementsid = m.measurementsid);
