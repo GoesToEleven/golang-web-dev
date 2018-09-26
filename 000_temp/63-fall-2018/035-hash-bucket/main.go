@@ -25,7 +25,6 @@ func main() {
 	for scanner.Scan() {
 		fmt.Print(scanner.Text(), " - ")
 		n := hashBucket(scanner.Text())
-		fmt.Println(buckets[n])
 		buckets[n]++
 	}
 	fmt.Println(buckets[65:123])
@@ -36,5 +35,7 @@ func main() {
 }
 
 func hashBucket(word string) int {
+	fmt.Print(word[0], " ---- ")
+	fmt.Printf("%#U\n", word[0])
 	return int(word[0])
 }
