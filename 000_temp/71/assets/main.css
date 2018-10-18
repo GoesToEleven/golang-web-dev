@@ -1,0 +1,38 @@
+html, body {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#atf {
+    height: 100vh;
+    background-color: cornflowerblue;
+    background-image: url("/stuff/city.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13vw;
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(97, 115, 255, 0.44);
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > div {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 2rem;
+}
