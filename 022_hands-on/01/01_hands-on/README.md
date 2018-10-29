@@ -9,3 +9,5 @@ Use HandleFunc to add the following routes to the default ServeMux:
 Add a func for each of the routes.
 
 Have the "/me/" route print out your name.
+
+sorry, you define it less efficiently
