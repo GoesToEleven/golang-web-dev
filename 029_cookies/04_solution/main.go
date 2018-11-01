@@ -21,6 +21,7 @@ func foo(res http.ResponseWriter, req *http.Request) {
 		cookie = &http.Cookie{
 			Name:  "my-cookie",
 			Value: "0",
+			Path: "/",
 		}
 	}
 

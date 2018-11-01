@@ -35,6 +35,7 @@ func bowzer(w http.ResponseWriter, r *http.Request) {
 		Name:  "user-cookie",
 		Value: "this would be the value",
 		Path:  "/",
+		//Path:  "/dog/bowzer/",
 	}
 	http.SetCookie(w, c)
 	tpl.ExecuteTemplate(w, "bowzer.gohtml", c)

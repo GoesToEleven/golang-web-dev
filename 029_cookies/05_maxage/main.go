@@ -21,6 +21,7 @@ func set(w http.ResponseWriter, req *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:  "session",
 		Value: "some value",
+		Path: "/",
 	})
 	fmt.Fprintln(w, `<h1><a href="/read">read</a></h1>`)
 }
