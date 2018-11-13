@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -11,12 +11,11 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/new", http.StatusSeeOther)
 	io.WriteString(w, "You are at index")
 }
 
-func newplace(w http.ResponseWriter, r *http.Request){
+func newplace(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "You are at newplace")
 }
-

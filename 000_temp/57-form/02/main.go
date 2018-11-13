@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -34,13 +34,13 @@ func processor(w http.ResponseWriter, r *http.Request) {
 	skate := r.FormValue("skate")
 	radio := r.FormValue("cow")
 
-	d := struct{
+	d := struct {
 		First, Last, Surf, Snow, Skate, Radio string
 	}{
 		First: fname,
-		Last: lname,
-		Surf: surf,
-		Snow: snow,
+		Last:  lname,
+		Surf:  surf,
+		Snow:  snow,
 		Skate: skate,
 		Radio: radio,
 	}

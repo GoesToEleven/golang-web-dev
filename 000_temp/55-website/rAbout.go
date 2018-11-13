@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"log"
+	"net/http"
 )
 
 func about(w http.ResponseWriter, r *http.Request) {
@@ -11,4 +11,3 @@ func about(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 }
-
