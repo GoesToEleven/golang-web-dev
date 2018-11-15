@@ -1,0 +1,24 @@
+html, body, div, h1 {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#atf {
+    height: 100vh;
+    background-image: url("/assets/img/skyf.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+h1 {
+    color: red;
+    font-size: 10rem;
+}
