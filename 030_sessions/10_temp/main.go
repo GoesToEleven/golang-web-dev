@@ -166,7 +166,7 @@ func logout(w http.ResponseWriter, req *http.Request) {
 }
 
 func authorized(h http.HandlerFunc) http.HandlerFunc {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request){
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// code before
 		if !alreadyLoggedIn(w, r) {
 			http.Redirect(w, r, "/", http.StatusSeeOther)

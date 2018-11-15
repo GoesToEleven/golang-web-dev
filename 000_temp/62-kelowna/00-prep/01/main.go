@@ -4,7 +4,7 @@ import "fmt"
 
 type person struct {
 	first string
-	last string
+	last  string
 }
 
 type secretAgent struct {
@@ -28,11 +28,9 @@ func foo(h human) {
 	h.speak()
 }
 
-
 func bar(h human) {
 	h.speak()
 }
-
 
 func main() {
 	x := person{
@@ -40,10 +38,10 @@ func main() {
 		last:  "money",
 	}
 
-	y := secretAgent {
+	y := secretAgent{
 		person: person{
 			first: "james",
-			last: "bond",
+			last:  "bond",
 		},
 		ltk: true,
 	}

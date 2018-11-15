@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
@@ -10,6 +10,6 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Hello SVCC from Paypal")
 }

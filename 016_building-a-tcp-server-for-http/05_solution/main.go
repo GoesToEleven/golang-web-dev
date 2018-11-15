@@ -122,7 +122,7 @@ func contact(conn net.Conn) {
 
 func apply(conn net.Conn) {
 
-	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
+	body := `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title></head><body>
 	<strong>APPLY</strong><br>
 	<a href="/">index</a><br>
 	<a href="/about">about</a><br>

@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	var s interface{}
-	s = struct{
+	s = struct {
 		name string
 	}{
 		name: "james bond",

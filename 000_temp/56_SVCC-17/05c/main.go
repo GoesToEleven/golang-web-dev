@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 var tpl *template.Template
@@ -17,20 +17,19 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-func index(w http.ResponseWriter, r *http.Request){
+func index(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "index.gohtml", "ACME INC")
 }
 
-
-func about(w http.ResponseWriter, r *http.Request){
+func about(w http.ResponseWriter, r *http.Request) {
 	type customData struct {
-		Title string
+		Title   string
 		Members []string
 	}
 
 	cd := customData{
-		Title: "ABOUT OUR TEAM",
-		Members: []string{"Moneypenny", "Bond", "Q", "M",},
+		Title:   "ABOUT OUR TEAM",
+		Members: []string{"Moneypenny", "Bond", "Q", "M"},
 	}
 
 	tpl.ExecuteTemplate(w, "about.gohtml", cd)

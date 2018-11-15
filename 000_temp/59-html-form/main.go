@@ -1,8 +1,8 @@
 package main
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
 )
 
 type GData struct {
@@ -58,18 +58,17 @@ func process(w http.ResponseWriter, r *http.Request) {
 	fn := r.FormValue("first")
 	ln := r.FormValue("last")
 
-	d := struct{
+	d := struct {
 		GData
 		First string
-		Last string
+		Last  string
 	}{
 		GData: GData{
 			Title: "PROCESS",
 		},
 		First: fn,
-		Last: ln,
+		Last:  ln,
 	}
 
 	tpl.ExecuteTemplate(w, "process.gohtml", d)
 }
-
