@@ -1,0 +1,10 @@
+#dog {
+    /*formatting*/
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    /*layout*/
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
