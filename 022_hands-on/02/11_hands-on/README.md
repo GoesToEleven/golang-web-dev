@@ -1,6 +1,6 @@
 # Building upon the code from the previous problem:
 
-Before we WRITE our RESPONSE , let's WRITE to our RESPONSE the STATUS LINE and some REPONSE HEADERS. Remember the request line and status line:
+Before we WRITE our RESPONSE, let's WRITE to our RESPONSE the STATUS LINE and some RESPONSE HEADERS. Remember the request line and status line:
 
 REQUEST LINE
 GET / HTTP/1.1
