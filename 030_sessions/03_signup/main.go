@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/satori/go.uuid"
 	"html/template"
 	"net/http"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 type user struct {
@@ -30,12 +31,12 @@ func main() {
 }
 
 func index(w http.ResponseWriter, req *http.Request) {
-	u := getUser(w, req)
+	u := getUser(req)
 	tpl.ExecuteTemplate(w, "index.gohtml", u)
 }
 
 func bar(w http.ResponseWriter, req *http.Request) {
-	u := getUser(w, req)
+	u := getUser(req)
 	if !alreadyLoggedIn(req) {
 		http.Redirect(w, req, "/", http.StatusSeeOther)
 		return
