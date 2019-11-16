@@ -1,3 +1,3 @@
 run "02_read-scanner"
 
-run "07_dial-write"
+run "06_dial-write"
