@@ -1,4 +1,4 @@
-# buying a domain
+  # buying a domain
 
 https://domains.google/#/
 
@@ -13,18 +13,16 @@ https://domains.google/#/
 - update the app.yaml file with your project ID
 
 ```
-application: temp-137512
-version: 1
-runtime: go
-api_version: go1
+runtime: go113
 
 handlers:
 - url: /.*
-  script: _go_app
+  script: auto
+  secure: always
 ```
-- deploy to that project
+- deploy to that project. update --project with your project-id
 ```
-appcfg.py -A <YOUR_PROJECT_ID> -V v1 update .
+gcloud app deploy --project temp-137512
 ```
 - view your project
   - http://YOUR_PROJECT_ID.appspot.com/
