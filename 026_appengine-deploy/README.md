@@ -4,27 +4,18 @@ https://domains.google/#/
 
 # deploying to [Google Cloud](https://cloud.google.com/)
 - [install google appengine](https://cloud.google.com/appengine/docs/go/download)
-- [make sure python is installed VERSION 2.7.x](https://www.python.org/downloads/release/python-2712/)
-  - python -V
   - configure environment PATH variables
 - google cloud developer console
   - create a project
   - get the project ID
-- update the app.yaml file with your project ID
+- set your go version in the app.yaml file
 
 ```
-application: temp-137512
-version: 1
-runtime: go
-api_version: go1
-
-handlers:
-- url: /.*
-  script: _go_app
+runtime: go113
 ```
 - deploy to that project
 ```
-appcfg.py -A <YOUR_PROJECT_ID> -V v1 update .
+gcloud app deploy app.yaml --project=<YOUR_PROJECT_ID>  -v 1
 ```
 - view your project
   - http://YOUR_PROJECT_ID.appspot.com/
