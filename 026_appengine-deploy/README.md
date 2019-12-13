@@ -1,4 +1,4 @@
-# buying a domain
+  # buying a domain
 
 https://domains.google/#/
 
@@ -12,10 +12,16 @@ https://domains.google/#/
 
 ```
 runtime: go113
+handlers:
+- url: /.*
+  script: auto
+  secure: always
 ```
-- deploy to that project
+- deploy to that project. update --project with your project-id
 ```
 gcloud app deploy app.yaml --project=<YOUR_PROJECT_ID>  -v 1
+my example:
+gcloud app deploy --project temp-137512
 ```
 - view your project
   - http://YOUR_PROJECT_ID.appspot.com/
