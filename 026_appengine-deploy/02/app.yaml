@@ -1,8 +1,2 @@
-application: temp-145415
-version: 1
-runtime: go
-api_version: go1
-
-handlers:
-- url: /.*
-  script: _go_app
+# tell Google that we want to run Go 1.13
+runtime: go113
