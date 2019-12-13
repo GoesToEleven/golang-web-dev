@@ -1,8 +1,6 @@
-application: temp-145415
-version: 1
-runtime: go
-api_version: go1
+runtime: go113
 
 handlers:
 - url: /.*
-  script: _go_app
+  script: auto
+  secure: always
