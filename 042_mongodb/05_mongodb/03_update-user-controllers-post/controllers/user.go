@@ -3,11 +3,12 @@ package controllers
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+
 	"github.com/GoesToEleven/golang-web-dev/042_mongodb/05_mongodb/03_update-user-controllers-post/models"
 	"github.com/julienschmidt/httprouter"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"net/http"
 )
 
 type UserController struct {
@@ -23,7 +24,7 @@ func (uc UserController) GetUser(w http.ResponseWriter, r *http.Request, p httpr
 		Name:   "James Bond",
 		Gender: "male",
 		Age:    32,
-		Id:     p.ByName("id"),
+		Id:     bson.ObjectId(p.ByName("id")),
 	}
 
 	uj, err := json.Marshal(u)
