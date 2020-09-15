@@ -51,6 +51,10 @@ func handle(conn net.Conn) {
 		}
 		switch fs[0] {
 		case "GET":
+			if len(fs) != 2 {
+				fmt.Fprintln(conn, "EXPECTED KEY\r\n")
+				continue
+			}
 			k := fs[1]
 			v := data[k]
 			fmt.Fprintf(conn, "%s\r\n", v)
@@ -63,6 +67,10 @@ func handle(conn net.Conn) {
 			v := fs[2]
 			data[k] = v
 		case "DEL":
+			if len(fs) != 2 {
+				fmt.Fprintln(conn, "EXPECTED KEY\r\n")
+				continue
+			}
 			k := fs[1]
 			delete(data, k)
 		default:
