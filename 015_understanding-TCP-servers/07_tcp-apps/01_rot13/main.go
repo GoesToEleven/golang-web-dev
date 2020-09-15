@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"strings"
+	"unicode"
 )
 
 func main() {
@@ -28,23 +28,27 @@ func main() {
 func handle(conn net.Conn) {
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
-		ln := strings.ToLower(scanner.Text())
-		bs := []byte(ln)
-		r := rot13(bs)
+		ln := scanner.Text()
+		r := rot13(ln)
 
 		fmt.Fprintf(conn, "%s - %s\n\n", ln, r)
 	}
 }
 
-func rot13(bs []byte) []byte {
-	var r13 = make([]byte, len(bs))
-	for i, v := range bs {
-		// ascii 97 - 122
-		if v <= 109 {
-			r13[i] = v + 13
+func rot13(ln string) string {
+	var r13 = make([]rune, len(ln))
+	for i, v := range ln {
+		if unicode.IsLower(v) && v < unicode.MaxASCII {
+			r13[i] = rotateCharacter(v, 'a')
+		} else if unicode.IsUpper(v) && v < unicode.MaxASCII {
+			r13[i] = rotateCharacter(v, 'A')
 		} else {
-			r13[i] = v - 13
+			r13[i] = v
 		}
 	}
-	return r13
+	return string(r13)
+}
+
+func rotateCharacter(v rune, base rune) rune {
+	return (v - base + 13) % 26 + base
 }
