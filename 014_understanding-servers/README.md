@@ -42,7 +42,7 @@ example request line:
 
 ## HTTP response
 
-Reponse
+Response
 - status line
 - headers
 - optional message body
