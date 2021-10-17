@@ -11,7 +11,7 @@ func getUser(w http.ResponseWriter, req *http.Request) user {
 	// get cookie
 	c, err := req.Cookie("session")
 	if err != nil {
-		sID, _ := uuid.NewV4()
+		sID := uuid.NewV4()
 		c = &http.Cookie{
 			Name:  "session",
 			Value: sID.String(),
