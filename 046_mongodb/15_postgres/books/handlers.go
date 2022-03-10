@@ -3,7 +3,6 @@ package books
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"github.com/GoesToEleven/golang-web-dev/046_mongodb/15_postgres/config"
 	"net/http"
 )
