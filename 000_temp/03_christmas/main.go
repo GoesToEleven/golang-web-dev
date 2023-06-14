@@ -11,6 +11,7 @@ func main() {
 	if err != nil {
 		fmt.Println("There was an error parsing file", err)
 	}
+	fmt.Println("tpl", tpl)
 
 	friends := []string{"Alex", "Conor", "Ken", "Ronnie", "Patick", "Nina", "Jeremy", "Gentry", "Christian"}
 

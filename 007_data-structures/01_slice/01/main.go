@@ -13,7 +13,6 @@ func init() {
 }
 
 func main() {
-
 	sages := []string{"Gandhi", "MLK", "Buddha", "Jesus", "Muhammad"}
 
 	err := tpl.Execute(os.Stdout, sages)
