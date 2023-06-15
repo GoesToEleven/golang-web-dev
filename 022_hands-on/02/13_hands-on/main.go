@@ -22,15 +22,15 @@ func main() {
 			log.Println(err)
 			continue
 		}
-		go serve(conn)
+		serve(conn)
 	}
 }
 
 func serve(c net.Conn) {
 	defer c.Close()
+	scanner := bufio.NewScanner(c)
 	var i int
 	var rMethod, rURI string
-	scanner := bufio.NewScanner(c)
 	for scanner.Scan() {
 		ln := scanner.Text()
 		fmt.Println(ln)
@@ -43,27 +43,22 @@ func serve(c net.Conn) {
 			fmt.Println("URI:", rURI)
 		}
 		if ln == "" {
+			// when ln is empty, header is done
 			fmt.Println("THIS IS THE END OF THE HTTP REQUEST HEADERS")
 			break
 		}
 		i++
 	}
-	//web에서 표시됨
-	body := `
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>Code Gangsta</title>
-		</head>
-		<body>
-			<h1>"HOLY COW THIS IS LOW LEVEL"</h1>
-		</body>
-		</html>
-	`
+	// body부분은 웹에서 잘 보인다.
+	body := "CHECK OUT THE RESPONSE BODY PAYLOAD"
+	body += "\n"
+	body += rMethod
+	body += "\n"
+	body += rURI
+	//
 	io.WriteString(c, "HTTP/1.1 200 OK\r\n")
 	fmt.Fprintf(c, "Content-Length: %d\r\n", len(body))
-	fmt.Fprint(c, "Content-Type: text/html\r\n")
+	fmt.Fprint(c, "Content-Type: text/plain\r\n")
 	io.WriteString(c, "\r\n")
 	io.WriteString(c, body)
 }

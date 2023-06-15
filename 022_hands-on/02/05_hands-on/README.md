@@ -15,7 +15,7 @@ for scanner.Scan() {
 	fmt.Println(ln)
 }
 ```
-
+[label](../06_solution/main.go)
 Use this code to READ from an incoming connection and print the incoming text to standard out (the terminal).
 
 When your "ln" line of text is equal to an empty string, break out of the loop.

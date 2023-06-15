@@ -8,6 +8,7 @@ import (
 
 func main() {
 	// Listen on TCP port 2000 on all interfaces.
+	// use tcp, and use port : 2000
 	l, err := net.Listen("tcp", ":2000")
 	if err != nil {
 		log.Fatal(err)

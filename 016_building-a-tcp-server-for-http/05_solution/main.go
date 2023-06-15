@@ -21,6 +21,7 @@ func main() {
 			log.Println(err.Error())
 			continue
 		}
+		// 고루틴을 사용해서  handle 호출
 		go handle(conn)
 	}
 }
@@ -104,7 +105,6 @@ func about(conn net.Conn) {
 }
 
 func contact(conn net.Conn) {
-
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>CONTACT</strong><br>
 	<a href="/">index</a><br>
@@ -121,7 +121,6 @@ func contact(conn net.Conn) {
 }
 
 func apply(conn net.Conn) {
-
 	body := `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title></title></head><body>
 	<strong>APPLY</strong><br>
 	<a href="/">index</a><br>
@@ -141,7 +140,6 @@ func apply(conn net.Conn) {
 }
 
 func applyProcess(conn net.Conn) {
-
 	body := `<!DOCTYPE html><html lang="en"><head><meta charet="UTF-8"><title></title></head><body>
 	<strong>APPLY PROCESS</strong><br>
 	<a href="/">index</a><br>

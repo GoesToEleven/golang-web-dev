@@ -48,7 +48,7 @@ func serve(c net.Conn) {
 		}
 		i++
 	}
-	//web에서 표시됨
+	// web에서 표시됨
 	body := `
 		<!DOCTYPE html>
 		<html lang="en">

@@ -17,5 +17,6 @@ func dog(w http.ResponseWriter, req *http.Request) {
 }
 
 func dogPic(w http.ResponseWriter, req *http.Request) {
+	// responseWriter와 request 그리고 파일 이름만 입력하면 된다.
 	http.ServeFile(w, req, "toby.jpg")
 }
